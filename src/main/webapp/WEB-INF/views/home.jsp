@@ -11,7 +11,17 @@
 	</head>
 	<body>
 		<h1>리코트립에 오신걸 환영합니다.</h1>
+		<a href="loginPage">로그인</a>
+		<c:if test="${sessionScope.loginId != null}"> <!-- 세션을 불러들이는 코드 -->
+			<h1>안녕하세요 ${sessionScope.loginId}님</h1>
+			<a href='logout'>로그아웃</a>
+	</c:if>
 	</body>
-	<script>
-	</script>
+<script>
+	var msg = "${msg}";
+	if(msg != ""){
+		alert(msg);
+	}
+	console.log(msg);
+</script>
 </html>
