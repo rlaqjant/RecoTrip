@@ -8,4 +8,6 @@ public interface DiaryDAO {
 
 	ArrayList<DiaryDTO> tdList();
 
+	DiaryDTO tdDetail(String idx);
+
 }

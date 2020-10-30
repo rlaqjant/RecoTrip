@@ -11,6 +11,11 @@
 		SELECT * FROM t2_diary
 	
 	</select>
+		<select id="tdDetail" resultType="diary">
+	
+		SELECT * FROM t2_diary WHERE diary_num= #{idx}
+	
+	</select>
 
 </mapper>
 	

@@ -14,7 +14,7 @@
                 border-radius: 10px;
                 margin: auto;
             }
-            #title input{
+            #title p{
                 text-align: center;
                 margin: 5px;   
             }
@@ -109,21 +109,20 @@
             </tr>
             <tr>
                 <div id="title">
-                    <input type="text" placeholder="TITLE"/></br></br>
-                    <input type="text" placeholder="YYYY-MM-DD"/>
+                    <p>${list.diary_subject}</p></br></br>
+                    <p>${list.diary_reg_date}</p>
                 </div>
             </tr>
             <tr>
                 <div class="photo">
-                    <p><h3>이번 여행에서 당신의 모습을 가장 잘 표현할 수 있는 사진을 올려주세요</h3></p>
                     <img src="#">
                 </div>
             </tr>
             <tr>
                 <div id="textBox">
-                    <textarea class="text" >
-                    소제목과 이름 작성?
-                    </textarea>
+                    <div class="text" >
+    
+                    </div>
                 </div>
             </tr>
         </table>
@@ -131,15 +130,17 @@
                 <tr>
                     <div id="prologue">
                         <h2>Prologue</h2>
+                     
                         <div class="photo">
                             <img src="#">
                         </div>
                         <div id="hashtag"> #해시태그영역</div>
                         <div id="photoEx">
-                            <textarea class="text">
-                                사진 설명 영역
-                            </textarea>
+                            <div class="text">
+  
+                            </div>
                         </div>
+
                     </div>
                 </tr>
                 

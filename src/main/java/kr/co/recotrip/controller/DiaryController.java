@@ -2,6 +2,8 @@ package kr.co.recotrip.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,6 @@ public class DiaryController {
 	
 	@RequestMapping(value = "/tdList", method = RequestMethod.GET)
 	public ModelAndView tdList(Model model) {
-		
 		ModelAndView mav = service.tdList();
 		mav.setViewName("tdList");
 		
@@ -38,11 +39,23 @@ public class DiaryController {
 		logger.info("글쓰기 폼");
 		return "tdWriteForm";
 	}
+	//업로
+	@RequestMapping(value = "/tdWrite", method = RequestMethod.GET)
+	public String tdWrite(Model model, HttpSession session, @RequestParam HashMap<String,String> params) {
+		logger.info("글쓰기");
+		logger.info("params: {}",params);
+		return null;
+	}
 	
 	@RequestMapping(value = "/tdDetail", method = RequestMethod.GET)
-	public String tdDetail(Model model) {
+	public ModelAndView tdDetail(Model model, @RequestParam String idx) {
 		logger.info("디테일요청");
-		return "tdDetail";
+		logger.info("idx: {}",idx);
+		
+		ModelAndView mav = service.tdDetail(idx);
+		mav.setViewName("tdDetail");
+		
+		return mav;
 	}
 	
 }

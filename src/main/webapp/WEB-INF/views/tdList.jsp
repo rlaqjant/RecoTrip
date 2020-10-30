@@ -89,7 +89,7 @@
 			<c:forEach items="${diaryList}" var="dto">
 				<tr>
 					<td>${dto.diary_num}</td>
-					<td><a href="tdDetail">${dto.diary_subject}</a></td>
+					<td><a href="tdDetail?idx=${dto.diary_num}">${dto.diary_subject}</a></td>
 				</tr>
 			</c:forEach>
 		</table>

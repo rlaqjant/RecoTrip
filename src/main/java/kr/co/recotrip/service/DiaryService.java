@@ -31,4 +31,18 @@ public class DiaryService {
 		return mav;
 	}
 
+	public ModelAndView tdDetail(String idx) {
+		
+		ModelAndView mav =new ModelAndView();
+
+		DiaryDTO list = dao.tdDetail(idx);
+		mav.addObject("list",list);
+		
+		logger.info("diaryList : {}",list);
+		
+		
+		
+		return mav;
+	}
+
 }
