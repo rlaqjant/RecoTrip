@@ -22,10 +22,6 @@ public class DiaryController {
 	
 	@Autowired DiaryService service;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		return "home";
-	}
 	
 	@RequestMapping(value = "/tdList", method = RequestMethod.GET)
 	public ModelAndView tdList(Model model) {
