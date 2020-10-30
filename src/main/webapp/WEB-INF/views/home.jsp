@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,6 +10,7 @@
 	</head>
 	<body>
 		<h1>리코트립에 오신걸 환영합니다.</h1>
+		<a href="tdList">여행일기</a>
 		<a href="loginPage">로그인</a>
 		<c:if test="${sessionScope.loginId != null}"> <!-- 세션을 불러들이는 코드 -->
 			<h1>안녕하세요 ${sessionScope.loginId}님</h1>
