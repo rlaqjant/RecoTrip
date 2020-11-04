@@ -10,4 +10,8 @@ public interface ReviewDAO {
 
 	int reviewwrite(String user,String review);
 
+	int reviewupdate(String reNum, String upcontent);
+
+	int reviewdelete(String reNum);
+
 }

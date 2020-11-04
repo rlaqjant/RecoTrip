@@ -46,16 +46,17 @@ public class ReviewController {
 		return "redirect:/reviewlist";
 	}
 	
-	@RequestMapping(value = "/revupdateform", method = RequestMethod.GET)
-	public String revupdateform(@RequestParam String content) {
-		logger.info("content : "+content);
+	@RequestMapping(value = "/reviewupdate", method = RequestMethod.POST)
+	public String reviewupdate(@RequestParam String reNum, @RequestParam String upcontent) {
+		logger.info("댓글 번호 : "+reNum+",수정할 내용 : "+upcontent);
+		service.reviewupdate(reNum,upcontent);
 		return "redirect:/reviewlist";
 	}
 	
-	@RequestMapping(value = "/reviewupdate", method = RequestMethod.GET)
-	public String reviewupdate(@RequestParam String user, @RequestParam String num) {
-		logger.info("수정 아이디 : "+user+",수정할 댓글 넘버 : "+num);
-		service.reviewwrite(user,num);
+	@RequestMapping(value = "/reviewdelete", method = RequestMethod.POST)
+	public String reviewdelete(@RequestParam String reNum) {
+		logger.info("삭제할 댓글 번호 : "+reNum);
+		service.reviewdelete(reNum);
 		return "redirect:/reviewlist";
 	}
 }

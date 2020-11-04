@@ -14,4 +14,12 @@
 		insert into t2_review (review_num,dest_num,id,review_content,review_reg_data) values (t2_review_seq.NEXTVAL,1,#{param1},#{param2},sysdate)
 	</insert>
 	
+	<update id="reviewupdate" parameterType="String">
+		update t2_review set review_content=#{param2},review_reg_data=sysdate where review_num=#{param1}
+	</update>
+	
+	<delete id="reviewdelete" parameterType="String">
+		delete t2_review where review_num=#{param1}
+	</delete>
+	
 </mapper>
