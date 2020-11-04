@@ -72,7 +72,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 			mav.addObject("msg", msg);
 			mav.setViewName("home");
 		}else if(overchk == null){
-			msg = "아이디 중복 체크를 확인해 주세요";
+			msg = "아이디 중복 체크를 눌주세요";
 			mav.addObject("msg", msg);
 			mav.setViewName("home");
 		} else {

@@ -12,10 +12,11 @@
 		<h1>리코트립에 오신걸 환영합니다.</h1>
 		<a href="tdList">여행일기</a>
 		<a href="loginPage">로그인</a>
+		<a href="map">맵 보기</a>
 		<c:if test="${sessionScope.loginId != null}"> <!-- 세션을 불러들이는 코드 -->
 			<h1>안녕하세요 ${sessionScope.loginId}님</h1>
 			<a href='logout'>로그아웃</a>
-	</c:if>
+		</c:if>
 	</body>
 <script>
 	var msg = "${msg}";
