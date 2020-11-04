@@ -19,6 +19,6 @@
 <!-- 클래스 단위 등록-->
  <configuration>
 	<typeAliases>
-		<package name="kr.co.recotip.dto"/>
+		<package name="kr.co.recotrip.dto"/>
 	</typeAliases>
 </configuration> 

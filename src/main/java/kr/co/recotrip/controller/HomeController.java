@@ -9,22 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import kr.co.recotrip.service.SuggestService;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	@Autowired SuggestService service;
-	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		
 		return "home";
 	}
-	
-	}
-
-
+		
+}
