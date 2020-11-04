@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.recotrip.dao.SuggestDAO">
+		
+		<select id="ask_list" resultType="kr.co.recotrip.dto.SuggestDTO">
+		SELECT * FROM t2_ASK ORDER BY ask_num DESC
+		</select>
+		
+		
+		<insert id="ask_write" parameterType="kr.co.recotrip.dto.SuggestDTO">
+			insert into t2_ASK (ask_num, id, ask_subject, ask_content, ask_sort) 
+			VALUES(t2_ask_seq.NEXTVAL,#{id},#{ask_subject},#{ask_content}, #{ask_sort}) 
+		</insert>
+		
+		<update id="update">
+			UPDATE t2_ASK SET id = #{param1}, ask_subject= #{param2}, ask_content= #{param3} WHERE  ask_num = #{param4}
+		</update>
+		
+		<select id="ask_detail" resultType="kr.co.recotrip.dto.SuggestDTO">
+			SELECT * FROM t2_ASK WHERE ask_num = #{param1}
+		</select>
+			
+	
+		<delete id="delete">
+			DELETE FROM t2_ASK WHERE ask_num = #{param1}
+		</delete>
+		
+</mapper>
