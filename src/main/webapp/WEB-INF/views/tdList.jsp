@@ -88,8 +88,8 @@
 			</tr>
 			<c:forEach items="${diaryList}" var="dto">
 				<tr>
-					<td>${dto.diary_num}</td>
-					<td><a href="tdDetail?idx=${dto.diary_num}">${dto.diary_subject}</a></td>
+					<td>${dto.diary_number}</td>
+					<td><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -106,6 +106,10 @@
     </body>
     <script>
      
+    var msg = "${msg}";
+    if(msg!=""){
+    	alert(msg);
+    }
         
     </script>
 </html>
