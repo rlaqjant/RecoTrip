@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.recotrip.dao.ReviewDAO;
+import kr.co.recotrip.dto.PagingVO;
 import kr.co.recotrip.dto.ReviewDTO;
 import kr.co.recotrip.service.ReviewService;
 
@@ -30,12 +32,23 @@ public class ReviewController {
 	@Autowired ReviewService service;
 
 	@RequestMapping(value = "/reviewlist", method = RequestMethod.GET)
-	public ModelAndView reviewlist(Model model) {
+	public ModelAndView reviewlist(PagingVO vo,Model model, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		logger.info("댓글 리스트 불러오기");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<ReviewDTO> dto = service.reviewlist();
-		logger.info("list : "+dto);
-		mav.addObject("info",dto);
+
+		int total = service.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		mav.addObject("paging", vo);
+		mav.addObject("info", service.reviewlist(vo));
 		mav.setViewName("tripdetail");
 		return mav;
 	}
@@ -57,4 +70,5 @@ public class ReviewController {
 		logger.info("삭제할 댓글 번호 : "+reNum);
 		return service.reviewdelete(reNum);
 	}
+	
 }

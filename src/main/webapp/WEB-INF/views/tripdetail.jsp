@@ -10,59 +10,13 @@
         
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <style>
-            .title{
-                width: 70%;
-			    height: 100px;
-			    background-color: aqua;
-			    position: absolute;
-			    top: 17%;
-			    left: 15%;
-            }      
-            #star2{
-                width: 140px;
-                height: 45px;
-                background-color: blanchedalmond;
-                position: absolute;
-                top: 26px;
-                left: 77%;
-            }  
-            #staring{
-                width: 180px;
-                height: 45px;
-                position: absolute;
-                top: 7px;
-                left: 75%;
-            }  
-            #rating{
-                width: 85px;
-                height: 45px;
-                background-color: blanchedalmond;
-                position: absolute;
-                top: 26px;
-                left: 91%;
-            }  
-            .image{
-                width: 70%;
-                height: 407px;
-                background-color: burlywood;
-                position: absolute;
-                top: 29%;
-                left: 15%;
-            }    
-            .content{
-                width: 70%;
-                height: 180px;
-                background-color: burlywood;
-                position: absolute;
-                top: 73%;
-                left: 15%;
-            }   
+
             .coment{
                 width: 12%;
                 height: 56px;
                 background-color: burlywood;
                 position: absolute;
-                top: 97%;
+                top: 6%;
                 left: 15%;
             }  
             .comentinput{
@@ -70,7 +24,7 @@
 			    height: 57px;
 			    background-color: burlywood;
 			    position: absolute;
-			    top: 103%;
+			    top: 13%;
 			    left: 15%;
             }
             #co{
@@ -92,12 +46,19 @@
             }  
             .coments{
                 width: 70%;
-                height: 60%;
+                height: 48%;
                 background-color: burlywood;
                 position: absolute;
-                top: 110%;
+                top: 20%;
                 left: 15%;
             }   
+            #staring{
+                width: 180px;
+                height: 45px;
+                position: absolute;
+                top: 7px;
+                left: 75%;
+            }  
             #reply{
                 width: 100%;
                 height: 78px;
@@ -149,22 +110,6 @@
                 background-color: transparent !important;
 
             }
-            .pre{
-                width: 100px;
-                height: 50px;
-                top: 89%;
-                left: 25%;
-                position: absolute;
-                background-color: cornflowerblue;
-            }
-            .next{
-                width: 100px;
-                height: 50px;
-                top: 89%;
-                left: 64%;
-                position: absolute;
-                background-color: cornflowerblue;
-            }
             .reviewcoment{
             	position: relative;
 			    width: 875px;
@@ -195,7 +140,7 @@
             }
             #star a{
 	             text-decoration: none; 
-	             color: lightgray; 
+	             color: white; 
 	             cursor:default;
              } 
             
@@ -207,17 +152,41 @@
 			    right: -19%;
 			    top: 3px;
             }
-            
-
+       		.pageArea{
+				margin:10px;
+				position: absolute;
+    			left: 39%;
+			}
+			.pageArea span{
+				border:2px solid gray;
+				padding:2px 10px;
+				margin:5px;
+			}
+   			table, td, th{
+				border : 1px solid;
+				border-collapse : collapse;
+				padding: 5px;
+			}
+			
+			#paging{
+				text-align: center;
+			}    
+			a:link,a:visited{
+				text-decoration: none;
+				color:black;
+				font-size:20px;
+			}
+			#d{
+				font-size:20px;
+			}
+			#paging{
+				position:absolute;
+				left: 47%;
+    			top: 88%;
+			}
         </style>
     </head>
     <body>
-        <div class="title">여행지 이름
-            <div id="star2">별점</div>
-            <div id="rating">평점</div>
-        </div>
-        <div class="image">안녕하세요 ${sessionScope.loginId}</div>
-        <div class="content">여행지 설명</div>
         <div class="coment">한줄후기</div>
         <div class="comentinput">
             <input id="co" type="text" name="review" placeholder="한줄후기를 입력해 주세요." maxlength="50"/>
@@ -249,9 +218,28 @@
 	               			</div>
 	           		</div>
 	            </div>
-           	</c:forEach>
-            <div class="pre">이전</div>
-            <div class="next">다음</div>
+           	</c:forEach>	
+           	
+           	<div id="paging" style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="./reviewlist?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">이전&nbsp;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b id="d">${p }</b>&nbsp;
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="./reviewlist?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }&nbsp;</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="./reviewlist?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&nbsp;다음</a>
+		</c:if>
+	</div>	
+        
+        
         </div>
     </body>
     <script>
