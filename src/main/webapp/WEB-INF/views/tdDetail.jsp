@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix ="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +43,7 @@
                 border-radius: 10px;
                 margin: auto;
             }
-            #prologue{
+            .prologue{
                 width: 800px;
                 height: 800px;
                 background-color:lightcoral;
@@ -50,7 +51,7 @@
                 border-radius: 10px;
                 margin: auto;
             }
-            #hashtag{
+            .hashtag{
                 width: 400px;
                 height: 50px;
                 background-color:lightcoral;
@@ -69,31 +70,13 @@
                 width: 50px;
                 height: 50px;
             }
+            .app{
+            	margin: auto;
+            }
             .app button{
                 text-align: center;
             }
-            #public{ 
-                margin-right:-4px;
-                border-top-left-radius: 5px; 
-                border-bottom-left-radius: 5px;
-            } 
-            #private{ 
-                margin-left:-1px; 
-                border-top-right-radius: 5px; 
-                border-bottom-right-radius: 5px;
-            } 
-            .group button{ 
-                position: relative;
-                left: 70%;
-                margin: 10px;
-                border: 1px solid lightcoral; 
-                background-color: rgba(0,0,0,0); 
-                color: lightcoral; 
-                padding: 5px; 
-            }
-            .group button:hover{ 
-                color:white; background-color: lightcoral; 
-            }
+
 
 
 
@@ -101,12 +84,6 @@
     </head>
     <body>
         <table>
-            <tr>
-                <div class="group">
-                    <button id="public">공개</button>
-                    <button id="private">비공개</button>
-                </div>
-            </tr>
             <tr>
                 <div id="title">
                     <p>${list.diary_subject}</p></br></br>
@@ -121,30 +98,107 @@
             <tr>
                 <div id="textBox">
                     <div class="text" >
-    
+    					${list.diary_main}
                     </div>
                 </div>
             </tr>
         </table>
-            <table id="app">
+            <table class="app">
                 <tr>
-                    <div id="prologue">
+                    <div class="prologue">
                         <h2>Prologue</h2>
                      
                         <div class="photo">
                             <img src="#">
                         </div>
-                        <div id="hashtag"> #해시태그영역</div>
-                        <div id="photoEx">
+                        <div class="hashtag"> #해시태그영역</div>
+                        <div class="photoEx">
                             <div class="text">
-  
+    							${list.diary_content1}
                             </div>
                         </div>
 
                     </div>
                 </tr>
-                
             </table>
+            <c:if test="${not empty list.diary_content2}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <h2>Prologue</h2>
+	                     
+	                        <div class="photo">
+	                            <img src="#">
+	                        </div>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        <div class="photoEx">
+	                            <div class="text">
+	    							${list.diary_content2}
+	                            </div>
+	                        </div>
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content3}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <h2>Prologue</h2>
+	                     
+	                        <div class="photo">
+	                            <img src="#">
+	                        </div>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        <div class="photoEx">
+	                            <div class="text">
+	    							${list.diary_content3}
+	                            </div>
+	                        </div>
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content4}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <h2>Prologue</h2>
+	                     
+	                        <div class="photo">
+	                            <img src="#">
+	                        </div>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        <div class="photoEx">
+	                            <div class="text">
+	    							${list.diary_content4}
+	                            </div>
+	                        </div>
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content5}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <h2>Prologue</h2>
+	                     
+	                        <div class="photo">
+	                            <img src="#">
+	                        </div>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        <div class="photoEx">
+	                            <div class="text">
+	    							${list.diary_content5}
+	                            </div>
+	                        </div>
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   
+           <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
     </body>
     <script>
     </script>
