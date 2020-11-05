@@ -29,7 +29,6 @@
             #staring{
                 width: 180px;
                 height: 45px;
-                background-color: blanchedalmond;
                 position: absolute;
                 top: 7px;
                 left: 75%;
@@ -82,14 +81,14 @@
                 height: 40px;
             }
             #ok{
-                width: 92px;
-                height: 45px;
-                background-color: blanchedalmond;
-                position: absolute;
-                top: 7px;
-                left: 90%;
-                font-size: 30px;
-                text-align: center;
+				width: 85px;
+			    height: 40px;
+			    position: absolute;
+			    top: 9px;
+			    left: 90%;
+			    font-size: 20px;
+			    text-align: center;
+			    background-color: transparent !important;
             }  
             .coments{
                 width: 70%;
@@ -102,8 +101,8 @@
             #reply{
                 width: 100%;
                 height: 78px;
-                background-color: cadetblue;
                 position: relative;
+				border-bottom: 1px solid gray;
             }  
             #reply2{
                 position: absolute;
@@ -111,34 +110,35 @@
                 height: 52px;
                 top: 18%;
                 left: 4%;
-                background-color: chartreuse;
             }
             .writer{
-                position: absolute;
-                width: 127px;
-                height: 40px;
-                top: -7%;
-                left: 4%;
-                background-color: chocolate;
+				position: absolute;
+			    width: 113px;
+			    height: 40px;
+			    top: 17%;
+			    left: 4%;
+			    font-size: 20px;
+			    text-align: center;
             }
-            #com{
+            .com{
                 position: absolute;
 			    width: 825px;
 			    height: 35px;
-			    top: -5%;
+			    top: 12%;
     			left: 190px;
     			font-size: 16px;
             }
-            #sub{
+            .sub{
                 right: 123%;
                 position: absolute;
                 top: 24%;
                 display:none;
+                background-color: transparent !important;
             }
             #change{
                 right: 2%;
 			    position: absolute;
-			    top: 16%;
+			    top: 26%;
 			    width: 88px;
 
             }
@@ -146,6 +146,7 @@
                 right: 50%;
                 position: absolute;
                 top: 24%;
+                background-color: transparent !important;
 
             }
             .pre{
@@ -172,25 +173,25 @@
 			    left: 16%;
 			   	line-height: 33px;
             }
-            #reviewup{
-            	position: relative;
-            	top: 17%;
-            }
             .back{
             	right: 50%;
                 position: absolute;
                 top: 24%;
                 display:none;
+                background-color: transparent !important;
             }
             .update{
             	right: 123%;
                 position: absolute;
                 top: 24%;
+                background-color: transparent !important;
             }
             #star{
-			    line-height: 2px;
-			    font-size: 20px;
-			    text-align: right;
+		        line-height: 2px;
+			    font-size: 23px;
+			    left: 0%;
+			    top: -9%;
+			    position: absolute;
             }
             #star a{
 	             text-decoration: none; 
@@ -201,6 +202,11 @@
             #star a.on{ 
 	            color: black; 
             }
+            #score{
+			    position: absolute;
+			    right: -19%;
+			    top: 3px;
+            }
             
 
         </style>
@@ -210,18 +216,11 @@
             <div id="star2">별점</div>
             <div id="rating">평점</div>
         </div>
-        <div class="image">
-            안녕하세요 ${sessionScope.loginId}님
-        </div>
-        <div class="content">
-            여행지 설명
-        </div>
-        <div class="coment">
-            한줄후기
-        </div>
-        <form class="comentinput" action="reviewwrite">
-        	<input type="hidden" value="${sessionScope.loginId}" name="user"/>
-            <input id="co" type="text" name="review" placeholder="내용을 입력하세요."/>
+        <div class="image">안녕하세요 ${sessionScope.loginId}</div>
+        <div class="content">여행지 설명</div>
+        <div class="coment">한줄후기</div>
+        <div class="comentinput">
+            <input id="co" type="text" name="review" placeholder="한줄후기를 입력해 주세요." maxlength="50"/>
             <div id="staring">
 				<P id="star">
 					<a value="1">★</a>
@@ -229,35 +228,28 @@
 					<a value="3">★</a>
 					<a value="4">★</a>
 					<a value="5">★</a>
- 					메롱
+ 					<span id="score">0</span>
 				<p>
 			</div>
-            <input id="ok" type="submit" value="등록"/>
-        </form>
+            <input id="ok" type="button" value="등록"/>
+        </div>
         <div class="coments">
-        <c:forEach items="${info}" var="dto">
-            <div id="reply">
-                <div id="reply2">
-	                    <form action="reviewupdate" id="reviewup" method="POST">
-	                    <div class="writer">${dto.id}</div>
-	                    <div class="reviewcoment">${dto.review_content}</div>
-	                    <input class="reNum" type="hidden" name="reNum" value="${dto.review_num}"/>	
-		                <input id="com" name="upcontent" type="hidden"/>
-		                <div id="change">
-			                <input type="button" class="update" value="수정"/>
-							<input type="submit" id="sub" value="확인"/>
-							<input type="button" class="back" value="취소"/>
-							</form>
-							
-							<form action="reviewdelete" method="POST">
-								<input type="hidden" name="reNum" value="${dto.review_num}"/>
+        	<c:forEach items="${info}" var="dto">
+	            <div id="reply">
+	                <div id="reply2">
+		                    <div class="writer">${dto.id}</div>
+		                    <div class="reviewcoment">${dto.review_content}</div>
+		                    <input class="reNum" type="hidden" name="reNum" value="${dto.review_num}"/>	
+			                <input class="com" name="upcontent" type="hidden" maxlength="50"/>
+			                <div id="change">
+				                <input type="button" class="update" value="수정"/>
+								<input type="button" class="sub" value="확인"/>
+								<input type="button" class="back" value="취소"/>
 		                		<input type="button" class="del" value="삭제"/>
-	                		</form>
-	                	</div>
-
-                </div>
-            </div>
-            </c:forEach>
+	               			</div>
+	           		</div>
+	            </div>
+           	</c:forEach>
             <div class="pre">이전</div>
             <div class="next">다음</div>
         </div>
@@ -266,29 +258,26 @@
     	$(document).ready(function(){
     		
     	});
-    	
 
-
-            $(".update").click(function(){
-            	
-        	    var userid = $('input[name=user]').val();
-        	    var writer = $(this).parent().prev().prev().prev().prev().html();
-        	    
-            	if(userid == writer){
-	            	$(this).prop("type","hidden");
-	            	$(this).next().next().next().css("display","none");
-	            	$(this).next().css("display","block");
-	            	$(this).next().next().css("display","block");
-	            	var reNum = $(this).parent().prev().prev().val();
-	            	console.log(reNum);
-	            	$(this).parent().prev().prop("type","text");
-	            	var content = $(this).parent().prev().prev().prev().html();
-	            	console.log(content);
-	            	$(this).parent().prev().val(content);
-	            }else{
-	            	alert("본인만 수정 가능합니다.");
-	            }
-            	
+            	$(".update").click(function(){
+	        	    var userid = "${sessionScope.loginId}";
+	        	    var writer = $(this).parent().prev().prev().prev().prev().html();
+	        	    
+	            	if(userid == writer){
+		            	$(this).prop("type","hidden");
+		            	$(this).next().next().next().css("display","none");
+		            	$(this).next().css("display","block");
+		            	$(this).next().next().css("display","block");
+		            	
+		            	var reNum = $(this).parent().prev().prev().val();
+		            	console.log(reNum);
+		            	$(this).parent().prev().prop("type","text");
+		            	var content = $(this).parent().prev().prev().prev().html();
+		            	console.log(content);
+		            	$(this).parent().prev().val(content);
+		            }else{
+		            	alert("본인만 수정 가능합니다.");
+		            }
     			});
             	
             	$(".back").click(function(){
@@ -299,27 +288,100 @@
             		$(this).next().css("display","block");
             	});
             	
-            	
-            	
-            		$(".del").click(function(){
-            		var userid = $('input[name=user]').val();
-            	    var writer = $(this).parent().parent().prev().prev().prev().prev().html();
-            	    console.log(userid);
+           		$(".del").click(function(){
+            		var userid = "${sessionScope.loginId}";
+            	    var writer = $(this).parent().prev().prev().prev().prev().html();
             	    console.log(writer);
-            	    if(userid != writer){
-            	    	alert("본인만 삭제 가능합니다.");
-            	    }
-            	    else{
-            	    	$(this).prop("type","submit");
-            	    }
+            	    var reNum = $(this).parent().prev().prev().val();
+            	    console.log(reNum);
+	            	    if(userid != writer){
+	            	    	alert("본인만 삭제 가능합니다.");
+	            	    }
+	            	    else{
+	            	    	$.ajax({
+		    					type:"post",
+		    					url:"reviewdelete",
+		    					data:{reNum},
+		    					dataType:"JSON",
+		    					success:function(data){
+		    						if(data==1){
+		    							location.reload();
+		    						}
+		    					},
+		    					error:function(error){
+		    						console.log(error);
+		    					}
+		    				});
+	            	    }
             	});            	    
             		
-            		$('#star a').click(function(){ 
-            			$(this).parent().children("a").removeClass("on"); 
-            			$(this).addClass("on").prevAll("a").addClass("on"); 
-            			console.log($(this).attr("value"));
-           			});
+           		$('#star a').click(function(){ 
+           			$(this).parent().children("a").removeClass("on"); 
+           			$(this).addClass("on").prevAll("a").addClass("on"); 
+           			var score = $(this).attr("value");        			
+           			$('#score').html(score);
+       			});
+           			
+           		$('#ok').click(function(){ 
+               		var review = $('#co').val();
+           			var user = "${sessionScope.loginId}";
+           			var score = $('#score').html(); 
+              			
+           			if(review == ""){
+           				alert("내용을 입력해 주세요.");
+           			}else if(score == 0){
+           				alert("평점을 매겨주세요.");
+           			}else{
+	            		$.ajax({
+	    					type:"get",
+	    					url:"reviewwrite",
+	    					data:{user,review,score},
+	    					dataType:"JSON",
+	    					success:function(data){
+	    						if(data==1){
+	    							location.reload();
+	    						}
+	    					},
+	    					error:function(error){
+	    						console.log(error);
+	    					}
+	    				});
+           			}
+           		});
+           		
+           		$('.sub').click(function(){ 
+               		var reNum = $(this).parent().prev().prev().val();
+           			var upcontent = $(this).parent().prev().val();
+	            		$.ajax({
+	    					type:"post",
+	    					url:"reviewupdate",
+	    					data:{reNum,upcontent},
+	    					dataType:"JSON",
+	    					success:function(data){
+	    						if(data==1){
+	    							location.reload();
+	    						}
+	    					},
+	    					error:function(error){
+	    						console.log(error);
+	    					}
+	    				});
+           		});
 
+        		$("#co").keyup(function(){
+        			if($("#co").val().length > $("#co").attr('maxlength')){
+        				alert("50자 이내로 입력해주세요.");
+        			}
+        		});
+        		
+        		$(".com").keyup(function(){
+        			if($(this).val().length > $(this).attr('maxlength')){
+        				alert("50자 이내로 입력해주세요.");
+        			}
+        		});
+        			
+        			
+        			
             	        	    
             
 

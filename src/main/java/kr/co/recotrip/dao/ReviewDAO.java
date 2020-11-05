@@ -14,4 +14,6 @@ public interface ReviewDAO {
 
 	int reviewdelete(String reNum);
 
+	void rating(String user, String score);
+
 }
