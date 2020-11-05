@@ -28,10 +28,10 @@ public class MemberService {
 		logger.info("성공여부 : "+success);
 		ModelAndView mav = new ModelAndView();
 		String page = "join";
-		String msg = "회원가입의 실패했습니다";
+		String msg = "회원가입 실패했습니다";
 		if(success>0) {
 			page = "login";
-			msg = "회원가입의 성공했습니다.";
+			msg = "회원가입에 성공했습니다.";
 		}
 		mav.addObject("msg", msg);
 		mav.setViewName(page);
