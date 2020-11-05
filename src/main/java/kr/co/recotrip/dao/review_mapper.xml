@@ -7,11 +7,23 @@
 <mapper namespace="kr.co.recotrip.dao.ReviewDAO">
 	
  	<select id="reviewlist" resultType="review">
-		select review_num,id,review_content,review_reg_data from t2_review where dest_num=1 order by review_reg_data desc
+		select review_num,id,review_content,review_reg_data from t2_review where dest_num=132905 order by review_num desc
 	</select>
 	
 	<insert id="reviewwrite" parameterType="String">
-		insert into t2_review (review_num,dest_num,id,review_content,review_reg_data) values (t2_review_seq.NEXTVAL,1,#{param1},#{param2},sysdate)
+		insert into t2_review (review_num,dest_num,id,review_content,review_reg_data) values (t2_review_seq.NEXTVAL,132905,#{param1},#{param2},sysdate)
+	</insert>
+	
+	<update id="reviewupdate" parameterType="String">
+		update t2_review set review_content=#{param2},review_reg_data=sysdate where review_num=#{param1}
+	</update>
+	
+	<delete id="reviewdelete" parameterType="String">
+		delete t2_review where review_num=#{param1}
+	</delete>
+	
+	<insert id="rating" parameterType="String">
+		insert into t2_rating (rating_num,dest_num,id,rating) values (t2_rating_seq.NEXTVAL,132905,#{param1},#{param2})
 	</insert>
 	
 </mapper>

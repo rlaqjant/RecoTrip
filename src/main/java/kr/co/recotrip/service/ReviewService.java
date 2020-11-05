@@ -21,9 +21,19 @@ public class ReviewService {
 		logger.info("dto : "+dto);
 		return dto;
 	}
-	public int reviewwrite(String user,String review) {
+	public int reviewwrite(String user,String review,String score) {
 		int success = dao.reviewwrite(user,review);
+		dao.rating(user,score);
 		logger.info("성공? : "+success);
+		return success;
+	}
+	public int reviewupdate(String reNum, String upcontent) {
+		int success = dao.reviewupdate(reNum,upcontent);
+		logger.info("수정 성공? :"+success);
+		return success;
+	}
+	public int reviewdelete(String reNum) {
+		int success = dao.reviewdelete(reNum);
 		return success;
 	}
 

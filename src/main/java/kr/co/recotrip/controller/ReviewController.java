@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.recotrip.dao.ReviewDAO;
@@ -40,22 +41,20 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewwrite", method = RequestMethod.GET)
-	public String reviewwrite(@RequestParam String user, @RequestParam String review) {
+	public @ResponseBody int reviewwrite(@RequestParam String user, @RequestParam String review, @RequestParam String score) {
 		logger.info("아이디 : "+user+",후기 작성 : "+review);
-		service.reviewwrite(user,review);
-		return "redirect:/reviewlist";
+		return service.reviewwrite(user,review,score);
 	}
 	
-	@RequestMapping(value = "/revupdateform", method = RequestMethod.GET)
-	public String revupdateform(@RequestParam String content) {
-		logger.info("content : "+content);
-		return "redirect:/reviewlist";
+	@RequestMapping(value = "/reviewupdate", method = RequestMethod.POST)
+	public @ResponseBody int reviewupdate(@RequestParam String reNum, @RequestParam String upcontent) {
+		logger.info("댓글 번호 : "+reNum+",수정할 내용 : "+upcontent);
+		return service.reviewupdate(reNum,upcontent);
 	}
 	
-	@RequestMapping(value = "/reviewupdate", method = RequestMethod.GET)
-	public String reviewupdate(@RequestParam String user, @RequestParam String num) {
-		logger.info("수정 아이디 : "+user+",수정할 댓글 넘버 : "+num);
-		service.reviewwrite(user,num);
-		return "redirect:/reviewlist";
+	@RequestMapping(value = "/reviewdelete", method = RequestMethod.POST)
+	public @ResponseBody int reviewdelete(@RequestParam String reNum) {
+		logger.info("삭제할 댓글 번호 : "+reNum);
+		return service.reviewdelete(reNum);
 	}
 }

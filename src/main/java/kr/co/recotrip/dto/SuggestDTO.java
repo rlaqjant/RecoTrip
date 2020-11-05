@@ -1,0 +1,54 @@
+package kr.co.recotrip.dto;
+
+import java.util.Date;
+
+public class SuggestDTO {
+	private int ask_num;
+	private String id;
+	private String ask_subject;
+	private String ask_content;
+	private String ask_sort;
+	private Date ask_reg_date;
+	
+	
+	public Date getAsk_reg_date() {
+		return ask_reg_date;
+	}
+	public void setAsk_reg_date(Date ask_reg_date) {
+		this.ask_reg_date = ask_reg_date;
+	}
+	public int getAsk_num() {
+		return ask_num;
+	}
+	public void setAsk_num(int ask_num) {
+		this.ask_num = ask_num;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getAsk_subject() {
+		return ask_subject;
+	}
+	public void setAsk_subject(String ask_subject) {
+		this.ask_subject = ask_subject;
+	}
+	public String getAsk_content() {
+		return ask_content;
+	}
+	public void setAsk_content(String ask_content) {
+		this.ask_content = ask_content;
+	}
+	public String getAsk_sort() {
+		return ask_sort;
+	}
+	public void setAsk_sort(String ask_sort) {
+		this.ask_sort = ask_sort;
+	}
+	
+	
+	
+	
+}
