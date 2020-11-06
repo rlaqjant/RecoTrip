@@ -49,7 +49,7 @@ public class ReviewController {
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		mav.addObject("paging", vo);
 		mav.addObject("info", service.reviewlist(vo));
-		mav.setViewName("tripdetail");
+		mav.setViewName("destReview");
 		return mav;
 	}
 	

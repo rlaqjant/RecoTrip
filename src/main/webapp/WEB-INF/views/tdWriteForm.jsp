@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -131,12 +132,13 @@
                 <div class="photo">
                 	<div id="editable" contenteditable="true"></div>
 					<input id="content" type="hidden" name="content" value=""/>
-                    <input type="button" onclick="fileUp(this)" value="파일업로드"/>
+                    <input class="fileUp" type="button" onclick="fileUp(this)" value="파일업로드"/>
                 </div>
             </tr>
             <tr>
                 <div id="textBox">
                     <textarea class="text" name="profile" >
+                    ${value }
                     </textarea>
                 </div>
 
@@ -148,7 +150,7 @@
                        <h2>Prologue</h2>
                        <div class="photo">
                             <div id="editable1" contenteditable="true"></div>
-                    		<input class="fileup" type="button" onclick="fileUp(this)" value="파일업로드1"/>
+                    		<input class="fileUp1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
                        </div>
                        <div class="hashtag" name="hashTag"> #해시태그영역</div>
                        <div class="photoEx">
@@ -166,6 +168,7 @@
     <script>
         var i = 0;
        	var a = 1;
+
         function plus(){
            i++;
            a++;
@@ -179,7 +182,7 @@
                         "<h2>Prologue</h2>"+
                         "<div class='photo'>"+
                         	"<div id='editable"+a+"' contenteditable='true'></div>"+
-                            "<input class='fileup' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
+                            "<input class='fileUp' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
                         "</div>"+
                         "<div class='hashtag'> #해시태그영역</div>"+
                         "<div class='photoEx'>"+
@@ -196,27 +199,27 @@
                 $("#plus").css("display", "block");
             }
         }
-        
+
 		function save(){
 			$("form").submit();//서버에 전송
 		}
 		
-		
 		function fileUp(elem) {//파일 업로드 새창 띄우기
+  	     	var myWin;
 			console.log(elem.value);
-
+			
 			if(elem.value == "파일업로드"){
-				var myWin = window.open('tdUploadForm','파일 업로드', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드', 'width=400, height=100');
 			}else if(elem.value == "파일업로드1"){
-				myWin = window.open('tdUploadForm','파일 업로드1', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드1', 'width=400, height=100');
 			}else if(elem.value == "파일업로드2"){
-				myWin = window.open('tdUploadForm','파일 업로드2', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드2', 'width=400, height=100');
 			}else if(elem.value == "파일업로드3"){
-				myWin = window.open('tdUploadForm','파일 업로드3', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드3', 'width=400, height=100');
 			}else if(elem.value == "파일업로드4"){
-				myWin = window.open('tdUploadForm','파일 업로드4', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드4', 'width=400, height=100');
 			}else if(elem.value == "파일업로드5"){
-				myWin = window.open('tdUploadForm','파일 업로드5', 'width=400, height=100');
+				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드5', 'width=400, height=100');
 			}
 		}
 		
