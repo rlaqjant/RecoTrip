@@ -18,6 +18,7 @@
 			<a href='logout'>로그아웃</a>
 		</c:if>
 	<a href="toSearch">여행지 검색</a>
+	<a href="ask_list">건의함 리스트 보기</a>
 	</body>
 <script>
 	var msg = "${msg}";
