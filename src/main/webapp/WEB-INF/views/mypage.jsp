@@ -186,8 +186,9 @@
             </div>
             <div class="mwrv">
                 <table>
+                <c:forEach items = "${mp_review}" var = "dto">
                     <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
+                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="dest?dest_num=${dto.dest_num }"> ${dto.review_content }27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
                     <tr><td></td></tr>
                     <tr>
@@ -205,6 +206,7 @@
                     <tr>
                       <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
+                    </c:forEach>
                   </table>
                 <div class="mypage_paging">
                     <table>
