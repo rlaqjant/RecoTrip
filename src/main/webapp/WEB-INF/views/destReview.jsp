@@ -222,7 +222,7 @@
            	
            	<div id="paging" style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">
-			<a href="./reviewlist?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">이전&nbsp;</a>
+			<a href="./reviewlist?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&dest_num=${dest_num}">이전&nbsp;</a>
 		</c:if>
 		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 			<c:choose>
@@ -230,12 +230,12 @@
 					<b id="d">${p }</b>&nbsp;
 				</c:when>
 				<c:when test="${p != paging.nowPage }">
-					<a href="./reviewlist?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }&nbsp;</a>
+					<a href="./reviewlist?nowPage=${p }&cntPerPage=${paging.cntPerPage}&dest_num=${dest_num}">${p }&nbsp;</a>
 				</c:when>
 			</c:choose>
 		</c:forEach>
 		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="./reviewlist?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&nbsp;다음</a>
+			<a href="./reviewlist?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&dest_num=${dest_num}">&nbsp;다음</a>
 		</c:if>
 	</div>	
         
@@ -246,7 +246,7 @@
     	$(document).ready(function(){
     		
     	});
-
+    	var dest_num = "${dest_num}";
             	$(".update").click(function(){
 	        	    var userid = "${sessionScope.loginId}";
 	        	    var writer = $(this).parent().prev().prev().prev().prev().html();
@@ -281,7 +281,7 @@
             	    var writer = $(this).parent().prev().prev().prev().prev().html();
             	    console.log(writer);
             	    var reNum = $(this).parent().prev().prev().val();
-            	    console.log(reNum);
+            	    console.log(userid, reNum, dest_num);
 	            	    if(userid != writer){
 	            	    	alert("본인만 삭제 가능합니다.");
 	            	    }
@@ -289,11 +289,11 @@
 	            	    	$.ajax({
 		    					type:"post",
 		    					url:"reviewdelete",
-		    					data:{reNum},
+		    					data:{reNum,userid,dest_num},
 		    					dataType:"JSON",
 		    					success:function(data){
 		    						if(data==1){
-		    							location.reload();
+		    							parent.document.location.reload();
 		    						}
 		    					},
 		    					error:function(error){
@@ -314,7 +314,7 @@
                		var review = $('#co').val();
            			var user = "${sessionScope.loginId}";
            			var score = $('#score').html(); 
-              			
+           			
            			if(review == ""){
            				alert("내용을 입력해 주세요.");
            			}else if(score == 0){
@@ -323,11 +323,11 @@
 	            		$.ajax({
 	    					type:"get",
 	    					url:"reviewwrite",
-	    					data:{user,review,score},
+	    					data:{user,review,score,dest_num},
 	    					dataType:"JSON",
 	    					success:function(data){
 	    						if(data==1){
-	    							location.reload();
+	    							parent.document.location.reload();
 	    						}
 	    					},
 	    					error:function(error){
@@ -347,7 +347,7 @@
 	    					dataType:"JSON",
 	    					success:function(data){
 	    						if(data==1){
-	    							location.reload();
+	    							parent.document.location.reload();
 	    						}
 	    					},
 	    					error:function(error){

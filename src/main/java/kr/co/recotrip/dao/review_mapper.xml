@@ -7,12 +7,12 @@
 <mapper namespace="kr.co.recotrip.dao.reviewDAO">
 
  	<select id="reviewlist" resultType="review">
-		SELECT * FROM (SELECT ROWNUM rnum, A.* FROM (SELECT * FROM t2_review order by review_num desc) A)
-		WHERE rnum between #{start} AND #{end}
+		SELECT * FROM (SELECT ROWNUM rnum, A.* FROM (SELECT * FROM t2_review where dest_num=#{param2} order by review_num desc) A)
+		WHERE rnum between #{arg0.start} AND #{arg0.end}
 	</select>
 	
 	<insert id="reviewwrite" parameterType="String">
-		insert into t2_review (review_num,dest_num,id,review_content,review_reg_data) values (t2_review_seq.NEXTVAL,132905,#{param1},#{param2},sysdate)
+		insert into t2_review (review_num,dest_num,id,review_content,review_reg_data) values (t2_review_seq.NEXTVAL,#{param3},#{param1},#{param2},sysdate)
 	</insert>
 	
 	<update id="reviewupdate" parameterType="String">
@@ -23,12 +23,16 @@
 		delete t2_review where review_num=#{param1}
 	</delete>
 	
+	<delete id="ratingDelete" parameterType="String">
+		delete t2_rating where id=#{param1} AND dest_num=#{param2}
+	</delete>
+	
 	<insert id="rating" parameterType="String">
-		insert into t2_rating (rating_num,dest_num,id,rating) values (t2_rating_seq.NEXTVAL,132905,#{param1},#{param2})
+		insert into t2_rating (rating_num,dest_num,id,rating) values (t2_rating_seq.NEXTVAL,#{param3},#{param1},#{param2})
 	</insert>
 	
  	<select id="countBoard" resultType="int">
-		select count(*) from t2_review
+		select count(*) from t2_review where dest_num=#{param1}
 	</select>
 
 </mapper>
