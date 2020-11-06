@@ -32,18 +32,18 @@ public class SuggestController {
 	public ModelAndView ask_list(HttpSession session) {		
 		
 		logger.info("건의함 리스트 호출");		
-		//String id = (String) session.getAttribute("loginId");
-		String id = "test"; 
+		String id = (String) session.getAttribute("loginId");
+		 
 		
 		ModelAndView mav = null;
 		
-		//if(id != null) {
+		if(id != null) {
 			mav = service.ask_list(id);
-		//}else {
-			//mav = new ModelAndView();
-			//mav.setViewName("/login");
-			//mav.addObject("msg", "로그인이 필요한 서비스 입니다.");
-		//}
+		}else {
+			mav = new ModelAndView();
+			mav.setViewName("/login");
+			mav.addObject("msg", "로그인이 필요한 서비스 입니다.");
+		}
 	
 		return mav;
 	}

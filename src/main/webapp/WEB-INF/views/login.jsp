@@ -41,5 +41,11 @@
 		alert(msg);
 	}
 	console.log(msg);
+	/*
+	var loginId = "${sessionScope.id}";
+	console.log(loginId);
+	
+	if(loginId!="admin"){}else{location.href="adminmain";}
+	*/
 </script>
 </html>
