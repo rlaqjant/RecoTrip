@@ -6,7 +6,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>여행지</title>
-		<style></style>
+		<style>
+			#reviewFrame{
+				width: 100%;
+				height: 700px;
+			}
+		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
@@ -14,6 +19,7 @@
 	<div id="img"></div>
 	<div id="etc"></div>
 	<p>조회수 : ${dest_bHit}</p>
+	<iframe id="reviewFrame"  src="reviewlist?dest_num=${dest_num}" frameborder="0" marginwidth="0" marginheight="0"></iframe>
 	</body>
 	<script>
 	var dest_num = ${dest_num};
@@ -67,6 +73,7 @@
 		}else{
 			$("#rating").html("평점 : "+dest_rating);
 		}
+		
 		
 	</script>
 </html>
