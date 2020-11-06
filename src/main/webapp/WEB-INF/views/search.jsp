@@ -15,7 +15,7 @@
 			<option value="name">여행지 이름</option>
 			<option value="addr">여행지 주소</option>
 		</select>
-	    <input type="text"  id="searchTextVal" name="search" placeholder="자동완성" />
+	    <input type="text"  id="searchTextVal" name="search" placeholder="검색" />
 	    <button>검색</button>
 	</form>
 
