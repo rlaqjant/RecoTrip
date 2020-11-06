@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- 이 XML을 어떤 interface하고 연결할 것인가 -->
+<mapper namespace="kr.co.recotrip.dao.DestDAO">
+	<!--  		SELECT dest_num, dest_name FROM t2_dest WHERE dest_name LIKE '%'||#{search}||'%' ORDER BY dest_bHit DESC -->
+	<select id="nameSearch" parameterType="hashMap" resultType="search">
+ 		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
+    		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num WHERE d.dest_name LIKE '%'||#{search}||'%' ORDER BY d.dest_bHit DESC
+ 		
+ 	</select>
+ 	
+ 	<select id="addrSearch" parameterType="hashMap" resultType="search">
+ 		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
+    		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num WHERE a.dest_detail_addr LIKE '%'||#{search}||'%' ORDER BY d.dest_bHit DESC
+ 	</select>
+ 	
+ 	<update id="upHit">
+		UPDATE t2_dest SET dest_bHit = dest_bHit+1 WHERE dest_num=#{param1}
+	</update>
+	
+	<select id="getBhit" parameterType="String" resultType="int">
+ 		SELECT dest_bHit FROM t2_dest WHERE dest_num=#{param1}
+ 	</select>
+	
+	<select id="getRating" parameterType="String" resultType="int">
+ 		SELECT rating FROM t2_rating WHERE dest_num=#{param1}
+ 	</select>
+ 	
+ 	
+	
+</mapper>
+	

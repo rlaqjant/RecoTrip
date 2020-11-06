@@ -39,7 +39,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		try {
 			if(result.equals(id)) {
 				session.setAttribute("loginId", id);
-				page = "redirect:/reviewlist";
+				page = "home";
 				msg = "로그인 성공";
 			}
 		} catch (Exception e) {

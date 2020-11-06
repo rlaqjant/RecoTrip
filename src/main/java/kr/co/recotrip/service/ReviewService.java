@@ -1,6 +1,7 @@
 package kr.co.recotrip.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.recotrip.dao.ReviewDAO;
+import kr.co.recotrip.dto.PagingVO;
 import kr.co.recotrip.dto.ReviewDTO;
 
 @Service
@@ -15,14 +17,14 @@ public class ReviewService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired ReviewDAO dao;
-	
-	public ArrayList<ReviewDTO> reviewlist() {
-		ArrayList<ReviewDTO> dto = dao.reviewlist();	
-		logger.info("dto : "+dto);
-		return dto;
+
+	public List<ReviewDTO> reviewlist(PagingVO vo) {
+		return dao.reviewlist(vo);
 	}
-	public int reviewwrite(String user,String review) {
+	
+	public int reviewwrite(String user,String review,String score) {
 		int success = dao.reviewwrite(user,review);
+		dao.rating(user,score);
 		logger.info("성공? : "+success);
 		return success;
 	}
@@ -35,5 +37,11 @@ public class ReviewService {
 		int success = dao.reviewdelete(reNum);
 		return success;
 	}
+
+	public int countBoard() {
+		return dao.countBoard();
+	}
+
+
 
 }
