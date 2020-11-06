@@ -5,9 +5,10 @@
 >
 
 <mapper namespace="kr.co.recotrip.dao.ReviewDAO">
-	
+
  	<select id="reviewlist" resultType="review">
-		select review_num,id,review_content,review_reg_data from t2_review where dest_num=132905 order by review_num desc
+		SELECT * FROM (SELECT ROWNUM rnum, A.* FROM (SELECT * FROM t2_review order by review_num desc) A)
+		WHERE rnum between #{start} AND #{end}
 	</select>
 	
 	<insert id="reviewwrite" parameterType="String">
@@ -25,5 +26,11 @@
 	<insert id="rating" parameterType="String">
 		insert into t2_rating (rating_num,dest_num,id,rating) values (t2_rating_seq.NEXTVAL,132905,#{param1},#{param2})
 	</insert>
+	
+ 	<select id="countBoard" resultType="int">
+		select count(*) from t2_review
+	</select>
+	
+
 	
 </mapper>
