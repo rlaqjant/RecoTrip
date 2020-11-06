@@ -20,6 +20,7 @@ public class MemberService {
 
 	public String login(String id, String pw) {
 		String result = dao.login(id, pw);
+		
 		return result;
 	}
 

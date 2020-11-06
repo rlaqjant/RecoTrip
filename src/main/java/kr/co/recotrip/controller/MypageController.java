@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class HomeController {
+public class MypageController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		return "home";
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String mypage(Model model) {
+		
+		return "mypage";
 	}
 	
 	
