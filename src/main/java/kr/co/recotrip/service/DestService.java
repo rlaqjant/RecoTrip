@@ -8,7 +8,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,15 +30,39 @@ public class DestService {
 	public ModelAndView search(HashMap<String, String> params) {
 		ModelAndView mav = new ModelAndView();
 		
+		String searchCatDetail = params.get("searchCatDetail");
 		String searchCat = params.get("searchCat");
 		
 		ArrayList<SearchDTO> list = null;
 		
-		if(searchCat.equals("name")) {
-			list = dao.nameSearch(params);
-		}else {
-			list = dao.addrSearch(params);
+		
+		if(searchCatDetail.equals("dest")) {
+			if(searchCat.equals("name")) {
+				list = dao.destNameSearch(params);
+			}else {
+				list = dao.destAddrSearch(params);
+			}
+		}else if(searchCatDetail.equals("restaurant")) {
+			if(searchCat.equals("name")) {
+				list = dao.restaurantNameSearch(params);
+			}else {
+				list = dao.restaurantAddrSearch(params);
+			}
+		}else{
+			if(searchCat.equals("name")) {
+				list = dao.accomNameSearch(params);
+			}else {
+				list = dao.accomAddrSearch(params);
+			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 		if(!list.isEmpty()) {
 			mav.addObject("list", list);
 		}else {
@@ -111,7 +134,6 @@ public class DestService {
 			double dou = sum/(double)list.size();
 			rating = Math.round(dou*10)/10.0;
 		}
-		
 		
 		return rating;
 	}

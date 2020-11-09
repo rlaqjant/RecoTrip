@@ -2,21 +2,27 @@ package kr.co.recotrip.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import kr.co.recotrip.dto.SearchDTO;
 
 public interface DestDAO {
 
-	ArrayList<SearchDTO> nameSearch(HashMap<String, String> params);
+	ArrayList<SearchDTO> destNameSearch(HashMap<String, String> params);
 
-	ArrayList<SearchDTO> addrSearch(HashMap<String, String> params);
+	ArrayList<SearchDTO> destAddrSearch(HashMap<String, String> params);
+	
+	ArrayList<SearchDTO> restaurantNameSearch(HashMap<String, String> params);
+
+	ArrayList<SearchDTO> restaurantAddrSearch(HashMap<String, String> params);
+
+	ArrayList<SearchDTO> accomNameSearch(HashMap<String, String> params);
+
+	ArrayList<SearchDTO> accomAddrSearch(HashMap<String, String> params);
 
 	int getBhit(String dest_num);
 
 	ArrayList<Integer> getRating(String dest_num);
 
 	void upHit(String dest_num);
-
 
 }
