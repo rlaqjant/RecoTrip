@@ -97,6 +97,7 @@ public class DiaryController {
 		logger.info("idx: {}",idx);
 
 		ModelAndView mav = service.tdDetail(idx);
+		mav.addObject("tdIdx",idx);
 		mav.setViewName("tdDetail");
 		
 		return mav;

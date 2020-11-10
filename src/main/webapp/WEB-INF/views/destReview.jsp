@@ -246,7 +246,8 @@
     	$(document).ready(function(){
     		
     	});
-    	var dest_num = "${dest_num}";
+    			var dest_num = "${dest_num}";
+    	
             	$(".update").click(function(){
 	        	    var userid = "${sessionScope.loginId}";
 	        	    var writer = $(this).parent().prev().prev().prev().prev().html();
@@ -304,26 +305,32 @@
             	});            	    
             		
            		$('#star a').click(function(){ 
+               		var userid = "${sessionScope.loginId}";
+               		var score = $(this).attr("value");      
            			$(this).parent().children("a").removeClass("on"); 
            			$(this).addClass("on").prevAll("a").addClass("on"); 
-           			var score = $(this).attr("value");        			
            			$('#score').html(score);
+        			if(userid == ""){
+        				$('#star a').parent().children("a").removeClass("on"); 
+        				alert('로그인 후 이용해주세요.');
+        				$('#score').html('0');
+        			}
        			});
            			
            		$('#ok').click(function(){ 
                		var review = $('#co').val();
-           			var user = "${sessionScope.loginId}";
+           			var userid = "${sessionScope.loginId}";
            			var score = $('#score').html(); 
            			
            			if(review == ""){
-           				alert("내용을 입력해 주세요.");
+           				alert("한줄후기를 입력해 주세요.");
            			}else if(score == 0){
            				alert("평점을 매겨주세요.");
            			}else{
 	            		$.ajax({
 	    					type:"get",
 	    					url:"reviewwrite",
-	    					data:{user,review,score,dest_num},
+	    					data:{userid,review,score,dest_num},
 	    					dataType:"JSON",
 	    					success:function(data){
 	    						if(data==1){
@@ -356,7 +363,10 @@
 	    				});
            		});
 
+
+           		
         		$("#co").keyup(function(){
+
         			if($("#co").val().length > $("#co").attr('maxlength')){
         				alert("50자 이내로 입력해주세요.");
         			}
@@ -365,6 +375,14 @@
         		$(".com").keyup(function(){
         			if($(this).val().length > $(this).attr('maxlength')){
         				alert("50자 이내로 입력해주세요.");
+        			}
+        		});
+        		
+        		$("#co").click(function(){
+               		var userid = "${sessionScope.loginId}";
+        			if(userid == ""){
+        				alert('로그인 후 이용해주세요.');
+        				$(this).val('');
         			}
         		});
         			

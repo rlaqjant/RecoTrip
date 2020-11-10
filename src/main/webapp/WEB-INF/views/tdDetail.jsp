@@ -76,8 +76,14 @@
             .app button{
                 text-align: center;
             }
-
-
+            .con{
+            	width:55%;
+            }
+			.comment{
+				position:relative;
+				left:20%;
+				height: 200px;
+			}
 
 
         </style>
@@ -92,14 +98,8 @@
             </tr>
             <tr>
                 <div class="photo">
-                    <img src="#">
-                </div>
-            </tr>
-            <tr>
-                <div id="textBox">
-                    <div class="text" >
-    					${list.diary_main}
-                    </div>
+                    <!--  <img src="#">-->
+                    ${list.diary_main }
                 </div>
             </tr>
         </table>
@@ -109,15 +109,9 @@
                         <h2>Prologue</h2>
                      
                         <div class="photo">
-                            <img src="#">
+                            ${list.diary_content1}
                         </div>
                         <div class="hashtag"> #해시태그영역</div>
-                        <div class="photoEx">
-                            <div class="text">
-    							${list.diary_content1}
-                            </div>
-                        </div>
-
                     </div>
                 </tr>
             </table>
@@ -128,14 +122,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+	    							${list.diary_content2}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content2}
-	                            </div>
-	                        </div>
+	                    
 	                    </div>
 	                </tr>
 	            </table>              
@@ -147,14 +137,11 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content3}
+	                         
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content3}
-	                            </div>
-	                        </div>
+	                    
 	                    </div>
 	                </tr>
 	            </table>              
@@ -166,14 +153,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content4}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content4}
-	                            </div>
-	                        </div>
+
 	                    </div>
 	                </tr>
 	            </table>              
@@ -185,21 +168,40 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content5}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content5}
-	                            </div>
-	                        </div>
 	                    </div>
 	                </tr>
 	            </table>              
   	 	   </c:if>
+  	 	   <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
   	 	   
-           <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
+			<div class="comment">
+		        <label for="content">댓글 갯수 :</label>
+		        <form name="commentForm">
+		            <div class="input">
+		               <input type="hidden" name="tdIdx" value="${tdIdx}"/>
+		               <input type="text" class="con" id="content" name="content" placeholder="내용을 입력하세요.">
+		               <span class="inputbtn">
+		                    <button class="btnt" type="button" name="commentBtn">등록</button>
+		               </span>
+		              </div>
+		        </form>
+		    </div>
+  	 	   
+  	 	   	<div class="comment"></div>
+        	<div class="commentList">
+
+			</div>
+
+
+  	 	   <%@ include file="diaryReply.jsp" %>
+  	 	   
+           
     </body>
     <script>
+    var arr = {${array}};
+    console.log(arr);
     </script>
 </html>
