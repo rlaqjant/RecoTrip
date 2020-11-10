@@ -8,4 +8,6 @@ public interface MypageDAO {
 
 	ArrayList<MypageDTO> mp_review(String id);
 
+	String checkPW(String id, String password);
+
 }

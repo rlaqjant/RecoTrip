@@ -18,6 +18,7 @@ public class MypageService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired MypageDAO dao;
+	
 	public ModelAndView mp_review(String id) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -29,6 +30,18 @@ public class MypageService {
 		
 		return mav;
 		
+	}
+
+	public boolean checkPW(String id, String password) {
+		String checkID = dao.checkPW(id, password);
+		logger.info("pw :"+password);
+		logger.info("param : "+checkID);
+		boolean result = false;
+		if(checkID.equals(password)) {
+			result = true;
+		}
+		
+		return result;
 	}
 
 }
