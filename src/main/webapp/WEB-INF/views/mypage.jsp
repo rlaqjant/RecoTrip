@@ -186,8 +186,9 @@
             </div>
             <div class="mwrv">
                 <table>
+                <c:forEach items = "${mp_review}" var = "dto">
                     <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
+                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="dest?dest_num=${dto.dest_num }"> ${dto.review_content }27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
                     <tr><td></td></tr>
                     <tr>
@@ -205,6 +206,7 @@
                     <tr>
                       <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
+                    </c:forEach>
                   </table>
                 <div class="mypage_paging">
                     <table>
@@ -229,6 +231,7 @@
             </div>
             <div class="mwrv">
                 <table>
+                <c:forEach items = "${mp_review}" var = "dto">
                     <tr>
                       <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
@@ -248,6 +251,7 @@
                     <tr>
                       <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
                     </tr>
+                    </c:forEach>
                   </table>
                 <div class="mypage_paging">
                     <table>
@@ -281,7 +285,7 @@
                     <c:forEach items = "${mypage}" var = "dto">
                     <tr>
                         <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}아아ㅏ아아아아ㅏ아아아</a></td>
+                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
                         <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
                     </tr>
                     <tr>

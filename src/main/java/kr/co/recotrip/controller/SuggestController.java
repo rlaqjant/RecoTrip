@@ -33,10 +33,10 @@ public class SuggestController {
 		
 		logger.info("건의함 리스트 호출");		
 		String id = (String) session.getAttribute("loginId");
-		 
+		//String id = "test"; 
 		
 		ModelAndView mav = null;
-		
+		String msg = "";
 		if(id != null) {
 			mav = service.ask_list(id);
 		}else {
@@ -55,8 +55,8 @@ public class SuggestController {
 	
 	@RequestMapping(value = "/ask_write", method = RequestMethod.POST)
 	public ModelAndView ask_write(@ModelAttribute SuggestDTO dto, HttpSession session) {
-		//String id = (String) session.getAttribute("loginId");
-		String id = "test"; 
+		String id = (String) session.getAttribute("loginId");
+		//String id = "test"; 
 		return service.ask_write(dto,id);
 		  }
 	

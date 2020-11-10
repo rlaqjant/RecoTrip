@@ -7,18 +7,24 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style></style>
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</head>
 	<body>
 	<form action="search"	>
-		<select name="searchCat">
-			<option value="name">여행지 이름</option>
-			<option value="addr">여행지 주소</option>
+		<select name="searchCatDetail">
+			<option value="dest">여행지</option>
+			<option value="restaurant">음식점</option>
+			<option value="accom">숙박 시설</option>
 		</select>
-	    <input type="text"  id="searchTextVal" name="search" placeholder="검색" />
+		<select name="searchCat">
+			<option value="name">이름</option>
+			<option value="addr">주소</option>
+		</select>
+	    <input type="text"  id="searchInput" name="search" placeholder="검색" />
 	    <button>검색</button>
 	</form>
-
 	</body>
 	<script>
 

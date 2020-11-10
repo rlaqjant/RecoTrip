@@ -16,6 +16,14 @@ public class DiaryDTO {
 	private String diary_content5;
 	private String diary_reg_date;
 	private String diary_public;
+	
+	// 사진 
+	private int pic_num;
+	private String orif;
+	private String newf;
+	private int f_category;
+	
+	
 	public int getDiary_number() {
 		return diary_number;
 	}
@@ -81,6 +89,30 @@ public class DiaryDTO {
 	}
 	public void setDiary_public(String diary_public) {
 		this.diary_public = diary_public;
+	}
+	public int getPic_num() {
+		return pic_num;
+	}
+	public void setPic_num(int pic_num) {
+		this.pic_num = pic_num;
+	}
+	public String getOrif() {
+		return orif;
+	}
+	public void setOrif(String orif) {
+		this.orif = orif;
+	}
+	public String getNewf() {
+		return newf;
+	}
+	public void setNewf(String newf) {
+		this.newf = newf;
+	}
+	public int getF_category() {
+		return f_category;
+	}
+	public void setF_category(int f_category) {
+		this.f_category = f_category;
 	}
 	
 	
