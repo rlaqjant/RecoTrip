@@ -15,8 +15,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.dao.DiaryDAO;
 import kr.co.recotrip.dto.DiaryDTO;
@@ -36,9 +38,9 @@ public class DiaryService {
 		ModelAndView mav =new ModelAndView();
 
 		ArrayList<DiaryDTO> diaryList = dao.tdList();
+		
 		mav.addObject("diaryList",diaryList);
 		logger.info("diaryList : {}",diaryList);
-		
 		
 		
 		return mav;
@@ -47,34 +49,135 @@ public class DiaryService {
 	public ModelAndView tdDetail(String idx) {
 		
 		ModelAndView mav =new ModelAndView();
-
+		
 		DiaryDTO list = dao.tdDetail(idx);
 		mav.addObject("list",list);
-		
+		mav.addObject("idx",idx);
 		logger.info("diaryList : {}",list);
 		
 		return mav;
 	}
 
-	public void tdWrite(HashMap<String, String> params) {
-		int count = params.size();
-		if(count == 6) {
-			dao.tdWrite(params);
-		}else if(count ==7) {
-			dao.tdWrite2(params);
-		}else if(count == 8) {
-			dao.tdWrite3(params);
-		}else if(count == 9) {
-			dao.tdWrite4(params);
-		}else if(count == 10) {
-			dao.tdWrite5(params);
+	@Transactional
+	public ModelAndView tdWrite(HashMap<String, String> params, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String page = "redirect:/tdWriteForm";
+		DiaryDTO bean = new DiaryDTO();
+		
+		//1.bbs 테이블에 작성자, 제목, 내용 넣기
+		bean.setId(params.get("id"));
+		bean.setDiary_subject(params.get("title"));
+		bean.setDiary_main(params.get("content0"));
+		bean.setDiary_public(params.get("diary_public"));
+		bean.setDiary_reg_date(params.get("date"));
+		bean.setDiary_content1(params.get("content1"));
+		
+		if(params.get("content2") != null) {
+			bean.setDiary_content2(params.get("content2"));
+		}
+		if(params.get("content3") != null) {
+			bean.setDiary_content3(params.get("content3"));
+		}
+		if(params.get("content4") != null) {
+			bean.setDiary_content4(params.get("content4"));
+		}
+		if(params.get("content5") != null) {
+			bean.setDiary_content5(params.get("content5"));
 		}
 		
 		
+		HashMap<String, Object> fileList = (HashMap<String, Object>) session.getAttribute("fileList");
+		logger.info("fileList : " + fileList);
+		int count = params.size();
+		logger.info("혼좀나자 : " +count);
+		logger.info("fileList : " +fileList.size());
+		
+		int suc = 0;
+		switch(count) {
+		case 6:
+			suc = dao.tdWrite(bean);
+			logger.info("여기 들어와1?");
+			break;
+		case 7:
+			suc = dao.tdWrite2(bean);
+			logger.info("여기 들어와2?");
+			break;
+		case 8:
+			suc = dao.tdWrite3(bean);
+			logger.info("여기 들어와3?");
+			break;
+		case 9:
+			suc = dao.tdWrite4(bean);
+			logger.info("여기 들어와4?");
+			break;
+		case 10:
+			suc = dao.tdWrite5(bean);
+			logger.info("여기 들어와5?");
+			break;
+		}
+		
+		
+		/*
+		if(count == 6) {
+			if(dao.tdWrite(bean) == 1) {//글 등록 성공
+				success = true;
+				logger.info("여기 들어와?");
+		}else if(count ==7) {
+			bean.setDiary_content1(params.get("content2"));
+			if(dao.tdWrite2(bean) == 1) {//글 등록 성공
+				success = true;
+			}
+			//dao.tdWrite(params);
+		}else if(count == 8) {
+			bean.setDiary_content1(params.get("content3"));
+			if(dao.tdWrite3(bean) == 1) {//글 등록 성공
+				success = true;
+			}
+		}else if(count == 9) {
+			bean.setDiary_content1(params.get("content4"));
+			if(dao.tdWrite4(bean) == 1) {//글 등록 성공
+				success = true;
+			}
+		}else if(count == 10) {
+			bean.setDiary_content1(params.get("content5"));
+			if(dao.tdWrite5(bean) == 1) {//글 등록 성공
+				success = true;
+			}
+		}
+		*/
+		if(suc>0) {
+			//generateKey를 사용하였기 때문에 쿼리 실행 완료 후 빈(DTO)에 idx값이 생긴다.
+			//2.photo 테이블에파일이 소속된 idx, 원본파일명, 새 파일명 넣기
+			int size=fileList.size();
+			logger.info("저장할 파일 수 : "+size);
+			int idx = bean.getDiary_number();
+			if(size>0) {//업로드한 파일이 있다면
+				//idx, oriFileName, newFileName
+				logger.info(idx+"번 게시물에 소속된 파일 등록");
+				
+				for (String key : fileList.keySet()) {
+					//idx, oriFileName, newFileName
+					dao.fileWrite(idx, (String)fileList.get(key), key);
+				}
+			}
+			page = "redirect:/tdDetail?idx="+idx;//등록된 상세 페이지로 이동
+		}else {
+			//세션의 fileList에 저장된 모든 파일 삭제
+			for (String fileName : fileList.keySet()) {
+				File file = new File(root+"/upload/"+fileName);
+				boolean sucdel = file.delete();
+				logger.info(fileName+" 삭제 결과 : "+sucdel);
+			}
+			
+		}
+		session.removeAttribute("fileList");
+		mav.setViewName(page);
+			
+		return mav;
 		
 	}
 
-	public ModelAndView tdFileUpload(MultipartFile file, HttpSession session) {
+	public ModelAndView tdFileUpload(MultipartFile file, HttpSession session, String value) {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -103,6 +206,7 @@ public class DiaryService {
 			e.printStackTrace();
 		}
 		mav.addObject("path","photo/"+newFileName);
+		mav.addObject("value", value);
 		mav.setViewName("tdUploadForm");
 		//mav.setViewName("tdWriteForm");
 		
@@ -139,10 +243,44 @@ public class DiaryService {
 		
 		//5. 성공 여부 변경하기
 		
-		
 		result.put("success", success);
 		
 		return result;
+	}
+
+	public String tdButton(String idx) {
+		
+		return dao.tdButton(idx);
+	}
+
+	public ModelAndView tdDelete(String idx, RedirectAttributes rAttr) {
+		
+		ModelAndView mav = new ModelAndView();
+		String msg = "삭제 실패";
+		String page = "redirect:/tdDetail?diary_number="+idx;
+		
+		ArrayList<String> delFileNames = dao.getDelFileName(idx);
+		for (String fileName : delFileNames) {
+			String delFileName = root+"/upload/"+fileName;
+			logger.info("지울 파일 경로 : {}",delFileName);
+			File file = new File(delFileName);
+			if(file.exists()) {//파일이 존재할 경우
+				if(file.delete()) {
+					dao.tdPDelete(idx);
+				}
+			}
+		}
+		
+		int result = dao.tdDelete(idx);
+		
+		if(result>0) {
+			msg = "삭제 성공";
+			page = "redirect:/tdList";
+		}
+		rAttr.addFlashAttribute("msg", msg);
+		mav.setViewName(page);
+		
+		return mav;
 	}
 
 }

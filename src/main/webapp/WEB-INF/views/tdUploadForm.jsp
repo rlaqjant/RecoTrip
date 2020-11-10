@@ -29,8 +29,8 @@
 
 		//var elem = window.opener.document.getElementsByClassName('fileup').prev().prev();
 		var elem;
-		if(ex=='파일업로드'){
-			elem = window.opener.document.getElementById('editable');//writeForm의 id=editable을 부른다.
+		if(ex=='파일업로드0'){
+			elem = window.opener.document.getElementById('editable0');//writeForm의 id=editable을 부른다.
 			elem.innerHTML += content;//그리고 그 안에 content를 쓴다.
 		}
 		else if(ex=='파일업로드1'){
@@ -50,7 +50,7 @@
 			elem.innerHTML += content;//그리고 그 안에 content를 쓴다.
 		}
 	
-		//console.log(elem);
+		console.log(elem);
 		self.close();
 	}
 	
