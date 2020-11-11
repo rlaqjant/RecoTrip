@@ -8,40 +8,86 @@
 
 	<select id="tdList" resultType="diary">
 	
-		SELECT * FROM yugae WHERE diary_public = 1 ORDER BY diary_number DESC
+		SELECT * FROM t2_diary WHERE diary_public = 1 ORDER BY diary_number DESC
 
 	</select>
 		<select id="tdDetail" resultType="diary">
 	
-		SELECT * FROM yugae WHERE diary_number= #{idx}
+		SELECT * FROM t2_diary WHERE diary_number= #{idx}
 	
 	</select>
 	 
-	<insert id="tdWrite" parameterType="hashmap">
-		INSERT INTO yugae (diary_number,id,diary_subject,diary_main,diary_content1,diary_reg_date,diary_public)
-		 VALUES(yu_seq.nextval,#{id},#{title},#{profile},#{photoEx1},#{date},#{diary_public})
+ 	<insert 
+		parameterType = "diary"
+		useGeneratedKeys = "true"
+		keyProperty = "diary_number"
+		keyColumn = "diary_number"
+		id="tdWrite">
+		INSERT INTO t2_diary (diary_number,id,diary_subject,diary_main,diary_content1,diary_reg_date,diary_public)
+		 VALUES(yu_seq.nextval,#{id},#{diary_subject},#{diary_main},#{diary_content1},#{diary_reg_date},#{diary_public})
 	</insert>
 	
-	<insert id="tdWrite2" parameterType="hashmap">
-		INSERT INTO yugae (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_reg_date,diary_public)
-		 VALUES(yu_seq.nextval,#{id},#{title},#{profile},#{photoEx1},#{photoEx2},#{date},#{diary_public})
+ 	<insert 
+		parameterType = "diary"
+		useGeneratedKeys = "true"
+		keyProperty = "diary_number"
+		keyColumn = "diary_number"
+		id="tdWrite2">
+		INSERT INTO t2_diary (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_reg_date,diary_public)
+		 VALUES(yu_seq.nextval,#{id},#{diary_subject},#{diary_main},#{diary_content1},#{diary_content2},#{diary_reg_date},#{diary_public})
 	</insert>
 	
-	<insert id="tdWrite3" parameterType="hashmap">
-		INSERT INTO yugae (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_reg_date,diary_public)
-		 VALUES(yu_seq.nextval,#{id},#{title},#{profile},#{photoEx1},#{photoEx2},#{photoEx3},#{date},#{diary_public})
+ 	<insert 
+		parameterType = "diary"
+		useGeneratedKeys = "true"
+		keyProperty = "diary_number"
+		keyColumn = "diary_number"
+		id="tdWrite3">
+		INSERT INTO t2_diary (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_reg_date,diary_public)
+		 VALUES(yu_seq.nextval,#{id},#{diary_subject},#{diary_main},#{diary_content1},#{diary_content2},#{diary_content3},#{diary_reg_date},#{diary_public})
 	</insert>
 	
-	<insert id="tdWrite4" parameterType="hashmap">
-		INSERT INTO yugae (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_content4,diary_reg_date,diary_public)
-		 VALUES(yu_seq.nextval,#{id},#{title},#{profile},#{photoEx1},#{photoEx2},#{photoEx3},,#{photoEx4},#{date},#{diary_public})
+ 	<insert 
+		parameterType = "diary"
+		useGeneratedKeys = "true"
+		keyProperty = "diary_number"
+		keyColumn = "diary_number"
+		id="tdWrite4">
+		INSERT INTO t2_diary (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_content4,diary_reg_date,diary_public)
+		 VALUES(yu_seq.nextval,#{id},#{diary_subject},#{diary_main},#{diary_content1},#{diary_content2},#{diary_content3},,#{diary_content4},#{diary_reg_date},#{diary_public})
 	</insert>	
 
-	<insert id="tdWrite5" parameterType="hashmap">
-		INSERT INTO yugae (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_content4,diary_content5,diary_reg_date,diary_public)
-		 VALUES(yu_seq.nextval,#{id},#{title},#{profile},#{photoEx1},#{photoEx2},#{photoEx3},#{photoEx4},#{photoEx5},#{date},#{diary_public})
+ 	<insert 
+		parameterType = "diary"
+		useGeneratedKeys = "true"
+		keyProperty = "diary_number"
+		keyColumn = "diary_number"
+		id="tdWrite5">
+		INSERT INTO t2_diary (diary_number,id,diary_subject,diary_main,diary_content1,diary_content2,diary_content3,diary_content4,diary_content5,diary_reg_date,diary_public)
+		 VALUES(yu_seq.nextval,#{id},#{diary_subject},#{diary_main},#{diary_content1},#{diary_content2},#{diary_content3},#{diary_content4},#{diary_content5},#{diary_reg_date},#{diary_public})
 	</insert>
 	 
+	 
+	<insert id="fileWrite">
+		INSERT INTO t2_diary_pic (pic_num, diary_number, orif, newf)
+			VALUES(photo_seq.NEXTVAL, #{param1}, #{param2}, #{param3})
+	</insert>
+	
+	<select id="tdButton" resultType="String">
+		SELECT id FROM t2_diary WHERE diary_number=#{param1}
+	</select>
+	
+	<delete id="tdPDelete">
+		DELETE FROM t2_diary_pic WHERE diary_number = #{param1}
+	</delete>
+	
+	<delete id="tdDelete">
+		DELETE FROM t2_diary WHERE diary_number = #{param1}
+	</delete>
+	 
+	 <select id="getDelFileName" resultType="String">
+		SELECT newf FROM t2_diary_pic WHERE diary_number=#{param1}
+	</select>
 	 
 </mapper>
 	

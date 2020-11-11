@@ -55,9 +55,9 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewwrite", method = RequestMethod.GET)
-	public @ResponseBody int reviewwrite(@RequestParam String user, @RequestParam String review, @RequestParam String score, @RequestParam String dest_num) {
-		logger.info("아이디 : "+user+",후기 작성 : "+review);
-		return service.reviewwrite(user,review,score,dest_num);
+	public @ResponseBody int reviewwrite(@RequestParam String userid, @RequestParam String review, @RequestParam String score, @RequestParam String dest_num) {
+		logger.info("아이디 : "+userid+",후기 작성 : "+review);
+		return service.reviewwrite(userid,review,score,dest_num);
 	}
 	
 	@RequestMapping(value = "/reviewupdate", method = RequestMethod.POST)
