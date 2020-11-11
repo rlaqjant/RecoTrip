@@ -1,13 +1,16 @@
 package kr.co.recotrip.dao;
 
 import java.util.ArrayList;
-
-import kr.co.recotrip.dto.MypageDTO;
+import java.util.HashMap;
 
 public interface MypageDAO {
 
-	ArrayList<MypageDTO> mp_review(String id);
-
 	String checkPW(String id, String password);
+
+	ArrayList<HashMap<String, Object>> myDtList(String id);
+
+	ArrayList<HashMap<String, Object>> myReviewList(String id);
+
+	ArrayList<HashMap<String, Object>> myReplyList(String id);
 
 }
