@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,327 +9,137 @@
         <title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 		<style>
-            body{
-                background-color: rgb(186, 247, 244);
-            }
-            .form{
-                width: 850px;
-                position: relative;
-                left: 320px;
-                background-color: white;
-                height: 1500px;
-            }
-            .logo_1{
-                position: absolute;
-                left: 30px;
-                width: 130px;
-                top: 10px;
-            }
-            .prof{
-                position: absolute;
-                left: 500px;
-                border: 1px solid black;
-                border-collapse: collapse;
-                width: 300px;
-                height: 60px;
-                top: 20px;
-            }
-            .prof_hello{
-                position: relative;
-                left: 20px;
-            }
-            .prof_pass{
-                position: relative;
-                left: 13px;
-                top: 5px;
-            }
-            .out{
-                position: relative;
-                left: 210px;
-                top: 8px;
-            }
-            .mpmp{
-                position: relative;
-                left: 100px;
-                top: 150px;
-                border: 1px solid white;
-                border-collapse: collapse;
-                padding: 10px 5px;
-                width: 700px;
-            }
-            .mpsubject a{
-                border-radius: 30%;
-                border: 1px solid black;
-                position: relative;
-                padding: 10px 10px;
-                background-color: rgb(190, 252, 177);
-            }
-            .mwrv{
-                position: relative;
-                top: 30px;
-                border: 5px solid rgb(150, 236, 142);
-                border-collapse: collapse;
-                padding: 10px 10px;
-                width: 600px;
-                height: 200px;
-            }
-            .mypage_paging{
-                position: relative;
-                top: 15px;
-                left: 180px;
-            }
-            .sug{
-                border: 1px solid black;
-                border-collapse: collapse;
-                background-color:  rgb(224, 224, 224);
-                width: 601px;
-                position: relative;
-            }
-            .mwrv1{
-                position: relative;
-                top: 15px;
-                border: 5px solid rgb(150, 236, 142);
-                border-collapse: collapse;
-                padding: 10px 10px;
-                width: 600px;
-                height: 200px;
-            }
-            .del{
-                position: relative;
-                left: 580px;
-            }
-            .num1{
-                width: 120px;
-            }
-            .num3{
-                width: 120px;
-            }
-            input[type="button"]{
-                position: relative;
-                left: 36px;
-            }
-            .mypage_paging1{
-                position: relative;
-                top: 140px;
-                left: 180px;
-                
-                
-            }
-            
+			body{
+				background-color: skyblue;
+			}
+			#myThings{
+				position: relative;
+				height: 300px;
+				width: 900px;
+			}
+			#myDtListBtn{
+				position: absolute;
+				height: 300px;
+				width: 300px;
+				border: 1px solid white;
+				text-align: center;
+			}
+			#myDtListBtn:hover{
+				cursor: pointer;
+			}
+			#myReplyListBtn{
+				position: absolute;
+				height: 300px;
+				width: 300px;
+				left:305px;
+				border: 1px solid white;
+				text-align: center;
+			}
+			#myReplyListBtn:hover{
+				cursor: pointer;
+			}
+			#myReviewListBtn{
+				position: absolute;
+				height: 300px;
+				width: 300px;
+				left:610px;
+				border: 1px solid white;
+				text-align: center;
+			}
+			#myReviewListBtn:hover{
+				cursor: pointer;
+			}
+			#listW{
+				position: relative;
+				height: 600px;
+				width: 910px;
+				border: 1px solid white;
+				margin-top: 20px;
+			}
+            #myDtList{position:absolute;display:block;}
+            #myReplyList{position:absolute;display:none;}
+            #myReviewList{position:absolute;display:none;}
         </style>
 	</head>
     <body>
-    <form action="" class="form">
-        <div class="logo">
-            <a href="main.jsp"><img class="logo_1" src="image/logo.PNG" alt="로고"/></a>
-        </div>
-        <div class="prof">
-            <div class="prof_hello">
-                <tr>
-                    <td>OOO님</td><td>환영합니다.</td>
-                </tr>
-            </div>
-            <div class="prof_pass">
-            <input type="text" value="" style="height: 20px;">
-            <input type="submit" name="" value="비밀번호 변경">
-            <div class="out">
-                <a href="#"> 회원탈퇴</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="mpmp">
-            <div class="mpsubject">
-                <a>내가 쓴 여행일기</a>
-            </div>
-            <div class="mwrv">
-                <table>
-                  <tr>
-                    <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                  </tr>
-                  <tr><td></td></tr>
-                  <tr>
-                    <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                  </tr>
-                  <tr><td></td></tr>
-                  <tr>
-                    <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                  </tr>
-                  <tr><td></td></tr>
-                  <tr>
-                    <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                  </tr>
-                  <tr><td></td></tr>
-                  <tr>
-                    <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                  </tr>
-                </table>
-                <div class="mypage_paging">
-                    <table>
-                      <tr>
-                        <td><button class="paging_button">이전</button></td>
-                        <td><button>1</button></td>
-                        <td><button>2</button></td>
-                        <td><button>3</button></td>
-                        <td><button>4</button></td>
-                        <td><button>5</button></td>
-                        <td><button class="paging_button">다음</button></td>
-                      </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="mpmp">
-            <div class="mpsubject">
-                <a>나의 한줄 후기</a>
-            </div>
-            <div class="mwrv">
-                <table>
-                <c:forEach items = "${mp_review}" var = "dto">
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="dest?dest_num=${dto.dest_num }"> ${dto.review_content }27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    </c:forEach>
-                  </table>
-                <div class="mypage_paging">
-                    <table>
-                      <tr>
-                        <td><button class="paging_button">이전</button></td>
-                        <td><button>1</button></td>
-                        <td><button>2</button></td>
-                        <td><button>3</button></td>
-                        <td><button>4</button></td>
-                        <td><button>5</button></td>
-                        <td><button class="paging_button">다음</button></td>
-                      </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="mpmp">
-            <div class="mpsubject">
-                <a>내가 쓴 댓글</a>
-            </div>
-            <div class="mwrv">
-                <table>
-                <c:forEach items = "${mp_review}" var = "dto">
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                      <td style="border:1px solid black; background-color: rgb(224, 224, 224); width: 600px;"><a href="#"> 27살, 취업 대신 여행, 그리고 남겨진 것들.</a></td>
-                    </tr>
-                    </c:forEach>
-                  </table>
-                <div class="mypage_paging">
-                    <table>
-                      <tr>
-                        <td><button class="paging_button">이전</button></td>
-                        <td><button>1</button></td>
-                        <td><button>2</button></td>
-                        <td><button>3</button></td>
-                        <td><button>4</button></td>
-                        <td><button>5</button></td>
-                        <td><button class="paging_button">다음</button></td>
-                      </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="mpmp">
-            <div class="mpsubject">
-                <a>나의 건의함</a>
-            </div>
-            <div class="del"></div>
-            <div class="mwrv1">
-                <table class="sug">
-                    <tr>
-                        <th class="num1">제목</th>
-                        <th class="num2">내용</th>
-                        <th class="num3">삭제</th>
-                    </tr>
-                    <c:forEach items = "${mypage}" var = "dto">
-                    <tr>
-                        <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
-                        <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
-                    </tr>
-                    <tr>
-                        <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
-                        <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
-                    </tr>
-                    <tr>
-                        <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
-                        <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
-                    </tr>
-                    <tr>
-                        <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
-                        <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
-                    </tr>
-                    <tr>
-                        <td class="num1">${dto.ask_subject}</td>
-                        <td class="num2"><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_content}</a></td>
-                        <td class="num3"><input type="button" value="삭제" style="width: 50px;"></td>
-                    </tr>
-                    </c:forEach>
-                </table>
-                <div class="mypage_paging1">
-                <table>
-                  <tr>
-                    <td><button class="paging_button">이전</button></td>
-                    <td><button>1</button></td>
-                    <td><button>2</button></td>
-                    <td><button>3</button></td>
-                    <td><button>4</button></td>
-                    <td><button>5</button></td>
-                    <td><button class="paging_button">다음</button></td>
-                  </tr>
-                </table>
-                </div>
-            </div>
-        </div>
+    <button onclick="location.href='toMyPageIndexUp'">회원 정보 관리</button>
+    <h2>내가 작성한 글 목록</h2>
+    <div id="myThings">
+	    <div id="myDtListBtn">
+	    	<br/><h3>내가쓴 여행일기</h3>
+	    	<h2>${myDtListCnt}</h2>
+	    </div>
+	    <div id="myReplyListBtn">
+	    	<br/><h3>내가쓴 여행일기 댓글</h3>
+	    	<h2>${myReplyListCnt}</h2>
+	    </div>
+	    <div id="myReviewListBtn">
+	    	<br/><h3>내가쓴 여행지 한줄평</h3>
+	    	<h2>${myReviewListCnt}</h2>
+	    </div>
     </div>
-    </form>
+    <div id="listW">
+    	<div id="myDtList">
+    		<h3>내가쓴 여행일기</h3>
+    		<table>
+				<c:forEach items="${myDtList}" var="myDtList">
+					<tr>
+						<td>${myDtList.DIARY_NUMBER}</td>
+						<td><a href="tdDetail?idx=${myDtList.DIARY_NUMBER}">${myDtList.DIARY_SUBJECT}</a></td>
+						<td><fmt:formatDate value="${myDtList.DIARY_REG_DATE}" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</c:forEach>
+			</table>
+    	</div>
+    	<div id="myReplyList">
+    		<h3>내가쓴 여행일기 댓글</h3>
+    		<table>
+				<c:forEach items="${myReplyList}" var="myReplyList">
+					<tr>
+						<td>${myReplyList.REPLY_CONTENT}</td>
+						<td><fmt:formatDate value="${myReplyList.REPLY_REG_DATE}" pattern="yyyy-MM-dd"/></td>
+						<td>작성 글 : <a href="tdDetail?idx=${myReplyList.DIARY_NUMBER}">${myReplyList.DIARY_SUBJECT}</a></tr>
+				</c:forEach>
+			</table>
+		</div>
+    	<div id="myReviewList">
+    		<h3>내가쓴 여행지 한줄평</h3>
+    		<table>
+    			<c:forEach items="${myReviewList}" var="myReviewList">
+					<tr>
+						<td><a href="toDestDetail?dest_num=${myReviewList.DEST_NUM}">${myReviewList.DEST_NAME}</a></td>
+						<td>${myReviewList.REVIEW_CONTENT}</td>
+						<td>${myReviewList.RATING}</td>
+						<td><fmt:formatDate value="${myReviewList.REVIEW_REG_DATA}" pattern="yyyy-MM-dd"/></tr>
+				</c:forEach>
+			</table>
+		</div>
+    </div>
+    
+    <div id="myAsk">
+    
+    </div>
+    
+    	
+    
     </body>
     <script>
+    $("#myDtListBtn").click(function(){
+    	$("#myDtList").css({"display": "block"});
+		$("#myReplyList").css({"display": "none"});
+		$("#myReviewList").css({"display": "none"});
+    });
+    $("#myReplyListBtn").click(function(){
+    	$("#myDtList").css({"display": "none"});
+		$("#myReplyList").css({"display": "block"});
+		$("#myReviewList").css({"display": "none"});
+    });
+    $("#myReviewListBtn").click(function(){
+    	$("#myDtList").css({"display": "none"});
+		$("#myReplyList").css({"display": "none"});
+		$("#myReviewList").css({"display": "block"});
+    });
+
     
     </script>
 </html>
