@@ -27,49 +27,38 @@ public class DestService {
 	
 	@Autowired DestDAO dao;
 	
-	public ModelAndView search(HashMap<String, String> params) {
+	public ArrayList<SearchDTO> search(HashMap<String, String> params) {
 		ModelAndView mav = new ModelAndView();
 		
 		String searchCatDetail = params.get("searchCatDetail");
 		String searchCat = params.get("searchCat");
+		String search = params.get("search");
 		
 		ArrayList<SearchDTO> list = null;
-		
+		int total = 0;
 		
 		if(searchCatDetail.equals("dest")) {
 			if(searchCat.equals("name")) {
-				list = dao.destNameSearch(params);
+				list = dao.destNameSearch(search);
 			}else {
-				list = dao.destAddrSearch(params);
+				list = dao.destAddrSearch(search);
 			}
 		}else if(searchCatDetail.equals("restaurant")) {
 			if(searchCat.equals("name")) {
-				list = dao.restaurantNameSearch(params);
+				list = dao.restaurantNameSearch(search);
 			}else {
-				list = dao.restaurantAddrSearch(params);
+				list = dao.restaurantAddrSearch(search);
 			}
 		}else{
 			if(searchCat.equals("name")) {
-				list = dao.accomNameSearch(params);
+				list = dao.accomNameSearch(search);
 			}else {
-				list = dao.accomAddrSearch(params);
+				list = dao.accomAddrSearch(search);
 			}
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		if(!list.isEmpty()) {
-			mav.addObject("list", list);
-		}else {
-			mav.addObject("msg", "검색결과가 없습니다.");
-		}
-		mav.setViewName("searchResult");
-		return mav;
+		return list;
 	}
 	
 
@@ -137,5 +126,34 @@ public class DestService {
 		
 		return rating;
 	}
+
+
+	public ModelAndView reco(String who, String what, String where) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<SearchDTO> list = new ArrayList<SearchDTO>();
+		
+		String msg = "당신을 위한 여행지 추천";
+		if(what.equals("leports")) {
+			list = dao.leportsReco(who, where);
+		}else if (what.equals("culture")) {
+			list = dao.cultureReco(who, where);
+		}else if(what.equals("tour")) {
+			list = dao.tourReco(who, where);
+		}else {
+			list = dao.healingReco(who, where);
+		}
+		
+		if(list.isEmpty()) {
+			msg="이런! 마땅한 여행지가 없어요! "+where+"의 다른 여행지는 어떠신가요?";
+			list = dao.noResultReco(where);
+		}
+		
+		mav.addObject("list", list);
+		mav.addObject("msg", msg);
+		mav.setViewName("recoResult");
+		
+		return mav;
+	}
+
 
 }

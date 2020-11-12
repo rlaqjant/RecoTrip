@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="kr.co.recotrip.dao.AdminDAO">
+
+	<select id="adminMemberList" resultType="admin">
+		SELECT * FROM T2_MEMBER
+	</select>
+	
+	<select id="adminMemberUpdateForm" resultType="admin" parameterType="String">
+		SELECT * FROM T2_MEMBER WHERE id=#{param1}
+	</select>
+	
+	<update id="adminMemberUpdate" parameterType="hashMap">
+		UPDATE T2_MEMBER
+			<set>
+				<if test="!pw.equals('')">pw=#{pw},</if>
+				<if test="!email.equals('')">email=#{email},</if>
+				<if test="!phone.equals('')">phone=#{phone}</if>
+			</set>
+		WHERE id=#{id}
+	</update>
+	
+	<select id="adminMemberDeleteForm" resultType="admin" parameterType="String">
+		SELECT * from T2_MEMBER WHERE id=#{param1}
+	</select>
+	
+	<delete id="adminMemberDelete">
+		DELETE FROM T2_MEMBER WHERE id=#{id}
+	</delete>
+	
+	<insert id="adminMemberMove" parameterType="hashMap">
+		INSERT INTO T2_DEL_MEMBER (deleted_num, id, deleted_date, reason)
+		VALUES (t2_deleted_num_seq.NEXTVAL, #{id}, SYSDATE, #{reason})
+	</insert>
+	
+	<select id="adminDeletedMember" resultType="admin">
+		SELECT * FROM T2_DEL_MEMBER
+	</select>
+	
+	<delete id="adminResetData">
+		DELETE FROM T2_DEL_MEMBER WHERE id=#{id}
+	</delete>
+	
+	<select id="memberSearch" resultType="admin">
+		SELECT * FROM T2_MEMBER WHERE id LIKE '%'||#{keyword}||'%'
+	</select>
+</mapper>
