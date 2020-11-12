@@ -3,13 +3,17 @@ package kr.co.recotrip.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.dto.DiaryDTO;
+import kr.co.recotrip.dto.PagingVO;
 
 public interface DiaryDAO {
 
-	ArrayList<DiaryDTO> tdList();
+	ArrayList<DiaryDTO> tdList(PagingVO vo);
 
 	DiaryDTO tdDetail(String idx);
 
@@ -32,5 +36,19 @@ public interface DiaryDAO {
 	ArrayList<String> getDelFileName(String idx);
 
 	int tdDelete(String idx);
+
+	int tdUpdate(HashMap<String, String> params);
+
+	int countBoard();
+
+	int tdUpdate2(HashMap<String, String> params);
+
+	int tdUpdate3(HashMap<String, String> params);
+
+	int tdUpdate4(HashMap<String, String> params);
+
+	int tdUpdate5(HashMap<String, String> params);
+
+	void delPhoto(String string);
 
 }

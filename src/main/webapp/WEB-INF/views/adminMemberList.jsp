@@ -38,7 +38,7 @@
 			</tr>
 			<c:forEach items="${adminMemberList}" var="adminMemberList">
 			<tr>
-				<td>${adminMemberList.id}</td>
+				<td><a href="./adminMembersWriteList?id=${adminMemberList.id}">${adminMemberList.id}</a></td>
 				<td>${adminMemberList.name}</td>
 				<td>${adminMemberList.email}</td>
 				<td>${adminMemberList.phone}</td>

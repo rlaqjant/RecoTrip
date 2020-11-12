@@ -156,4 +156,22 @@ public class DestService {
 	}
 
 
+	public double getLong(String dest_num) {
+		double longti = (double) dao.getLong(dest_num);
+		return longti;
+	}
+
+
+	public double getLat(String dest_num) {
+		double latti = (double) dao.getLat(dest_num);
+		return latti;
+	}
+
+
+	public String dest_name(String dest_num) {
+		String dest_name = dao.getName(dest_num);
+		return dest_name;
+	}
+
+
 }

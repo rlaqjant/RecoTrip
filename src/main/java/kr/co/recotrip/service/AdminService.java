@@ -3,6 +3,8 @@ package kr.co.recotrip.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +100,57 @@ public class AdminService {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberSearch", memberSearch);
 		mav.setViewName("memberSearch");
+		return mav;
+	}
+	
+	public ArrayList<HashMap<String, Object>> memberDtList(String id) {
+		return dao.memberDtList(id);
+	}
+
+	public ArrayList<HashMap<String, Object>> memberReviewList(String id) {
+		return dao.memberReviewList(id);
+	}
+
+	public ArrayList<HashMap<String, Object>> memberReplyList(String id) {
+		return dao.memberReplyList(id);
+	}
+
+	public ModelAndView adminTdDelete(String idx, HttpSession session) {
+		int result = dao.adminTdDelete(idx);
+		String id =(String) session.getAttribute("memberId");
+		ModelAndView mav = new ModelAndView();
+		String msg="삭제 실패";
+		if(result>0) {
+			msg="삭제 성공";
+		}
+		mav.addObject("msg",msg);
+		mav.setViewName("redirect:/adminMembersWriteList?id="+id);
+		return mav;
+	}
+
+	public ModelAndView adminCommentDelete(String idx, HttpSession session) {
+		int result = dao.adminCommentDelete(idx);
+		String id =(String) session.getAttribute("memberId");
+		ModelAndView mav = new ModelAndView();
+		String msg="삭제 실패";
+		if(result>0) {
+			msg="삭제 성공";
+		}
+		mav.addObject("msg",msg);
+		mav.setViewName("redirect:/adminMembersWriteList?id="+id);
+		return mav;
+	}
+
+	public ModelAndView adminReviewdelete(String idx, HttpSession session) {
+		int result = dao.adminReviewdelete(idx);
+		String id =(String) session.getAttribute("memberId");
+		ModelAndView mav = new ModelAndView();
+		String msg="삭제 실패";
+		if(result>0) {
+			msg="삭제 성공";
+		}
+		mav.addObject("msg",msg);
+		mav.setViewName("redirect:/adminMembersWriteList?id="+id);
 		return mav;
 	}
 

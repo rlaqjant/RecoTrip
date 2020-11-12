@@ -7,9 +7,11 @@
     <head>
         <title>TDdetail</title>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
         <style>
             #title{
-                background-color: lightcoral;
+            	border: 1px solid black;
+                background-color: white;
                 width: 800px;
                 height: 80px;
                 text-align: center;
@@ -21,12 +23,14 @@
                 margin: 5px;   
             }
             .photo{
-                width: 400px;
+            	border: 1px solid black;
+                width: 800px;
                 height: 400px;
-                background-color: lightcoral;
+                background-color: white;
                 border-radius: 10px;
                 text-align: center;
                 margin: auto;
+                margin-top: 5px;
             }
             .text{
                 width: 400px;
@@ -39,15 +43,15 @@
             #textBox{
                 width: 400px;
                 height: 400px;
-                background-color: lightcoral;
+                background-color: white;
                 text-align: center;
                 border-radius: 10px;
                 margin: auto;
             }
             .prologue{
                 width: 800px;
-                height: 800px;
-                background-color:lightcoral;
+                height: 500px;
+                background-color: white;
                 text-align: center;
                 border-radius: 10px;
                 margin: auto;
@@ -55,7 +59,7 @@
             .hashtag{
                 width: 400px;
                 height: 50px;
-                background-color:lightcoral;
+                background-color: white;
                 text-align: center;
                 border-radius: 10px;
                 margin: auto;
@@ -80,6 +84,20 @@
             #delete,#update{
             	display: block;
             }
+
+            .group{
+            	display: none;
+            }
+			img{
+				max-width: 400px;
+				max-height: 400px;
+				
+			}
+			h2{
+				text-align: center;
+			}
+
+
 			.comment{
 			    position: relative;
 			    left: 20%;
@@ -117,15 +135,24 @@
     <body>
         <table>
             <tr>
-                <div id="title">
-                    <p>${list.diary_subject}</p></br></br>
-                    <p>${list.diary_reg_date}</p>
+                <div class="group">
+                	<select name="diary_public">
+                		<option value="1">공개</option>
+                		<option value="0">비공개</option>
+                	</select>
+
                 </div>
             </tr>
             <tr>
-                <div class="photo">
+                <div id="title">
+                    <p name="title">${list.diary_subject}</p></br>
+                    <p name="date">${list.diary_reg_date}</p>
+                </div>
+            </tr>
+            <tr>
+           		<h2>Profile</h2>
+                <div class="photo" name="content0">
    					${list.diary_main}
-                
                 </div>
             </tr>
         </table>
@@ -133,12 +160,10 @@
                 <tr>
                     <div class="prologue">
                         <h2>Prologue</h2>
-                   
-                        <div class="photo">
+                        <div class="photo" name="content1">
    							${list.diary_content1}
                         </div>
                         <div class="hashtag"> #해시태그영역</div>
-                   
                     </div>
                 </tr>
             </table>
@@ -146,9 +171,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
-	                        <h2>Prologue</h2>
-	                     
-	                        <div class="photo">
+	                        <div class="photo" name="content2">
 	    							${list.diary_content2}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
@@ -160,9 +183,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
-	                        <h2>Prologue</h2>
-	                     
-	                        <div class="photo">
+	                        <div class="photo" name="content3">
     							${list.diary_content3}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
@@ -175,13 +196,10 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
-	                        <h2>Prologue</h2>
-	                     
-	                        <div class="photo">
+	                        <div class="photo" name="content4">
     							${list.diary_content4}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	       
 	                    </div>
 	                </tr>
 	            </table>              
@@ -190,8 +208,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
-	                        <h2>Prologue</h2>
-	                        <div class="photo">
+	                        <div class="photo" name="content5">
     							${list.diary_content5}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
@@ -200,7 +217,7 @@
 	            </table>              
   	 	   </c:if>
   	 	   
-           <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
+           <div id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></div>
            <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
            
            <!-- 댓글 -->
@@ -224,6 +241,8 @@
             <%@ include file="diaryReply.jsp" %>
     </body>
     <script>
+    
+
     var idx = "${idx}";
     btn();
     function btn() {
@@ -244,6 +263,7 @@
 			});
 		
 	}
+    
     
     </script>
 </html>

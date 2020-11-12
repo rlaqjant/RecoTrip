@@ -56,6 +56,15 @@ public class DestController {
 		ModelAndView mav = new ModelAndView();
 		int dest_bHit = service.getBhit(dest_num);
 		double dest_rating =  service.getRating(dest_num);
+		double dest_long = service.getLong(dest_num);
+		double dest_lat = service.getLat(dest_num);
+		String dest_name = service.dest_name(dest_num);
+		logger.info("경도 : " + dest_long);
+		logger.info("위도 : " + dest_lat);
+		logger.info("이름 : " + dest_name);
+		mav.addObject("dest_long", dest_long);
+		mav.addObject("dest_lat", dest_lat);
+		mav.addObject("dest_name", dest_name);
 		mav.addObject("dest_bHit",dest_bHit);
 		mav.addObject("dest_rating",dest_rating);
 		mav.addObject("dest_num",dest_num);

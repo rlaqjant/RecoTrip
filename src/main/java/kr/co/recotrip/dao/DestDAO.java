@@ -35,4 +35,10 @@ public interface DestDAO {
 
 	ArrayList<SearchDTO> noResultReco(String where);
 
+	double getLong(String dest_num);
+
+	double getLat(String dest_num);
+
+	String getName(String dest_num);
+
 }
