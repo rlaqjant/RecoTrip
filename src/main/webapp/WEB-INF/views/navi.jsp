@@ -8,61 +8,118 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style>
-				body{
+			body{
 				overflow-x:hidden;
 				overflow-y:auto;  
 			}
-			#navbarTogglerDemo01{
+			#navbarbar{
+				height: 73px;
+				background-color: lightgrey;
+			}
+			#navbar{
 				left: 8%;
    				position: absolute;
+   				top:2%;
 			}
-			#big{
-				height: 73px;
+			#navbar ul{
+			    position: absolute;
+			    width: 1313px;
+			    left: 155%;
+			    top: -2%;
 			}
-			#navbarTogglerDemo01 ul{
-				margin-left:80px;
-			}
-			#navbarTogglerDemo01 ul li{
+			#navbar ul li{
 				margin-right:97px;
 				font-size: 18px;
+				float:left;
+				list-style-type: none;
 			}
 			#brand{
 			    font-size: 33px;
 			    height: 48px;
 			    margin-bottom: 19px;
 			}
+			#brand a,#navbar ul li a{
+			    text-decoration: none;
+				color:black;
+			}
+			#navbar ul li a:hover{
+			    font-weight: 600;
+			}
+			#login{
+			    position: absolute;
+			    right: 14%;
+			    top: 3%;
+			    text-decoration: none;
+			    color: white;
+			    background-color: black;
+			    border-radius: 12px;
+			    width: 98px;
+			    height: 34px;
+			    font-size: 17px;
+			    text-align: center;
+		        line-height: 31px;
+
+		    }
+			#join{
+			    position: absolute;
+			    right: 8%;
+			    top: 3%;
+			    text-decoration: none;
+			    color: white;
+			    background-color: black;
+			    border-radius: 12px;
+			    width: 98px;
+			    height: 34px;
+			    font-size: 17px;
+			    text-align: center;
+		        line-height: 31px;
+			}
+
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="big">
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-	    <a class="navbar-brand" id="brand" href="./">Recotrip</a>
-	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="tdList">여행일기 <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="./">나만의 여행지 찾기 <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="mypage">마이페이지 <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="ask_list">건의함 <span class="sr-only">(current)</span></a>
-	      </li>
+	<nav class="navbar-light bg-light" id="navbarbar">
+
+	  <div id="navbar">
+	    <div id="brand" ><a href="./">Recotrip</a></div>
+	    <ul>
+	      <li class="list"><a href="tdList">여행일기</a></li>
+	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
+	      <li class="list"><a href="mypage">마이페이지</a></li>
+	      <li class="list"><a href="ask_list">건의함</a></li>
 	    </ul>
 	  </div>
+	  <a href="" id="login"></a>
+	  <a href="joinForm" id="join">회원가입</a>
 	</nav>
-	<a href=""></div>
+	
 	
 </body>
 <script>
+	var loginId ="${sessionScope.loginId}";
+
+	if(loginId != ""){
+		$("#login").prop("href", "logout");
+		$("#login").text("로그아웃");
+	}else{
+		$("#login").prop("href", "loginPage");
+		$("#login").text("로그인");
+	}
+	
+	$("#login").hover(function(){
+		$(this).css("box-shadow","4px -3px 3px grey");
+	},function(){
+		$(this).css("box-shadow","none");
+	});
+	
+	$("#join").hover(function(){
+		$(this).css("box-shadow","4px -3px 3px grey");
+	},function(){
+		$(this).css("box-shadow","none");
+	});
 
 </script>
 </html>

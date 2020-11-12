@@ -7,8 +7,12 @@
 		<title>Insert title here</title>
 		<style></style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
+	
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
+	<div></div>
+
 		<h1>리코트립에 오신걸 환영합니다.</h1>
 		<a href="tdList">여행일기</a>
 		<a href="loginPage">로그인</a>
