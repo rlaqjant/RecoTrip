@@ -19,6 +19,7 @@
 		</c:if>
 	<a href="toSearch">여행지 검색</a>
 	<a href="ask_list">건의함 리스트 보기</a>
+	<a href="adminMain">관리자 페이지</a>
 	</body>
 <script>
 	var msg = "${msg}";
