@@ -6,9 +6,10 @@
     <head>
         <title>travel diary</title>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
         <style>
             #title{
-                background-color: lightcoral;
+            	border: 1px solid black;
                 width: 800px;
                 height: 80px;
                 text-align: center;
@@ -20,9 +21,10 @@
                 margin: 5px;   
             }
             .photo{
-                width: 400px;
+            	border: 1px solid black;
+                width: 800px;
                 height: 400px;
-                background-color: lightcoral;
+                background-color: white;
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
@@ -38,15 +40,15 @@
             #textBox{
                 width: 400px;
                 height: 400px;
-                background-color: lightcoral;
+                background-color: white;
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
             }
             .prologue{
                 width: 800px;
-                height: 800px;
-                background-color:lightcoral;
+                height: 500px;
+                background-color: white;
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
@@ -54,7 +56,7 @@
             .hashtag{
                 width: 400px;
                 height: 50px;
-                background-color:lightcoral;
+                background-color: white;
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
@@ -76,6 +78,7 @@
             .app button{
                 text-align: center;
             }
+            
             #save{
             	position: fixed;
             	top: 94%;
@@ -95,55 +98,58 @@
                 position: relative;
                 left: 70%;
                 margin: 10px;
-                border: 1px solid lightcoral; 
+                border: 1px solid black; 
+                border-radius: 10px;
                 background-color: rgba(0,0,0,0); 
-                color: lightcoral; 
+                color: black; 
                 padding: 5px; 
             }
             .group select:hover{ 
-                color:white; background-color: lightcoral; 
+                color:white; 
+                background-color: black; 
             }
             #editable0{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
 			}
 			#editable1{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
 			}
 			#editable2{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
 			}
 			#editable3{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
 			}
 			#editable4{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
 			}
             #editable5{
-			text-align: left;
-			width: 100%;
-			height: 500px;
-			border: 1px solid gray;
-			overflow: auto;
+				text-align: left;
+				width: 100%;
+				height: 300px;
+				overflow: auto;
+			}
+			img {
+				max-width: 400px;
+				max-height: 400px;
+			}
+			h2{
+				text-align: center;
 			}
             
         </style>
@@ -172,6 +178,7 @@
                 </div>
             </tr>
             <tr>
+            	<h2>Profile</h2>
                 <div class="photo">
                 	<div id="editable0" contenteditable="true"></div>
 					<input id="content0" type="hidden" name="content0" value=""/>
@@ -226,7 +233,6 @@
            $(".app").append("<div class='del"+i+"'><table class='app1'>"+
                    "<tr>"+
                        "<div class='prologue'>"+
-                           "<h2>Prologue</h2>"+
                            "<div class='photo'>"+
                            	"<div id='editable"+a+"' contenteditable='true'></div>"+
                                "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
@@ -299,10 +305,10 @@
 		}
 		
 		
-		/*
 		var filePath = "${path}";//업로드 후 반환되는 업로드 경로
 		console.log(filePath);
 		
+		/*
 
 		
 		$(".fileup").click(function(){
@@ -330,7 +336,11 @@
 		
 		//파일 삭제 버튼 메서드
 		function del(elem){
-			console.log(elem);
+			//console.log(elem);
+			var file = $(elem).prevAll();
+			console.log(file);
+			//var name= file[0]
+			
 			var fileName = elem.id.split("/")[1];
 			$.ajax({
 				url:'tdFileDelete',

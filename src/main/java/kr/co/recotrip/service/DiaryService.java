@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.dao.DiaryDAO;
 import kr.co.recotrip.dto.DiaryDTO;
+import kr.co.recotrip.dto.PagingVO;
 
 @Service
 public class DiaryService {
@@ -33,7 +34,20 @@ public class DiaryService {
 	@Value("#{config['Globals.root']}") String root;
 	private String fullpath = null;
 	
-	public ModelAndView tdList() {
+	public ArrayList<DiaryDTO> tdList(PagingVO vo) {
+		
+		//ModelAndView mav =new ModelAndView();
+
+		//ArrayList<DiaryDTO> diaryList = dao.tdList(vo);
+		
+		//mav.addObject("diaryList",diaryList);
+		//logger.info("diaryList : {}",diaryList);
+		
+		
+		return dao.tdList(vo);
+	}
+	/*
+	public ModelAndView tdListP(PagingVO vo, String diary_number) {
 		
 		ModelAndView mav =new ModelAndView();
 
@@ -45,6 +59,7 @@ public class DiaryService {
 		
 		return mav;
 	}
+	*/
 
 	public ModelAndView tdDetail(String idx) {
 		
@@ -59,8 +74,9 @@ public class DiaryService {
 	}
 
 	@Transactional
-	public ModelAndView tdWrite(HashMap<String, String> params, HttpSession session) {
+	public ModelAndView tdWrite(HashMap<String, String> params, HttpSession session, RedirectAttributes rAttr) {
 		ModelAndView mav = new ModelAndView();
+		String msg = "글쓰기 실패";
 		String page = "redirect:/tdWriteForm";
 		DiaryDTO bean = new DiaryDTO();
 		
@@ -160,7 +176,8 @@ public class DiaryService {
 					dao.fileWrite(idx, (String)fileList.get(key), key);
 				}
 			}
-			page = "redirect:/tdDetail?idx="+idx;//등록된 상세 페이지로 이동
+			page = "redirect:/tdList";//등록된 상세 페이지로 이동
+			msg = "글쓰기 성공";
 		}else {
 			//세션의 fileList에 저장된 모든 파일 삭제
 			for (String fileName : fileList.keySet()) {
@@ -171,6 +188,7 @@ public class DiaryService {
 			
 		}
 		session.removeAttribute("fileList");
+		rAttr.addFlashAttribute("msg", msg);
 		mav.setViewName(page);
 			
 		return mav;
@@ -281,6 +299,144 @@ public class DiaryService {
 		mav.setViewName(page);
 		
 		return mav;
+	}
+
+	@Transactional
+	public ModelAndView tdUpdate(HashMap<String, String> params, RedirectAttributes rAttr, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		// 만약 -- 글 수정이 성공했다면 
+		// 진행 ->
+		// 업로드 파일이 있다면 -> insert
+		// 지울 파일이 있다면 -> delete
+		// transaction
+		// 2개의 if? if 안에 if
+		// ㅇ
+		//dao.tdUpdate(params,rAttr,session);
+		
+		String msg = "글쓰기 실패";
+		String page = "redirect:/tdWriteForm";
+
+		HashMap<String, Object> fileList = (HashMap<String, Object>) session.getAttribute("fileList");
+		logger.info("fileList : " + fileList);
+		int count = params.size();
+		logger.info("혼좀나자 : " +count);
+		logger.info("fileList : " +fileList.size());
+		logger.info("params : " + params);
+		logger.info("idx : " + params.get("idx"));
+		// params.get("idx") 
+		//int diary_number = Integer.parseInt(params.get("idx"));
+		
+		
+		
+		int suc = 0;
+		
+		switch(count) {
+		case 7:
+			suc = dao.tdUpdate(params);
+			logger.info("여기 들어와1?");
+			break;
+		case 8:
+			suc = dao.tdUpdate2(params);
+			logger.info("여기 들어와2?");
+			break;
+		case 9:
+			suc = dao.tdUpdate3(params);
+			logger.info("여기 들어와3?");
+			break;
+		case 10:
+			suc = dao.tdUpdate4(params);
+			logger.info("여기 들어와4?");
+			break;
+		case 11:
+			suc = dao.tdUpdate5(params);
+			logger.info("여기 들어와5?");
+			break;
+		}
+		
+		if(suc>0) {
+			//generateKey를 사용하였기 때문에 쿼리 실행 완료 후 빈(DTO)에 idx값이 생긴다.
+			//2.photo 테이블에파일이 소속된 idx, 원본파일명, 새 파일명 넣기
+			int size=fileList.size();
+			logger.info("저장할 파일 수 : "+size);
+			if(size>0) {//업로드한 파일이 있다면
+				int idx = Integer.parseInt(params.get("idx"));
+				for (String key : fileList.keySet()) {
+					//idx, oriFileName, newFileName
+					dao.fileWrite(idx, (String)fileList.get(key), key);
+				}
+			}
+			page = "redirect:/tdList";//등록된 상세 페이지로 이동
+			msg = "글 수정 성공";
+		}else {
+			//세션의 fileList에 저장된 모든 파일 삭제
+			for (String fileName : fileList.keySet()) {
+				File file = new File(root+"/upload/"+fileName);
+				boolean sucdel = file.delete();
+				logger.info(fileName+" 삭제 결과 : "+sucdel);
+			}
+			
+		}
+		HashMap<String, Object> delFileList = (HashMap<String, Object>) session.getAttribute("delFileList");
+		logger.info("delFileList : "+ delFileList);
+		if(delFileList != null) {
+			for (String key : delFileList.keySet()) {
+				logger.info("삭제할 newf 값 :" + delFileList.get(key));
+				dao.delPhoto((String)delFileList.get(key));
+			}
+			
+		}
+		session.removeAttribute("fileList");
+		session.removeAttribute("delFileList");
+		rAttr.addFlashAttribute("msg", msg);
+		mav.setViewName(page);
+			
+		return mav;
+		
+	}
+
+	public HashMap<String, Object> delFileDelete(String delfileName, HttpSession session) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		int success = 0;
+		
+		//1. session에서 fileList가져오기
+		HashMap<String, String> delfileList = (HashMap<String, String>) session.getAttribute("delFileList");
+		
+		//2. 실제 파일 삭제하기
+		String delPath = root+"/upload/"+delfileName;
+		logger.info("수정 지울 파일 경로 : {}",delPath);
+		File file = new File(delPath);
+		if(file.exists()) {//파일이 존재할 경우
+			if(file.delete()) {//삭제 처리 후 성공하면
+				success = 1;//1로 변경
+			}
+			logger.info("파일이 있을 경우 로거");
+		}else {
+			logger.info("수정 이미 삭제된 상황");
+			success = 1;
+		}
+		logger.info("파일 삭제 후 로거");
+		//3. fileList에서 삭제한 파일을 리스트에 넣기
+		if(success==1) {
+			delfileList.put(delfileName, delfileName);
+		}
+		
+		/*
+		if(delfileList.get(delPath) != null) {//파일명이 리스트에 존재하면
+			delfileList.remove(delPath);//지운다.
+			logger.info("수정 삭제 후 남은 파일 갯수 : "+delfileList.size());
+		}
+		*/
+		//4. session에 fileList넣기
+		session.setAttribute("delfileList", delfileList);
+		logger.info("delfile : "+delfileList);
+		//5. 성공 여부 변경하기
+		
+		result.put("success", success);
+		return result;
+	}
+
+	public int countBoard() {
+		return dao.countBoard();
 	}
 
 }

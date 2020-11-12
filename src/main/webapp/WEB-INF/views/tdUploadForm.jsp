@@ -13,6 +13,7 @@
    		<form id="fileUpload" action="tdFileUpload" method="post" enctype="multipart/form-data">
 			<input type="file" name="file" onchange="fileView(this)">
 			<input type="text" id="num" name="value" value="${value }">
+
 		</form>
    </body>
    <script>
