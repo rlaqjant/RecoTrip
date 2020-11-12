@@ -127,6 +127,7 @@ public class DiaryController {
 		//HashMap<String, Object> delFileName = session.setAttribute("delFileName", delFileName);
 		
 		ModelAndView mav = service.tdDetail(idx);
+		mav.addObject("tdIdx",idx);
 		mav.setViewName("tdDetail");
 		
 		return mav;

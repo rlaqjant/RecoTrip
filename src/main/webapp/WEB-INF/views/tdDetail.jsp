@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix ="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -83,6 +84,7 @@
             #delete,#update{
             	display: block;
             }
+
             .group{
             	display: none;
             }
@@ -96,7 +98,38 @@
 			}
 
 
-
+			.comment{
+			    position: relative;
+			    left: 20%;
+			    height: 65px;
+			    width: 80%;
+			    top: 138%;
+			}
+			.con{
+				width:60%;
+				height: 30px;
+			}
+			.commentList{
+				position:relative;
+				left:20%;
+		    	width: 51%;
+		    	top:146%;
+		    	height: 432px;
+			}
+			.btnt{
+			    width: 41px;
+			    height: 43px;
+			    position: absolute;
+			    top: 18px;
+			    right: 36%;
+			}
+			#reply{
+				position:absolute;
+				top:0%;
+			}
+			[name=commentForm]{
+				margin-top: 4px;
+			}
         </style>
     </head>
     <body>
@@ -186,6 +219,26 @@
   	 	   
            <div id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></div>
            <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+           
+           <!-- 댓글 -->
+           
+           <div class="comment">
+              <label for="content">&nbsp;댓글 : [ <span name="count"></span> ]</label>
+              <br/>
+              <form name="commentForm">
+                     <input type="hidden" name="tdIdx" value="${tdIdx}"/>
+                     <input type="hidden" name="loginId" value="${sessionScope.loginId}"/>
+                     <input type="text" class="con" id="content" name="comment" placeholder="댓글을 입력하세요.">
+                          <button class="btnt" type="button" name="commentBtn">등록</button>
+              </form>
+          </div>
+            
+          <div class="commentList">
+           
+          </div>
+          
+
+            <%@ include file="diaryReply.jsp" %>
     </body>
     <script>
     

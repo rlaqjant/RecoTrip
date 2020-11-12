@@ -1,5 +1,6 @@
 package kr.co.recotrip.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.recotrip.dto.SearchDTO;
 import kr.co.recotrip.service.DestService;
 
 @Controller
@@ -27,11 +29,25 @@ public class DestController {
 		return "search";
 	}
 	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "index";
+	}
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView search(@RequestParam HashMap<String, String> params) {
 		logger.info("검색 파라미터 {}",params);
+		ModelAndView mav = new ModelAndView();
+		ArrayList<SearchDTO> list = service.search(params);
 		
-		return service.search(params);
+		if(!list.isEmpty()) {
+			mav.addObject("list", list);
+		}else {
+			mav.addObject("msg", "검색결과가 없습니다.");
+		}
+		
+		mav.setViewName("searchResult");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/toDestDetail", method = RequestMethod.GET)
@@ -51,4 +67,17 @@ public class DestController {
 	public @ResponseBody Object destDetail(@RequestParam String dest_num) {
 		return service.destDetail(dest_num);
 	}
+	
+	@RequestMapping(value = "/reco", method = RequestMethod.POST)
+	public ModelAndView reco(@RequestParam int whoNum, @RequestParam int whatNum,  @RequestParam int whereNum) {
+		String[] whoP = {"couple", "family", "freind", "alone"};
+		String[] whatP = {"leports", "culture", "tour", "healing"};
+		String[] whereP = {"서울특별시", "인천광역시", "대전광역시", "대구광역시", "광주광역시", "부산광역시", "울산광역시", "제주도", "경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도"};
+		String who = whoP[whoNum];
+		String what = whatP[whatNum];
+		String where = whereP[whereNum];
+		logger.info("누구랑 : "+who+", 뭘 : "+what+", 어디로 : "+where);
+		return service.reco(who, what, where);
+	}
 }
+

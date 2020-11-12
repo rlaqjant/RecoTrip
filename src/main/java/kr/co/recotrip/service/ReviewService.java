@@ -25,9 +25,16 @@ public class ReviewService {
 	}
 	
 	@Transactional(isolation = Isolation.READ_COMMITTED)
-	public int reviewwrite(String user,String review,String score, String dest_num) {
-		int success = dao.reviewwrite(user,review, dest_num);
-		dao.rating(user,score,dest_num);
+	public int reviewwrite(String userid,String review,String score, String dest_num) {
+		int success=0;
+		int result = dao.over(userid,dest_num);
+		
+		if(result >= 1) {
+			success = 0;
+		}else {
+			success = dao.reviewwrite(userid,review, dest_num);
+			dao.rating(userid,score,dest_num);
+		}
 		logger.info("성공? : "+success);
 		return success;
 	}
@@ -36,6 +43,7 @@ public class ReviewService {
 		logger.info("수정 성공? :"+success);
 		return success;
 	}
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public int reviewdelete(String reNum, String userid, String dest_num) {
 		dao.ratingDelete(userid,dest_num);
 		int success = dao.reviewdelete(reNum);

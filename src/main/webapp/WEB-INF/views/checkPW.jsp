@@ -29,7 +29,7 @@
 		</style>
 	</head>
 	<body>
-	<form action="checkPW">
+	<form action="checkPW" method="post">
 		<h1>비밀번호 체크 페이지</h1>
         <hr/>
         <div class="check">

@@ -14,12 +14,16 @@
                 background-color: burlywood;
                 position: absolute;
                 top: 4%;
-                left: 43%;
+                left: 36%;
+            }
+            .logo img{
+                width: 240px;
+                height: 168px;
             }
             .search{
                 width: 56%;
                 height: 60px;
-                background-color: burlywood;
+                background-color: white;
                 position: absolute;
                 top: 27%;
                 left: 15%;
@@ -27,7 +31,7 @@
             .vedio{
                 width: 56%;
                 height: 670px;
-                background-color: burlywood;
+                
                 position: absolute;
                 top: 39%;
                 left: 15%;
@@ -56,45 +60,50 @@
             .login{
                 width: 173px;
                 height: 48px;
-                background-color: burlywood;
+                background-color: white;
+                border: 2px solid #9fd4f8;
                 position: absolute;
-                top: 5%;
+                top: 8%;
                 left: 74%;
                 text-align: center;
                 line-height: 40px;
                 border-radius: 10px;
+                
             }
             .join{
                 width: 139px;
                 height: 48px;
-                background-color: burlywood;
+                background-color: white;
+                border: 2px solid #9fd4f8;
                 position: absolute;
-                top: 5%;
-                left: 84%;
+                top: 8%;
+                left: 85.7%;
                 text-align: center;
                 line-height: 40px;
                 border-radius: 10px;
             }
             .mypage{
-                width: 330px;
-                height: 52px;
-                background-color: burlywood;
+                width: 320px;
+                height: 47px;
+                background-color: white;
+                border: 2px solid #9fd4f8;
                 position: absolute;
-                top: 11%;
+                top: 15%;
                 left: 74%;
                 text-align: center;
                 line-height: 40px;
                 border-radius: 10px;
             }
             #search2{
-                width: 91px;
-                height: 65px;
-                position: absolute;
+                width: 70px;
+                height: 56px;
+                position: relative;
                 top: -3%;
                 right: 3%;
             }
             #look{
                 position: absolute;
+                border-color: #59b1eb;
                 top: 10%;
                 left: 3%;
                 width: 84%;
@@ -116,17 +125,18 @@
             body{
                 margin: 0;
                 padding: 0;
-                background: #34495e;
+                background:white;
                 }
                 .slidershow{
-                width: 100%;
-                height: 800px;
+                width: 70%;
+                height: 710px;
                 overflow: hidden;
+                
                 }
                 .middle{
                 position: absolute;
                 top: 200%;
-                left: 50%;
+                left: 46%;
                 transform: translate(-50%,-50%);
                 }
                 .navigation{
@@ -187,7 +197,7 @@
             *{margin:0; padding:0; list-style:none;}
             a{text-decoration:none; color:#666;}
             a:hover{color:#1bc1a3;}
-            body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
+            body, hmtl{background: white; font-family: 'Anton', sans-serif;}
 
             div.mainlow{
                 top: 1900px;
@@ -338,21 +348,42 @@
                 transition: all 0.3s cubic-bezier(1,.01,.32,1); 
             }
             /* 3.----------------------------------------------------------- */
+            .button {
+                border: 2px solid  rgb(197, 230, 250);
+                border-radius: 10%;
+                width: 64px;
+                height: 48px;
+                position: relative;
+                left: 740px;
+                top: 3px;
+            }
+            .button:hover {
+                background-color: #a7cef5;
+                border-color: #59b1eb;
+            }
 		</style>
 	</head>
 	<body>
-		<div class="logo">로고사진</div>
-        <div class="login">로그인/로그아웃</div>
-        <div class="join">회원가입</div>
-        <div class="mypage"><a href="mypage">마이페이지</a></div>
+		<div class="logo"><a href="Main"><img src="img/logo.png"></a></div>
+        <div class="login"><a href="login" style="padding: 13px 23px;">로그인/로그아웃</a> </div>
+        <div class="join"><a href="joinForm" style="padding: 13px 25px;">회원가입</a></div>
+        <div class="mypage"><a href="#" style="padding: 13px 70px;">마이페이지</a></div>
+        
         <div class="search">
             <input id="look" type="text" placeholder="제목,작성자,내용 검색하기"/>
-            <img id="search2" src="search.png"/>
+            <div class="button"><a href="#"><img id="search2" src="./img/search.png"/></a></div>
             <div class="searchbar">부산<br/>부평</div>
         </div>
         <div class="vedio">
-            영상
+            <iframe 
+            width="840px" 
+            height="670px" 
+            src="https://www.youtube.com/embed/B_X7n0AaLqA?autoplay=1&mute=1" 
+            frameborder="0" 
+            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
         </div>
+        
         <div class="sidebar">
             <div class="side">여행일기</div>
             <div class="side">나만의 여행지 찾기</div>
@@ -393,6 +424,7 @@
               <label for="r5" class="bar"></label>
             </div>
           </div>
+        
           <!--2. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <div class="mainlow">
         <h1>가을에 인기 있는 여행지 best 7</h1>

@@ -18,4 +18,8 @@
 		SELECT COUNT(id) FROM T2_MEMBER WHERE id = #{param1}
 	</select>
 	
+	<select id="overlay2" resultType="int">
+		SELECT COUNT(id) FROM T2_DEL_MEMBER WHERE id = #{param1}
+	</select>
+	
 </mapper>
