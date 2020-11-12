@@ -25,4 +25,15 @@ public interface DestDAO {
 
 	void upHit(String dest_num);
 
+	ArrayList<SearchDTO> leportsReco(String who, String where);
+
+	ArrayList<SearchDTO> cultureReco(String who, String where);
+
+	ArrayList<SearchDTO> tourReco(String who, String where);
+
+	ArrayList<SearchDTO> healingReco(String who, String where);
+
+	ArrayList<SearchDTO> noResultReco(String where);
+
+
 }

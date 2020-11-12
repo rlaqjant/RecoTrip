@@ -138,4 +138,33 @@ public class DestService {
 		return rating;
 	}
 
+
+	public ModelAndView reco(String who, String what, String where) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<SearchDTO> list = new ArrayList<SearchDTO>();
+		
+		String msg = "당신을 위한 여행지 추천";
+		if(what.equals("leports")) {
+			list = dao.leportsReco(who, where);
+		}else if (what.equals("culture")) {
+			list = dao.cultureReco(who, where);
+		}else if(what.equals("tour")) {
+			list = dao.tourReco(who, where);
+		}else {
+			list = dao.healingReco(who, where);
+		}
+		
+		if(list.isEmpty()) {
+			msg="이런! 마땅한 여행지가 없어요! "+where+"의 다른 여행지는 어떠신가요?";
+			list = dao.noResultReco(where);
+		}
+		
+		mav.addObject("list", list);
+		mav.addObject("msg", msg);
+		mav.setViewName("recoResult");
+		
+		return mav;
+	}
+
+
 }

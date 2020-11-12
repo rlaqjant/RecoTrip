@@ -18,7 +18,10 @@ public class HomeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		return "index";
+	}
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public String main(Model model) {
 		return "home";
 	}
-
 }
