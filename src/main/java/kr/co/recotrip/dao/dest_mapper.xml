@@ -96,6 +96,18 @@
             ORDER BY DBMS_RANDOM.VALUE) 
             where ROWNUM  BETWEEN 1 and 5;
  	</select>
+ 	
+ 	<select id="getLong" parameterType="String" resultType="double">
+ 		SELECT dest_long FROM T2_DEST_ADDR WHERE dest_num = #{param1}
+ 	</select>
+ 	
+ 	<select id="getLat" parameterType="String" resultType="double">
+ 		SELECT dest_lat FROM T2_DEST_ADDR WHERE dest_num = #{param1}
+ 	</select>
+ 	
+ 	<select id="getName" parameterType="String" resultType="String">
+ 		SELECT DEST_NAME FROM T2_DEST WHERE dest_num = #{param1}
+ 	</select>
 	
 </mapper>
 	
