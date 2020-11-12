@@ -27,4 +27,16 @@ public interface AdminDAO {
 
 	ArrayList<AdminDTO> memberSearch(String keyword);
 
+	ArrayList<HashMap<String, Object>> memberDtList(String id);
+
+	ArrayList<HashMap<String, Object>> memberReviewList(String id);
+
+	ArrayList<HashMap<String, Object>> memberReplyList(String id);
+
+	int adminTdDelete(String idx);
+
+	int adminCommentDelete(String idx);
+
+	int adminReviewdelete(String idx);
+
 }
