@@ -6,41 +6,47 @@
 <!-- 이 XML을 어떤 interface하고 연결할 것인가 -->
 <mapper namespace="kr.co.recotrip.dao.DestDAO">
 
-	<select id="destNameSearch" parameterType="hashMap" resultType="search">
+	<select id="destNameSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE d.dest_name LIKE '%'||#{search}||'%' and d.dest_category!='음식점' and d.dest_category!='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE d.dest_name LIKE '%'||#{param1}||'%' and d.dest_category!='음식점' and d.dest_category!='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
  	
- 	<select id="destAddrSearch" parameterType="hashMap" resultType="search">
+ 	<select id="destAddrSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE a.dest_detail_addr LIKE '%'||#{search}||'%' and d.dest_category!='음식점' and d.dest_category!='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE a.dest_detail_addr LIKE '%'||#{param1}||'%' and d.dest_category!='음식점' and d.dest_category!='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
  	
- 	<select id="restaurantNameSearch" parameterType="hashMap" resultType="search">
+ 	<select id="restaurantNameSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE d.dest_name LIKE '%'||#{search}||'%' and d.dest_category='음식점' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE d.dest_name LIKE '%'||#{param1}||'%' and d.dest_category='음식점' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
  	
- 	<select id="restaurantAddrSearch" parameterType="hashMap" resultType="search">
+ 	<select id="restaurantAddrSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE a.dest_detail_addr LIKE '%'||#{search}||'%' and d.dest_category='음식점' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE a.dest_detail_addr LIKE '%'||#{param1}||'%' and d.dest_category='음식점' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
  	
- 	<select id="accomNameSearch" parameterType="hashMap" resultType="search">
+ 	<select id="accomNameSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE d.dest_name LIKE '%'||#{search}||'%' and d.dest_category='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE d.dest_name LIKE '%'||#{param1}||'%' and d.dest_category='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
  	
- 	<select id="accomAddrSearch" parameterType="hashMap" resultType="search">
+ 	<select id="accomAddrSearch" parameterType="String" resultType="search">
  		SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
-    		WHERE a.dest_detail_addr LIKE '%'||#{search}||'%' and d.dest_category='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
+    		WHERE a.dest_detail_addr LIKE '%'||#{param1}||'%' and d.dest_category='숙박시설' ORDER BY TO_NUMBER(d.dest_bHit) DESC
  	</select>
+ 	
+ 	<select id="accomAddrSearchCount" resultType="int">
+		select count(*) from (SELECT d.dest_num, d.dest_name, a.dest_detail_addr, p.dest_pic_url FROM t2_dest d INNER JOIN t2_dest_addr a
+    		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
+    		WHERE a.dest_detail_addr LIKE '%'||#{param1}||'%' and d.dest_category='숙박시설')
+	</select>
  	
  	<update id="upHit">
 		UPDATE t2_dest SET dest_bHit = dest_bHit+1 WHERE dest_num=#{param1}
