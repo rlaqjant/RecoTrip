@@ -142,11 +142,12 @@ public class AdminService {
 	}
 
 	public ModelAndView adminReviewdelete(String idx, HttpSession session) {
-		int result = dao.adminReviewdelete(idx);
 		String id =(String) session.getAttribute("memberId");
+		int result = dao.adminReviewdelete(idx);
+		int result2 = dao.adminRatingDelete(idx,id);
 		ModelAndView mav = new ModelAndView();
 		String msg="삭제 실패";
-		if(result>0) {
+		if(result>0 && result2>0) {
 			msg="삭제 성공";
 		}
 		mav.addObject("msg",msg);

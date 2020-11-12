@@ -59,6 +59,9 @@
             #myDtList{position:absolute;display:block;}
             #myReplyList{position:absolute;display:none;}
             #myReviewList{position:absolute;display:none;}
+            #myAsk{
+            	position: relative;
+            }
         </style>
 	</head>
     <body>
@@ -117,7 +120,22 @@
     </div>
     
     <div id="myAsk">
-    
+    	<table>
+			<tr>
+				<th>글 번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<c:forEach items = "${myAskList}" var = "myAskList">
+				<tr>
+					<td>${myAskList.ASK_NUM}</td>
+					<td><a href = "./ask_detail?ask_num=${myAskList.ASK_NUM}">${myAskList.ASK_SUBJECT}</a></td>
+					<td>${myAskList.ID}</td>
+					<td>${myAskList.ASK_REG_DATE}</td>
+				</tr>
+			</c:forEach>
+		</table>
     </div>
     
     	

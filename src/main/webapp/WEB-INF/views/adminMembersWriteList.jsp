@@ -104,7 +104,7 @@
     		<table>
     			<c:forEach items="${memberReviewList}" var="memberReviewList">
 					<tr>
-						<td><a href="memberDestDetail?dest_num=${memberReviewList.DEST_NUM}">${memberReviewList.DEST_NAME}</a></td>
+						<td><a href="toDestDetail?dest_num=${memberReviewList.DEST_NUM}">${memberReviewList.DEST_NAME}</a></td>
 						<td>${memberReviewList.REVIEW_CONTENT}</td>
 						<td>${memberReviewList.RATING}</td>
 						<td><fmt:formatDate value="${memberReviewList.REVIEW_REG_DATA}" pattern="yyyy-MM-dd"/></tr>

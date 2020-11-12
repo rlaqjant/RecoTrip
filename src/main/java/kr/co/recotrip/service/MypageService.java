@@ -81,4 +81,8 @@ public class MypageService {
 		return mav;
 	}
 
+	public ArrayList<HashMap<String, Object>> myAskList(String id) {
+		return dao.myAskList(id);
+	}
+
 }

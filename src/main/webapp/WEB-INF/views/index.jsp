@@ -7,6 +7,10 @@
         <meta charset="utf-8">
         <title>POSITION</title>
         <style>
+       		body{
+				overflow-x:hidden;
+				overflow-y:auto;  
+			}
         	.indexPac{
         		position: relative;
                 width: 1895px;
@@ -402,7 +406,10 @@
     	if($("input[name=whoNum]").val() !="" && $("input[name=whatNum]").val()!="" && $("input[name=whereNum]").val()!=""){
     		$("#reco").submit();
     	}else{
-    		alert('누구랑 무엇을 하고싶은지 골라주세요!')
+    		alert('누구랑 무엇을 하고싶은지 골라주세요!');
+    		$('html, body').animate({
+                scrollTop:0
+            },500);
     	}
 	}
     

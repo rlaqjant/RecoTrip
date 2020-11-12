@@ -54,6 +54,7 @@ public class MypageController {
     	ArrayList<HashMap<String, Object>> myDtList = service. myDtList(id);
     	ArrayList<HashMap<String, Object>> myReviewList = service. myReviewList(id);
     	ArrayList<HashMap<String, Object>> myReplyList = service. myReplyList(id);
+    	ArrayList<HashMap<String, Object>> myAskList = service.myAskList(id);
     	//ArrayList<HashMap<String, Object>> myLikeList = service. myLikeList(id);
     	
     	ModelAndView mav = new ModelAndView();
@@ -63,6 +64,8 @@ public class MypageController {
     	mav.addObject("myReviewListCnt", myReviewList.size());
     	mav.addObject("myReplyList", myReplyList);
     	mav.addObject("myReplyListCnt", myReplyList.size());
+    	
+    	mav.addObject("myAskList", myAskList);
     	
     	mav.setViewName("mypage");
 		return mav;

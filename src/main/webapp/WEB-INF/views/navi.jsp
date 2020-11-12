@@ -74,7 +74,37 @@
 			    text-align: center;
 		        line-height: 31px;
 			}
-
+			/* 검색창~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+			.bo_w_select {
+			    width: 120px;
+			    padding: 10px;
+			    padding-left: 12px;
+			    border: 1px solid #ddd;
+			    background: url(resources/img/arrow_down_18dp.png) no-repeat right 50%;
+			    background-size: 30px;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+			    appearance: none;
+			    font-size: 15px;
+			    color: #000;
+			    outline:none;
+			}
+			.bo_w_select:hover {border: 1px solid #aaa;}
+			#searchInput{
+				height: 33px;
+				border: 1px solid #ddd;
+				font-size: 15px;
+				padding: 0px 5px;
+			}
+			#searchInput:focus{
+				outline:none;
+				border: 1px solid #aaa;
+			}
+			#searchBtn{
+				height: 34px;
+			}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	
@@ -88,12 +118,26 @@
 	    <ul>
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
-	      <li class="list"><a href="mypage">마이페이지</a></li>
 	      <li class="list"><a href="ask_list">건의함</a></li>
+	      <li class="list">
+			  <form action="search">
+				<select name="searchCatDetail" class="bo_w_select">
+					<option value="dest">여행지</option>
+					<option value="restaurant">음식점</option>
+					<option value="accom">숙박 시설</option>
+				</select>
+				<select name="searchCat" class="bo_w_select">
+					<option value="name">이름</option>
+					<option value="addr">주소</option>
+				</select>
+			    <input type="text"  id="searchInput" name="search" placeholder="검색" />
+			    <button id="searchBtn">검색</button>
+			</form>
+	      </li>
 	    </ul>
 	  </div>
 	  <a href="" id="login"></a>
-	  <a href="joinForm" id="join">회원가입</a>
+	  <a href="" id="join"></a>
 	</nav>
 	
 	
@@ -104,9 +148,13 @@
 	if(loginId != ""){
 		$("#login").prop("href", "logout");
 		$("#login").text("로그아웃");
+		$("#join").prop("href", "mypage");
+		$("#join").text("마이페이지");
 	}else{
 		$("#login").prop("href", "loginPage");
 		$("#login").text("로그인");
+		$("#join").prop("href", "joinForm");
+		$("#join").text("회원가입");
 	}
 	
 	$("#login").hover(function(){

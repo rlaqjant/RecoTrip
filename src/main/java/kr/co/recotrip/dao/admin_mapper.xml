@@ -69,11 +69,15 @@
 	</delete>
 	
 	<delete id="adminCommentDelete">
-		DELETE t2_diary_reply where reply_num=#{param1}
+		DELETE FROM t2_diary_reply where reply_num=#{param1}
 	</delete>
 	
 	<delete id="adminReviewdelete">
-		DELETE t2_review where review_num=#{param1}
+		DELETE FROM t2_review where review_num=#{param1}
+	</delete>
+	
+	<delete id="adminRatingDelete" parameterType="String">
+		DELETE FROM t2_rating WHERE id=#{param2} AND dest_num = (select dest_num from t2_review where review_num=#{param1})
 	</delete>
 	
 </mapper>

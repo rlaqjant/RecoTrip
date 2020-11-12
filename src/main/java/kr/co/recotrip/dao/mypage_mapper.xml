@@ -46,4 +46,8 @@
 		VALUES (t2_deleted_num_seq.NEXTVAL, #{param1}, SYSDATE, #{param2})
 	</insert>
 	
+	<select id="myAskList" resultType="hashmap">
+		SELECT * FROM t2_ASK WHERE id=#{param1} ORDER BY ask_num DESC
+	</select>
+	
 </mapper>

@@ -24,11 +24,6 @@ public class DestController {
 	
 	@Autowired DestService service;
 	
-	@RequestMapping(value = "/toSearch", method = RequestMethod.GET)
-	public String toSearch(Model model) {
-		return "search";
-	}
-	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Model model) {
 		return "index";

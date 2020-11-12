@@ -21,4 +21,6 @@ public interface MypageDAO {
 
 	int myPageMemberMove(String id, String reason);
 
+	ArrayList<HashMap<String, Object>> myAskList(String id);
+
 }

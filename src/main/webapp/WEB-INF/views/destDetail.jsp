@@ -7,10 +7,10 @@
 		<meta charset="UTF-8">
 		<title>여행지</title>
 		<style>
-			body{
+			/* body{
 				overflow-x:hidden;
 				overflow-y:auto;  
-			}
+			} */
 			#reviewFrame{
 				width: 91%;
 			    height: 951px;
@@ -116,11 +116,11 @@
 			
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b2ece4ff324f57593bb29240840ee43"></script>
 	</head>
 	<body>
 	<%@ include file="navi.jsp" %>
+	<div></div>
 	
 	<div class="all">
 		<div class="dest">
