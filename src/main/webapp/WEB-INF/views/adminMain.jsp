@@ -15,6 +15,7 @@
 		<a href="adminDeletedMember">삭제된 회원 관리</a>
 		<a href="">여행일기 관리</a>
 		<a href="">건의함 관리</a>
+		<a href=""></a>
 	</body>
 	<script>
 	</script>
