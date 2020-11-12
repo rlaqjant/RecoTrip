@@ -33,11 +33,11 @@ public class ReviewController {
 
 	@RequestMapping(value = "/reviewlist", method = RequestMethod.GET)
 	public ModelAndView reviewlist(PagingVO vo,Model model, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage,@RequestParam String dest_num) {
 		logger.info("댓글 리스트 불러오기");
 		ModelAndView mav = new ModelAndView();
 
-		int total = service.countBoard();
+		int total = service.countBoard(dest_num);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "5";
@@ -48,15 +48,16 @@ public class ReviewController {
 		}
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		mav.addObject("paging", vo);
-		mav.addObject("info", service.reviewlist(vo));
-		mav.setViewName("tripdetail");
+		mav.addObject("info", service.reviewlist(vo,dest_num));
+		mav.addObject("dest_num", dest_num);
+		mav.setViewName("destReview");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/reviewwrite", method = RequestMethod.GET)
-	public @ResponseBody int reviewwrite(@RequestParam String user, @RequestParam String review, @RequestParam String score) {
-		logger.info("아이디 : "+user+",후기 작성 : "+review);
-		return service.reviewwrite(user,review,score);
+	public @ResponseBody int reviewwrite(@RequestParam String userid, @RequestParam String review, @RequestParam String score, @RequestParam String dest_num) {
+		logger.info("아이디 : "+userid+",후기 작성 : "+review);
+		return service.reviewwrite(userid,review,score,dest_num);
 	}
 	
 	@RequestMapping(value = "/reviewupdate", method = RequestMethod.POST)
@@ -66,9 +67,10 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewdelete", method = RequestMethod.POST)
-	public @ResponseBody int reviewdelete(@RequestParam String reNum) {
+	public @ResponseBody int reviewdelete(@RequestParam String reNum,@RequestParam String userid,@RequestParam String dest_num) {
 		logger.info("삭제할 댓글 번호 : "+reNum);
-		return service.reviewdelete(reNum);
+		logger.info("삭제할 평점 아이디, 여행지 번호 : {}",userid+" / "+dest_num);
+		return service.reviewdelete(reNum,userid,dest_num);
 	}
 	
 }

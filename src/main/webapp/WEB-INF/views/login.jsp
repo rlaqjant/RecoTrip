@@ -7,32 +7,74 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
-			table, th, td{
-				border-collapse: collapse;
-				border: 1px solid black;
-				padding: 10px;
-			}
+			      body{
+			        margin: 0;
+			        padding: 0;
+			        font-family: sans-serif;
+			        background: #eceeee;
+			      }
+			      .box{
+			        width: 300px;
+			        padding: 40px;
+			        position: absolute;
+			        top: 50%;
+			        left: 50%;
+			        transform: translate(-50%,-50%);
+			        border-radius: 10%;
+			        border: 3px solid white;
+			        background:  #9fd4f8;
+			        text-align: center;
+			      }
+			      .box h1{
+			        color: white;
+			        text-transform: uppercase;
+			        font-weight: 500;
+			      }
+			      .box input[type = "text"],.box input[type = "password"]{
+			        border:0;
+			        background: none;
+			        display: block;
+			        margin: 20px auto;
+			        text-align: center;
+			        border: 2px solid #3498db;
+			        padding: 14px 10px;
+			        width: 200px;
+			        outline: none;
+			        color: white;
+			        border-radius: 24px;
+			        transition: 0.25s;
+			      }
+			      .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+			        width: 280px;
+			        border-color: #2ecc71;
+			      }
+			      .box input[type = "submit"]{
+			        border:0;
+			        background: none;
+			        display: block;
+			        margin: 20px auto;
+			        text-align: center;
+			        border: 2px solid #2ecc71;
+			        padding: 14px 40px;
+			        outline: none;
+			        color: white;
+			        border-radius: 24px;
+			        transition: 0.25s;
+			        cursor: pointer;
+			      }
+			      .box input[type = "submit"]:hover{
+			        background: #2ecc71;
+			      }
+
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>      
 	</head>
 	<body>
-		<form action="login" method="POST">
-			<table>
-				<tr>
-					<th>ID</th>
-					<td><input type="text" name="id"></td>
-				</tr>
-				<tr>
-					<th>PW</th>
-					<td><input type="password" name="pw"></td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align: center;">
-						<input type="submit" value="login">&nbsp;
-						<input type="button" value="회원가입" onclick="location.href='joinForm'">
-					</td>
-				</tr>
-			</table>
+		<form class="box" action="login" method="post">
+		  <h1>Login</h1>
+		  <input type="text" name="id" placeholder="Username">
+		  <input type="password" name="pw" placeholder="Password">
+		  <input type="submit" name="" value="Login">
 		</form>
 	</body>
 <script>
@@ -41,5 +83,11 @@
 		alert(msg);
 	}
 	console.log(msg);
+	/*
+	var loginId = "${sessionScope.id}";
+	console.log(loginId);
+	
+	if(loginId!="admin"){}else{location.href="adminmain";}
+	*/
 </script>
 </html>

@@ -20,7 +20,7 @@
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td><img src="${dto.dest_pic_url}" width="100px"/></td>
-					<td><a href="destDetail?dest_num=${dto.dest_num}">${dto.dest_name}</a></td>
+					<td><a href="toDestDetail?dest_num=${dto.dest_num}">${dto.dest_name}</a></td>
 					<td>${dto.dest_detail_addr}</td>
 				</tr>
 			</c:forEach>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix ="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,10 +77,41 @@
             .app button{
                 text-align: center;
             }
-
-
-
-
+            #delete,#update{
+            	display: block;
+            }
+			.comment{
+			    position: relative;
+			    left: 20%;
+			    height: 65px;
+			    width: 80%;
+			    top: 138%;
+			}
+			.con{
+				width:60%;
+				height: 30px;
+			}
+			.commentList{
+				position:relative;
+				left:20%;
+		    	width: 51%;
+		    	top:146%;
+		    	height: 432px;
+			}
+			.btnt{
+			    width: 41px;
+			    height: 43px;
+			    position: absolute;
+			    top: 18px;
+			    right: 36%;
+			}
+			#reply{
+				position:absolute;
+				top:0%;
+			}
+			[name=commentForm]{
+				margin-top: 4px;
+			}
         </style>
     </head>
     <body>
@@ -92,14 +124,8 @@
             </tr>
             <tr>
                 <div class="photo">
-                    <img src="#">
-                </div>
-            </tr>
-            <tr>
-                <div id="textBox">
-                    <div class="text" >
-    					${list.diary_main}
-                    </div>
+   					${list.diary_main}
+                
                 </div>
             </tr>
         </table>
@@ -107,17 +133,12 @@
                 <tr>
                     <div class="prologue">
                         <h2>Prologue</h2>
-                     
+                   
                         <div class="photo">
-                            <img src="#">
+   							${list.diary_content1}
                         </div>
                         <div class="hashtag"> #해시태그영역</div>
-                        <div class="photoEx">
-                            <div class="text">
-    							${list.diary_content1}
-                            </div>
-                        </div>
-
+                   
                     </div>
                 </tr>
             </table>
@@ -128,14 +149,9 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+	    							${list.diary_content2}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content2}
-	                            </div>
-	                        </div>
 	                    </div>
 	                </tr>
 	            </table>              
@@ -147,14 +163,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content3}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content3}
-	                            </div>
-	                        </div>
+	                   
 	                    </div>
 	                </tr>
 	            </table>              
@@ -166,14 +178,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content4}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content4}
-	                            </div>
-	                        </div>
+	       
 	                    </div>
 	                </tr>
 	            </table>              
@@ -183,23 +191,59 @@
 	                <tr>
 	                    <div class="prologue">
 	                        <h2>Prologue</h2>
-	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content5}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content5}
-	                            </div>
-	                        </div>
 	                    </div>
 	                </tr>
 	            </table>              
   	 	   </c:if>
   	 	   
            <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
+           <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+           
+           <!-- 댓글 -->
+           
+           <div class="comment">
+              <label for="content">&nbsp;댓글 : [ <span name="count"></span> ]</label>
+              <br/>
+              <form name="commentForm">
+                     <input type="hidden" name="tdIdx" value="${tdIdx}"/>
+                     <input type="hidden" name="loginId" value="${sessionScope.loginId}"/>
+                     <input type="text" class="con" id="content" name="comment" placeholder="댓글을 입력하세요.">
+                          <button class="btnt" type="button" name="commentBtn">등록</button>
+              </form>
+          </div>
+            
+          <div class="commentList">
+           
+          </div>
+          
+
+            <%@ include file="diaryReply.jsp" %>
     </body>
     <script>
+    var idx = "${idx}";
+    btn();
+    function btn() {
+    	$.ajax({
+			type:"get",
+			url:"tdButton",
+			data:{"idx":idx},
+			dataType:"JSON",
+			success:function(data){
+				if(data!=1){
+					$("#delete").css("display","none");
+					$("#update").css("display","none");
+				}
+			},
+			error:function(error){
+				console.log(error);
+			}
+			});
+		
+	}
+    
     </script>
 </html>

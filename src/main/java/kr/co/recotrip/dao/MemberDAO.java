@@ -1,6 +1,7 @@
 package kr.co.recotrip.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public interface MemberDAO {
 

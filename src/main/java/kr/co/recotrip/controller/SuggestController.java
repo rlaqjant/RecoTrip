@@ -32,18 +32,18 @@ public class SuggestController {
 	public ModelAndView ask_list(HttpSession session) {		
 		
 		logger.info("건의함 리스트 호출");		
-		//String id = (String) session.getAttribute("loginId");
-		String id = "test"; 
+		String id = (String) session.getAttribute("loginId");
+		//String id = "test"; 
 		
 		ModelAndView mav = null;
-		
-		//if(id != null) {
+		String msg = "";
+		if(id != null) {
 			mav = service.ask_list(id);
-		//}else {
-			//mav = new ModelAndView();
-			//mav.setViewName("/login");
-			//mav.addObject("msg", "로그인이 필요한 서비스 입니다.");
-		//}
+		}else {
+			mav = new ModelAndView();
+			mav.setViewName("/login");
+			mav.addObject("msg", "로그인이 필요한 서비스 입니다.");
+		}
 	
 		return mav;
 	}
@@ -55,8 +55,8 @@ public class SuggestController {
 	
 	@RequestMapping(value = "/ask_write", method = RequestMethod.POST)
 	public ModelAndView ask_write(@ModelAttribute SuggestDTO dto, HttpSession session) {
-		//String id = (String) session.getAttribute("loginId");
-		String id = "test"; 
+		String id = (String) session.getAttribute("loginId");
+		//String id = "test"; 
 		return service.ask_write(dto,id);
 		  }
 	

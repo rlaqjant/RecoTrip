@@ -20,6 +20,7 @@ public class MemberService {
 
 	public String login(String id, String pw) {
 		String result = dao.login(id, pw);
+		
 		return result;
 	}
 
@@ -55,5 +56,6 @@ public class MemberService {
 		map.put("overlay", success);
 		return map;
 	}
+
 
 }
