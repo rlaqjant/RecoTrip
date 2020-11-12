@@ -12,25 +12,101 @@
                 width: 1895px;
                 height: 930px;
         	}
-            #index3 div{
-            	float: left;
-            }
-            #where0{
-            	clear: left;
-            }
-            #where8{
-            	clear: left;
-            }
             .button{
-            position: relative;
-            width: 150px;
-            height: 90px;
-            border: 1px solid black;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            border-radius: 50%;
+            border: 4px solid rgb(246, 247, 248);
+            }
+            .btnCover{
+            position: absolute;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.3);
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 300px;
             }
             .button:hover{
             cursor:pointer;
-            border: 1px solid red;
+            border: 4px solid #d8fae6;
             }
+            /* -------------------------------------------------------------------------------------------------------- */
+            .who{
+                width: 49%;
+			    height: 114px;
+			    position: absolute;
+			    top: 100px;
+			    left: 100px;
+			    font-size: 78px;
+			    text-align: center;
+            }
+            #couple{background-image: url("resources/img/indexCouple.jpg");background-size: contain;background-repeat: no-repeat;left:200px;top:350px;}
+           #family{background-image: url("resources/img/indexFamily.jpg");background-size: cover;background-repeat: no-repeat;
+            background-position: -81px 12px;left:500px;top:300px;}
+           #freind{background-image: url("resources/img/indexFreind.jpg");background-size: cover;background-repeat: no-repeat;
+            background-position: -28px 1px;left:800px;top:500px;}
+           #alone{background-image: url("resources/img/indexAlone.jpg");background-size: contain;background-repeat: no-repeat;left: 870px;top:180px;}
+            /* -------------------------------------------------------------------------------------------------------- */
+            .what{
+                width: 49%;
+			    height: 114px;
+			    position: absolute;
+			    top: 100px;
+			    left: 100px;
+			    font-size: 78px;
+			    text-align: center;
+            }
+            #leports{background-image: url("resources/img/indexLeports.png");background-size: contain;background-repeat: no-repeat;left:200px;top:570px;}
+           #culture{background-image: url("resources/img/indexCulture.jpg");background-size: cover;background-repeat: no-repeat;
+            background-position: -81px 12px;left:450px;top:350px;}
+           #tour{background-image: url("resources/img/indexTour.PNG");background-size: cover;background-repeat: no-repeat;
+            background-position: -28px 1px;left:720px;top:550px;}
+           #healing{background-image: url("resources/img/indexHealing.jpg");background-size: contain;background-repeat: no-repeat;left: 820px;top:220px;}
+            /* -------------------------------------------------------------------------------------------------------- */
+             .where{
+                width: 49%;
+			    height: 114px;
+			    position: absolute;
+			    top: 60px;
+			    left: 100px;
+			    font-size: 78px;
+			    text-align: center;
+            }
+            .button2{
+            top:190px;
+            left: 215px;
+            margin:10px 10px 10px 10px;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            border-radius: 50%;
+            border: 4px solid rgb(246, 247, 248);
+            }
+            .btnCover2{
+            position: absolute;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255,255,255,0.3);
+            text-align: center;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 220px;
+            }
+            .button2:hover{
+            cursor:pointer;
+            border: 4px solid #d8fae6;
+            }
+             #index3 div{
+            	float: left;
+            }
+            #where0{clear: left;}#where4{clear: left;}#where8{clear: left;}#where12{clear: left;}
             /* -------------------------------------------------------------------------------------------------------- */
             #main{
                 width: 120px;
@@ -198,7 +274,6 @@
                 box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px 0px;
                 background-color: cornflowerblue;
             }
-           
         </style>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     </head>
@@ -206,10 +281,10 @@
         <div id="index1" class="indexPac">
             <div class="who">누구랑 가시나요?
             </div>
-            <div id="couple" class="button" onclick="withWho(0)">couple</div>
-            <div id="family" class="button" onclick="withWho(1)">family</div>
-            <div id="freind" class="button" onclick="withWho(2)">freind</div>
-            <div id="alone" class="button" onclick="withWho(3)">alone</div>
+            <div id="couple" class="button" onclick="withWho(0)"><div class="btnCover">couple</div></div>
+            <div id="family" class="button" onclick="withWho(1)"><div class="btnCover">family</div></div>
+            <div id="freind" class="button" onclick="withWho(2)"><div class="btnCover">freind</div></div>
+            <div id="alone" class="button" onclick="withWho(3)"><div class="btnCover">alone</div></div>
             
             
             <a href="main" id="main">
@@ -218,35 +293,34 @@
             </a>
             
         </div>
-        
         <div id="index2" class="indexPac">
             <div class="what">무엇을 하시나요?
             </div>
-            <div id="leports" class="button" onclick="what(0)">leports</div>
-            <div id="culture" class="button" onclick="what(1)">culture</div>
-            <div id="tour" class="button" onclick="what(2)">tour</div>
-            <div id="healing" class="button" onclick="what(3)">healing</div>
+            <div id="leports" class="button" onclick="what(0)"><div class="btnCover">leports</div></div>
+            <div id="culture" class="button" onclick="what(1)"><div class="btnCover">culture</div></div>
+            <div id="tour" class="button" onclick="what(2)"><div class="btnCover">tour</div></div>
+            <div id="healing" class="button" onclick="what(3)"><div class="btnCover">healing</div></div>
             
         </div>
         <div id="index3" class="indexPac">
         <div class="where">어디로 가시나요?
             </div>
-	        	<div id="where0" class="button" onclick="where(0)">서울특별시</div>
-	            <div id="where1" class="button" onclick="where(1)">인천광역시</div>
-	            <div id="where2" class="button" onclick="where(2)">대전광역시</div>
-	            <div id="where3" class="button" onclick="where(3)">대구광역시</div>
-	            <div id="where4" class="button" onclick="where(4)">광주광역시</div>
-	            <div id="where5" class="button" onclick="where(5)">부산광역시</div>
-	            <div id="where6" class="button" onclick="where(6)">울산광역시</div>
-	            <div id="where7" class="button" onclick="where(7)">제주도</div>
-	            <div id="where8" class="button" onclick="where(8)">경기도</div>
-	            <div id="where9" class="button" onclick="where(9)">강원도</div>
-	            <div id="where10" class="button" onclick="where(10)">충청북도</div>
-	            <div id="where11" class="button" onclick="where(11)">충청남도</div>
-	            <div id="where12" class="button" onclick="where(12)">경상북도</div>
-	            <div id="where13" class="button" onclick="where(13)">경상남도</div>
-	            <div id="where14" class="button" onclick="where(14)">전라북도</div>
-	            <div id="where15" class="button" onclick="where(15)">전라남도</div>
+	        	<div id="where0" class="button2" onclick="where(0)"><div class="btnCover2">서울특별시</div></div>
+	            <div id="where1" class="button2" onclick="where(1)"><div class="btnCover2">인천광역시</div></div>
+	            <div id="where2" class="button2" onclick="where(2)"><div class="btnCover2">대전광역시</div></div>
+	            <div id="where3" class="button2" onclick="where(3)"><div class="btnCover2">대구광역시</div></div>
+	            <div id="where4" class="button2" onclick="where(4)"><div class="btnCover2">광주광역시</div></div>
+	            <div id="where5" class="button2" onclick="where(5)"><div class="btnCover2">부산광역시</div></div>
+	            <div id="where6" class="button2" onclick="where(6)"><div class="btnCover2">울산광역시</div></div>
+	            <div id="where7" class="button2" onclick="where(7)"><div class="btnCover2">제주도</div></div>
+	            <div id="where8" class="button2" onclick="where(8)"><div class="btnCover2">경기도</div></div>
+	            <div id="where9" class="button2" onclick="where(9)"><div class="btnCover2">강원도</div></div>
+	            <div id="where10" class="button2" onclick="where(10)"><div class="btnCover2">충청북도</div></div>
+	            <div id="where11" class="button2" onclick="where(11)"><div class="btnCover2">충청남도</div></div>
+	            <div id="where12" class="button2" onclick="where(12)"><div class="btnCover2">경상북도</div></div>
+	            <div id="where13" class="button2" onclick="where(13)"><div class="btnCover2">경상남도</div></div>
+	            <div id="where14" class="button2" onclick="where(14)"><div class="btnCover2">전라북도</div></div>
+	            <div id="where15" class="button2" onclick="where(15)"><div class="btnCover2">전라남도</div></div>
         </div>
         <div id="index4" class="indexPac">
             <div class="intro">
@@ -269,7 +343,7 @@
             <img src="resources/img/강원도.jpg" class="korea3">
             <img src="resources/img/충청도.jpg" class="korea4">
             <img src="resources/img/전라도.jpg" class="korea5">
-            <a href="#"><img src="resources/img/경상도사진.jpg" class="korea6"></a>
+            <img src="resources/img/경상도사진.jpg" class="korea6">
             <img src="resources/img/제주도.jpg" class="korea7">
             </div>
         </div>
@@ -318,7 +392,7 @@
     	console.log(a);
     	$("input[name=whatNum]").val(a);
     	$('html, body').animate({
-            scrollTop:1800
+            scrollTop:1900
         },500);
 	}
     function where(a) {
@@ -331,6 +405,6 @@
     		alert('누구랑 무엇을 하고싶은지 골라주세요!')
     	}
 	}
-    	
+    
     </script>
 </html>

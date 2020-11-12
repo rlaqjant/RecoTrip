@@ -62,7 +62,7 @@
         </style>
 	</head>
     <body>
-    <button onclick="location.href='toMyPageIndexUp'">회원 정보 관리</button>
+    <button onclick="location.href='toMypageMemberUpdateForm'">회원 정보 관리</button>
     <h2>내가 작성한 글 목록</h2>
     <div id="myThings">
 	    <div id="myDtListBtn">
@@ -140,6 +140,11 @@
 		$("#myReviewList").css({"display": "block"});
     });
 
-    
+    var msg = "${msg}";
+	console.log(msg);
+	if(msg != "") {
+		alert(msg);
+	}
+
     </script>
 </html>

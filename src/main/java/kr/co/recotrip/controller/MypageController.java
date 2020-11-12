@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.service.MypageService;
 
@@ -29,13 +30,6 @@ public class MypageController {
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage(Model model, HttpSession session) {
 		return "checkPW";
-	}
-	
-	@RequestMapping(value = "/toMyPageIndexUp", method = RequestMethod.GET)
-	public String toMyIndexUp(Model model, HttpSession session) {
-		String id = (String) session.getAttribute("loginId");
-		model.addAttribute("id", id);
-		return "myPageIndexUp";
 	}
 	
     @RequestMapping(value = "/checkPW", method = RequestMethod.POST)
@@ -73,6 +67,24 @@ public class MypageController {
     	mav.setViewName("mypage");
 		return mav;
 	}
-	
+    
+    @RequestMapping(value = "/toMypageMemberUpdateForm", method = RequestMethod.GET)
+	public ModelAndView toMypageMemberUpdateForm(Model model, HttpSession session) {
+		String id = (String) session.getAttribute("loginId");
+		model.addAttribute("id", id);
+		return service.toMypageMemberUpdateForm(id);
+	}
+    
+    @RequestMapping(value = "/mypageMemberUpdate", method = RequestMethod.POST)
+	public ModelAndView mypageMemberUpdate(@RequestParam HashMap<String, String> params, RedirectAttributes rAttr) {
+		return service.mypageMemberUpdate(params, rAttr);
+	}
 
+    // 회원 삭제 처리
+ 	@RequestMapping(value = "/myPageMemberDel", method = RequestMethod.GET)
+ 	public ModelAndView myPageMemberDel(HttpSession session) {
+ 		String id = (String) session.getAttribute("loginId");
+ 		session.removeAttribute("loginId");
+ 		return service.myPageMemberDel(id);
+ 	}
 }
