@@ -11,7 +11,7 @@ public interface ReviewDAO {
 	
 	List<ReviewDTO> reviewlist(PagingVO vo, String dest_num);
 
-	int reviewwrite(String user,String review, String dest_num);
+	int reviewwrite(String userid,String review, String dest_num);
 
 	int reviewupdate(String reNum, String upcontent);
 
@@ -19,7 +19,7 @@ public interface ReviewDAO {
 	
 	void ratingDelete(String userid, String dest_num);
 
-	void rating(String user, String score, String dest_num);
+	void rating(String userid, String score, String dest_num);
 	
 	int countBoard(String dest_num);
 

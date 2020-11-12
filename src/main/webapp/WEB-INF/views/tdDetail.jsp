@@ -76,6 +76,9 @@
             .app button{
                 text-align: center;
             }
+            #delete,#update{
+            	display: block;
+            }
 
 
 
@@ -92,14 +95,8 @@
             </tr>
             <tr>
                 <div class="photo">
-                    <img src="#">
-                </div>
-            </tr>
-            <tr>
-                <div id="textBox">
-                    <div class="text" >
-    					${list.diary_main}
-                    </div>
+   					${list.diary_main}
+                
                 </div>
             </tr>
         </table>
@@ -107,17 +104,12 @@
                 <tr>
                     <div class="prologue">
                         <h2>Prologue</h2>
-                     
+                   
                         <div class="photo">
-                            <img src="#">
+   							${list.diary_content1}
                         </div>
                         <div class="hashtag"> #해시태그영역</div>
-                        <div class="photoEx">
-                            <div class="text">
-    							${list.diary_content1}
-                            </div>
-                        </div>
-
+                   
                     </div>
                 </tr>
             </table>
@@ -128,14 +120,9 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+	    							${list.diary_content2}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content2}
-	                            </div>
-	                        </div>
 	                    </div>
 	                </tr>
 	            </table>              
@@ -147,14 +134,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content3}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content3}
-	                            </div>
-	                        </div>
+	                   
 	                    </div>
 	                </tr>
 	            </table>              
@@ -166,14 +149,10 @@
 	                        <h2>Prologue</h2>
 	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content4}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content4}
-	                            </div>
-	                        </div>
+	       
 	                    </div>
 	                </tr>
 	            </table>              
@@ -183,23 +162,60 @@
 	                <tr>
 	                    <div class="prologue">
 	                        <h2>Prologue</h2>
-	                     
 	                        <div class="photo">
-	                            <img src="#">
+    							${list.diary_content5}
 	                        </div>
 	                        <div class="hashtag"> #해시태그영역</div>
-	                        <div class="photoEx">
-	                            <div class="text">
-	    							${list.diary_content5}
-	                            </div>
-	                        </div>
 	                    </div>
 	                </tr>
 	            </table>              
   	 	   </c:if>
   	 	   
            <div id="update"><input type="button" onclick="update()" value="수정하기"/></div>
+           <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+           
+           <div class="comment">
+              <label for="content">댓글 갯수 :</label>
+              <form name="commentForm">
+                  <div class="input">
+                     <input type="hidden" name="tdIdx" value="${tdIdx}"/>
+                     <input type="text" class="con" id="content" name="content" placeholder="내용을 입력하세요.">
+                     <span class="inputbtn">
+                          <button class="btnt" type="button" name="commentBtn">등록</button>
+                     </span>
+                    </div>
+              </form>
+          </div>
+            
+               <div class="comment"></div>
+           <div class="commentList">
+
+         </div>
+
+
+            <%@ include file="diaryReply.jsp" %>
     </body>
     <script>
+    var idx = "${idx}";
+    btn();
+    function btn() {
+    	$.ajax({
+			type:"get",
+			url:"tdButton",
+			data:{"idx":idx},
+			dataType:"JSON",
+			success:function(data){
+				if(data!=1){
+					$("#delete").css("display","none");
+					$("#update").css("display","none");
+				}
+			},
+			error:function(error){
+				console.log(error);
+			}
+			});
+		
+	}
+    
     </script>
 </html>

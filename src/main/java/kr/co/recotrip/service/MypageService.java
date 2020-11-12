@@ -1,6 +1,7 @@
 package kr.co.recotrip.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.recotrip.dao.MypageDAO;
 
-import kr.co.recotrip.dto.MypageDTO;
 
 
 @Service
@@ -18,30 +18,27 @@ public class MypageService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired MypageDAO dao;
-	
-	public ModelAndView mp_review(String id) {
-		ModelAndView mav = new ModelAndView();
-		
-		
-		ArrayList<MypageDTO>mp_review = dao.mp_review(id);
-		
-		mav.addObject("mp_review", mp_review);
-		
-		
-		return mav;
-		
-	}
 
 	public boolean checkPW(String id, String password) {
-		String checkID = dao.checkPW(id, password);
-		logger.info("pw :"+password);
-		logger.info("param : "+checkID);
+		String checkPW = dao.checkPW(id, password);
 		boolean result = false;
-		if(checkID.equals(password)) {
+		if(checkPW !=null) {
 			result = true;
-		}
+		}//비밀번호 틀리면 checkPW값 널
 		
 		return result;
+	}
+
+	public ArrayList<HashMap<String, Object>> myDtList(String id) {
+		return dao.myDtList(id);
+	}
+
+	public ArrayList<HashMap<String, Object>> myReviewList(String id) {
+		return dao.myReviewList(id);
+	}
+
+	public ArrayList<HashMap<String, Object>> myReplyList(String id) {
+		return dao.myReplyList(id);
 	}
 
 }

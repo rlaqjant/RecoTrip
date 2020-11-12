@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,31 +56,35 @@ public class DiaryController {
 		HashMap<String, String> fileList = new HashMap<String, String>();
 		session.setAttribute("fileList", fileList);
 		rAttr.addFlashAttribute("msg", msg);
+		mav.addObject("id", id);
 		mav.setViewName(page);
 		return mav;
 	}
 
 	@RequestMapping(value = "/tdWrite", method = RequestMethod.POST)
-	public String tdWrite(Model model, HttpSession session, @RequestParam HashMap<String,String> params) {
+	public ModelAndView tdWrite(HttpSession session, @RequestParam HashMap<String,String> params) {
 		logger.info("글쓰기" + params.size());
 		logger.info("params: {}",params);
-		
-		service.tdWrite(params);
-		return "redirect:/tdList";
+
+		return service.tdWrite(params,session);
 	}
 	
 	@RequestMapping(value = "/tdUploadForm", method = RequestMethod.GET)
-	public String tdUploadForm(Model model) {
-		
-		return "tdUploadForm";
+	public ModelAndView tdUploadForm(@RequestParam String value) {
+		logger.info("value : " + value);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("value", value);
+		mav.setViewName("tdUploadForm");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/tdFileUpload", method = RequestMethod.POST)
-	public ModelAndView tdFileUpload(MultipartFile file, HttpSession session) {
+	public ModelAndView tdFileUpload(MultipartFile file, HttpSession session,@RequestParam String value) {
 		logger.info("upload 요청");
-		
-		
-		return service.tdFileUpload(file,session);
+		logger.info("value 들어오나? {}",value);
+		logger.info("session : " + session);
+		session.getAttribute("fileList");
+		return service.tdFileUpload(file,session,value);
 	}
 	
 	//파일 삭제
@@ -95,11 +100,41 @@ public class DiaryController {
 	public ModelAndView tdDetail(Model model, @RequestParam String idx) {
 		logger.info("디테일요청");
 		logger.info("idx: {}",idx);
-
+		
 		ModelAndView mav = service.tdDetail(idx);
+		mav.addObject("tdIdx",idx);
 		mav.setViewName("tdDetail");
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/tdButton", method = RequestMethod.GET)
+	public @ResponseBody int tdButton(@RequestParam String idx, HttpSession session) {
+		logger.info("일기 삭제 버튼 확인");
+		logger.info("삭제할 일기 idx: {}",idx);
+		String loginId = (String) session.getAttribute("loginId");
+		logger.info("로그인 된 id : {}", loginId);
+		String id = service.tdButton(idx);
+		logger.info("글쓴이 id : {}", id);
+		
+		int result = 0;
+		
+		if(id.equals(loginId)) {
+			result = 1;
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/tdDelete", method = RequestMethod.GET)
+	public ModelAndView tdDelete(Model model, @RequestParam String idx, HttpSession session, RedirectAttributes rAttr) {
+		logger.info("일기 삭제 요청");
+		logger.info("삭제할 일기 idx: {}",idx);
+		
+		
+	
+		return service.tdDelete(idx, rAttr);
+	}
+	
 	
 }

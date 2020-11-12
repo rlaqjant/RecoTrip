@@ -103,6 +103,49 @@
             .group select:hover{ 
                 color:white; background-color: lightcoral; 
             }
+            #editable0{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+			#editable1{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+			#editable2{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+			#editable3{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+			#editable4{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+            #editable5{
+			text-align: left;
+			width: 100%;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+			}
+            
         </style>
     </head>
     <body>
@@ -125,24 +168,25 @@
                 <div id="title">
                     <input type="text" name="title" placeholder="TITLE"/></br></br>
                     <input type="text" name="date" placeholder="YYYY-MM-DD"/>
-                   	<input type="hidden" name="id" value="test"/>
+                   	<input type="hidden" name="id" value="${id}"/>
                 </div>
             </tr>
             <tr>
                 <div class="photo">
-                	<div id="editable" contenteditable="true"></div>
-					<input id="content" type="hidden" name="content" value=""/>
-                    <input class="fileUp" type="button" onclick="fileUp(this)" value="파일업로드"/>
+                	<div id="editable0" contenteditable="true"></div>
+					<input id="content0" type="hidden" name="content0" value=""/>
+                    <input class="fileUp" type="button" onclick="fileUp(this)" value="파일업로드0"/>
                 </div>
             </tr>
+            <!--  
             <tr>
                 <div id="textBox">
                     <textarea class="text" name="profile" >
-                    ${value }
+
                     </textarea>
                 </div>
-
             </tr>
+            -->
         </table>
            <table class="app">
                <tr>
@@ -150,13 +194,16 @@
                        <h2>Prologue</h2>
                        <div class="photo">
                             <div id="editable1" contenteditable="true"></div>
-                    		<input class="fileUp1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
+                    		<input class="fileUp1" name="content1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
+                    		<input id="content1" type="hidden" name="content1" value=""/>
                        </div>
                        <div class="hashtag" name="hashTag"> #해시태그영역</div>
+                       <!--  
                        <div class="photoEx">
                            <textarea class="text" name="photoEx1">
                            </textarea>
                        </div>
+                       -->
                    </div>
                </tr>
 
@@ -176,18 +223,33 @@
            if(i>3){
                 $("#plus").css("display", "none");
            }
+           $(".app").append("<div class='del"+i+"'><table class='app1'>"+
+                   "<tr>"+
+                       "<div class='prologue'>"+
+                           "<h2>Prologue</h2>"+
+                           "<div class='photo'>"+
+                           	"<div id='editable"+a+"' contenteditable='true'></div>"+
+                               "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
+                               "<input id='content"+a+"' type='hidden' name='content"+a+"' value=''/>"+
+                           "</div>"+
+                           "<div class='hashtag'> #해시태그영역</div>"+
+                          "</div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
+           
+           /*
             $(".app").append("<div class='del"+i+"'><table class='app1'>"+
                 "<tr>"+
                     "<div class='prologue'>"+
                         "<h2>Prologue</h2>"+
                         "<div class='photo'>"+
                         	"<div id='editable"+a+"' contenteditable='true'></div>"+
-                            "<input class='fileUp' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
+                            "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
+                            "<input id='content"+a+"' type='hidden' name='content"+a+"' value=''/>"+
                         "</div>"+
                         "<div class='hashtag'> #해시태그영역</div>"+
                         "<div class='photoEx'>"+
                             "<textarea class='text' name='photoEx"+a+"'>"+
                            "</textarea></div></div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
+           */
         }
 
         function remove(e){
@@ -199,16 +261,29 @@
                 $("#plus").css("display", "block");
             }
         }
-
-		function save(){
+        
+        function save(){
+       		$("#editable0 input[type='button']").remove();//버튼을 먼저 삭제해 주고
+       		$("#editable1 input[type='button']").remove();
+       		$("#editable2 input[type='button']").remove();
+       		$("#editable3 input[type='button']").remove();
+       		$("#editable4 input[type='button']").remove();
+       		$("#editable5 input[type='button']").remove();
+   			$("#content0").val($("#editable0").html());//div안의 내용을 input에 저장
+   			$("#content1").val($("#editable1").html());//div안의 내용을 input에 저장
+   			$("#content2").val($("#editable2").html());//div안의 내용을 input에 저장
+   			$("#content3").val($("#editable3").html());//div안의 내용을 input에 저장
+   			$("#content4").val($("#editable4").html());//div안의 내용을 input에 저장
+   			$("#content5").val($("#editable5").html());//div안의 내용을 input에 저장
 			$("form").submit();//서버에 전송
 		}
+		
 		
 		function fileUp(elem) {//파일 업로드 새창 띄우기
   	     	var myWin;
 			console.log(elem.value);
 			
-			if(elem.value == "파일업로드"){
+			if(elem.value == "파일업로드0"){
 				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드', 'width=400, height=100');
 			}else if(elem.value == "파일업로드1"){
 				myWin = window.open('tdUploadForm?value='+elem.value,'파일업로드1', 'width=400, height=100');

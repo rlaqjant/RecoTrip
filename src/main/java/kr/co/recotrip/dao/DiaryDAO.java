@@ -3,6 +3,8 @@ package kr.co.recotrip.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import kr.co.recotrip.dto.DiaryDTO;
 
 public interface DiaryDAO {
@@ -11,14 +13,24 @@ public interface DiaryDAO {
 
 	DiaryDTO tdDetail(String idx);
 
-	void tdWrite(HashMap<String, String> params);
+	int tdWrite(DiaryDTO bean);
 
-	void tdWrite2(HashMap<String, String> params);
+	int tdWrite2(DiaryDTO bean);
 
-	void tdWrite3(HashMap<String, String> params);
+	int tdWrite3(DiaryDTO bean);
 
-	void tdWrite4(HashMap<String, String> params);
+	int tdWrite4(DiaryDTO bean);
 
-	void tdWrite5(HashMap<String, String> params);
+	int tdWrite5(DiaryDTO bean);
+
+	void fileWrite(int idx, String string, String key);
+
+	String tdButton(String idx);
+
+	int tdPDelete(String idx);
+	
+	ArrayList<String> getDelFileName(String idx);
+
+	int tdDelete(String idx);
 
 }
