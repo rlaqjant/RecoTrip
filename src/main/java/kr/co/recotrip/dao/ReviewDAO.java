@@ -23,6 +23,8 @@ public interface ReviewDAO {
 	
 	int countBoard(String dest_num);
 
+	int over(String userid,String dest_num);
+
 
 
 }

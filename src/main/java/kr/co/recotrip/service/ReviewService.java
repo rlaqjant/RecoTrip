@@ -26,8 +26,15 @@ public class ReviewService {
 	
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public int reviewwrite(String userid,String review,String score, String dest_num) {
-		int success = dao.reviewwrite(userid,review, dest_num);
-		dao.rating(userid,score,dest_num);
+		int success=0;
+		int result = dao.over(userid,dest_num);
+		
+		if(result >= 1) {
+			success = 0;
+		}else {
+			success = dao.reviewwrite(userid,review, dest_num);
+			dao.rating(userid,score,dest_num);
+		}
 		logger.info("성공? : "+success);
 		return success;
 	}

@@ -9,13 +9,56 @@
 		<style>
 			#reviewFrame{
 				width: 100%;
-				height: 700px;
+			    height: 980px;
+			    position: absolute;
+			    top: 100%;
+			}
+			#title{
+			    width: 80%;
+			    height: 109px;
+			    font-size: 56px;
+			    text-align: center;
+			    line-height: 104px;
+			    position: absolute;
+			    left: 180px;
+	        	top: 4%;
+			}
+			#rating{
+			    width: 259px;
+			    height: 69px;
+			    font-size: 25px;
+			    text-align: center;
+			    line-height: 72px;
+			    position: absolute;
+			    left: 73%;
+			    top: 16%;
+			    text-decoration: underline;
+			}
+			#img{
+			    width: 69%;
+			    height: 637px;
+			    position: absolute;
+			    left: 14%;
+			    top: 25%;
+			}
+			.destimg{
+				width:100%;
+				height:100%;
+			}
+			#etc{
+			    width: 80%;
+			    height: 109px;
+			    font-size: 22px;
+			    text-align: center;
+			    position: absolute;
+			    left: 204px;
+			    top: 96%;
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
-	<h1 id="title"></h1> <h2 id="rating">평점 : ${dest_rating}</h2>
+	<div id="title"></div> <div id="rating">평점 : ${dest_rating}</div>
 	<div id="img"></div>
 	<div id="etc"></div>
 	<p>조회수 : ${dest_bHit}</p>
@@ -34,7 +77,7 @@
 					console.log(data);
 					var addr = "주소 : "+data.response.body.items.item.addr1; 
 					var title = ""+data.response.body.items.item.title; 
-					var img1 = "<img src='"+data.response.body.items.item.firstimage+"'/>"; 
+					var img1 = "<img class='destimg' src='"+data.response.body.items.item.firstimage+"'/>"; 
 					var url = "홈페이지 : "+data.response.body.items.item.homepage; 
 					var tel = "전화번호 : "+data.response.body.items.item.tel;
 					var overview = "정보 : "+data.response.body.items.item.overview;
@@ -45,7 +88,7 @@
 						title = "";
 					}
 					if(data.response.body.items.item.firstimage == null){
-						img1 = "사진 : <img src='https://tutaki.org.nz/wp-content/uploads/2019/04/no-image-1.png'/>";
+						img1 = "<img class='destimg' src='https://tutaki.org.nz/wp-content/uploads/2019/04/no-image-1.png'/>";
 					}//typeof data.response.body.items.item.homepage == "undefined" ||  data.response.body.items.item.homepage == ""
 					if(data.response.body.items.item.homepage == null){
 						url = "홈페이지 정보가 없습니다.";
@@ -69,7 +112,7 @@
 		
 		var dest_rating = ${dest_rating};
 		if(dest_rating==0){
-			$("#rating").html("평점이 없습니다. 평점을 등록해주세요")
+			$("#rating").html("평점이 없습니다.")
 		}else{
 			$("#rating").html("평점 : "+dest_rating);
 		}

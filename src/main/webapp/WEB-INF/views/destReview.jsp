@@ -83,7 +83,7 @@
             }
             .com{
                 position: absolute;
-			    width: 825px;
+			    width: 810px;
 			    height: 35px;
 			    top: 12%;
     			left: 190px;
@@ -211,10 +211,12 @@
 		                    <input class="reNum" type="hidden" name="reNum" value="${dto.review_num}"/>	
 			                <input class="com" name="upcontent" type="hidden" maxlength="50"/>
 			                <div id="change">
-				                <input type="button" class="update" value="수정"/>
-								<input type="button" class="sub" value="확인"/>
-								<input type="button" class="back" value="취소"/>
-		                		<input type="button" class="del" value="삭제"/>
+				                <c:if test="${sessionScope.loginId == dto.id}">
+				                	<input type="button" class="update" value="수정"/>
+									<input type="button" class="sub" value="확인"/>
+									<input type="button" class="back" value="취소"/>
+			                		<input type="button" class="del" value="삭제"/>
+				                </c:if>
 	               			</div>
 	           		</div>
 	            </div>
@@ -249,24 +251,17 @@
     			var dest_num = "${dest_num}";
     	
             	$(".update").click(function(){
-	        	    var userid = "${sessionScope.loginId}";
-	        	    var writer = $(this).parent().prev().prev().prev().prev().html();
-	        	    
-	            	if(userid == writer){
+
 		            	$(this).prop("type","hidden");
 		            	$(this).next().next().next().css("display","none");
 		            	$(this).next().css("display","block");
 		            	$(this).next().next().css("display","block");
-		            	
-		            	var reNum = $(this).parent().prev().prev().val();
-		            	console.log(reNum);
 		            	$(this).parent().prev().prop("type","text");
 		            	var content = $(this).parent().prev().prev().prev().html();
 		            	console.log(content);
 		            	$(this).parent().prev().val(content);
-		            }else{
-		            	alert("본인만 수정 가능합니다.");
-		            }
+
+
     			});
             	
             	$(".back").click(function(){
@@ -279,14 +274,9 @@
             	
            		$(".del").click(function(){
             		var userid = "${sessionScope.loginId}";
-            	    var writer = $(this).parent().prev().prev().prev().prev().html();
-            	    console.log(writer);
             	    var reNum = $(this).parent().prev().prev().val();
             	    console.log(userid, reNum, dest_num);
-	            	    if(userid != writer){
-	            	    	alert("본인만 삭제 가능합니다.");
-	            	    }
-	            	    else{
+
 	            	    	$.ajax({
 		    					type:"post",
 		    					url:"reviewdelete",
@@ -301,7 +291,7 @@
 		    						console.log(error);
 		    					}
 		    				});
-	            	    }
+	
             	});            	    
             		
            		$('#star a').click(function(){ 
@@ -335,6 +325,11 @@
 	    					success:function(data){
 	    						if(data==1){
 	    							parent.document.location.reload();
+	    						}else{
+	    							alert('후기는 한 번만 작성 가능합니다');
+	    							$('#co').val('');
+	    							$('#star a').parent().children("a").removeClass("on"); 
+	    	        				$('#score').html('0');
 	    						}
 	    					},
 	    					error:function(error){
@@ -347,6 +342,9 @@
            		$('.sub').click(function(){ 
                		var reNum = $(this).parent().prev().prev().val();
            			var upcontent = $(this).parent().prev().val();
+	            	if($(this).parent().prev().val()==""){
+	            		alert('한줄후기를 입력하세요.');
+	            	}else{
 	            		$.ajax({
 	    					type:"post",
 	    					url:"reviewupdate",
@@ -361,6 +359,7 @@
 	    						console.log(error);
 	    					}
 	    				});
+	            	}
            		});
 
 
