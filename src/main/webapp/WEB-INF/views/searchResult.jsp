@@ -36,7 +36,7 @@
 	var msg="${msg}";
 	if(msg!=""){
 		alert(msg);	
-		location.href="toSearch"
+		location.href="./"
 	}
 	</script>
 </html>

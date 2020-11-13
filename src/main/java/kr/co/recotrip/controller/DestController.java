@@ -38,7 +38,7 @@ public class DestController {
 		if(!list.isEmpty()) {
 			mav.addObject("list", list);
 		}else {
-			mav.addObject("msg", "검색결과가 없습니다.");
+			mav.addObject("msg", "검색결과가 없어요 여행지 추천을 받아보는건 어떨까요?");
 		}
 		
 		mav.setViewName("searchResult");

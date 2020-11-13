@@ -168,6 +168,5 @@
 	},function(){
 		$(this).css("box-shadow","none");
 	});
-
 </script>
 </html>

@@ -149,6 +149,7 @@
 				height: 60px;
 				top: 26px;
 				left:34px;
+				background-image :url('resources/img/heartEmpty.png');
 				background-size: 60px;
 				background-repeat: no-repeat;
 			}
