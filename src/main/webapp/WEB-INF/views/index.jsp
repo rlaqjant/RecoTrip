@@ -17,27 +17,27 @@
                 height: 930px;
         	}
             .button{
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            text-align: center;
-            border-radius: 50%;
-            border: 4px solid rgb(246, 247, 248);
+	            position: absolute;
+	            width: 200px;
+	            height: 200px;
+	            text-align: center;
+	            border-radius: 50%;
+	            border: 4px solid rgb(246, 247, 248);
             }
             .btnCover{
-            position: absolute;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            background-color: rgba(255,255,255,0.3);
-            text-align: center;
-            font-weight: bold;
-            font-size: 30px;
-            line-height: 300px;
+	            position: absolute;
+	            border-radius: 50%;
+	            width: 200px;
+	            height: 200px;
+	            background-color: rgba(255,255,255,0.3);
+	            text-align: center;
+	            font-weight: bold;
+	            font-size: 30px;
+	            line-height: 300px;
             }
             .button:hover{
-            cursor:pointer;
-            border: 4px solid #d8fae6;
+	            cursor:pointer;
+	            border: 4px solid #d8fae6;
             }
             /* -------------------------------------------------------------------------------------------------------- */
             .who{
@@ -208,7 +208,13 @@
                 width: 200px;
                 top: -224px;
             }
-            /* -------------------------------------------------------------------------//////////////////////// */
+            /* ------------------------------------------------------------------------------------------------------ */
+            #index5{
+                position: relative;
+                
+                background-color: rgb(227, 230, 229);
+                
+            }
             #text{
                 position: relative;
                 left: 150px;
@@ -295,7 +301,6 @@
                 메인페이지 이동
                 <span class="arrow-right"></span>
             </a>
-            
         </div>
         <div id="index2" class="indexPac">
             <div class="what">무엇을 하시나요?
@@ -304,7 +309,6 @@
             <div id="culture" class="button" onclick="what(1)"><div class="btnCover">culture</div></div>
             <div id="tour" class="button" onclick="what(2)"><div class="btnCover">tour</div></div>
             <div id="healing" class="button" onclick="what(3)"><div class="btnCover">healing</div></div>
-            
         </div>
         <div id="index3" class="indexPac">
         <div class="where">어디로 가시나요?

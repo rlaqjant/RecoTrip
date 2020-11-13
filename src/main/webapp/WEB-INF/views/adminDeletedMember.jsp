@@ -35,6 +35,7 @@
 				<td><a href="./adminResetData?id=${adminDeletedMember.id}">도비는 자유에요</a>
 			</tr>
 			</c:forEach>
+			<input type="button" value="자동삭제" onclick="location.href='autoDelete'">
 		</table>
 	</body>
 	<script>

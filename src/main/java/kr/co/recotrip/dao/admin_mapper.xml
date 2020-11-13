@@ -80,4 +80,10 @@
 		DELETE FROM t2_rating WHERE id=#{param2} AND dest_num = (select dest_num from t2_review where review_num=#{param1})
 	</delete>
 	
+	<delete id="autoDelete">
+		<![CDATA[
+			DELETE FROM T2_DEL_MEMBER WHERE DELETED_DATE < ADD_MONTHS(SYSDATE, -2)
+		]]>
+	</delete>
+	
 </mapper>

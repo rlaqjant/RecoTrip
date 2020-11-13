@@ -126,4 +126,9 @@ public class AdminController {
 		logger.info("params : {}" + idx);
 		return service.adminReviewdelete(idx, session);
 	}
+	
+	@RequestMapping(value = "/autoDelete", method = RequestMethod.GET)
+	public ModelAndView autoDelete(RedirectAttributes rAttr) {
+		return service.autoDelete(rAttr);
+	}
 }
