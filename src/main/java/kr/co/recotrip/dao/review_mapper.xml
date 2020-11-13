@@ -38,5 +38,5 @@
 	<select id="over" resultType="int">
 		select count(*) from t2_review where id=#{param1} and dest_num=#{param2}
 	</select>
-
+	
 </mapper>
