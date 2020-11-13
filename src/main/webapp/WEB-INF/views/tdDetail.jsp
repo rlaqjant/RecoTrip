@@ -187,10 +187,7 @@
         </style>
     </head>
     <body>
-	    <div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
-	   <div class="backgr">
-	   
-	   </div>
+    <%@ include file="navi.jsp" %>
         <table id="main">
             <tr>
                 <div class="group">

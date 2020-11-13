@@ -80,6 +80,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 		<h1>건의함 페이지</h1>
         <hr/>
         <form action= 'ask_write' method="post">

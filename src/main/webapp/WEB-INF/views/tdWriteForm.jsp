@@ -161,6 +161,7 @@
         </style>
     </head>
     <body>
+    <%@ include file="navi.jsp" %>
     <form action="tdWrite" method="post">
         <table class="board">
             <tr>

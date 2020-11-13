@@ -29,6 +29,7 @@
 		</style>
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 	<form action="checkPW" method="post">
 		<h1>비밀번호 체크 페이지</h1>
         <hr/>
