@@ -84,7 +84,7 @@
             }
             .com{
 			    position: absolute;
-			    width: 760px;
+			    width: 715px;
 			    height: 35px;
 			    top: 14%;
 			    left: 162px;
@@ -98,11 +98,10 @@
                 background-color: transparent !important;
             }
             #change{
-                right: 1%;
+                right: 6%;
 			    position: absolute;
 			    top: 20%;
 			    width: 88px;
-
             }
             .del{
                 right: 50%;
@@ -182,6 +181,14 @@
     			top: 87%;
     			text-align: center;
 			}
+			#counting{
+		        width: 176px;
+			    position: absolute;
+			    font-size: 15px;
+			    right: -7px;
+			    padding-bottom: 0px;
+			    padding-top: 29px;
+			}
         </style>
     </head>
     <body>
@@ -204,12 +211,12 @@
         	<c:forEach items="${info}" var="dto">
 	            <div id="reply">
 	                <div id="reply2">
-		                    <div class="writer">${dto.id}</div>
-		                    <div class="reviewcoment">${dto.review_content}</div>
-		                    <input class="reNum" type="hidden" name="reNum" value="${dto.review_num}"/>	
+		                    <div class="writer">${dto.ID}</div>
+		                    <div class="reviewcoment">${dto.REVIEW_CONTENT}</div>
+		                    <input class="reNum" type="hidden" name="reNum" value="${dto.REVIEW_NUM}"/>	
 			                <input class="com" name="upcontent" type="hidden" maxlength="50"/>
 			                <div id="change">
-				                <c:if test="${sessionScope.loginId == dto.id}">
+				                <c:if test="${sessionScope.loginId == dto.ID}">
 				                	<input type="button" class="update" value="수정"/>
 									<input type="button" class="sub" value="확인"/>
 									<input type="button" class="back" value="취소"/>
@@ -218,6 +225,7 @@
 	               			</div>
 	               			
 	           		</div>
+	           		<span id="counting">평점 ${dto.RATING} 점을 주었습니다.</span>
 	            </div>
 	           
            	</c:forEach>	
