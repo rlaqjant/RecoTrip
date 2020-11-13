@@ -66,14 +66,35 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		logger.info("중복체크 여부 : " + overchk);
 		ModelAndView mav = new ModelAndView();
 		String msg = null;
-		if(params.size()<5) {
+		System.out.println(params.get("id"));
+		System.out.println(params.get("pw"));
+		System.out.println(params.get("name"));
+		System.out.println(params.get("email"));
+		System.out.println(params.get("phone"));
+		if(params.get("id") == "") {
 			msg  = "빈칸을 채워 주세요";
 			mav.addObject("msg", msg);
-			mav.setViewName("home");
+			mav.setViewName("joinForm");
+		}else if(params.get("pw") == ""){
+			msg  = "빈칸을 채워 주세요";
+			mav.addObject("msg", msg);
+			mav.setViewName("joinForm");
+		}else if(params.get("name") == "") {
+			msg  = "빈칸을 채워 주세요";
+			mav.addObject("msg", msg);
+			mav.setViewName("joinForm");
+		}else if(params.get("email") == "") {
+			msg  = "빈칸을 채워 주세요";
+			mav.addObject("msg", msg);
+			mav.setViewName("joinForm");
+		}else if(params.get("phone") == "") {
+			msg  = "빈칸을 채워 주세요";
+			mav.addObject("msg", msg);
+			mav.setViewName("joinForm");
 		}else if(overchk == null){
 			msg = "아이디 중복 체크를 눌주세요";
 			mav.addObject("msg", msg);
-			mav.setViewName("home");
+			mav.setViewName("joinForm");
 		} else {
 			mav = service.join(params);
 			session.removeAttribute("overchk");
