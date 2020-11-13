@@ -40,7 +40,7 @@
 		}
 		#cap2{
 			position: relative;
-			left: 200px;
+			left: 230px;
 			top: -45px;
 		}
 		a {font-weight: bold;}

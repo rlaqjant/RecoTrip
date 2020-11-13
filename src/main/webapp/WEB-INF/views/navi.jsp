@@ -114,6 +114,11 @@
 			#searchBtn{
 				height: 34px;
 			}
+			#searchForm{
+			position: absolute;
+   			top: -7px;
+			}
+			
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	
@@ -129,7 +134,7 @@
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
 	      <li class="list"><a href="ask_list">건의함</a></li>
 	      <li class="list">
-			  <form action="search">
+			  <form action="search" id="searchForm">
 				<select name="searchCatDetail" class="bo_w_select">
 					<option value="dest">여행지</option>
 					<option value="restaurant">음식점</option>
