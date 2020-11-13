@@ -96,9 +96,17 @@
 				left: 72%;
 						
 			}
+            #update:a{
+				text-decoration: none;
+						
+			}
 			#delete{
 				position: relative;
 				left: 72%;
+			}
+			#delete:a{
+				text-decoration: none;
+						
 			}
 
             .group{

@@ -89,6 +89,19 @@
             	top: 94%;
             	left: 91%;
             }
+            #savee{
+            	background-color: rgb(246, 247, 248);
+            	width: 50px;
+            	height: 30px;
+            	border: 2px solid #b6dffa;
+            	border-radius: 10px;
+            	padding: 5px;
+            }
+            #savee:hover{
+            	background-color: #d8fae6;
+            	font-weight: 800;
+            	cursor: pointer;
+            }            
             #public{ 
                 margin-right:-4px;
                 border-top-left-radius: 5px; 
@@ -113,12 +126,12 @@
             .group select:hover{ 
                 color:white; 
                 background-color: #d8fae6; 
+                cursor: pointer;
             }
             #editable0{
 				text-align: left;
 				width: 100%;
 				height: 350px;
-				border: 1px solid black;
 				overflow: auto;
 				border-radius: 10px;
 			}
@@ -126,7 +139,6 @@
 				text-align: left;
 				width: 100%;
 				height: 350px;
-				border: 1px solid black;
 				overflow: auto;
 				border-radius: 10px;
 			}
@@ -134,7 +146,6 @@
 				text-align: left;
 				width: 100%;
 				height: 350px;
-				border: 1px solid black;
 				overflow: auto;
 				border-radius: 10px;
 			}
@@ -142,7 +153,6 @@
 				text-align: left;
 				width: 100%;
 				height: 350px;
-				border: 1px solid black;
 				overflow: auto;
 				border-radius: 10px;
 			}
@@ -150,7 +160,6 @@
 				text-align: left;
 				width: 100%;
 				height: 350px;
-				border: 1px solid black;
 				overflow: auto;
 				border-radius: 10px;
 			}
@@ -168,6 +177,24 @@
 			}
 			h2{
 				text-align: center;
+			}
+			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5{
+				background-color: white;
+				border: 2px solid #b6dffa;
+				border-radius: 10px;
+			}
+			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5:hover{
+				cursor: pointer;
+			}
+			.app button{
+				background-color: white;
+				border: 2px solid #b6dffa;
+				border-radius: 10px;			
+			}
+			.app button:hover{
+				background-color: #d8fae6;
+            	font-weight: 800;
+            	cursor: pointer;
 			}
 	
 	
@@ -279,7 +306,7 @@
   	 	   </c:if>
 
            </table>            
-           <div id="save"><input type="button" onclick="save()" value="저장"/></div>
+           <div id="save"><input id="savee" type="button" onclick="save()" value="저장"/></div>
            </form>
            <div id="plus"><button onclick="plus()"><img src="#"></button></div>
     </body>
