@@ -12,13 +12,11 @@
 				overflow-y:auto;  
 			}
 			#reviewFrame{
-				width: 91%;
-			    height: 951px;
+			    width: 84%;
+			    height: 670px;
 			    position: relative;
-			    top: 89%;
-			    left: 6%;
-			    padding: 0px 0px 0px 0px;
-			    margin: 0px 0px 0px 0px;
+			    top: 95%;
+			    left: 10%;
 			}
 			#title{
                 width: 99%;
@@ -41,11 +39,12 @@
 			    top: 22%;
 			}
 			#img{
-	            width: 52%;
-			    height: 650px;
+	            width: 49%;
+			    height: 619px;
 			    position: absolute;
-			    left: 39%;
-			    top: 15%;
+			    left: 40%;
+			    top: 18%;
+			    margin-top: 24px;
 			}
 			.destimg{
 				width:100%;
@@ -78,21 +77,21 @@
 			    margin:30px;
 			}
 			#overview{
-			    width: 73%;
+		        width: 73%;
 			    height: auto;
 			    font-size: 18px;
 			    text-align: left;
 			    position: relative;
 			    left: 14%;
-			    top: 89%;
-			    line-height: 23px;
+			    top: 91%;
+			    line-height: 38px;
 			}
 			#map{
-				position: absolute;
-				width: 1100px;
-				height: 300px;
-				left: 20%;
-				top: 100%;
+			    position: relative;
+			    left: 14%;
+			    width: 73%;
+			    height: 75%;
+			    top: 97%;
 			}
 			.dest{
 			    border: 1px solid black;
@@ -100,14 +99,14 @@
 			    height: 669px;
 			    position: absolute;
 			    top: 14%;
-			    left: 8%;
+			    left: 175px;
 			    border-radius: 20px;
 			}
 			.all{
 				position:relative;
 				margin-top: 60px;
 			}
-			#bbakchinda{
+			#mapping{
 			    position: absolute;
 			    width: 87%;
 			    height: 803px;
@@ -116,12 +115,10 @@
 			
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b2ece4ff324f57593bb29240840ee43"></script>
 	</head>
 	<body>
 	<%@ include file="navi.jsp" %>
-	
 	<div class="all">
 		<div class="dest">
 			<div id="title"></div> 
@@ -135,7 +132,7 @@
 		</div>
 		<div id="img"></div>
 	</div>
-	<div id="bbakchinda">
+	<div id="mapping">
 		<div id="overview"></div>
 		<div id="map"></div>
 		<iframe id="reviewFrame"  src="reviewlist?dest_num=${dest_num}" frameborder="0"></iframe>

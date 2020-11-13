@@ -1,5 +1,9 @@
 package kr.co.recotrip.controller;
 
+
+
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +26,9 @@ public class ReviewController {
 
 	@RequestMapping(value = "/reviewlist", method = RequestMethod.GET)
 	public ModelAndView reviewlist(PagingVO vo,Model model, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage,@RequestParam String dest_num) {
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage,@RequestParam String dest_num,HttpSession session) {
 		logger.info("댓글 리스트 불러오기");
 		ModelAndView mav = new ModelAndView();
-
 		int total = service.countBoard(dest_num);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";

@@ -96,12 +96,10 @@
 			h2{
 				text-align: center;
 			}
-
-
 			.comment{
 			    position: relative;
-			    left: 20%;
-			    height: 65px;
+			    left: 25%;
+			    height: 70px;
 			    width: 80%;
 			    top: 138%;
 			}
@@ -110,11 +108,10 @@
 				height: 30px;
 			}
 			.commentList{
-				position:relative;
-				left:20%;
-		    	width: 51%;
-		    	top:146%;
-		    	height: 432px;
+			    position: relative;
+			    left: 25%;
+			    width: 51%;
+			    height: auto;
 			}
 			.btnt{
 			    width: 41px;
@@ -129,6 +126,12 @@
 			}
 			[name=commentForm]{
 				margin-top: 4px;
+			}
+			.commentAll{
+			    position: absolute;
+			    width: 86%;
+			    left: 7%;
+		        padding-bottom: 3%;
 			}
         </style>
     </head>
@@ -221,7 +224,7 @@
            <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
            
            <!-- 댓글 -->
-           
+           <div class="commentAll">
            <div class="comment">
               <label for="content">&nbsp;댓글 : [ <span name="count"></span> ]</label>
               <br/>
@@ -236,9 +239,10 @@
           <div class="commentList">
            
           </div>
-          
+          <%@ include file="diaryReply.jsp" %>
+          </div>
 
-            <%@ include file="diaryReply.jsp" %>
+            
     </body>
     <script>
     
