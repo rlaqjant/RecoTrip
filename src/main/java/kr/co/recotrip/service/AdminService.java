@@ -155,4 +155,16 @@ public class AdminService {
 		return mav;
 	}
 
+	public ModelAndView autoDelete(RedirectAttributes rAttr) {
+		int result = dao.autoDelete();
+		ModelAndView mav = new ModelAndView();
+		String msg = "삭제 실패";
+		if(result>=0) {
+			msg = result + "건에 해당하는 아이디들이 탈퇴 60일 경과로 인해 삭제되었습니다.";
+		}
+		rAttr.addFlashAttribute("msg", msg);
+		mav.setViewName("redirect:/adminDeletedMember");
+		return mav;
+	}
+
 }
