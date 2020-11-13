@@ -41,4 +41,6 @@ public interface DestDAO {
 
 	String getName(String dest_num);
 
+	HashMap<String, Object> getYoutubeData(String where);
+
 }

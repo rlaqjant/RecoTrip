@@ -15,9 +15,9 @@
 	</select>
 	
 	<select id="myReviewList" resultType="hashmap">
-		SELECT d.dest_num, d.dest_name, r.review_content, r.review_reg_data, ra.rating FROM t2_review r 
-		INNER JOIN t2_dest d ON r.dest_num = d.dest_num  INNER JOIN t2_rating ra ON d.dest_num = ra.dest_num
-		WHERE r.id=#{param1} ORDER BY r.review_reg_data DESC
+		SELECT r.dest_num,r.review_content,r.id,r.review_reg_data,ra.rating, d.dest_name
+      FROM t2_review r INNER JOIN t2_rating ra ON r.dest_num = ra.dest_num 
+      INNER JOIN t2_dest d ON ra.dest_num = d.dest_num and r.id = ra.id WHERE r.id=#{param1} ORDER BY r.review_reg_data DESC
 	</select>
 	
 	<select id="myReplyList" resultType="hashmap">

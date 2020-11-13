@@ -109,5 +109,12 @@
  		SELECT DEST_NAME FROM T2_DEST WHERE dest_num = #{param1}
  	</select>
 	
+	<select id="getYoutubeData" parameterType="String" resultType="hashmap">
+ 		SELECT * FROM
+		(SELECT d.dest_num, d.dest_name, p.dest_pic_url, y.view_count FROM t2_dest d INNER JOIN t2_dest_addr a ON d.dest_num = a.dest_num 
+		INNER JOIN t2_youtube_data y ON a.dest_num = y.dest_num INNER JOIN t2_dest_pic p ON y.dest_num = p.dest_num WHERE
+		a.dest_do =#{param1} and d.dest_category!='쇼핑' ORDER BY TO_NUMBER(y.view_count) DESC) WHERE ROWNUM  BETWEEN 1 and 10
+ 	</select>
+	
 </mapper>
 	
