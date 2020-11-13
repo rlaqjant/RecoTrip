@@ -6,12 +6,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
 		<style>
 			body{
-				background-color: white;
-			}
-			.logo{
+            background-color: white;
+         }
+         .logo{
                 width: 240px;
                 height: 168px;
                 
@@ -19,17 +18,17 @@
                 top: 4%;
                 left: 40%;
             }
-      		.logo img{
+            .logo img{
                 width: 240px;
                 height: 168px;
             }
             .backgr{
-		        position: absolute;
-		        background-color: rgb(246, 247, 248);
-		        top: 220px;
-		        width: 100%;
-		        height: 1600px;
-	      }
+              position: absolute;
+              background-color: rgb(246, 247, 248);
+              top: 220px;
+              width: 100%;
+              height: 1600px;
+         }
           .mypg{
             position: relative;
             border: 5px solid #b6dffa;
@@ -55,15 +54,17 @@
               left: 880px;
               top: 15px;
           }
-		</style>	
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
-		<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
-		<div class="backgr">
-			<form action="myUpdate" method="post">
+	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+      <div class="backgr">
+         <form action="mypageMemberUpdate" method="post">
                 <div class="mypg">         
                     <div class="mp">
-                        <div><b>이름 : </b>${mylist.name}</div><br/>
+                        <div><b>ID : </b>${id}</div><br/>
+                        <input type="hidden" name="id" value="${id}">
                     </div>
                     <div class="mp">
                         <div><b>비밀번호 : </b><input type="password" name="pw" id="myUserPw"/></div><br/>
@@ -78,41 +79,41 @@
                 </div>
             </form>
             <div class="out">
-            <input type="button" id="memOut" value="회원 탈퇴" onclick="location.href='memberout'" style="width: 90px; height: 30px;"/>
+            <input type="button" id="memOut" value="회원 탈퇴" onclick="location.href='myPageMemberDel'" style="width: 90px; height: 30px;"/>
             </div>
-		</div>
+      </div>
 	</body>
 	<script>
-	
 	$("#memOut").click(function(){
-		alert("정말 탈퇴 하시겠습니까?");
-	});
-	
-	$(function(){
-		$("#myUserPw").keyup(function(){
-			$('#chkNotice').innerhtml("")
-  	});
-  
-      $('#myUserPwChk').keyup(function(){
+	      alert("정말 탈퇴 하시겠습니까?");
+	   });
+	   
+	   $(function(){
+	      $("#myUserPw").keyup(function(){
+	         $('#chkNotice').innerhtml("")
+	     });
+	  
+	      $('#myUserPwChk').keyup(function(){
 
-        if($("#myUserPw").val() != $("#myUserPwChk").val()){
-          $("#chkNotice").html("비밀번호가 일치하지 않습니다.<br>");
-          $("#chkNotice").attr("color","red");
-        }else{
-          $("#chkNotice").html("비밀번호가 일치합니다.<br>");
-          $("#chkNotice").attr("color","green");
-        }
+	        if($("#myUserPw").val() != $("#myUserPwChk").val()){
+	          $("#chkNotice").html("비밀번호가 일치하지 않습니다.<br>");
+	          $("#chkNotice").attr("color","red");
+	        }else{
+	          $("#chkNotice").html("비밀번호가 일치합니다.<br>");
+	          $("#chkNotice").attr("color","green");
+	        }
 
-         });
-	});
-	
-	
-	function memUpdate(){
-		if(confirm("정말 수정하시겠습니까 ?") == true){
-	        location.href="myUpdate";
-	    }else{
-	        return ;
-	    }
-	}
+	         });
+	   });
+	   
+	   function memUpdate(){
+	      if(confirm("정말 수정하시겠습니까 ?") == true){
+	           location.href="myUpdate";
+	       }else{
+	           return ;
+	       }
+	   }
+	</script>
+	<script>
 	</script>
 </html>

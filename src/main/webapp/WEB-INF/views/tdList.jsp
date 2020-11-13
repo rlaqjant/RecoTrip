@@ -6,10 +6,11 @@
     <head>
         <title>TDlist</title>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
         <style>
             #top{
                 position: absolute;
-                background-color: burlywood;
+                border: 1px solid black;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
@@ -20,13 +21,15 @@
             }
             #top a{
                 position: absolute;
-                left: 88%;
+                left: 94%;
             }
             #list{
                 position: absolute;
-                background-color: burlywood;
-                width: 960px;
+                border: 1px solid black;
+                width: 1000px;
                 height: auto;
+                padding: 10px;
+                margin-top: 10px;
                 text-align: center;
                 border-radius: 10px;
                 top: 30%;
@@ -34,14 +37,19 @@
             }
             #list th,td{
                 background-color: white;
-                margin: 4px;
+                border: 1px solid black;
+                margin: 5px;
                 width: 900px;
+                padding: 5px;
                 border-radius: 10px;
                 list-style-type: none;
             }
+            #list th{
+            	background-color: lightgrey;
+            }
             .search {
                 position: absolute;
-                background-color: burlywood;
+                border: 1px solid black;
                 width: 1000px;
                 height: 50px;
                 text-align: center;
@@ -55,26 +63,32 @@
                 margin-top: 10px;
                 text-align: center;
             }
-            .paging{
-                position: absolute;
-                background-color: burlywood;
-                width: 1000px;
-                height: 50px;
-                text-align: center;
-                border-radius: 10px;
-                top: 60%;
-                left: 20%;
-            }
-            .paging button{
-                margin-top: 10px;
-            }
+			#paging{
+	            text-align: center;
+	         }    
+	         a:link,a:visited{
+	            text-decoration: none;
+	            color:black;
+	            font-size:20px;
+	         }
+	         #d{
+	            font-size:20px;
+	         }
+	         #paging{
+	            position:absolute;
+	            left: 50%;
+	            top: 82%;
+	         }
+	         #list .id{
+	         	width: 120px;
+	         }
 
         </style>
     </head>
     <body>
        <div id="top">
-           <p>여행 일기</p>
-           <a href="tdWriteForm">글쓰기</a>
+           <h1>Travel Diary</h1>
+           <a href="tdWriteForm"><h6>일기쓰기</h6></a>
        </div>
        <div class="search">
             <input type="text" placeholder="검색어를 입력해주세요.">
@@ -83,26 +97,37 @@
        <div>
        	<table id="list">
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
+				<th class="id">ID</th>
+				<th>Subject</th>
 			</tr>
 			<c:forEach items="${diaryList}" var="dto">
 				<tr>
-					<td>${dto.diary_number}</td>
+					<td class="id">${dto.id}</td>
 					<td><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
 				</tr>
 			</c:forEach>
 		</table>
        </div>
-       <div class="paging">
-           <button>이전</button>
-           <button>1</button>
-           <button>2</button>
-           <button>3</button>
-           <button>4</button>
-           <button>5</button>
-           <button>다음</button>
-       </div>
+       
+        <div id="paging" style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="./tdList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">이전&nbsp;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b id="d">${p }</b>&nbsp;
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="./tdList?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }&nbsp;</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="./tdList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&nbsp;다음</a>
+		</c:if>
+	</div>	
+
     </body>
     <script>
      

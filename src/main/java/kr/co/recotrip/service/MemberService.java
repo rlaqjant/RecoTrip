@@ -44,11 +44,15 @@ public class MemberService {
 
 	public HashMap<String, Object> overlay(String id, HttpSession session) {
 		int cnt = dao.overlay(id);
-		logger.info("결과 값 : "+cnt);
+		int cnt2 = dao.overlay2(id);
+		logger.info("결과 값 : "+cnt+", "+cnt2);
 		boolean success = false;
-		if(cnt>0) {
+		if(cnt==0 && cnt2==0) {
 			success = true;
+		}else {
+			success = false;
 		}
+		logger.info("결과값 : " + success);
 		session.setAttribute("overchk", "checkclear");
 		System.out.println(session.getAttribute("overchk"));
 		HashMap<String, Object> map = new HashMap<String, Object>();

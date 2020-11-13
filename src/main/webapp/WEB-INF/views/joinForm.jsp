@@ -124,7 +124,8 @@
 				dataType:"JSON",
 				success:function(data){
 					console.log(data);
-					if(data.overlay){
+					console.log(data.overlay);
+					if(!data.overlay){	
 						alert("이미 사용중인 아이디입니다.");
 						$("input[name='id']").val("");
 					}else{

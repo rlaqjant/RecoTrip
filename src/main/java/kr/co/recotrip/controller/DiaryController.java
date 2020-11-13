@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.recotrip.dto.PagingVO;
 import kr.co.recotrip.service.DiaryService;
 
 
@@ -30,10 +31,24 @@ public class DiaryController {
 
 	
 	@RequestMapping(value = "/tdList", method = RequestMethod.GET)
-	public ModelAndView tdList(Model model) {
-		ModelAndView mav = service.tdList();
-		mav.setViewName("tdList");
+	public ModelAndView tdList(Model model,PagingVO vo ,@RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+		ModelAndView mav = new ModelAndView();
 		
+		int total = service.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "10";
+		}
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		mav.addObject("paging", vo);
+		mav.addObject("diaryList", service.tdList(vo));
+		mav.setViewName("tdList");
+
 		return mav;
 	}
 
@@ -62,11 +77,11 @@ public class DiaryController {
 	}
 
 	@RequestMapping(value = "/tdWrite", method = RequestMethod.POST)
-	public ModelAndView tdWrite(HttpSession session, @RequestParam HashMap<String,String> params) {
+	public ModelAndView tdWrite(HttpSession session, @RequestParam HashMap<String,String> params, RedirectAttributes rAttr) {
 		logger.info("글쓰기" + params.size());
 		logger.info("params: {}",params);
 
-		return service.tdWrite(params,session);
+		return service.tdWrite(params,session, rAttr);
 	}
 	
 	@RequestMapping(value = "/tdUploadForm", method = RequestMethod.GET)
@@ -95,11 +110,21 @@ public class DiaryController {
 		
 	}
 	
+	//del파일 삭제
+	@RequestMapping(value = "/delFileDelete", method = RequestMethod.GET)
+	public @ResponseBody HashMap<String, Object> delFileDelete(@RequestParam String delfileName, HttpSession session) {
+		logger.info("delfileDelete 요청 : "+delfileName);
+
+		return service.delFileDelete(delfileName, session);
+		
+	}
+	
 	
 	@RequestMapping(value = "/tdDetail", method = RequestMethod.GET)
-	public ModelAndView tdDetail(Model model, @RequestParam String idx) {
+	public ModelAndView tdDetail(Model model, @RequestParam String idx,HttpSession session) {
 		logger.info("디테일요청");
 		logger.info("idx: {}",idx);
+		//HashMap<String, Object> delFileName = session.setAttribute("delFileName", delFileName);
 		
 		ModelAndView mav = service.tdDetail(idx);
 		mav.addObject("tdIdx",idx);
@@ -134,6 +159,37 @@ public class DiaryController {
 		
 	
 		return service.tdDelete(idx, rAttr);
+	}
+	
+	@RequestMapping(value = "/tdUpdateForm", method = RequestMethod.GET)
+	public ModelAndView tdUpdateForm(@RequestParam String idx, HttpSession session, RedirectAttributes rAttr) {
+		logger.info("업데이트폼 이동 : "+idx);
+		
+		HashMap<String, String> fileList = new HashMap<String, String>();
+		session.setAttribute("fileList",fileList);
+		// 위 2개의 줄은 사진 업로드
+		
+		HashMap<String, String> delFileList = new HashMap<String, String>();
+		session.setAttribute("delFileList", delFileList);
+		// 위 2개의 줄은 사진 지울 
+		
+		ModelAndView mav = service.tdDetail(idx);
+		
+		mav.setViewName("tdUpdateForm");
+		return mav;
+		//return service.tdUpdate(idx, rAttr, session);
+	}
+	
+	
+	
+	@RequestMapping(value = "/tdUpdate", method = RequestMethod.GET)
+	public ModelAndView tdUpdate(HttpSession session, RedirectAttributes rAttr, @RequestParam HashMap<String, String> params) {
+		logger.info("업데이트할 idx : " +params.get("idx"));
+		
+		ModelAndView mav = service.tdUpdate(params, rAttr, session);
+				
+		return mav;
+		//return service.tdUpdate(idx, rAttr, session);
 	}
 	
 	

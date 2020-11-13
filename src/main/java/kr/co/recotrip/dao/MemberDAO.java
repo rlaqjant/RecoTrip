@@ -11,5 +11,6 @@ public interface MemberDAO {
 
 	int overlay(String id);
 
-	
+	int overlay2(String id);
+
 }

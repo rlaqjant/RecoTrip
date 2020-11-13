@@ -9,23 +9,23 @@
         <title>여행지 상세</title>
         
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <style>
 
             .coment{
                 width: 12%;
-                height: 56px;
-                background-color: burlywood;
-                position: absolute;
-                top: 6%;
-                left: 15%;
+			    height: 56px;
+			    position: absolute;
+			    top: 7%;
+			    left: 5%;
+			    font-size: 30px;
             }  
             .comentinput{
-                width: 70%;
+                width: 88%;
 			    height: 57px;
-			    background-color: burlywood;
 			    position: absolute;
 			    top: 13%;
-			    left: 15%;
+			    left: 4%;
             }
             #co{
                 position: absolute;
@@ -35,22 +35,23 @@
                 height: 40px;
             }
             #ok{
-				width: 85px;
-			    height: 40px;
+			    width: 79px;
+			    height: 39px;
 			    position: absolute;
-			    top: 9px;
-			    left: 90%;
+			    top: 10px;
+			    left: 91%;
 			    font-size: 20px;
 			    text-align: center;
 			    background-color: transparent !important;
+			    border: 2px solid black;
             }  
             .coments{
-                width: 70%;
-                height: 48%;
-                background-color: burlywood;
-                position: absolute;
-                top: 20%;
-                left: 15%;
+			    width: 88%;
+			    height: 41%;
+			    position: absolute;
+			    top: 20%;
+			    left: 4%;
+			    border-top: 1px solid gray;
             }   
             #staring{
                 width: 180px;
@@ -77,17 +78,17 @@
 			    width: 113px;
 			    height: 40px;
 			    top: 17%;
-			    left: 4%;
+			    left: 1%;
 			    font-size: 20px;
 			    text-align: center;
             }
             .com{
-                position: absolute;
-			    width: 825px;
+			    position: absolute;
+			    width: 779px;
 			    height: 35px;
-			    top: 12%;
-    			left: 190px;
-    			font-size: 16px;
+			    top: 14%;
+			    left: 182px;
+			    font-size: 16px;
             }
             .sub{
                 right: 123%;
@@ -99,7 +100,7 @@
             #change{
                 right: 2%;
 			    position: absolute;
-			    top: 26%;
+			    top: 20%;
 			    width: 88px;
 
             }
@@ -112,7 +113,7 @@
             }
             .reviewcoment{
             	position: relative;
-			    width: 875px;
+			    width: 780px;
 			    height: 35px;
 			    top: 14%;
 			    left: 16%;
@@ -132,7 +133,7 @@
                 background-color: transparent !important;
             }
             #star{
-		        line-height: 2px;
+		        line-height: 40px;
 			    font-size: 23px;
 			    left: 0%;
 			    top: -9%;
@@ -140,7 +141,7 @@
             }
             #star a{
 	             text-decoration: none; 
-	             color: white; 
+	             color: lightgrey; 
 	             cursor:default;
              } 
             
@@ -167,10 +168,6 @@
 				border-collapse : collapse;
 				padding: 5px;
 			}
-			
-			#paging{
-				text-align: center;
-			}    
 			a:link,a:visited{
 				text-decoration: none;
 				color:black;
@@ -182,7 +179,8 @@
 			#paging{
 				position:absolute;
 				left: 47%;
-    			top: 88%;
+    			top: 63%;
+    			text-align: center;
 			}
         </style>
     </head>
@@ -211,14 +209,17 @@
 		                    <input class="reNum" type="hidden" name="reNum" value="${dto.review_num}"/>	
 			                <input class="com" name="upcontent" type="hidden" maxlength="50"/>
 			                <div id="change">
-				                <input type="button" class="update" value="수정"/>
-								<input type="button" class="sub" value="확인"/>
-								<input type="button" class="back" value="취소"/>
-		                		<input type="button" class="del" value="삭제"/>
+				                <c:if test="${sessionScope.loginId == dto.id}">
+				                	<input type="button" class="update" value="수정"/>
+									<input type="button" class="sub" value="확인"/>
+									<input type="button" class="back" value="취소"/>
+			                		<input type="button" class="del" value="삭제"/>
+				                </c:if>
 	               			</div>
 	           		</div>
 	            </div>
            	</c:forEach>	
+           	</div>
            	
            	<div id="paging" style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">
@@ -240,7 +241,7 @@
 	</div>	
         
         
-        </div>
+        
     </body>
     <script>
     	$(document).ready(function(){
@@ -249,24 +250,17 @@
     			var dest_num = "${dest_num}";
     	
             	$(".update").click(function(){
-	        	    var userid = "${sessionScope.loginId}";
-	        	    var writer = $(this).parent().prev().prev().prev().prev().html();
-	        	    
-	            	if(userid == writer){
+
 		            	$(this).prop("type","hidden");
 		            	$(this).next().next().next().css("display","none");
 		            	$(this).next().css("display","block");
 		            	$(this).next().next().css("display","block");
-		            	
-		            	var reNum = $(this).parent().prev().prev().val();
-		            	console.log(reNum);
 		            	$(this).parent().prev().prop("type","text");
 		            	var content = $(this).parent().prev().prev().prev().html();
 		            	console.log(content);
 		            	$(this).parent().prev().val(content);
-		            }else{
-		            	alert("본인만 수정 가능합니다.");
-		            }
+
+
     			});
             	
             	$(".back").click(function(){
@@ -279,14 +273,9 @@
             	
            		$(".del").click(function(){
             		var userid = "${sessionScope.loginId}";
-            	    var writer = $(this).parent().prev().prev().prev().prev().html();
-            	    console.log(writer);
             	    var reNum = $(this).parent().prev().prev().val();
             	    console.log(userid, reNum, dest_num);
-	            	    if(userid != writer){
-	            	    	alert("본인만 삭제 가능합니다.");
-	            	    }
-	            	    else{
+
 	            	    	$.ajax({
 		    					type:"post",
 		    					url:"reviewdelete",
@@ -301,7 +290,7 @@
 		    						console.log(error);
 		    					}
 		    				});
-	            	    }
+	
             	});            	    
             		
            		$('#star a').click(function(){ 
@@ -335,6 +324,11 @@
 	    					success:function(data){
 	    						if(data==1){
 	    							parent.document.location.reload();
+	    						}else{
+	    							alert('후기는 한 번만 작성 가능합니다');
+	    							$('#co').val('');
+	    							$('#star a').parent().children("a").removeClass("on"); 
+	    	        				$('#score').html('0');
 	    						}
 	    					},
 	    					error:function(error){
@@ -347,6 +341,9 @@
            		$('.sub').click(function(){ 
                		var reNum = $(this).parent().prev().prev().val();
            			var upcontent = $(this).parent().prev().val();
+	            	if($(this).parent().prev().val()==""){
+	            		alert('한줄후기를 입력하세요.');
+	            	}else{
 	            		$.ajax({
 	    					type:"post",
 	    					url:"reviewupdate",
@@ -361,6 +358,7 @@
 	    						console.log(error);
 	    					}
 	    				});
+	            	}
            		});
 
 

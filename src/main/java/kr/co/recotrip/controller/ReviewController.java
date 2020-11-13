@@ -1,28 +1,17 @@
 package kr.co.recotrip.controller;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.servlet.http.HttpSession;
-import javax.xml.ws.Response;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.recotrip.dao.ReviewDAO;
 import kr.co.recotrip.dto.PagingVO;
-import kr.co.recotrip.dto.ReviewDTO;
 import kr.co.recotrip.service.ReviewService;
 
 @Controller

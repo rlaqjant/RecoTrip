@@ -16,8 +16,6 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/photo/**" location="지정한 업로드 폴더 절대경로" />
 
-    <resources mapping="/photo/**" location="지정한 업로드 폴더 절대경로" />
-
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<!-- 여기서 말하는 resources는 webapp 밑의 resources(프론트 관련 파일만 들어감) -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

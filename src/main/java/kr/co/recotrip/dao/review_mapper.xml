@@ -34,5 +34,9 @@
  	<select id="countBoard" resultType="int">
 		select count(*) from t2_review where dest_num=#{param1}
 	</select>
+	
+	<select id="over" resultType="int">
+		select count(*) from t2_review where id=#{param1} and dest_num=#{param2}
+	</select>
 
 </mapper>

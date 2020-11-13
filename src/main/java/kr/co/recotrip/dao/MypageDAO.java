@@ -13,6 +13,14 @@ public interface MypageDAO {
 
 	ArrayList<HashMap<String, Object>> myReplyList(String id);
 
+	HashMap<String, Object> toMypageMemberUpdateForm(String id);
+
+	int mypageMemberUpdate(HashMap<String, String> params);
+
+	int myPageMemberDel(String id);
+
+	int myPageMemberMove(String id, String reason);
+
 	ArrayList<HashMap<String, Object>> myAskList(String id);
 
 }

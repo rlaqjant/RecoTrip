@@ -7,10 +7,16 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
+		#paging{
+				position:absolute;
+				left: 47%;
+    			top: 88%;
+			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 	<table>
 			<tr>
 				<th>dest_pic_url</th>
