@@ -145,16 +145,21 @@
 <script>
 	var loginId ="${sessionScope.loginId}";
 
-	if(loginId != ""){
-		$("#login").prop("href", "logout");
-		$("#login").text("로그아웃");
-		$("#join").prop("href", "mypage");
-		$("#join").text("마이페이지");
-	}else{
+	if(loginId == ""){
 		$("#login").prop("href", "loginPage");
 		$("#login").text("로그인");
 		$("#join").prop("href", "joinForm");
 		$("#join").text("회원가입");
+	}else if(loginId == "admin"){
+		$("#login").prop("href", "logout");
+		$("#login").text("로그아웃");
+		$("#join").prop("href", "adminMain");
+		$("#join").text("관리페이지");
+	}else{
+		$("#login").prop("href", "logout");
+		$("#login").text("로그아웃");
+		$("#join").prop("href", "mypage");
+		$("#join").text("마이페이지");
 	}
 	
 	$("#login").hover(function(){

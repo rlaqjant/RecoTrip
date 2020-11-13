@@ -307,7 +307,7 @@
 			});
 		
 	}
-    /* 좋아요 */
+    /*--------------- 좋아요 --------------------*/
     likeCheck();
     getLikeCnt();
     var loginId = "${sessionScope.loginId}";
