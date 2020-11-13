@@ -10,5 +10,6 @@ public interface MemberDAO {
 	int join(HashMap<String, String> params);
 
 	int overlay(String id);
+
 	
 }

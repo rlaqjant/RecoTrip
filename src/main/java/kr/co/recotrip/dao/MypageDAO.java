@@ -13,4 +13,6 @@ public interface MypageDAO {
 
 	ArrayList<HashMap<String, Object>> myReplyList(String id);
 
+	ArrayList<HashMap<String, Object>> myAskList(String id);
+
 }

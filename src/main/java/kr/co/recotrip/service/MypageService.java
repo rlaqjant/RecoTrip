@@ -41,4 +41,8 @@ public class MypageService {
 		return dao.myReplyList(id);
 	}
 
+	public ArrayList<HashMap<String, Object>> myAskList(String id) {
+		return dao.myAskList(id);
+	}
+
 }
