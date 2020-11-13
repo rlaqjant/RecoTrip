@@ -13,11 +13,41 @@
 			border-collapse: collapse;
 			padding: 5px 10px;
 		}
+		table{
+			position: relative;
+			left: 404px;
+			top: 240px;
+		}
+		th{
+			background-color: rgb(224, 228, 231);
+		}
 		td{
 			text-align: center;
 		}
 		div{
 			margin: 5px;
+		}
+		.logo{
+			width: 240px;
+			height: 168px;
+			background-color: white;
+			position: absolute;
+			top: 4%;
+			left: 36%;
+		}
+		.logo img{
+			width: 240px;
+			height: 168px;
+        }
+		.lout{
+			position: absolute;
+			left: 1100px;
+			top: 40px;
+		}
+		.WR{
+			position: absolute;
+			left: 879px;
+			top: 224px;
 		}
 				
 		</style>
@@ -25,11 +55,12 @@
 	<body>
 		<!--<c:if test="${sessionScope.loginId != null}">-->
 		<!--</c:if>-->
-		<div>
+		<div class="logo"><a href="Main.html"><img src="img/logo.png"></a></div>
+		<div class="lout">
 			안녕하세요 ${sessionScope.loginId}님
 			<button onclick="location.href='logout'">로그아웃</button>
 		</div>
-		<button onclick="location.href='ask_writeForm'">글쓰기</button>
+		<button class="WR" onclick="location.href='ask_writeForm'">글쓰기</button>
 	
 		<table>
 			<tr>
@@ -46,8 +77,6 @@
 				<td>${dto.ask_reg_date}</td>
 			</tr>
 			</c:forEach>
-			
-			
 		</table>
 	</body>
 	<script>

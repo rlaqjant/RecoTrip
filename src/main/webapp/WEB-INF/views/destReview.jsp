@@ -17,15 +17,15 @@
 			    height: 56px;
 			    position: absolute;
 			    top: 7%;
-			    left: 16%;
+			    left: 5%;
 			    font-size: 30px;
             }  
             .comentinput{
-                width: 70%;
+                width: 88%;
 			    height: 57px;
 			    position: absolute;
 			    top: 13%;
-			    left: 15%;
+			    left: 4%;
             }
             #co{
                 position: absolute;
@@ -46,11 +46,11 @@
 			    border: 2px solid black;
             }  
             .coments{
-			    width: 67%;
+			    width: 88%;
 			    height: 41%;
 			    position: absolute;
 			    top: 20%;
-			    left: 16%;
+			    left: 4%;
 			    border-top: 1px solid gray;
             }   
             #staring{
@@ -86,7 +86,7 @@
 			    position: absolute;
 			    width: 779px;
 			    height: 35px;
-			    top: 7%;
+			    top: 14%;
 			    left: 182px;
 			    font-size: 16px;
             }

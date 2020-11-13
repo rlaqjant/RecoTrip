@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+	    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+		<META HTTP-EQUIV="Expires" CONTENT="-1">
         <title>TDdetail</title>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
@@ -144,7 +146,41 @@
 			[name=commentForm]{
 				margin-top: 4px;
 			}
-
+			/* 좋아요------------------------------------ */
+			#likeBox{
+				position:relative;
+				left:200;
+				width: 200px;
+				height: 100px;
+				background-color: ivory; 
+				margin: auto;
+				border-radius: 10px;
+				border: 1px solid;
+			}
+			#likeIcon{
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				top: 26px;
+				left:34px;
+				background-image :url('resources/img/heartEmpty.png');
+				background-size: 60px;
+				background-repeat: no-repeat;
+			}
+			#likeIcon:hover{
+				cursor: pointer;
+			}
+			#likeCnt{
+				position: absolute;
+				width: 80px;
+				height: 60px;
+				top: 29px;
+    			left: 100px;
+				font-weight: bold;
+            	font-size: 33px;
+            	text-align: center;
+			}
+			/* 좋아요------------------------------------ */
         </style>
     </head>
     <body>
@@ -186,7 +222,6 @@
                         <div class="photo" name="content1">
    							${list.diary_content1}
                         </div>
-                        <div class="hashtag"> #해시태그영역</div><br/>
                     </div>
                 </tr>
             </table>
@@ -197,7 +232,6 @@
 	                        <div class="photo" name="content2">
 	    							${list.diary_content2}
 	                        </div>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                    </div>
 	                </tr>
 	            </table>              
@@ -209,8 +243,6 @@
 	                        <div class="photo" name="content3">
     							${list.diary_content3}
 	                        </div>
-	                        <div class="hashtag"> #해시태그영역</div>
-	                   
 	                    </div>
 	                </tr>
 	            </table>              
@@ -222,7 +254,6 @@
 	                        <div class="photo" name="content4">
     							${list.diary_content4}
 	                        </div>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                    </div>
 	                </tr>
 	            </table>              
@@ -234,13 +265,20 @@
 	                        <div class="photo" name="content5">
     							${list.diary_content5}
 	                        </div>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                    </div>
 	                </tr>
 	            </table>              
   	 	   </c:if>
   	 	   
-
+           <div id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></div>
+           <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+           
+           <!-- 좋아요 -->
+           <div id="likeBox">
+           		<div id="likeIcon"></div>
+           		<div id="likeCnt"></div>
+           		<input type="hidden" name="likeIconCondition" id="likeIconCondition" value=""/>
+           </div>
            
            <!-- 댓글 -->
            
@@ -263,8 +301,7 @@
             <%@ include file="diaryReply.jsp" %>
     </body>
     <script>
-    
-
+	
     var idx = "${idx}";
     btn();
     function btn() {
@@ -286,6 +323,99 @@
 		
 	}
     
-    
+    /* 좋아요 */
+    likeCheck();
+    getLikeCnt();
+    var loginId = "${sessionScope.loginId}";
+    $("#likeIcon").mouseenter(function () {
+    	if($("#likeIconCondition").val()==0){
+    		$("#likeIcon").css("background-image","url('resources/img/heartFilled.png')");
+    	}else{
+    		$("#likeIcon").css("background-image","url('resources/img/heartEmpty.png')");
+    	}
+	});
+    $("#likeIcon").mouseleave(function () {
+    	if($("#likeIconCondition").val()==0){
+    		$("#likeIcon").css("background-image","url('resources/img/heartEmpty.png')");
+    	}else{
+    		$("#likeIcon").css("background-image","url('resources/img/heartFilled.png')");
+    	}
+	});
+    function getLikeCnt() { //해당 게시글 좋아요 갯수 파악
+    	$.ajax({
+			type:"POST",
+			url:"getLikeCnt",
+			data:{"idx":idx},
+			dataType:"JSON",
+			success:function(data){
+				$("#likeCnt").text(data);
+			},
+			error:function(error){
+				console.log(error);
+			}
+			});
+	}
+    function likeCheck() { //로그인한 회원이 좋아요 눌렀는지 확인
+    	$.ajax({
+			type:"POST",
+			url:"likeCheck",
+			data:{"idx":idx},
+			dataType:"JSON",
+			success:function(data){
+				console.log(data);
+				if(data>0){
+					$("#likeIconCondition").val(1);
+					$("#likeIcon").css("background-image","url('resources/img/heartFilled.png')");
+				}else{
+					$("#likeIconCondition").val(0);
+					$("#likeIcon").css("background-image","url('resources/img/heartEmpty.png')");
+				}
+			},
+			error:function(error){
+				console.log(error);
+			}
+			});
+	}
+    $("#likeIcon").click(function () {
+    	if(loginId!="" && $("#likeIconCondition").val()==0){
+    		$.ajax({
+    			type:"post",
+    			url:"like",
+    			data:{"idx":idx,
+    				"loginId":loginId},
+    			dataType:"JSON",
+    			success:function(data){
+					if(data>0){
+						$("#likeIcon").css("background-image","url('resources/img/heartFilled.png')");
+	    				$("#likeIconCondition").val(1);
+	    				getLikeCnt();
+    				}
+    			},
+    			error:function(error){
+    				console.log(error);
+    			}
+    			});
+    	}else if(loginId!="" && $("#likeIconCondition").val()==1){
+    		$.ajax({
+    			type:"post",
+    			url:"disLike",
+    			data:{"idx":idx,
+    				"loginId":loginId},
+    			dataType:"JSON",
+    			success:function(data){
+    				if(data>0){
+						$("#likeIcon").css("background-image","url('resources/img/heartEmpty.png')");
+	    				$("#likeIconCondition").val(0);
+	    				getLikeCnt();
+    				}
+    			},
+    			error:function(error){
+    				console.log(error);
+    			}
+    			});
+    	}else{
+    		alert("로그인이 필요합니다.")
+    	}
+	});
     </script>
 </html>

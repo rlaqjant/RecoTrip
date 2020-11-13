@@ -212,7 +212,6 @@
                     		<input class="fileUp1" name="content1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
                     		<input id="content1" type="hidden" name="content1" value=""/>
                        </div>
-                       <div class="hashtag" name="hashTag"> #해시태그영역</div>
                        <!--  
                        <div class="photoEx">
                            <textarea class="text" name="photoEx1">
@@ -247,7 +246,6 @@
                                "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
                                "<input id='content"+a+"' type='hidden' name='content"+a+"' value=''/>"+
                            "</div>"+
-                           "<div class='hashtag'> #해시태그영역</div>"+
                           "</div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
            
            /*

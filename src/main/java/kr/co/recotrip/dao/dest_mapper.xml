@@ -94,7 +94,19 @@
     		ON d.dest_num = a.dest_num INNER JOIN t2_dest_pic p ON a.dest_num = p.dest_num 
     		WHERE a.dest_do=#{param1} and d.dest_category!='음식점' and d.dest_category!='숙박시설'
             ORDER BY DBMS_RANDOM.VALUE) 
-            where ROWNUM  BETWEEN 1 and 5;
+            where ROWNUM  BETWEEN 1 and 5
+ 	</select>
+ 	
+ 	<select id="getLong" parameterType="String" resultType="double">
+ 		SELECT dest_long FROM T2_DEST_ADDR WHERE dest_num = #{param1}
+ 	</select>
+ 	
+ 	<select id="getLat" parameterType="String" resultType="double">
+ 		SELECT dest_lat FROM T2_DEST_ADDR WHERE dest_num = #{param1}
+ 	</select>
+ 	
+ 	<select id="getName" parameterType="String" resultType="String">
+ 		SELECT DEST_NAME FROM T2_DEST WHERE dest_num = #{param1}
  	</select>
 	
 </mapper>

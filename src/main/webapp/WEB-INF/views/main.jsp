@@ -367,7 +367,7 @@
 		<div class="logo"><a href="Main"><img src="img/logo.png"></a></div>
         <div class="login"><a href="login" style="padding: 13px 23px;">로그인/로그아웃</a> </div>
         <div class="join"><a href="joinForm" style="padding: 13px 25px;">회원가입</a></div>
-        <div class="mypage"><a href="#" style="padding: 13px 70px;">마이페이지</a></div>
+        <div class="mypage"><a href="mypage" style="padding: 13px 70px;">마이페이지</a></div>
         
         <div class="search">
             <input id="look" type="text" placeholder="제목,작성자,내용 검색하기"/>

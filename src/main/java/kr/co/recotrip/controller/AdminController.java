@@ -1,6 +1,9 @@
 package kr.co.recotrip.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,4 +87,43 @@ public class AdminController {
 		return service.memberSearch(keyword);
 	}
 	
+	//회원 작성 글 리스트 보기
+	@RequestMapping(value = "/adminMembersWriteList", method = RequestMethod.GET)
+	public ModelAndView adminMembersWriteList(String id, HttpSession session) {
+    	logger.info("작성 글 리스트 아이디 : "+id);
+    	session.setAttribute("memberId", id);
+    	
+    	ArrayList<HashMap<String, Object>> memberDtList = service. memberDtList(id);
+    	ArrayList<HashMap<String, Object>> memberReviewList = service. memberReviewList(id);
+    	ArrayList<HashMap<String, Object>> memberReplyList = service. memberReplyList(id);
+    	
+    	ModelAndView mav = new ModelAndView();
+    	mav.addObject("memberDtList", memberDtList);
+    	mav.addObject("memberDtListCnt", memberDtList.size());
+    	mav.addObject("memberReviewList", memberReviewList);
+    	mav.addObject("memberReviewListCnt", memberReviewList.size());
+    	mav.addObject("memberReplyList", memberReplyList);
+    	mav.addObject("memberReplyListCnt", memberReplyList.size());
+    	
+    	mav.setViewName("adminMembersWriteList");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/adminTdDelete", method = RequestMethod.GET)
+	public ModelAndView adminTdDelete(@RequestParam String idx, HttpSession session) {
+		logger.info("params : {}" + idx);
+		return service.adminTdDelete(idx, session);
+	}
+	
+	@RequestMapping(value = "/adminCommentDelete", method = RequestMethod.GET)
+	public ModelAndView adminCommentDelete(@RequestParam String idx, HttpSession session) {
+		logger.info("params : {}" + idx);
+		return service.adminCommentDelete(idx, session);
+	}
+	
+	@RequestMapping(value = "/adminReviewdelete", method = RequestMethod.GET)
+	public ModelAndView adminReviewdelete(@RequestParam String idx, HttpSession session) {
+		logger.info("params : {}" + idx);
+		return service.adminReviewdelete(idx, session);
+	}
 }

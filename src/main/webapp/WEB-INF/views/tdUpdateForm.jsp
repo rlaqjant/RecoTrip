@@ -211,7 +211,6 @@
                         <div id="editable1" contenteditable="true">${list.diary_content1}</div>
                         <input class="fileUp1" name="content1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
                     	<input id="content1" type="hidden" name="content1" value=""/>
-                        <div class="hashtag"> #해시태그영역</div>
                         </div>
                     </div>
                 </tr>
@@ -226,7 +225,6 @@
 	                        <div id="editable2" contenteditable="true">${list.diary_content2}</div>
 	                        <input class="fileUp2" name="content2" type="button" onclick="fileUp(this)" value="파일업로드2"/>
                     		<input id="content2" type="hidden" name="content2" value=""/>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                        </div>
 	                    </div>
 	                </tr>
@@ -245,7 +243,6 @@
     							
 	                        <input class="fileUp3" name="content3" type="button" onclick="fileUp(this)" value="파일업로드3"/>
                     		<input id="content3" type="hidden" name="content3" value=""/>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                        </div>
 	                   
 	                    </div>
@@ -260,7 +257,6 @@
 	                        <div id="editable4" contenteditable="true">${list.diary_content4}</div>
 	                        <input class="fileUp4" name="content4" type="button" onclick="fileUp(this)" value="파일업로드4"/>
                     		<input id="content4" type="hidden" name="content4" value=""/>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                        </div>
 	       
 	                    </div>
@@ -275,7 +271,6 @@
 	                        <div id="editable5" contenteditable="true">${list.diary_content5}</div>
 	                        <input class="fileUp5" name="content5" type="button" onclick="fileUp(this)" value="파일업로드5"/>
                     		<input id="content5" type="hidden" name="content5" value=""/>
-	                        <div class="hashtag"> #해시태그영역</div>
 	                        </div>
 	                    </div>
 	                </tr>
@@ -311,7 +306,6 @@
                                "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
                                "<input id='content"+a+"' type='hidden' name='content"+a+"' value=''/>"+
                            "</div>"+
-                           "<div class='hashtag'> #해시태그영역</div>"+
                           "</div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
  
         }

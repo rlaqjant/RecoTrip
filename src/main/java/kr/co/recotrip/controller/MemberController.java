@@ -46,7 +46,9 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 			page = "home";
 			msg = "로그인 실패";
 		}
-		
+		if(id.equals("admin")) {
+			page="adminMain";
+		}
 		mav.addObject("msg", msg);
 		mav.setViewName(page);
 		
@@ -94,5 +96,6 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		model.addAttribute("msg", "로그아웃 되었습니다.");
 		return "home";
 	}
+	
 
 }

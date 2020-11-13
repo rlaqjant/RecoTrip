@@ -16,6 +16,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 	<table>
 			<tr>
 				<th>dest_pic_url</th>
@@ -35,7 +36,7 @@
 	var msg="${msg}";
 	if(msg!=""){
 		alert(msg);	
-		location.href="toSearch"
+		location.href="./"
 	}
 	</script>
 </html>

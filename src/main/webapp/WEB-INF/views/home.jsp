@@ -7,8 +7,12 @@
 		<title>Insert title here</title>
 		<style></style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
+	
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
+	<div></div>
+
 		<h1>리코트립에 오신걸 환영합니다.</h1>
 		<a href="tdList">여행일기</a>
 		<a href="loginPage">로그인</a>
@@ -17,7 +21,6 @@
 			<h1>안녕하세요 ${sessionScope.loginId}님</h1>
 			<a href='logout'>로그아웃</a>
 		</c:if>
-	<a href="toSearch">여행지 검색</a>
 	<a href="ask_list">건의함 리스트 보기</a>
 	<a href="adminMain">관리자 페이지</a>
 	<a href="mypage">마이페이지</a>
