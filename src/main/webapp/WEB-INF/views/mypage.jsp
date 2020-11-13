@@ -145,7 +145,7 @@
         </style>
 	</head>
     <body>
-     <div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+    <%@ include file="navi.jsp" %>
     <button class="control" onclick="location.href='toMypageMemberUpdateForm'">회원 정보 관리</button>
     <div class="backgr">
     	<div class="mywrli"><h2>내가 작성한 글 목록</h2></div>

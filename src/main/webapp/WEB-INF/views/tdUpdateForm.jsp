@@ -174,6 +174,7 @@
         </style>
     </head>
     <body>
+    <%@ include file="navi.jsp" %>
     <form action="tdUpdate" method="get">
         <table class="board">
             <tr>

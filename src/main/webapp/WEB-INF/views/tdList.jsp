@@ -111,11 +111,8 @@
         </style>
     </head>
     <body>
+  <%@ include file="navi.jsp" %>
   
-    	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
-	   <div class="backgr">
-	   
-	   </div>
        <div id="top">
            <h1>Travel Diary</h1>
            <a href="tdWriteForm"><img src="resources/image/글쓰.png"/></a>

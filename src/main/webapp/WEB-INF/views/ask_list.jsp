@@ -27,18 +27,6 @@
 		div{
 			margin: 5px;
 		}
-		.logo{
-			width: 240px;
-			height: 168px;
-			background-color: white;
-			position: absolute;
-			top: 4%;
-			left: 36%;
-		}
-		.logo img{
-			width: 240px;
-			height: 168px;
-        }
 		.lout{
 			position: absolute;
 			left: 1100px;
@@ -53,9 +41,9 @@
 		</style>
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 		<!--<c:if test="${sessionScope.loginId != null}">-->
 		<!--</c:if>-->
-		<div class="logo"><a href="Main.html"><img src="img/logo.png"></a></div>
 		<div class="lout">
 			안녕하세요 ${sessionScope.loginId}님
 			<button onclick="location.href='logout'">로그아웃</button>

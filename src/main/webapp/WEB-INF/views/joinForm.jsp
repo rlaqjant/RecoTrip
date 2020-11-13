@@ -81,22 +81,10 @@
 		    .join_box input[type = "submit"]:hover{
 		        background: #2ecc71;
 		      }
-	      .logo{
-	        width: 240px;
-	        height: 168px;
-	        position: absolute;
-	        top: 4%;
-	        left: 6%;
-	      }
-	      .logo img{
-	        width: 240px;
-	        height: 168px;
-	        border-radius: 30%;
-	      }
 		</style>
 	</head>
 	<body>
-	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+	<%@ include file="navi.jsp" %>
 		<form class="join_box" action="join" method="post">
             <h1>회원 가입</h1>
             <input type="text" name="id" placeholder="Id"><input type="button" id="overlay" value="ID 중복체크"/>

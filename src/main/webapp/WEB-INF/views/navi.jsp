@@ -14,38 +14,43 @@
 			}
 			#navbarbar{
 				height: 73px;
-				background-color: lightgrey;
+				width: 100%;
+				background: #eae9e9;
 			}
-			#navbar{
-				left: 8%;
-   				position: absolute;
-   				top:2%;
-			}
-			#navbar ul{
+
+			#menu{
 			    position: absolute;
 			    width: 1313px;
-			    left: 155%;
-			    top: -2%;
+			    left: 18%;
+			    top: 17px;
+			    margin-bottom: 0px;
 			}
-			#navbar ul li{
+			#menu li{
 				margin-right:97px;
 				font-size: 18px;
 				float:left;
 				list-style-type: none;
 			}
 			#brand{
-			    font-size: 33px;
+	            font-size: 33px;
 			    height: 48px;
-			    margin-bottom: 19px;
+			    margin: 11px;
+			    position: absolute;
+		        left: 8%;
 			}
-			#brand a,#navbar ul li a{
+			#brand a{
+				text-decoration: none;
+			}
+			
+			#menu li a{
 			    text-decoration: none;
 				color:black;
 			}
-			#navbar ul li a:hover{
+			#menu li a:hover{
 			    font-weight: 600;
+			    text-decoration: none;
 			}
-			#login{
+			#loginbutton{
 			    position: absolute;
 			    right: 14%;
 			    top: 3%;
@@ -60,7 +65,7 @@
 		        line-height: 31px;
 
 		    }
-			#join{
+			#joinbutton{
 			    position: absolute;
 			    right: 8%;
 			    top: 3%;
@@ -74,6 +79,10 @@
 			    text-align: center;
 		        line-height: 31px;
 			}
+			#ti{
+				color:#007bff;
+			}
+
 			/* 검색창~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 			.bo_w_select {
 			    width: 120px;
@@ -105,22 +114,27 @@
 			#searchBtn{
 				height: 34px;
 			}
+			#searchForm{
+			position: absolute;
+   			top: -7px;
+			}
+			
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	
 
 </head>
 <body>
-	<nav class="navbar-light bg-light" id="navbarbar">
+	<nav id="navbarbar">
 
-	  <div id="navbar">
-	    <div id="brand" ><a href="./">Recotrip</a></div>
-	    <ul>
+
+	    <div id="brand" ><a id="ti" href="./">Recotrip</a></div>
+	    <ul id="menu">
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
 	      <li class="list"><a href="ask_list">건의함</a></li>
 	      <li class="list">
-			  <form action="search">
+			  <form action="search" id="searchForm">
 				<select name="searchCatDetail" class="bo_w_select">
 					<option value="dest">여행지</option>
 					<option value="restaurant">음식점</option>
@@ -135,9 +149,8 @@
 			</form>
 	      </li>
 	    </ul>
-	  </div>
-	  <a href="" id="login"></a>
-	  <a href="" id="join"></a>
+	  <a href="" id="loginbutton"></a>
+	  <a href="" id="joinbutton">회원가입</a>
 	</nav>
 	
 	
@@ -145,25 +158,30 @@
 <script>
 	var loginId ="${sessionScope.loginId}";
 
-	if(loginId != ""){
-		$("#login").prop("href", "logout");
-		$("#login").text("로그아웃");
-		$("#join").prop("href", "mypage");
-		$("#join").text("마이페이지");
+	if(loginId == ""){
+		$("#loginbutton").prop("href", "loginPage");
+		$("#loginbutton").text("로그인");
+		$("#joinbutton").prop("href", "joinForm");
+		$("#joinbutton").text("회원가입");
+	}else if(loginId == "admin"){
+		$("#loginbutton").prop("href", "logout");
+		$("#loginbutton").text("로그아웃");
+		$("#joinbutton").prop("href", "adminMain");
+		$("#joinbutton").text("관리페이지");
 	}else{
-		$("#login").prop("href", "loginPage");
-		$("#login").text("로그인");
-		$("#join").prop("href", "joinForm");
-		$("#join").text("회원가입");
+		$("#loginbutton").prop("href", "logout");
+		$("#loginbutton").text("로그아웃");
+		$("#joinbutton").prop("href", "mypage");
+		$("#joinbutton").text("마이페이지");
 	}
 	
-	$("#login").hover(function(){
+	$("#loginbutton").hover(function(){
 		$(this).css("box-shadow","4px -3px 3px grey");
 	},function(){
 		$(this).css("box-shadow","none");
 	});
 	
-	$("#join").hover(function(){
+	$("#joinbutton").hover(function(){
 		$(this).css("box-shadow","4px -3px 3px grey");
 	},function(){
 		$(this).css("box-shadow","none");

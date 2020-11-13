@@ -46,9 +46,6 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 			page = "home";
 			msg = "로그인 실패";
 		}
-		if(id.equals("admin")) {
-			page="adminMain";
-		}
 		mav.addObject("msg", msg);
 		mav.setViewName(page);
 		

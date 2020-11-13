@@ -16,7 +16,7 @@
                 width: 12%;
 			    height: 56px;
 			    position: absolute;
-			    top: 7%;
+			    top: 10%;
 			    left: 5%;
 			    font-size: 30px;
             }  
@@ -24,7 +24,7 @@
                 width: 88%;
 			    height: 57px;
 			    position: absolute;
-			    top: 13%;
+			    top: 17%;
 			    left: 4%;
             }
             #co{
@@ -49,7 +49,7 @@
 			    width: 88%;
 			    height: 41%;
 			    position: absolute;
-			    top: 20%;
+			    top: 26%;
 			    left: 4%;
 			    border-top: 1px solid gray;
             }   
@@ -71,23 +71,23 @@
                 width: 91%;
                 height: 52px;
                 top: 18%;
-                left: 4%;
+                left: 3%;
             }
             .writer{
 				position: absolute;
 			    width: 113px;
 			    height: 40px;
 			    top: 17%;
-			    left: 1%;
+			    left: 2%;
 			    font-size: 20px;
 			    text-align: center;
             }
             .com{
 			    position: absolute;
-			    width: 779px;
+			    width: 760px;
 			    height: 35px;
 			    top: 14%;
-			    left: 182px;
+			    left: 162px;
 			    font-size: 16px;
             }
             .sub{
@@ -98,7 +98,7 @@
                 background-color: transparent !important;
             }
             #change{
-                right: 2%;
+                right: 1%;
 			    position: absolute;
 			    top: 20%;
 			    width: 88px;
@@ -113,10 +113,10 @@
             }
             .reviewcoment{
             	position: relative;
-			    width: 780px;
+			    width: 770px;
 			    height: 35px;
 			    top: 14%;
-			    left: 16%;
+			    left: 15%;
 			   	line-height: 33px;
             }
             .back{
@@ -179,7 +179,7 @@
 			#paging{
 				position:absolute;
 				left: 47%;
-    			top: 63%;
+    			top: 87%;
     			text-align: center;
 			}
         </style>
@@ -216,8 +216,10 @@
 			                		<input type="button" class="del" value="삭제"/>
 				                </c:if>
 	               			</div>
+	               			
 	           		</div>
 	            </div>
+	           
            	</c:forEach>	
            	</div>
            	

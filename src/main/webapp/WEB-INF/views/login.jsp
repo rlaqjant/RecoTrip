@@ -65,24 +65,11 @@
 			      .box input[type = "submit"]:hover{
 			        background: #2ecc71;
 			      }
-				.logo{
-			        width: 240px;
-			        height: 168px;
-			        position: absolute;
-			        top: 4%;
-			        left: 6%;
-			        
-			      }
-			      .logo img{
-			        width: 240px;
-			        height: 168px;
-			        border-radius: 30%;
-			      }
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>      
 	</head>
 	<body>
-	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+	<%@ include file="navi.jsp" %>
 		<form class="box" action="login" method="post">
 		  <h1>Login</h1>
 		  <input type="text" name="id" placeholder="Username">
