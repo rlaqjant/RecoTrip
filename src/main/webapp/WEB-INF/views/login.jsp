@@ -7,12 +7,14 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
+		/*
 			      body{
 			        margin: 0;
 			        padding: 0;
 			        font-family: sans-serif;
 			        background: #eceeee;
 			      }
+			      */
 			      .box{
 			        width: 300px;
 			        padding: 40px;
