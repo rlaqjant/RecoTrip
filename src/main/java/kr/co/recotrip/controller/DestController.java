@@ -34,11 +34,16 @@ public class DestController {
 		logger.info("검색 파라미터 {}",params);
 		ModelAndView mav = new ModelAndView();
 		ArrayList<SearchDTO> list = service.search(params);
+		int count = list.size();
+		String keyword = params.get("search");
+		logger.info("for param : " + keyword + count);
 		
 		if(!list.isEmpty()) {
 			mav.addObject("list", list);
+			mav.addObject("keyword", keyword);
+			mav.addObject("count", count);
 		}else {
-			mav.addObject("msg", "검색결과가 없습니다.");
+			mav.addObject("msg", "검색결과가 없어요 여행지 추천을 받아보는건 어떨까요?");
 		}
 		
 		mav.setViewName("searchResult");

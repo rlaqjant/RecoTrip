@@ -26,5 +26,4 @@ public interface ReviewDAO {
 	int over(String userid,String dest_num);
 
 
-
 }
