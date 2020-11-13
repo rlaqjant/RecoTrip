@@ -270,8 +270,7 @@
 	            </table>              
   	 	   </c:if>
   	 	   
-           <div id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></div>
-           <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+
            
            <!-- 좋아요 -->
            <div id="likeBox">

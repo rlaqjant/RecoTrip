@@ -32,9 +32,9 @@
 	         }
         
             #top{
+            	border: 2px solid #d8fae6;
                 position: absolute;
                 background-color: #b6dffa;
-                border: 1px solid black;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
@@ -50,7 +50,7 @@
             #list{
                 position: absolute;
                 background-color: #b6dffa;
-                border: 1px solid black;
+                border: 2px solid #d8fae6;
                 width: 1000px;
                 height: auto;
                 padding: 10px;
@@ -61,8 +61,7 @@
                 left: 20%;
             }
             #list th,td{
-                background-color: #d8fae6 ;
-                border: 1px solid black;
+                background-color: rgb(246, 247, 248) ;
                 margin: 5px;
                 width: 900px;
                 padding: 5px;
@@ -70,11 +69,11 @@
                 list-style-type: none;
             }
             #list th{
-            	background-color: lightgrey;
+            	background-color: #d8fae6;
             }
             .search {
                 position: absolute;
-                border: 1px solid black;
+                border: 2px solid #d8fae6;
                 background-color: #b6dffa;
                 width: 1000px;
                 height: 50px;
@@ -92,7 +91,7 @@
 			#paging{
 	            text-align: center;
 	         }    
-	         a:link,a:visited{
+	         #list a:link,a:visited{
 	            text-decoration: none;
 	            color:black;
 	            font-size:20px;
@@ -119,7 +118,7 @@
 	   </div>
        <div id="top">
            <h1>Travel Diary</h1>
-           <a href="tdWriteForm"><h6>일기쓰기</h6></a>
+           <a href="tdWriteForm"><img src="resources/image/글쓰.png"/></a>
        </div>
        <div class="search">
             <input type="text" placeholder="검색어를 입력해주세요.">

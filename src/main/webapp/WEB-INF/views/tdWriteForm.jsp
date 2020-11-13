@@ -90,6 +90,9 @@
             	top: 94%;
             	left: 91%;
             }
+            #savee{
+            	background-image : url('resources/image/저장.png'); 
+            }
             #public{ 
                 margin-right:-4px;
                 border-top-left-radius: 5px; 
@@ -222,9 +225,9 @@
                </tr>
 
            </table>            
-           <div id="save"><input type="button" onclick="save()" value="저장"/></div>
+           <div id="save"><input id="savee" type="button" onclick="save()" value="저장"/></div>
            </form>
-           <div id="plus"><button onclick="plus()"><img src="#"></button></div>
+           <div id="plus"><button onclick="plus()"><img src="resources/img/추가.png"></button></div>
     </body>
     
     <script>
