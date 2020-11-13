@@ -8,14 +8,38 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
+            body{
+            	background-color: white;
+	         }
+	         .logo{
+                width: 240px;
+                height: 168px;
+                
+                position: absolute;
+                top: 4%;
+                left: 40%;
+            }
+            .logo img{
+                width: 240px;
+                height: 168px;
+            }
+            .backgr{
+	              position: absolute;
+	              background-color: rgb(246, 247, 248);
+	              top: 220px;
+	              width: 100%;
+	              height: 1600px;
+	         }
+        
             #top{
                 position: absolute;
+                background-color: #b6dffa;
                 border: 1px solid black;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
                 border-radius: 10px;
-                top: 10%;
+                top: 28%;
                 left: 20%;
                 
             }
@@ -25,18 +49,19 @@
             }
             #list{
                 position: absolute;
+                background-color: #b6dffa;
                 border: 1px solid black;
                 width: 1000px;
                 height: auto;
                 padding: 10px;
-                margin-top: 10px;
+                margin-top: 20px;
                 text-align: center;
                 border-radius: 10px;
-                top: 30%;
+                top: 50%;
                 left: 20%;
             }
             #list th,td{
-                background-color: white;
+                background-color: #d8fae6 ;
                 border: 1px solid black;
                 margin: 5px;
                 width: 900px;
@@ -50,11 +75,12 @@
             .search {
                 position: absolute;
                 border: 1px solid black;
+                background-color: #b6dffa;
                 width: 1000px;
                 height: 50px;
                 text-align: center;
                 border-radius: 10px;
-                top: 25%;
+                top: 45%;
                 left: 20%;
             }
             .search input{
@@ -77,7 +103,7 @@
 	         #paging{
 	            position:absolute;
 	            left: 50%;
-	            top: 82%;
+	            top: 105%;
 	         }
 	         #list .id{
 	         	width: 120px;
@@ -86,6 +112,11 @@
         </style>
     </head>
     <body>
+  
+    	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+	   <div class="backgr">
+	   
+	   </div>
        <div id="top">
            <h1>Travel Diary</h1>
            <a href="tdWriteForm"><h6>일기쓰기</h6></a>
@@ -129,6 +160,7 @@
 	</div>	
 
     </body>
+ 
     <script>
      
     var msg = "${msg}";
