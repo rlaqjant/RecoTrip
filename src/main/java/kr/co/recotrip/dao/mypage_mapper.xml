@@ -25,4 +25,29 @@
 		FROM t2_diary_reply dr INNER JOIN t2_diary d ON dr.diary_number = d.diary_number WHERE dr.id = #{param1} ORDER BY dr.reply_num DESC
 	</select>
 	
+	<select id="toMypageMemberUpdateForm" resultType="hashmap" parameterType="String">
+		SELECT * FROM T2_MEMBER WHERE id=#{param1}
+	</select>
+	
+	<update id="mypageMemberUpdate" parameterType="hashMap">
+		UPDATE T2_MEMBER
+			<set>
+				<if test="!pw.equals('')">pw=#{pw}</if>
+			</set>
+		WHERE id=#{id}
+	</update>
+	
+	<delete id="myPageMemberDel">
+		DELETE FROM T2_MEMBER WHERE id=#{param1}
+	</delete>
+	
+	<insert id="myPageMemberMove" parameterType="hashMap">
+		INSERT INTO T2_DEL_MEMBER (deleted_num, id, deleted_date, reason)
+		VALUES (t2_deleted_num_seq.NEXTVAL, #{param1}, SYSDATE, #{param2})
+	</insert>
+	
+	<select id="myAskList" resultType="hashmap">
+		SELECT ask_num, ask_subject, ask_reg_date FROM t2_ASK WHERE id=#{param1} ORDER BY ask_num DESC
+		</select>
+	
 </mapper>

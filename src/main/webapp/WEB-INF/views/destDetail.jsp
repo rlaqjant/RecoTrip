@@ -7,10 +7,10 @@
 		<meta charset="UTF-8">
 		<title>여행지</title>
 		<style>
-			body{
+			/* body{
 				overflow-x:hidden;
 				overflow-y:auto;  
-			}
+			} */
 			#reviewFrame{
 			    width: 84%;
 			    height: 670px;

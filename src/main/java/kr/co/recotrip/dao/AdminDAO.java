@@ -39,4 +39,6 @@ public interface AdminDAO {
 
 	int adminReviewdelete(String idx);
 
+	int adminRatingDelete(String idx, String id);
+
 }
