@@ -33,6 +33,8 @@
 		</style>
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
+	
 		<h1>건의함 디테일 페이지</h1>
         <hr/>
         <table>

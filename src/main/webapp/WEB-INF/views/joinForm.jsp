@@ -8,12 +8,7 @@
 <title>Insert title here</title>
 <script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
-			body{
-		        margin: 0;
-		        padding: 0;
-		        font-family: sans-serif;
-		        background: #eceeee;
-		      }
+			
 		    .join_box{
 		        width: 300px;
 		        padding: 40px;
@@ -81,31 +76,19 @@
 		    .join_box input[type = "submit"]:hover{
 		        background: #2ecc71;
 		      }
-	      .logo{
-	        width: 240px;
-	        height: 168px;
-	        position: absolute;
-	        top: 4%;
-	        left: 6%;
-	      }
-	      .logo img{
-	        width: 240px;
-	        height: 168px;
-	        border-radius: 30%;
-	      }
 		</style>
 	</head>
 	<body>
-	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+	<%@ include file="navi.jsp" %>
 		<form class="join_box" action="join" method="post">
             <h1>회원 가입</h1>
-            <input type="text" name="id" placeholder="Id"><input type="button" id="overlay" value="ID 중복체크"/>
+            <input type="text" name="id" placeholder="Id" id="idBox"><input type="button" id="overlay" value="ID 중복체크"/>
             <br/>
             <input type="password" name="pw" id="pw1" placeholder="Password"/>
             <input class="form-control" onkeyup="passwordCheckFunction();" type="password" id="pw2" placeholder="again Password"/>
-            <input type="text" name="name" placeholder="Name"/>
-            <input type="email" name="email" placeholder="Email"/>
-            <input type="text" name="phone" placeholder="010-0000-0000">
+            <input type="text" name="name" placeholder="Name" id="nameBox"/>
+            <input type="email" name="email" placeholder="Email" id="emailBox"/>
+            <input type="text" name="phone" placeholder="010-0000-0000" id="phoneBox">
             <div class="JI">
             <span id="checkMessage" style="color:red;font-weight:bold"></span>
             <input type="submit" name="" value="회원가입" id="joinBtn">

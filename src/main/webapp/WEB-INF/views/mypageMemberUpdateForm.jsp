@@ -58,7 +58,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
 	<body>
-	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+	<%@ include file="navi.jsp" %>
       <div class="backgr">
          <form action="mypageMemberUpdate" method="post">
                 <div class="mypg">         

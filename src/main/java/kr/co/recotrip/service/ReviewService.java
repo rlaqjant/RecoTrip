@@ -1,6 +1,7 @@
 package kr.co.recotrip.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,7 +21,7 @@ public class ReviewService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired ReviewDAO dao;
 
-	public List<ReviewDTO> reviewlist(PagingVO vo, String dest_num) {
+	public List<HashMap<String, Object>> reviewlist(PagingVO vo, String dest_num) {
 		return dao.reviewlist(vo, dest_num);
 	}
 	
@@ -53,8 +54,6 @@ public class ReviewService {
 	public int countBoard(String dest_num) {
 		return dao.countBoard(dest_num);
 	}
-
-
 
 
 }

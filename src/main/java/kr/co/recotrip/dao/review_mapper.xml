@@ -6,9 +6,9 @@
 
 <mapper namespace="kr.co.recotrip.dao.ReviewDAO">
 
- 	<select id="reviewlist" resultType="review">
-		SELECT * FROM (SELECT ROWNUM rnum, A.* FROM (SELECT * FROM t2_review where dest_num=#{param2} order by review_num desc) A)
-		WHERE rnum between #{arg0.start} AND #{arg0.end}
+ 	<select id="reviewlist" resultType="hashmap">
+		select * from (SELECT ROWNUM rnum, A.* FROM (SELECT  r.review_num,r.dest_num,r.review_content,r.id,r.review_reg_data,ra.rating
+		FROM t2_review r INNER JOIN t2_rating ra ON r.dest_num = ra.dest_num and r.id = ra.id WHERE r.dest_num=#{param2}) A) WHERE rnum between #{arg0.start} AND #{arg0.end}
 	</select>
 	
 	<insert id="reviewwrite" parameterType="String">
@@ -38,5 +38,5 @@
 	<select id="over" resultType="int">
 		select count(*) from t2_review where id=#{param1} and dest_num=#{param2}
 	</select>
-
+	
 </mapper>

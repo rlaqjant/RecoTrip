@@ -88,8 +88,10 @@
 	            
 	      .control{
 	        position: absolute;
-	        right: 60px;
-	        top: 50px;
+	        right: 380px;
+	        width : 150px;
+	        height : 40px;
+	        top: 180px;
 	      }
 	      .mywrli{
 	        position: absolute;
@@ -100,8 +102,10 @@
 	        position: absolute;
 	        background-color: rgb(246, 247, 248);
 	        top: 220px;
-	        width: 100%;
-	        height: 600px;
+	        width: 80%;
+	        height: 1900px;
+	        border-radius: 10%;
+	        left : 150px;
 	      }
 	      table, th, td{
 		      padding : 15px 10px;
@@ -145,7 +149,7 @@
         </style>
 	</head>
     <body>
-     <div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
+    <%@ include file="navi.jsp" %>
     <button class="control" onclick="location.href='toMypageMemberUpdateForm'">회원 정보 관리</button>
     <div class="backgr">
     	<div class="mywrli"><h2>내가 작성한 글 목록</h2></div>

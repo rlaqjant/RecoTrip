@@ -41,4 +41,6 @@ public interface AdminDAO {
 
 	int adminRatingDelete(String idx, String id);
 
+	int autoDelete();
+
 }

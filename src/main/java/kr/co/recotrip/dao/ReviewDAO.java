@@ -1,6 +1,7 @@
 package kr.co.recotrip.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import kr.co.recotrip.dto.PagingVO;
@@ -9,7 +10,7 @@ import kr.co.recotrip.dto.ReviewDTO;
 public interface ReviewDAO {
 
 	
-	List<ReviewDTO> reviewlist(PagingVO vo, String dest_num);
+	List<HashMap<String, Object>> reviewlist(PagingVO vo, String dest_num);
 
 	int reviewwrite(String userid,String review, String dest_num);
 
@@ -24,7 +25,6 @@ public interface ReviewDAO {
 	int countBoard(String dest_num);
 
 	int over(String userid,String dest_num);
-
 
 
 }

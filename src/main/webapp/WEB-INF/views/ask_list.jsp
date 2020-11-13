@@ -15,8 +15,10 @@
 		}
 		table{
 			position: relative;
-			left: 404px;
-			top: 240px;
+			width : 1200px;
+			left: 50px;
+			top: 70px;
+			padding : 5px 5px; 
 		}
 		th{
 			background-color: rgb(224, 228, 231);
@@ -27,41 +29,36 @@
 		div{
 			margin: 5px;
 		}
-		.logo{
-			width: 240px;
-			height: 168px;
-			background-color: white;
-			position: absolute;
-			top: 4%;
-			left: 36%;
-		}
-		.logo img{
-			width: 240px;
-			height: 168px;
-        }
-		.lout{
-			position: absolute;
-			left: 1100px;
-			top: 40px;
-		}
+		
 		.WR{
-			position: absolute;
-			left: 879px;
-			top: 224px;
+		    width: 100px;
+		    position: relative;
+		    left: 1454px;
+		    top: 275px;
+		    height: 30px;
+		    z-index : 1;
+		}
+		.Table{
+			position: relative;
+            left: 300px;
+            top: 200px;
+            width: 1300px;
+            height: 500px;
+            border-radius: 10px;
+            background-color : rgb(246, 247, 248);
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 10px;
+            overflow: auto;
 		}
 				
 		</style>
 	</head>
 	<body>
+	<%@ include file="navi.jsp" %>
 		<!--<c:if test="${sessionScope.loginId != null}">-->
 		<!--</c:if>-->
-		<div class="logo"><a href="Main.html"><img src="img/logo.png"></a></div>
-		<div class="lout">
-			안녕하세요 ${sessionScope.loginId}님
-			<button onclick="location.href='logout'">로그아웃</button>
-		</div>
+		
 		<button class="WR" onclick="location.href='ask_writeForm'">글쓰기</button>
-	
+		<div class = "Table">
 		<table>
 			<tr>
 				<th>글 번호</th>
@@ -78,6 +75,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+		</div>
 	</body>
 	<script>
 	
