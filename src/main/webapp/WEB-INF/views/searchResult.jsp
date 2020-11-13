@@ -43,9 +43,9 @@
 			left: 230px;
 			top: -45px;
 		}
-		a {font-weight: bold;}
-		a:link { color: black; text-decoration: none;}
-		a:visited { color: black; text-decoration: none;}
+		table a {font-weight: bold;}
+		table a:link {color: black; text-decoration: none;}
+		table a:visited {color: black; text-decoration: none;}
 
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
