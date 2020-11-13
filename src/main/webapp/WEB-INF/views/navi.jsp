@@ -40,6 +40,15 @@
 			}
 			#brand a{
 				text-decoration: none;
+				
+			}
+			#brand:hover{
+				cursor: pointer;
+			}
+			#logo2{
+				display: none;
+				width: 100px;
+				height: 50px;
 			}
 			
 			#menu li a{
@@ -80,8 +89,10 @@
 		        line-height: 31px;
 			}
 			#ti{
+				display: block;
 				color:#007bff;
 			}
+
 
 			/* 검색창~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 			.bo_w_select {
@@ -128,7 +139,7 @@
 	<nav id="navbarbar">
 
 
-	    <div id="brand" ><a id="ti" href="./">Recotrip</a></div>
+	    <div id="brand" ><img id="logo2" src="resources/image/logo2.png"/><a id="ti" href="./">Recotrip</a></div>
 	    <ul id="menu">
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
@@ -156,6 +167,23 @@
 	
 </body>
 <script>
+	$('#ti').mouseenter(function() {
+		  $("#logo2").css("display", "block");
+	});
+	$('#ti').mouseenter(function() {
+		  $("#ti").css("display", "none");
+	});
+	$('#logo2').mouseleave(function() {
+		  $("#logo2").css("display", "none");
+	});
+	$('#logo2').mouseleave(function() {
+		  $("#ti").css("display", "block");
+	});
+
+
+	
+
+	
 	var loginId ="${sessionScope.loginId}";
 
 	if(loginId == ""){

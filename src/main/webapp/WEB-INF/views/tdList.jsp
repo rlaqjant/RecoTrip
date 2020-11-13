@@ -9,28 +9,9 @@
         
         <style>
             body{
-            	background-color: white;
+            	background-color: rgb(246, 247, 248);
 	         }
-	         .logo{
-                width: 240px;
-                height: 168px;
-                
-                position: absolute;
-                top: 4%;
-                left: 40%;
-            }
-            .logo img{
-                width: 240px;
-                height: 168px;
-            }
-            .backgr{
-	              position: absolute;
-	              background-color: rgb(246, 247, 248);
-	              top: 220px;
-	              width: 100%;
-	              height: 1600px;
-	         }
-        
+
             #top{
             	border: 2px solid #d8fae6;
                 position: absolute;
@@ -39,13 +20,20 @@
                 height: 100px;
                 text-align: center;
                 border-radius: 10px;
-                top: 28%;
+                top: 15%;
                 left: 20%;
                 
             }
             #top a{
                 position: absolute;
                 left: 94%;
+                top: 60%;
+            }
+            #top a img{
+            	position: absolute;
+            	top: 50%;
+                height: 30px;
+                width: 50px;
             }
             #list{
                 position: absolute;
@@ -57,7 +45,7 @@
                 margin-top: 20px;
                 text-align: center;
                 border-radius: 10px;
-                top: 50%;
+                top: 35%;
                 left: 20%;
             }
             #list th,td{
@@ -69,6 +57,10 @@
                 list-style-type: none;
             }
             #list th{
+            	border: 2px solid #d8fae6;
+            	background-color: #d8fae6;
+            }
+             #subject:hover{
             	background-color: #d8fae6;
             }
             .search {
@@ -79,7 +71,7 @@
                 height: 50px;
                 text-align: center;
                 border-radius: 10px;
-                top: 45%;
+                top: 30%;
                 left: 20%;
             }
             .search input{
@@ -87,6 +79,19 @@
                 height: auto;
                 margin-top: 10px;
                 text-align: center;
+            }
+            .search button{
+            	background-color: rgb(246, 247, 248);
+            	width: 50px;
+            	height: 30px;
+            	border: 2px solid #d8fae6;
+            	border-radius: 10px;
+            	padding: 5px;
+            }
+            .search button:hover{
+            	background-color: #d8fae6;
+            	cursor: pointer;
+
             }
 			#paging{
 	            text-align: center;
@@ -102,7 +107,10 @@
 	         #paging{
 	            position:absolute;
 	            left: 50%;
-	            top: 105%;
+	            top: 92%;
+	         }
+	         a{
+	         	text-decoration: none;
 	         }
 	         #list .id{
 	         	width: 120px;
@@ -115,7 +123,7 @@
   
        <div id="top">
            <h1>Travel Diary</h1>
-           <a href="tdWriteForm"><img src="resources/image/글쓰.png"/></a>
+           <a href="tdWriteForm"><img src="resources/img/글쓰기.png"/></a>
        </div>
        <div class="search">
             <input type="text" placeholder="검색어를 입력해주세요.">
@@ -130,7 +138,7 @@
 			<c:forEach items="${diaryList}" var="dto">
 				<tr>
 					<td class="id">${dto.id}</td>
-					<td><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
+					<td id="subject"><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
 				</tr>
 			</c:forEach>
 		</table>
