@@ -47,10 +47,6 @@
 	</insert>
 	
 	<select id="myAskList" resultType="hashmap">
-		SELECT * FROM t2_ASK WHERE id=#{param1} ORDER BY ask_num DESC
-	</select>
-	
-	<select id="myAskList" resultType="hashmap">
 		SELECT ask_num, ask_subject, ask_reg_date FROM t2_ASK WHERE id=#{param1} ORDER BY ask_num DESC
 		</select>
 	
