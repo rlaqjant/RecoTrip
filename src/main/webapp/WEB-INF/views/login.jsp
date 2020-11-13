@@ -22,7 +22,7 @@
 			        transform: translate(-50%,-50%);
 			        border-radius: 10%;
 			        border: 3px solid white;
-			        background:  #9fd4f8;
+			        background:  #b6dffa;
 			        text-align: center;
 			      }
 			      .box h1{
@@ -65,11 +65,24 @@
 			      .box input[type = "submit"]:hover{
 			        background: #2ecc71;
 			      }
-
+				.logo{
+			        width: 240px;
+			        height: 168px;
+			        position: absolute;
+			        top: 4%;
+			        left: 6%;
+			        
+			      }
+			      .logo img{
+			        width: 240px;
+			        height: 168px;
+			        border-radius: 30%;
+			      }
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>      
 	</head>
 	<body>
+	<div class="logo"><a href="Main"><img src="resources/image/logo.png"></a></div>
 		<form class="box" action="login" method="post">
 		  <h1>Login</h1>
 		  <input type="text" name="id" placeholder="Username">
