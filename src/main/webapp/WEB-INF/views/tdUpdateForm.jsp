@@ -8,7 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
-	        body{
+        	body{
 				background-color: rgb(246, 247, 248);
 			}
             #title{
@@ -21,7 +21,6 @@
                 border-radius: 10px;
             }
             #title input{
-            	border-color: #b6dffa;
                 text-align: center;
                 margin: 5px;   
             }
@@ -62,7 +61,7 @@
             .hashtag{
                 width: 400px;
                 height: 25px;
-                background-color: #d8fae6;
+                background-color: white;
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
@@ -80,11 +79,11 @@
             }
             .app{
             	margin: auto;
+            	border-radius: 10px;
             }
             .app button{
                 text-align: center;
             }
-            
             #save{
             	position: fixed;
             	top: 94%;
@@ -94,6 +93,7 @@
                 margin-right:-4px;
                 border-top-left-radius: 5px; 
                 border-bottom-left-radius: 5px;
+                
             } 
             #private{ 
                 margin-left:-1px; 
@@ -118,37 +118,49 @@
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
 			#editable1{
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
 			#editable2{
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
 			#editable3{
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
 			#editable4{
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
             #editable5{
 				text-align: left;
 				width: 100%;
 				height: 350px;
+				border: 1px solid black;
 				overflow: auto;
+				border-radius: 10px;
 			}
 			img {
 				max-width: 400px;
@@ -157,78 +169,130 @@
 			h2{
 				text-align: center;
 			}
-            
+	
+	
         </style>
     </head>
     <body>
-    <form action="tdWrite" method="post">
+    <form action="tdUpdate" method="get">
         <table class="board">
             <tr>
                 <div class="group">
-                	<select name="diary_public">
+                	<select name="diary_public" >
                 		<option value="1">공개</option>
                 		<option value="0">비공개</option>
                 	</select>
-                	
-                	<!--  
-                    <button id="public">공개</button>
-                    <button id="private">비공개</button>
-                    -->
                 </div>
             </tr>
             <tr>
                 <div id="title">
-                    <input type="text" name="title" placeholder="TITLE"/></br></br>
-                    <input type="text" name="date" placeholder="YYYY-MM-DD"/>
-                   	<input type="hidden" name="id" value="${id}"/>
+                	<input type="hidden" name="idx" value="${list.diary_number }"/>
+                    <input type="text" name="title" placeholder="TITLE" value="${list.diary_subject }"/><br/><br/>
+                    <input type="text" name="date" placeholder="YYYY-MM-DD" value="${list.diary_reg_date }"/>
+                   	<input type="hidden" name="id" value="${sessionScope.loginId}"/>
                 </div>
             </tr>
             <tr>
             	<div class="prologue">
             	<h2>Profile</h2>
                 <div class="photo">
-                	<div id="editable0" contenteditable="true"></div>
+                	<div id="editable0" contenteditable="true">${list.diary_main }</div>
 					<input id="content0" type="hidden" name="content0" value=""/>
                     <input class="fileUp" type="button" onclick="fileUp(this)" value="파일업로드0"/>
                 </div>
                 </div>
             </tr>
-            <!--  
-            <tr>
-                <div id="textBox">
-                    <textarea class="text" name="profile" >
-
-                    </textarea>
-                </div>
-            </tr>
-            -->
         </table>
-           <table class="app">
-               <tr>
-                   <div class="prologue">
-                       <h2>Prologue</h2>
-                       <div class="photo">
-                            <div id="editable1" contenteditable="true"></div>
-                    		<input class="fileUp1" name="content1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
-                    		<input id="content1" type="hidden" name="content1" value=""/>
-                       </div>
-                       <div class="hashtag" name="hashTag"> #해시태그영역</div>
-                       <!--  
-                       <div class="photoEx">
-                           <textarea class="text" name="photoEx1">
-                           </textarea>
-                       </div>
-                       -->
-                   </div>
-               </tr>
+            <table class="app">
+                <tr>
+                    <div class="prologue">
+                        <h2>Prologue</h2>
+                        <div class="photo" name="content1">
+                        <div id="editable1" contenteditable="true">${list.diary_content1}</div>
+                        <input class="fileUp1" name="content1" type="button" onclick="fileUp(this)" value="파일업로드1"/>
+                    	<input id="content1" type="hidden" name="content1" value=""/>
+                        <div class="hashtag"> #해시태그영역</div>
+                        </div>
+                    </div>
+                </tr>
+            </table>
+            <c:if test="${not empty list.diary_content2}">
+        		
+        		<div class="del">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <div class="photo" name="content2">
+	                        <div id="editable2" contenteditable="true">${list.diary_content2}</div>
+	                        <input class="fileUp2" name="content2" type="button" onclick="fileUp(this)" value="파일업로드2"/>
+                    		<input id="content2" type="hidden" name="content2" value=""/>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        </div>
+	                    </div>
+	                </tr>
+	                <!--  <div class="app"><button class="delButton" onclick='remove(this)'>지우기</button></div>-->
+	    
+	            </table>
+	            </div>
+           
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content3}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <div class="photo" name="content3">
+	                        <div id="editable3" contenteditable="true">${list.diary_content3}</div>
+    							
+	                        <input class="fileUp3" name="content3" type="button" onclick="fileUp(this)" value="파일업로드3"/>
+                    		<input id="content3" type="hidden" name="content3" value=""/>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        </div>
+	                   
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content4}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <div class="photo" name="content4">
+	                        <div id="editable4" contenteditable="true">${list.diary_content4}</div>
+	                        <input class="fileUp4" name="content4" type="button" onclick="fileUp(this)" value="파일업로드4"/>
+                    		<input id="content4" type="hidden" name="content4" value=""/>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        </div>
+	       
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
+  	 	   <c:if test="${not empty list.diary_content5}">
+	         	<table class="app">
+	                <tr>
+	                    <div class="prologue">
+	                        <div class="photo" name="content5">
+	                        <div id="editable5" contenteditable="true">${list.diary_content5}</div>
+	                        <input class="fileUp5" name="content5" type="button" onclick="fileUp(this)" value="파일업로드5"/>
+                    		<input id="content5" type="hidden" name="content5" value=""/>
+	                        <div class="hashtag"> #해시태그영역</div>
+	                        </div>
+	                    </div>
+	                </tr>
+	            </table>              
+  	 	   </c:if>
 
            </table>            
            <div id="save"><input type="button" onclick="save()" value="저장"/></div>
            </form>
            <div id="plus"><button onclick="plus()"><img src="#"></button></div>
     </body>
-    
     <script>
+    	
+    	var pub = $("#public").val();
+    	console.log(pub);
+    
+    
         var i = 0;
        	var a = 1;
 
@@ -249,22 +313,7 @@
                            "</div>"+
                            "<div class='hashtag'> #해시태그영역</div>"+
                           "</div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
-           
-           /*
-            $(".app").append("<div class='del"+i+"'><table class='app1'>"+
-                "<tr>"+
-                    "<div class='prologue'>"+
-                        "<h2>Prologue</h2>"+
-                        "<div class='photo'>"+
-                        	"<div id='editable"+a+"' contenteditable='true'></div>"+
-                            "<input class='fileUp' name='content"+a+"' type='button' onclick='fileUp(this)' value='파일업로드"+a+"'/>"+
-                            "<input id='content"+a+"' type='hidden' name='content"+a+"' value=''/>"+
-                        "</div>"+
-                        "<div class='hashtag'> #해시태그영역</div>"+
-                        "<div class='photoEx'>"+
-                            "<textarea class='text' name='photoEx"+a+"'>"+
-                           "</textarea></div></div></tr> <tr><button onclick='remove("+i+")'>지우기</button></tr></table></div>");
-           */
+ 
         }
 
         function remove(e){
@@ -314,48 +363,61 @@
 		}
 		
 		
-		var filePath = "${path}";//업로드 후 반환되는 업로드 경로
-		console.log(filePath);
 		
-		/*
+		//삭제버튼 붙이기
 
+		   $(document).ready(function(){
+		      $("#editable0 img").each(function(idx,item){//idx = 갯수 , item = ???
+		         console.log(idx,item);
+		      	var id = $(item)[0].src.split("8080")[1];
+		      	console.log(id);
+		         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+		      });
+		      $("#editable1 img").each(function(idx,item){//idx = 갯수 , item = ???
+			         console.log(idx,item);
+			      	var id = $(item)[0].src.split("8080")[1];
+			      	console.log(id);
+			         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+			      });
+		      $("#editable2 img").each(function(idx,item){//idx = 갯수 , item = ???
+			         console.log(idx,item);
+			      	var id = $(item)[0].src.split("8080")[1];
+			      	console.log(id);
+			         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+			      });
+		      $("#editable3 img").each(function(idx,item){//idx = 갯수 , item = ???
+			         console.log(idx,item);
+			      	var id = $(item)[0].src.split("8080")[1];
+			      	console.log(id);
+			         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+			      });
+		      $("#editable4 img").each(function(idx,item){//idx = 갯수 , item = ???
+			         console.log(idx,item);
+			      	var id = $(item)[0].src.split("8080")[1];
+			      	console.log(id);
+			         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+			      });
+		      $("#editable5 img").each(function(idx,item){//idx = 갯수 , item = ???
+			         console.log(idx,item);
+			      	var id = $(item)[0].src.split("8080")[1];
+			      	console.log(id);
+			         $(item).after("<input id="+id+" type='button' value='삭제' onclick='delFile(this)'/><br/>");
+			      });
+
+		   });
 		
-		$(".fileup").click(function(){
-			if(this.value == "파일업로드"){
-				var myWin = window.open('tdUploadForm','파일 업로드', 'width=400, height=100');
-			}else if(this.value == "파일업로드1"){
-				myWin = window.open('tdUploadForm','파일 업로드1', 'width=400, height=100');
-			}else if(this.value == "파일업로드2"){
-				myWin = window.open('tdUploadForm','파일 업로드2', 'width=400, height=100');
-			}else if(this.value == "파일업로드3"){
-				myWin = window.open('tdUploadForm','파일 업로드3', 'width=400, height=100');
-			}else if(this.value == "파일업로드4"){
-				myWin = window.open('tdUploadForm','파일 업로드4', 'width=400, height=100');
-			}else if(this.value == "파일업로드5"){
-				myWin = window.open('tdUploadForm','파일 업로드5', 'width=400, height=100');
-			}
-			if(filePath !=""){
-				var content = "<img src='/${path}' width='250'/>";
-				content += "<input id='${path}' type='button' value='삭제' onclick='del(this)'/>";//해당 사진 삭제 버튼
-				$(this).prev().html(content);
-				//self.close();
-			}
-		});
-		*/
+
 		
 		//파일 삭제 버튼 메서드
 		function del(elem){
-			//console.log(elem);
-			var file = $(elem).prevAll();
-			console.log(file);
-			//var name= file[0]
-			
+			console.log(elem);
 			var fileName = elem.id.split("/")[1];
+			console.log(fileName);
 			$.ajax({
 				url:'tdFileDelete',
-				type:'get',
+				type:'GET',
 				data:{'fileName': fileName},
-				dataType:'json',
+				dataType:'JSON',
 				success:function(data){
 					console.log(data);
 					if(data.success == 1){//성공
@@ -367,5 +429,27 @@
 				}
 			});
 		}
+		
+		function delFile(elem){
+			console.log(elem);
+			var delfileName = elem.id.split("/")[2];
+			console.log(delfileName);
+			$.ajax({
+				url:'delFileDelete',
+				type:'GET',
+				data:{'delfileName': delfileName},
+				dataType:'JSON',
+				success:function(data){
+					console.log(data);
+					if(data.success == 1){//성공
+						$(elem).prev().remove();//클릭한 버튼 기준으로 앞에 있는놈 삭제
+						$(elem).remove();//클릭한 버튼 삭제
+					}
+				},error:function(e){
+					
+				}
+			});
+		}
+
     </script>
 </html>
