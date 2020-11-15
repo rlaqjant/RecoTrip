@@ -18,14 +18,14 @@
 				background: #eae9e9;
 			}
 
-			#menu{
+			#jin_menu{
 			    position: absolute;
 			    width: 1313px;
 			    left: 18%;
 			    top: 17px;
 			    margin-bottom: 0px;
 			}
-			#menu li{
+			#jin_menu li{
 				margin-right:97px;
 				font-size: 18px;
 				float:left;
@@ -51,11 +51,11 @@
 				height: 50px;
 			}
 			
-			#menu li a{
+			#jin_menu li a{
 			    text-decoration: none;
 				color:black;
 			}
-			#menu li a:hover{
+			#jin_menu li a:hover{
 			    font-weight: 600;
 			    text-decoration: none;
 			}

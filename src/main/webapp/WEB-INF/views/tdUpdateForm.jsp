@@ -140,7 +140,28 @@
 				background-color: rgb(246, 247, 248);
 				border-radius: 10px;
 			}
-			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5:hover{
+			.fileUp:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp1:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp2:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp3:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp4:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp5:hover{
+				background-color: #d8fae6;
 				cursor: pointer;
 			}
 			.app button{
