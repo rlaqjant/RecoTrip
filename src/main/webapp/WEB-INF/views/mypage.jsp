@@ -202,7 +202,7 @@
 	    		<h3 style="font-size: 40px;">내가 쓴 여행지 한줄평</h3>
 	    		<table>
 		    		<tr>
-						<th>여행지</th><th>내용</th><th>조회수</th><th>날짜</th>
+						<th>여행지</th><th>내용</th><th>평점</th><th>날짜</th>
 					</tr>
 	    			<c:forEach items="${myReviewList}" var="myReviewList">
 						<tr>
