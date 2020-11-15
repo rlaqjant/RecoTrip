@@ -45,6 +45,10 @@ public class MypageService {
 		return dao.myReplyList(id);
 	}
 
+	public ArrayList<HashMap<String, Object>> myLikeList(String id) {
+		return dao.myLikeList(id);
+	}
+	
 	public ModelAndView toMypageMemberUpdateForm(String id) {
 		HashMap<String, Object> map = dao.toMypageMemberUpdateForm(id);
 		ModelAndView mav = new ModelAndView();
@@ -84,5 +88,6 @@ public class MypageService {
 	public ArrayList<HashMap<String, Object>> myAskList(String id) {
 		return dao.myAskList(id);
 	}
+
 
 }

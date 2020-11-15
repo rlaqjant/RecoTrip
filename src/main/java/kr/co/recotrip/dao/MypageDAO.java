@@ -23,4 +23,6 @@ public interface MypageDAO {
 
 	ArrayList<HashMap<String, Object>> myAskList(String id);
 
+	ArrayList<HashMap<String, Object>> myLikeList(String id);
+
 }
