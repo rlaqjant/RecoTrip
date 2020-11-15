@@ -91,7 +91,6 @@
 			#ti{
 				display: block;
 				color:#007bff;
-				font-weight: bold;
 			}
 
 
@@ -125,6 +124,7 @@
 			}
 			#searchBtn{
 				height: 34px;
+				width: 55px;
 			}
 			#searchForm{
 			position: absolute;
@@ -133,14 +133,10 @@
 			
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	
-
 </head>
 <body>
 	<nav id="navbarbar">
-
-
-	    <div id="brand" ><img id="logo2" src="resources/image/logo2.png"/><a id="ti" href="./">Recotrip</a></div>
+	    <div id="brand" ><a href="./main"><img id="logo2" src="resources/image/logo2.png"/></a><a id="ti" href="./main">Recotrip</a></div>
 	    <ul id="jin_menu">
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>

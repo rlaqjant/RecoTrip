@@ -12,12 +12,8 @@
         
         <style>
 			
-			body{
-				background-color: rgb(246, 247, 248);
-			}
             #title{
-            	border: 2px solid #b6dffa;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 width: 1000px;
                 height: 80px;
                 text-align: center;
@@ -29,7 +25,6 @@
                 margin: 5px;   
             }
             .photo{
-            	border: 2px solid #b6dffa;
                 width: 800px;
                 height: 400px;
                 background-color: white;
@@ -55,22 +50,14 @@
                 margin: auto;
             }
             .prologue{
-            	border: 2px solid #b6dffa;
                 width: 1000px;
                 height: 500px;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 text-align: center;
                 border-radius: 10px;
                 margin: auto;
             }
-            .hashtag{
-                width: 400px;
-                height: 50px;
-                background-color: #d8fae6;
-                text-align: center;
-                border-radius: 10px;
-                margin: auto;
-            }
+
             #plus{
                 width: 400px;
                 height: 50px;
@@ -91,21 +78,44 @@
             #delete,#update{
             	display: block;
             }
+            #delete:hover{
+            	background-color: #d8fae6;            	
+            }
+            
+            #update:hover{
+            	background-color: #d8fae6;
+            }
+            #my{
+            	margin: 10px;
+            }
+            #my li{
+            	float: left;
+            }
             #update{
 				position: relative;
-				left: 72%;
+				left: 67%;
+				background-color: rgb(246, 247, 248);
+            	height: 22px;
+            	border-radius: 10px;
+            	padding: 5px;
 						
 			}
-            #update:a{
+            #update a{
 				text-decoration: none;
+				color: black;
 						
 			}
 			#delete{
 				position: relative;
-				left: 72%;
+				left: 68%;
+            	background-color: rgb(246, 247, 248);
+            	height: 22px;
+            	border-radius: 10px;
+            	padding: 5px;
 			}
-			#delete:a{
+			#delete a{
 				text-decoration: none;
+				color: black;
 						
 			}
 
@@ -138,11 +148,15 @@
 			    height: auto;
 			}
 			.btnt{
+				border: 0;
 			    width: 41px;
 			    height: 43px;
 			    position: absolute;
 			    top: 18px;
 			    right: 36%;
+			}
+			.btnt:hover{
+				cursor: pointer;
 			}
 			#reply{
 				position:absolute;
@@ -163,10 +177,9 @@
 				left:200;
 				width: 200px;
 				height: 100px;
-				background-color: ivory; 
 				margin: auto;
 				border-radius: 10px;
-				border: 1px solid;
+				border: 0;
 			}
 			#likeIcon{
 				position: absolute;
@@ -211,8 +224,11 @@
                     <p name="title">${list.diary_subject}</p></br>
                     <p name="date">${list.diary_reg_date}</p>
                 </div>
-           <div id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></div>
-           <div id="delete"><a href="tdDelete?idx=${idx}">삭제 </a></div>
+           		<ul id="my">
+		           <li id="update"><a href="tdUpdateForm?idx=${idx}">수정하기</a></li>
+		           <li id="delete"><a href="tdDelete?idx=${idx}">삭제하기</a></li>
+           		</ul>
+           		<br/><br/>
             </tr>
             <tr>
             	<div class="prologue">
@@ -237,6 +253,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
+	                    	<br/>
 	                        <div class="photo" name="content2">
 	    							${list.diary_content2}
 	                        </div>
@@ -248,6 +265,7 @@
 	         	<table class="app" >
 	                <tr>
 	                    <div class="prologue">
+	                    	<br/>
 	                        <div class="photo" name="content3">
     							${list.diary_content3}
 	                        </div>
@@ -259,6 +277,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
+	                    	<br/>
 	                        <div class="photo" name="content4">
     							${list.diary_content4}
 	                        </div>
@@ -270,6 +289,7 @@
 	         	<table class="app">
 	                <tr>
 	                    <div class="prologue">
+	                    	<br/>
 	                        <div class="photo" name="content5">
     							${list.diary_content5}
 	                        </div>

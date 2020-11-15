@@ -8,33 +8,9 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
-            body{
-            	background-color: white;
-	         }
-	         .logo{
-                width: 240px;
-                height: 168px;
-                
-                position: absolute;
-                top: 4%;
-                left: 40%;
-            }
-            .logo img{
-                width: 240px;
-                height: 168px;
-            }
-            .backgr{
-	              position: absolute;
-	              background-color: rgb(246, 247, 248);
-	              top: 220px;
-	              width: 100%;
-	              height: 1600px;
-	         }
-        
             #top{
                 position: absolute;
-                background-color: #b6dffa;
-                border: 1px solid black;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
@@ -49,8 +25,7 @@
             }
             #list{
                 position: absolute;
-                background-color: #b6dffa;
-                border: 1px solid black;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: auto;
                 padding: 10px;
@@ -61,8 +36,7 @@
                 left: 20%;
             }
             #list th,td{
-                background-color: #d8fae6 ;
-                border: 1px solid black;
+                background-color: white;
                 margin: 5px;
                 width: 900px;
                 padding: 5px;
@@ -70,12 +44,14 @@
                 list-style-type: none;
             }
             #list th{
-            	background-color: lightgrey;
+            	background-color: #d8fae6;
+            }
+             #subject:hover{
+            	background-color: #d8fae6;
             }
             .search {
                 position: absolute;
-                border: 1px solid black;
-                background-color: #b6dffa;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: 50px;
                 text-align: center;
@@ -85,11 +61,25 @@
             }
             #keyword{
                 width: 800px;
-                height: auto;
-                margin-top: 10px;
-                text-align: center;
+                height: 20px;
+                border-radius: 10px;
             }
-			#paging{
+            .search button{
+            	background-color: rgb(246, 247, 248);
+           		border: 0;
+           		outline: 0;
+            	width: 50px;
+            	height: 30px;
+            	border-radius: 10px;
+            	padding: 5px;
+            }
+            .search button:hover{
+            	background-color: #d8fae6;
+            	font-weight: 600;
+            	cursor: pointer;
+
+            }
+ㄴ			#paging{
 	            text-align: center;
 	         }    
 	         a:link,a:visited{
@@ -108,15 +98,34 @@
 	         #list .id{
 	         	width: 120px;
 	         }
+	         #write{
+	         	background-color: rgb(246, 247, 248);
+	         	border-radius: 10px;
+	         	padding: 4px;
+	         	font-size: 14px;
+	         }
+	         #write:hover{
+	         	background-color: #d8fae6;
+	         	font-weight: 600;
+            	cursor: pointer;
+	         }
+	         .back{
+	         	position: absolute;
+	         	background-color: rgb(246, 247, 248);
+	         	border-radius: 30px;
+	         	width: 1500px;
+	         	height: 800px;
+	         	left: 5%;
+	         }
 
         </style>
     </head>
     <body>
   <%@ include file="navi.jsp" %>
-  
+	   <div class="back"></div> 
        <div id="top">
            <h1>Travel Diary</h1>
-           <a href="tdWriteForm"><h6>일기쓰기</h6></a>
+           <a id="write" href="tdWriteForm">&nbsp;글쓰기&nbsp;</a>
        </div>
        <div class="search">
        <form name="form1" method="get" action="tdList">
@@ -163,7 +172,7 @@
 			<a href="./tdList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&nbsp;다음</a>
 		</c:if>
 	</div>	
-
+	
     </body>
  
     <script>

@@ -29,11 +29,14 @@
 	            border-radius: 50%;
 	            width: 200px;
 	            height: 200px;
-	            background-color: rgba(255,255,255,0.3);
+	            background-color: rgba(255,255,255, 0);
 	            text-align: center;
 	            font-weight: bold;
 	            font-size: 30px;
 	            line-height: 300px;
+	            color : white;
+	            text-shadow: 1px 1px 10px #000;
+	            
             }
             .button:hover{
 	            cursor:pointer;
@@ -67,7 +70,7 @@
             }
             #leports{background-image: url("resources/img/indexLeports.png");background-size: contain;background-repeat: no-repeat;left:200px;top:570px;}
            #culture{background-image: url("resources/img/indexCulture.jpg");background-size: cover;background-repeat: no-repeat;
-            background-position: -81px 12px;left:450px;top:350px;}
+            background-position: -81px 12px;left:330px;top:260px;}
            #tour{background-image: url("resources/img/indexTour.PNG");background-size: cover;background-repeat: no-repeat;
             background-position: -28px 1px;left:720px;top:550px;}
            #healing{background-image: url("resources/img/indexHealing.jpg");background-size: contain;background-repeat: no-repeat;left: 820px;top:220px;}
@@ -81,6 +84,70 @@
 			    font-size: 78px;
 			    text-align: center;
             }
+            #where0{
+            background-image : url('resources/img/서울특별시.jpeg');
+            background-size: 140%;
+            }
+            #where1{
+            background-image : url('resources/img/인천광역시.jpeg');
+            background-size: 140%;
+            }
+            #where2{
+            background-image : url('resources/img/대전광역시.jpeg');
+            background-size: 140%;
+            }
+            #where3{
+            background-image : url('resources/img/대구광역시.jpeg');
+            background-size: 150%;
+            }
+            #where4{
+            background-image : url('resources/img/광주광역시.jpeg');
+            background-size: 180%;
+            }
+            #where5{
+            background-image : url('resources/img/부산광역시.jpeg');
+            background-size: 170%;
+            }
+            #where6{
+            background-image : url('resources/img/울산광역시.jpeg');
+            background-size: 170%;
+            }
+            #where7{
+            background-image : url('resources/img/제주도.jpeg');
+            background-size: 140%;
+            }
+            #where8{
+            background-image : url('resources/img/경기도.jpeg');
+            background-size: 190%;
+            }
+            #where9{
+            background-image : url('resources/img/강원도.jpeg');
+            background-size: 140%;
+            }
+            #where10{
+            background-image : url('resources/img/충청북도.jpeg');
+            background-size: 140%;
+            }
+            #where11{
+            background-image : url('resources/img/충청남도.jpeg');
+            background-size: 150%;
+            }
+            #where12{
+            background-image : url('resources/img/경상북도.jpg');
+            background-size: 150%;
+            }
+            #where13{
+            background-image : url('resources/img/경상남도.png');
+            background-size: 140%;
+            }
+            #where14{
+            background-image : url('resources/img/전라북도.gif');
+            background-size: 170%;
+            }
+            #where15{
+            background-image : url('resources/img/전라남도.jpg');
+            background-size: 140%;
+            }
             .button2{
             top:190px;
             left: 215px;
@@ -91,6 +158,8 @@
             text-align: center;
             border-radius: 50%;
             border: 4px solid rgb(246, 247, 248);
+             color : white;
+	            text-shadow: 1px 1px 10px #000;
             }
             .btnCover2{
             position: absolute;
