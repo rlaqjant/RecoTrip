@@ -93,9 +93,9 @@
             }
             #update{
 				position: relative;
-				left: 72%;
+				left: 67%;
 				background-color: rgb(246, 247, 248);
-            	height: 10px;
+            	height: 22px;
             	border-radius: 10px;
             	padding: 5px;
 						
@@ -107,9 +107,9 @@
 			}
 			#delete{
 				position: relative;
-				left: 72%;
+				left: 68%;
             	background-color: rgb(246, 247, 248);
-            	height: 10px;
+            	height: 22px;
             	border-radius: 10px;
             	padding: 5px;
 			}

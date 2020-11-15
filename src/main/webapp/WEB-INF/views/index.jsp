@@ -29,11 +29,14 @@
 	            border-radius: 50%;
 	            width: 200px;
 	            height: 200px;
-	            background-color: rgba(255,255,255,0.3);
+	            background-color: rgba(255,255,255, 0);
 	            text-align: center;
 	            font-weight: bold;
 	            font-size: 30px;
 	            line-height: 300px;
+	            color : white;
+	            text-shadow: 1px 1px 10px #000;
+	            
             }
             .button:hover{
 	            cursor:pointer;
@@ -67,7 +70,7 @@
             }
             #leports{background-image: url("resources/img/indexLeports.png");background-size: contain;background-repeat: no-repeat;left:200px;top:570px;}
            #culture{background-image: url("resources/img/indexCulture.jpg");background-size: cover;background-repeat: no-repeat;
-            background-position: -81px 12px;left:450px;top:350px;}
+            background-position: -81px 12px;left:330px;top:260px;}
            #tour{background-image: url("resources/img/indexTour.PNG");background-size: cover;background-repeat: no-repeat;
             background-position: -28px 1px;left:720px;top:550px;}
            #healing{background-image: url("resources/img/indexHealing.jpg");background-size: contain;background-repeat: no-repeat;left: 820px;top:220px;}
@@ -91,6 +94,8 @@
             text-align: center;
             border-radius: 50%;
             border: 4px solid rgb(246, 247, 248);
+             color : white;
+	            text-shadow: 1px 1px 10px #000;
             }
             .btnCover2{
             position: absolute;

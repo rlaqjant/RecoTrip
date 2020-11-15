@@ -11,7 +11,7 @@
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
 		<style>
-			body { padding: 0px; margin: 0px; }
+			#homeBody { padding: 0px; margin: 0px; }
 	      .jb-box { width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative; }
 	      video { width: 100%; }
 	      .jb-text { position: absolute; top: 50%; width: 100%; }
@@ -185,6 +185,33 @@
             .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
             .section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
             
+         .hope_2 {
+             display: inline-block;
+             box-sizing: border-box;
+             max-width: calc(100% - 48px);
+             margin-left: auto;
+             margin-right: auto;
+             background-color: var(--primaryBackground);
+                padding: 0 12px;
+                font-size: 32px;
+            }
+            .hoping{
+                position: relative;
+                top: 190px;
+            }
+            * {margin:0;padding:0;}
+            .section{position: relative; top: 650px;}
+            .section input[id*="slide"] {display:none;}
+            .section .slidewrap {max-width:1200px;margin:0 auto;}
+            .section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
+            .section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+            .section .slidelist > li > a {display:block;position:relative;}
+            .section .slidelist > li > a img {width:100%;}
+            .section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+            .section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
+            .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
+            .section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
+            
             /* input에 체크되면 슬라이드 효과 */
             .section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
             .section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
@@ -214,19 +241,19 @@
             .section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#999;}
             .section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#999;}
             .hope_22 {
-			    display: inline-block;
-			    box-sizing: border-box;
-			    max-width: calc(100% - 48px);
-			    margin-left: auto;
-			    margin-right: auto;
-			    background-color: var(--primaryBackground);
+             display: inline-block;
+             box-sizing: border-box;
+             max-width: calc(100% - 48px);
+             margin-left: auto;
+             margin-right: auto;
+             background-color: var(--primaryBackground);
                 padding: 0 12px;
                 font-size: 32px;
                 
             }
             .hope_11{
-				position: relative;
-	    		margin-bottom: 53px;
+            position: relative;
+             margin-bottom: 53px;
             }
             #cityBtnBox{
                position: relative;
@@ -367,7 +394,7 @@
          
             </style>
 	</head>
-	<body>
+	<body id="homeBody">
 	<%@ include file="navi.jsp" %>
 	<div></div>
 	
@@ -548,6 +575,5 @@
 	      console.log(dest_num);
 	      location.href="toDestDetail?dest_num="+dest_num;
 	   }
-	
 </script>
 </html>
