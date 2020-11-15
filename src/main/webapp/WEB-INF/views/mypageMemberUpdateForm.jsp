@@ -36,7 +36,7 @@
             width: 500px;
             height: 200px;
             left: 385px;
-            top: 80px;
+            top: 3px;
             background-color: white;
             box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 10px;
           }
@@ -48,12 +48,12 @@
           .upfn{
               position: relative;
               left: 622px;
-              top: 27px;
+              top: -45px;
           }
           #memOut{
               position: relative;
               left: 806px;
-              top: 88px;
+              top: 27px;
           }
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
@@ -61,8 +61,11 @@
 	<body>
 	<%@ include file="navi.jsp" %>
       <div class="backgr">
+      <h2 style = "color : black; position : relative; left : 555px;">비밀번호 변경</h2>
          <form action="mypageMemberUpdate" method="post">
+         
                 <div class="mypg">         
+                
                     <div class="mp">
                         <div><b>ID : </b>${id}</div><br/>
                         <input type="hidden" name="id" value="${id}">
