@@ -40,7 +40,7 @@
             }
             .button:hover{
 	            cursor:pointer;
-	            border: 4px solid #d8fae6;
+	            border: 4px solid #3498db;
             }
             /* -------------------------------------------------------------------------------------------------------- */
             .who{
@@ -174,7 +174,7 @@
             }
             .button2:hover{
             cursor:pointer;
-            border: 4px solid #d8fae6;
+            border: 4px solid #3498db;
             }
              #index3 div{
             	float: left;
@@ -184,12 +184,21 @@
             #main{
                 width: 120px;
                 height: 30px;
-                background-color: rgb(115, 223, 169);
+                background-color: #3498db;
                 position: absolute;
                 top: 82%;
                 left: 77%;
                 color: #fff;
-                padding: 0.9em 2.8em 0.9em 2.25em;
+                padding: 20px 20px 5px 19px;
+				border-radius: 10px;
+            }
+            .hihi:link{
+            	color: #fff;
+            	text-decoration: none;
+            }
+            .hihi:visited{
+            	color: #fff;
+            	text-decoration: none;
             }
             .arrow-right {
                 position: absolute;
@@ -200,7 +209,6 @@
                 border-right: 8px solid transparent;
                 border-bottom: 8px solid transparent;
                 border-left: 8px solid white;
-                margin-top: 8px;
                 margin-left: 9px;
                 animation: horizontal 0.7s ease-in-out infinite;
                 }
@@ -366,7 +374,7 @@
             <div id="alone" class="button" onclick="withWho(3)"><div class="btnCover">alone</div></div>
             
             
-            <a href="main" id="main">
+            <a href="main" id="main" class="hihi">
                 메인페이지 이동
                 <span class="arrow-right"></span>
             </a>

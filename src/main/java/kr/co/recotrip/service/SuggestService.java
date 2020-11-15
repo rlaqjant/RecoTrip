@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.dao.SuggestDAO;
 import kr.co.recotrip.dto.SuggestDTO;
@@ -54,9 +54,10 @@ public class SuggestService {
 	
 	public ModelAndView ask_detail(String ask_num) {
 		SuggestDTO dto = dao.ask_detail(ask_num);
+		ArrayList<SuggestDTO> answerList = dao.answerList(ask_num);
 		logger.info("dto : "+dto.getAsk_content());
 		ModelAndView mav = new ModelAndView();
-		
+		mav.addObject("answerList", answerList);
 		mav.addObject("info",dto);
 		mav.setViewName("ask_detail");
 		return mav;
@@ -76,12 +77,11 @@ public class SuggestService {
 
 	
 	public void update(HashMap<String, String> params) {
+		logger.info("params : {}" + params);
 		int ask_num = Integer.parseInt(params.get("ask_num"));
-		String id = params.get("id"); 
-		String ask_subject = params.get("ask_subject"); 
 		String ask_content = params.get("ask_content"); 
-		logger.info("수정수정수정 :"+ask_num+id+ask_subject+ask_content);
-		int success = dao.update(id,ask_subject,ask_content,ask_num); 
+		logger.info("수정수정수정 :"+ask_num+ask_content);
+		int success = dao.update(ask_num,ask_content); 
 		logger.info("success : "+success);
 		
 	}
@@ -89,6 +89,29 @@ public class SuggestService {
 	public void delete(String ask_num) {
 		int success =  dao.delete(ask_num);
 		
+	}
+
+	public ModelAndView answering(HashMap<String, String> params) {
+		int answering = dao.answering(params);
+		ModelAndView mav = new ModelAndView();
+		String page = "redirect:/ask_detail?ask_num="+params.get("ask_num");
+		if(answering > 0) {
+			mav.setViewName(page);
+		}
+		return mav;
+	}
+
+	public ModelAndView delAnswer(String answer_num, RedirectAttributes rAttr) {
+		int delAnswer = dao.delAnswer(answer_num);
+		ModelAndView mav = new ModelAndView();
+		String msg = "삭제에 실패했습니다";
+		String page = "redirect:/ask_list";
+		if(delAnswer>0) {
+			msg = "삭제에 성공했습니다";
+		}
+		rAttr.addFlashAttribute("msg", msg);
+		mav.setViewName(page);
+		return mav;
 	}
 	
 		

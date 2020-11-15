@@ -8,76 +8,85 @@
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<style>
-		table, th, td{
-			border: 1px solid black;
-			border-collapse: collapse;
-			padding: 5px 10px;
+		#result{
+			position: absolute;
+			left: 24%;
+			top: 15%;
+			width: 1000px;
 		}
-		table{
-			position: relative;
-			width : 1200px;
-			left: 50px;
-			top: 70px;
-			padding : 5px 5px; 
+		table, th, td{
+			text-align: center;
+			border-collapse: collapse;
 		}
 		th{
-			background-color: rgb(224, 228, 231);
+			border-top: 1px solid lightgray;
+			border-bottom: 2px solid lightgray;
+			height: 70px;
 		}
 		td{
-			text-align: center;
+			border-bottom: 1px solid lightgray;
+			height: 50px;
 		}
-		div{
-			margin: 5px;
+		tbody tr:hover{
+			background-color: #F2F2F2;
 		}
-		
-		.WR{
-		    width: 100px;
+		#cap{
+			left: -420px;
+		    top: -10px;
 		    position: relative;
-		    left: 1454px;
-		    top: 275px;
-		    height: 30px;
-		    z-index : 1;
+		    font-size: 30px;
+		    margin-bottom: 25px;
 		}
-		.Table{
-			position: relative;
-            left: 300px;
-            top: 200px;
-            width: 1300px;
-            height: 500px;
-            border-radius: 10px;
-            background-color : rgb(246, 247, 248);
-            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 10px;
-            overflow: auto;
+		table a {font-weight: bold;}
+		table a:link {color: black; text-decoration: none;}
+		table a:visited {color: black; text-decoration: none;}
+		
+		#searchBox{
+			position: absolute;
+			z-index: 10;
+			top: 160px;
+			left: 1180px;
 		}
-				
+		#wrBtn{
+			z-index: 10;
+			position: absolute;
+			top: 160px;
+			left: 1380px;
+		}
 		</style>
 	</head>
 	<body>
 	<%@ include file="navi.jsp" %>
-		<!--<c:if test="${sessionScope.loginId != null}">-->
-		<!--</c:if>-->
-		
-		<button class="WR" onclick="location.href='ask_writeForm'">글쓰기</button>
-		<div class = "Table">
-		<table>
+		<button id="wrBtn" onclick="location.href='ask_writeForm'">글쓰기</button>
+		<table id="result">
+			<caption id="cap">건의함</caption>
+			<thead>
 			<tr>
 				<th>글 번호</th>
+				<th>분류</th>
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 			</tr>
+			</thead>
+			<tbody>
 			<c:forEach items = "${ask_list}" var = "dto">
 			<tr>
 				<td>${dto.ask_num}</td>
-				<td><a href = "./ask_detail?ask_num=${dto.ask_num}">${dto.ask_subject}</a></td>
+				<td>${dto.ask_sort}</td>
+				<td><a href = "./ask_detail?ask_num=${dto.ask_num}" style="text-align: none;">${dto.ask_subject}</a></td>
 				<td>${dto.id}</td>
 				<td>${dto.ask_reg_date}</td>
 			</tr>
 			</c:forEach>
+			</tbody>
 		</table>
-		</div>
 	</body>
 	<script>
-	
+	var msg = "${msg}";
+	console.log(msg);
+	if(msg != "") {
+		alert(msg);
+	}
 	</script>
 </html>
