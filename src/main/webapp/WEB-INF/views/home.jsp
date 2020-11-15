@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
-		<link rel="stylesheet" href="resources/js/reset.css">
+		
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
 		<style>
@@ -202,11 +202,11 @@
             * {margin:0;padding:0;}
             .section{position: relative; top: 650px;}
             .section input[id*="slide"] {display:none;}
-            .section .slidewrap {max-width:1200px;margin:0 auto;}
+            .section .slidewrap {max-width:1200px; max-height: 750px; margin:0 auto;}
             .section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
             .section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
             .section .slidelist > li > a {display:block;position:relative;}
-            .section .slidelist > li > a img {width:100%;}
+            .section .slidelist > li > a img {width: 1200px; height: 750px;}
             .section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
             .section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
             .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
@@ -216,6 +216,10 @@
             .section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
             .section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
             .section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+            .section input[id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+            .section input[id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+            .section input[id="slide06"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-500%);}
+            .section input[id="slide07"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-600%);}
 
             /* input에 체크되면 텍스트 효과 */
             .section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
@@ -224,14 +228,26 @@
             .section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
             .section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
             .section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
-
-            /* 좌,우 슬라이드 버튼 */
+			.section input[id="slide04"]:checked ~ .slidewrap li:nth-child(4) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+            .section input[id="slide04"]:checked ~ .slidewrap li:nth-child(4) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+            .section input[id="slide05"]:checked ~ .slidewrap li:nth-child(5) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+            .section input[id="slide05"]:checked ~ .slidewrap li:nth-child(5) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+            .section input[id="slide06"]:checked ~ .slidewrap li:nth-child(6) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+            .section input[id="slide06"]:checked ~ .slidewrap li:nth-child(6) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+            .section input[id="slide07"]:checked ~ .slidewrap li:nth-child(7) .textbox h3 {opacity:1;transform:translateY(0);transition-delay:.2s;}
+            .section input[id="slide07"]:checked ~ .slidewrap li:nth-child(7) .textbox p {opacity:1;transform:translateY(0);transition-delay:.4s;}
+            
+            	/* 좌,우 슬라이드 버튼 */
             .slide-control > div {display:none;}
             .section .left {left:30px;background:url('resources/image/left.png') center center / 100% no-repeat;}
             .section .right {right:30px;background:url('resources/image/right.png') center center / 100% no-repeat;}
             .section input[id="slide01"]:checked ~ .slidewrap .slide-control > div:nth-child(1) {display:block;}
             .section input[id="slide02"]:checked ~ .slidewrap .slide-control > div:nth-child(2) {display:block;}
             .section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {display:block;}
+            .section input[id="slide04"]:checked ~ .slidewrap .slide-control > div:nth-child(4) {display:block;}
+            .section input[id="slide05"]:checked ~ .slidewrap .slide-control > div:nth-child(5) {display:block;}
+            .section input[id="slide06"]:checked ~ .slidewrap .slide-control > div:nth-child(6) {display:block;}
+            .section input[id="slide07"]:checked ~ .slidewrap .slide-control > div:nth-child(7) {display:block;}
 
             /* 페이징 */
             .slide-pagelist {text-align:center;padding:20px;}
@@ -240,6 +256,10 @@
             .section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {background:#999;}
             .section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {background:#999;}
             .section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {background:#999;}
+            .section input[id="slide04"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(4) > label {background:#999;}
+            .section input[id="slide05"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(5) > label {background:#999;}
+            .section input[id="slide06"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(6) > label {background:#999;}
+            .section input[id="slide07"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(7) > label {background:#999;}
             .hope_22 {
              display: inline-block;
              box-sizing: border-box;
@@ -247,8 +267,8 @@
              margin-left: auto;
              margin-right: auto;
              background-color: var(--primaryBackground);
-                padding: 0 12px;
-                font-size: 32px;
+             padding: 0 12px;
+             font-size: 32px;
                 
             }
             .hope_11{
@@ -317,6 +337,81 @@
                color: white;
                text-shadow: 1px 1px 10px #000;
          }
+         		@charset "utf-8";
+		
+		/* 여백 초기화 */
+		body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form,figure,figcaption{margin:0; padding:0;}
+		
+		/* a 링크 초기화 */
+		a {color: #222; text-decoration: none;}
+		a:hover {color: #2698cb;}
+		
+		/* 폰트 초기화 */
+		body, input, textarea, select, button, table {font-family:'Noto Sans KR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
+		
+		/* 폰트 스타일 초기화 */
+		em,address {font-style: normal;}
+		
+		/* 제목 태그 초기화 */
+		h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
+		
+		/* 아이콘 이미지 최적화 작업 */
+		.icon {background-image: url(resources/image/icon.png);}
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 1.5dppx){
+       .icon {background-image: url(resources/image/icon@2.png); background-size: 500px;}
+       }
+
+       #footer {background: #211f1f;position: relative;
+        top: 900px;}
+       
+       /* 가운데 영역 */
+       .container {position: relative; width: 1280px; margin: 0 auto; /* background:rgba(0,0,0,0.1); */ }
+       
+       /* 로우 영역 */
+       .row {padding: 0 16px;}
+                                                   
+       /* 푸터 */
+       .footer_sns {position: absolute; right: 17px; top: 118px; z-index: 1;}
+       .footer_sns li {display: inline-block; width: 36px; height: 36px; margin-left: 4px;}
+       .footer_sns li.s1 {background-position: 0 -375px;}
+       .footer_sns li.s2 {background-position: -36px -375px;}
+       .footer_sns li.s3 {background-position: -72px -375px;}
+       .footer_sns li.s4 {background-position: -108px -375px;}
+       .footer_sns li.s5 {background-position: -144px -375px;}
+       .footer_sns li.s1:hover {background-position: 0 -411px;}
+       .footer_sns li.s2:hover {background-position: -36px -411px;}
+       .footer_sns li.s3:hover {background-position: -72px -411px;}
+       .footer_sns li.s4:hover {background-position: -108px -411px;}
+       .footer_sns li.s5:hover {background-position: -144px -411px;}
+       .footer_sns .tel {text-align: right; padding-top: 5px;}
+       .footer_sns .tel a {color: #8f8f8f; font-size: 21px;}
+       .footer_sns .tel a em {color: #fff;}
+       
+       .footer_infor {padding: 50px 0; width: 80%;}
+       .footer_infor h2 img {width: 107px;}
+       .footer_infor ul {padding: 15px 0;}
+       .footer_infor li {position: relative; display: inline; padding-right: 16px; white-space: nowrap;}
+       .footer_infor li:after {content: ''; position: absolute; right: 5px; top: 5px; width: 1px; height: 11px; background: #8f8f8f;}
+       .footer_infor li:last-child:after {width: 0; height: 0;}
+       .footer_infor li a {color: #8f8f8f;}
+       .footer_infor address p {color: #8f8f8f; padding-bottom: 15px;}
+       
+       @media (max-width: 960px){
+           .footer_sns {position: static; text-align: center; background: #352c2c; padding-bottom: 15px;}
+           .footer_sns .tel {display: none;}
+           .footer_infor {width: 100%; text-align: center;}
+       }
+       
+       @media (max-width: 600px){
+           .footer_infor {padding: 30px 0;}
+           .footer_infor address p br {display: none;}
+       }
+       
+
+         
             </style>
 	</head>
 	<body id="homeBody">
@@ -358,6 +453,10 @@
         <input type="radio" name="slide" id="slide01" checked>
         <input type="radio" name="slide" id="slide02">
         <input type="radio" name="slide" id="slide03">
+        <input type="radio" name="slide" id="slide04">
+        <input type="radio" name="slide" id="slide05">
+        <input type="radio" name="slide" id="slide06">
+        <input type="radio" name="slide" id="slide07">
     
         <div class="slidewrap">
             
@@ -366,28 +465,64 @@
                 <li class="slideitem">
                     <a>
                         <div class="textbox">
-                            <h3>첫번째 슬라이드</h3>
-                            <p>첫번째 슬라이드 입니다.</p>
+                            <h3>서울  베스트 여행지</h3>
+                            <p>경복궁 어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
-                        <img src="resources/image/slide.jpg">
+                        <img src="resources/img/서울시M.jpg">
                     </a>
                 </li>
                 <li class="slideitem">
                     <a>
                         <div class="textbox">
-                            <h3>두번째 슬라이드</h3>
-                            <p>두번째 슬라이드 입니다.</p>
+                            <h3>경기도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
-                        <img src="resources/image/slide.jpg">
+                        <img src="resources/img/경기도M.jpg">
                     </a>
                 </li>
                 <li class="slideitem">
                     <a>
                         <div class="textbox">
-                            <h3>두번째 슬라이드</h3>
-                            <p>두번째 슬라이드 입니다.</p>
+                            <h3>강원도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
-                        <img src="resources/image/slide.jpg">
+                        <img src="resources/img/강원도M.jpg">
+                    </a>
+                </li class="slideitem">
+                <li class="slideitem">
+                    <a>
+                        <div class="textbox">
+                            <h3>충청도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
+                        </div>
+                        <img src="resources/img/충청도M.jpg">
+                    </a>
+                </li class="slideitem">
+                <li class="slideitem">
+                    <a>
+                        <div class="textbox">
+                            <h3>경상도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
+                        </div>
+                        <img src="resources/img/경상도사진M.jpg">
+                    </a>
+                </li class="slideitem">
+                <li class="slideitem">
+                    <a>
+                        <div class="textbox">
+                            <h3>전라도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
+                        </div>
+                        <img src="resources/img/전라도M.jpg">
+                    </a>
+                </li class="slideitem">
+                <li class="slideitem">
+                    <a>
+                        <div class="textbox">
+                            <h3>제주도  베스트 여행지</h3>
+                            <p>어쩌구저쩌구 설명설명 설명설명</p>
+                        </div>
+                        <img src="resources/img/제주도M.jpg">
                     </a>
                 </li class="slideitem">
     
@@ -403,6 +538,22 @@
                     </div>
                     <div>
                         <label for="slide02" class="left"></label>
+                        <label for="slide04" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide03" class="left"></label>
+                        <label for="slide05" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide04" class="left"></label>
+                        <label for="slide06" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide05" class="left"></label>
+                        <label for="slide07" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide06" class="left"></label>
                         <label for="slide01" class="right"></label>
                     </div>
                 </div>
@@ -413,6 +564,10 @@
                 <li><label for="slide01"></label></li>
                 <li><label for="slide02"></label></li>
                 <li><label for="slide03"></label></li>
+                <li><label for="slide04"></label></li>
+                <li><label for="slide05"></label></li>
+                <li><label for="slide06"></label></li>
+                <li><label for="slide07"></label></li>
             </ul>
         </div>
     </div>
@@ -429,7 +584,7 @@
                         <li class="icon s5"><a href="#"><span class="ir_pm"></span></a></li>
                     </ul>    
                     <div class="tel">
-                        <a href="#">ARS <em>1544-0070</em></a>
+                        <a href="#">ARS <em>02-2108-5900</em></a>
                     </div>
                 </div>
             </div>
@@ -438,7 +593,7 @@
             <div class="container">
                 <div class="row">
                     <div class="footer_infor">
-                        <h2><img src="resources/image/logo_footer.png" alt=""></h2>
+                        <h2><img src="resources/image/logo2.png" alt=""></h2>
                         <ul>
                             <li><a href="#">회사소개</a></li>
                             <li><a href="#">채용정보</a></li>
@@ -449,8 +604,8 @@
                             <li><a href="#">윤리경영</a></li>
                         </ul>
                         <address>
-                            <p>서울특별시 강남구 도산대로 156, 2층 메가박스중앙(주) (논현동, 중앙엠앤비사옥)<br><span class="bar2">대표자명 김진선</span> 개인정보보호 책임자 경영지원실 실장 박영진<br><span class="bar2">사업자등록번호 211-86-59478</span> 통신판매업신고번호 제 833호</p>
-                            <p>Copyright 2014 by MegaboxJoongAng Inc. All right reserved</p>
+                            <p>08505 서울시 금천구 가산디지털2로 115, 509호,811호(가산동, 대륭테크노타운3차),구디아카데미(주)<br><span class="bar2">대표자명 이승엽</span> 개인정보보호 책임자 HRD Team 주승재 차장<br><span class="bar2"> 사업자등록번호 : 457-85-00300</span> 통신판매업신고번호 : 제2014-서울금천-0684호</p>
+                            <p>전화 : 02-2108-5900 , 팩스 : 02-2108-5909</p>
                         </address>
                     </div>
                 </div>

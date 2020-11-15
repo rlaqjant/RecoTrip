@@ -84,6 +84,70 @@
 			    font-size: 78px;
 			    text-align: center;
             }
+            #where0{
+            background-image : url('resources/img/서울특별시.jpeg');
+            background-size: 140%;
+            }
+            #where1{
+            background-image : url('resources/img/인천광역시.jpeg');
+            background-size: 140%;
+            }
+            #where2{
+            background-image : url('resources/img/대전광역시.jpeg');
+            background-size: 140%;
+            }
+            #where3{
+            background-image : url('resources/img/대구광역시.jpeg');
+            background-size: 150%;
+            }
+            #where4{
+            background-image : url('resources/img/광주광역시.jpeg');
+            background-size: 180%;
+            }
+            #where5{
+            background-image : url('resources/img/부산광역시.jpeg');
+            background-size: 170%;
+            }
+            #where6{
+            background-image : url('resources/img/울산광역시.jpeg');
+            background-size: 170%;
+            }
+            #where7{
+            background-image : url('resources/img/제주도.jpeg');
+            background-size: 140%;
+            }
+            #where8{
+            background-image : url('resources/img/경기도.jpeg');
+            background-size: 190%;
+            }
+            #where9{
+            background-image : url('resources/img/강원도.jpeg');
+            background-size: 140%;
+            }
+            #where10{
+            background-image : url('resources/img/충청북도.jpeg');
+            background-size: 140%;
+            }
+            #where11{
+            background-image : url('resources/img/충청남도.jpeg');
+            background-size: 150%;
+            }
+            #where12{
+            background-image : url('resources/img/경상북도.jpg');
+            background-size: 150%;
+            }
+            #where13{
+            background-image : url('resources/img/경상남도.png');
+            background-size: 140%;
+            }
+            #where14{
+            background-image : url('resources/img/전라북도.gif');
+            background-size: 170%;
+            }
+            #where15{
+            background-image : url('resources/img/전라남도.jpg');
+            background-size: 140%;
+            }
             .button2{
             top:190px;
             left: 215px;
