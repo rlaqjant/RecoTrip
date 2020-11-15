@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.recotrip.dto.SuggestDTO;
 import kr.co.recotrip.service.SuggestService;
@@ -30,7 +30,6 @@ public class SuggestController {
 	
 	@RequestMapping(value = "/ask_list", method = RequestMethod.GET)
 	public ModelAndView ask_list(HttpSession session) {		
-		
 		logger.info("건의함 리스트 호출");		
 		String id = (String) session.getAttribute("loginId");
 		//String id = "test"; 
@@ -87,6 +86,18 @@ public class SuggestController {
 		logger.info("delete 요청 : "+ask_num);
 		service.delete(ask_num);
 		return "redirect:/ask_list";
+	}
+	
+	@RequestMapping(value = "/answering", method = RequestMethod.POST)
+	public ModelAndView answering(@RequestParam HashMap<String, String> params) {
+		logger.info("params : " + params);
+		return service.answering(params);
+	}
+	
+	@RequestMapping(value = "/delAnswer", method = RequestMethod.GET)
+	public ModelAndView delAnswer(@RequestParam String answer_num, RedirectAttributes rAttr) {
+		logger.info("params : " + answer_num);
+		return service.delAnswer(answer_num, rAttr);
 	}
 	
 	}

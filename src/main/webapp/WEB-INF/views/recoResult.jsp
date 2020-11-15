@@ -28,7 +28,7 @@
 			}
 			.resultBox:hover{
 				cursor: pointer;
-				border: 4px solid #d8fae6;
+				border: 4px solid #3498db;
 			}
 			#result4{
 				clear: left;

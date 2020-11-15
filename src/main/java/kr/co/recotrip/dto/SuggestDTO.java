@@ -8,13 +8,16 @@ public class SuggestDTO {
 	private String ask_subject;
 	private String ask_content;
 	private String ask_sort;
-	private Date ask_reg_date;
+	private String ask_reg_date;
+	private int answer_num;
+	private String answer_content;
+	private String answer_reg_date;
 	
 	
-	public Date getAsk_reg_date() {
+	public String getAsk_reg_date() {
 		return ask_reg_date;
 	}
-	public void setAsk_reg_date(Date ask_reg_date) {
+	public void setAsk_reg_date(String ask_reg_date) {
 		this.ask_reg_date = ask_reg_date;
 	}
 	public int getAsk_num() {
@@ -46,6 +49,24 @@ public class SuggestDTO {
 	}
 	public void setAsk_sort(String ask_sort) {
 		this.ask_sort = ask_sort;
+	}
+	public int getAnswer_num() {
+		return answer_num;
+	}
+	public void setAnswer_num(int answer_num) {
+		this.answer_num = answer_num;
+	}
+	public String getAnswer_content() {
+		return answer_content;
+	}
+	public void setAnswer_content(String answer_content) {
+		this.answer_content = answer_content;
+	}
+	public String getAnswer_reg_date() {
+		return answer_reg_date;
+	}
+	public void setAnswer_reg_date(String answer_reg_date) {
+		this.answer_reg_date = answer_reg_date;
 	}
 	
 	

@@ -294,7 +294,7 @@
                line-height: 50px;
             }
             .cityBtn:nth-child(2){
-               border: 4px solid #d8fae6;
+               border: 4px solid #3498db;
             }
             .cityBtn:hover {
             cursor: pointer;
@@ -323,7 +323,7 @@
                line-height: 390px;
          }
          .ytDataResult:hover{
-            border: 4px solid #d8fae6;
+            border: 4px solid #3498db;
             cursor: pointer;
          }
          .rankingBox{
@@ -622,7 +622,7 @@
 	
 	$(".cityBtn").click(function(){
 	      $(".cityBtn").css("border", "4px solid rgb(246, 247, 248)");
-	      $(this).css("border", "4px solid #d8fae6");
+	      $(this).css("border", "4px solid #3498db");
 	   });
 	   
 	   citySel(1);

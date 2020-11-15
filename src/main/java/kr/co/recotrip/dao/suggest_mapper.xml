@@ -14,16 +14,27 @@
 		</insert>
 		
 		<update id="update">
-			UPDATE t2_ASK SET id = #{param1}, ask_subject= #{param2}, ask_content= #{param3} WHERE  ask_num = #{param4}
+			UPDATE t2_ASK SET ask_content= #{param2} WHERE ask_num = #{param1}
 		</update>
 		
 		<select id="ask_detail" resultType="kr.co.recotrip.dto.SuggestDTO">
 			SELECT * FROM t2_ASK WHERE ask_num = #{param1}
 		</select>
-			
 	
 		<delete id="delete">
 			DELETE FROM t2_ASK WHERE ask_num = #{param1}
 		</delete>
 		
+		<update id="answering" parameterType="hashMap">
+			INSERT INTO T2_ASK_ANSWER (answer_num, ask_num, answer_content, answer_reg_date)
+			VALUES (t2_ask_answer_seq.NEXTVAL, #{ask_num}, #{answer_content}, SYSDATE)
+		</update>
+		
+		<select id="answerList" resultType="kr.co.recotrip.dto.SuggestDTO">
+			SELECT * FROM T2_ASK_ANSWER WHERE ask_num=#{param1}
+		</select>
+		
+		<delete id="delAnswer">
+			DELETE FROM T2_ASK_ANSWER WHERE answer_num = #{param1}
+		</delete>
 </mapper>
