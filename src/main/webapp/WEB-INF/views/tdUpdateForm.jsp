@@ -8,24 +8,23 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
-        	body{
-				background-color: rgb(246, 247, 248);
-			}
+
             #title{
-            	border: 2px solid #b6dffa;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 width: 1000px;
                 height: 80px;
                 text-align: center;
                 margin: auto;
-                border-radius: 10px;
+                border-radius: 20px;
             }
             #title input{
-                text-align: center;
-                margin: 5px;   
+            	border: 0;
+                text-align: center; 
+                margin: 5px;  
+                height: 20px;
+                border-radius: 10px;
             }
             .photo{
-            	border: 2px solid #b6dffa;
                 width: 800px;
                 height: 400px;
                 background-color: white;
@@ -49,23 +48,15 @@
                 margin: auto;
                 border-radius: 10px;
             }
-            .prologue{
-            	border: 2px solid #b6dffa;
+             .prologue{
                 width: 1000px;
                 height: 500px;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
             }
-            .hashtag{
-                width: 400px;
-                height: 25px;
-                background-color: white;
-                text-align: center;
-                margin: auto;
-                border-radius: 10px;
-            }
+
             #plus{
                 width: 400px;
                 height: 50px;
@@ -73,10 +64,7 @@
                 margin: auto;  
                 display: block;
             }
-            #plus img{
-                width: 50px;
-                height: 50px;
-            }
+
             .app{
             	margin: auto;
             	border-radius: 10px;
@@ -88,14 +76,20 @@
             	position: fixed;
             	top: 94%;
             	left: 91%;
+            	
             }
             #savee{
             	background-color: rgb(246, 247, 248);
+            	border: 0;
             	width: 50px;
             	height: 30px;
-            	border: 2px solid #b6dffa;
             	border-radius: 10px;
             	padding: 5px;
+            }
+            #savee:hover{
+            	background-color: #d8fae6;
+            	font-weight: 800;
+            	cursor: pointer;
             }
             #savee:hover{
             	background-color: #d8fae6;
@@ -115,61 +109,24 @@
             } 
             .group select{ 
                 position: relative;
-                left: 70%;
+                left: 76%;
                 margin: 10px;
-                border: 2px solid #b6dffa;
                 border-radius: 10px;
-                background-color: white; 
-                color: #b6dffa; 
+                background-color: rgb(246, 247, 248);
+                border: 0; 
+                color: black; 
                 padding: 5px; 
             }
             .group select:hover{ 
-                color:white; 
+                color: black; 
                 background-color: #d8fae6; 
                 cursor: pointer;
             }
-            #editable0{
+            #editable0,#editable1,#editable2,#editable3,#editable4,#editable5{
 				text-align: left;
 				width: 100%;
 				height: 350px;
 				overflow: auto;
-				border-radius: 10px;
-			}
-			#editable1{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-				border-radius: 10px;
-			}
-			#editable2{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-				border-radius: 10px;
-			}
-			#editable3{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-				border-radius: 10px;
-			}
-			#editable4{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-				border-radius: 10px;
-			}
-            #editable5{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				border: 1px solid black;
-				overflow: auto;
-				border-radius: 10px;
 			}
 			img {
 				max-width: 400px;
@@ -179,16 +136,37 @@
 				text-align: center;
 			}
 			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5{
-				background-color: white;
-				border: 2px solid #b6dffa;
+				border: 0;
+				background-color: rgb(246, 247, 248);
 				border-radius: 10px;
 			}
-			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5:hover{
+			.fileUp:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp1:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp2:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp3:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp4:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp5:hover{
+				background-color: #d8fae6;
 				cursor: pointer;
 			}
 			.app button{
-				background-color: white;
-				border: 2px solid #b6dffa;
+				border: 0;
+				background-color: rgb(246, 247, 248);
 				border-radius: 10px;			
 			}
 			.app button:hover{
@@ -196,6 +174,19 @@
             	font-weight: 800;
             	cursor: pointer;
 			}
+			#bt{
+				border: 0;
+            	background-color: rgb(246, 247, 248);
+            	width: 50px;
+            	height: 30px;
+            	border-radius: 10px;
+            	padding: 5px;			
+			}
+			#bt:hover{
+				background-color: #d8fae6;
+            	font-weight: 800;
+            	cursor: pointer;
+            }
 	
 	
         </style>
@@ -308,9 +299,10 @@
            </table>            
            <div id="save"><input id="savee" type="button" onclick="save()" value="저장"/></div>
            </form>
-           <div id="plus"><button onclick="plus()"><img src="#"></button></div>
+           <div id="plus"><button id="bt" onclick="plus()">&nbsp;+&nbsp;</button></div>
     </body>
     <script>
+   
     	
     	var pub = $("#public").val();
     	console.log(pub);

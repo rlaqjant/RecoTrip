@@ -17,7 +17,7 @@
 		        left: 50%;
 		        transform: translate(-50%,-50%);
 		        border-radius: 10%;
-		        border: 3px solid white;
+		        border: 3px solid rgb(219, 217, 217);
 		        background:  #b6dffa;
 		        text-align: center;
 		      }
@@ -48,9 +48,10 @@
 		        padding: 14px 10px;
 		        width: 200px;
 		        outline: none;
-		        color: white;
+		        color: black;
 		        border-radius: 24px;
 		        transition: 0.25s;
+		        font-size : 14px;
 		      }
 		    .join_box input[type = "text"]:focus,.join_box input[type = "password"],.join_box input[type = "email"]:focus{
 		        width: 280px;

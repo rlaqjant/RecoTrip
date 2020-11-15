@@ -13,7 +13,9 @@ import kr.co.recotrip.dto.PagingVO;
 
 public interface DiaryDAO {
 
-	ArrayList<DiaryDTO> tdList(PagingVO vo);
+	int countBoard();
+	
+	ArrayList<DiaryDTO> tdList(PagingVO vo, String search_option,String keyword);
 
 	DiaryDTO tdDetail(String idx);
 
@@ -38,8 +40,6 @@ public interface DiaryDAO {
 	int tdDelete(String idx);
 
 	int tdUpdate(HashMap<String, String> params);
-
-	int countBoard();
 
 	int tdUpdate2(HashMap<String, String> params);
 
