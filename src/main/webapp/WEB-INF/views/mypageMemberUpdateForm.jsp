@@ -26,16 +26,17 @@
               position: absolute;
               background-color: rgb(246, 247, 248);
               top: 220px;
-              width: 100%;
-              height: 1600px;
+              left : 335px;
+              width: 67%;
+              height: 400px;
          }
           .mypg{
             position: relative;
             border: 5px solid #b6dffa;
             width: 500px;
             height: 200px;
-            left: 460px;
-            top: 60px;
+            left: 385px;
+            top: 80px;
             background-color: white;
             box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px 10px;
           }
@@ -46,13 +47,13 @@
           }
           .upfn{
               position: relative;
-              left: 680px;
-              top: 10px;
+              left: 622px;
+              top: 27px;
           }
           #memOut{
               position: relative;
-              left: 880px;
-              top: 15px;
+              left: 806px;
+              top: 88px;
           }
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		

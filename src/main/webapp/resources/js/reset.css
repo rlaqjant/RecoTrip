@@ -17,12 +17,12 @@
 		h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
 		
 		/* 아이콘 이미지 최적화 작업 */
-		.icon {background-image: url(./resources/image/icon.png);}
+		.icon {background-image: url(resources/image/icon.png);}
 
 		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 1.5dppx){
-       .icon {background-image: url(./resources/image/icon@2.png); background-size: 500px;}
+       .icon {background-image: url(resources/image/icon@2.png); background-size: 500px;}
        }
 
        #footer {background: #211f1f;position: relative;
