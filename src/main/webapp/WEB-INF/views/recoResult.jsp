@@ -51,7 +51,6 @@
 	</div>
 	</c:forEach>
 	</body>
-	
 	<script>
 	</script>
 </html>

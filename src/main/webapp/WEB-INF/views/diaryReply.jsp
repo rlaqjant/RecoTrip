@@ -133,7 +133,7 @@
 	                console.log(data.list);
 	                $.each(data.list, function(key,value){ 
 	                    var userId = value.id;
-	                    if(loginId==userId){
+	                    if(loginId==userId || loginId=="admin"){
 	                    	a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
 	                        a += '<div class="commentInfo'+value.reply_num+'">'+'작성자 : '+value.id;
 	                        a += '<a class="up'+value.reply_num+'" onclick="commentUpdateForm('+value.reply_num+',\''+value.reply_content+'\');">&nbsp;수정</a>';

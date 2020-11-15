@@ -216,7 +216,7 @@
 		                    <input class="reNum" type="hidden" name="reNum" value="${dto.REVIEW_NUM}"/>	
 			                <input class="com" name="upcontent" type="hidden" maxlength="50"/>
 			                <div id="change">
-				                <c:if test="${sessionScope.loginId == dto.ID}">
+				                <c:if test="${sessionScope.loginId == dto.ID || sessionScope.loginId=='admin'}">
 				                	<input type="button" class="update" value="수정"/>
 									<input type="button" class="sub" value="확인"/>
 									<input type="button" class="back" value="취소"/>

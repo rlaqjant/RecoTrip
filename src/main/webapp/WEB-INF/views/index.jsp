@@ -149,12 +149,12 @@
             background-size: 140%;
             }
             .button2{
-            top:190px;
-            left: 215px;
-            margin:10px 10px 10px 10px;
+            top:240px;
+            left: 24px;
+            margin:15px 10px 15px 10px;
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             text-align: center;
             border-radius: 50%;
             border: 4px solid rgb(246, 247, 248);
@@ -164,13 +164,14 @@
             .btnCover2{
             position: absolute;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            background-color: rgba(255,255,255,0.3);
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0);
             text-align: center;
             font-weight: bold;
             font-size: 19px;
-            line-height: 220px;
+            line-height: 305px;
+            text-shadow: 1px 1px 10px #000; 	
             }
             .button2:hover{
             cursor:pointer;
@@ -179,7 +180,7 @@
              #index3 div{
             	float: left;
             }
-            #where0{clear: left;}#where4{clear: left;}#where8{clear: left;}#where12{clear: left;}
+            #where0{clear: left;}#where8{clear: left;}
             /* -------------------------------------------------------------------------------------------------------- */
             #main{
                 width: 120px;
@@ -189,7 +190,7 @@
                 top: 82%;
                 left: 77%;
                 color: #fff;
-                padding: 20px 20px 5px 19px;
+                padding: 20px 32px 10px 20px;
 				border-radius: 10px;
             }
             .hihi:link{
@@ -202,6 +203,7 @@
             }
             .arrow-right {
                 position: absolute;
+                top: 23.5px;
                 display: inline-block;
                 width: 0;
                 height: 0;
@@ -477,7 +479,7 @@
     	console.log(a);
     	$("input[name=whatNum]").val(a);
     	$('html, body').animate({
-            scrollTop:1900
+            scrollTop:1850
         },500);
 	}
     function where(a) {

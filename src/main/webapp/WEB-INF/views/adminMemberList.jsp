@@ -48,21 +48,6 @@
 			left: 1180px;
 		}
 		@charset "utf-8";
-		/* 여백 초기화 */
-		#footer body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form,figure,figcaption{margin:0; padding:0;}
-		
-		/* a 링크 초기화 */
-		#footer a {color: white; text-decoration: none;}
-		#footer a:hover {color: #2698cb;}
-		
-		/* 폰트 초기화 */
-		#footer body, input, textarea, select, button, table {font-family:'Noto Sans KR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
-		
-		/* 폰트 스타일 초기화 */
-		#footer em,address {font-style: normal;}
-		
-		/* 제목 태그 초기화 */
-		#footer h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
 		
 		/* 아이콘 이미지 최적화 작업 */
 		.icon {background-image: url(resources/image/icon.png);}
