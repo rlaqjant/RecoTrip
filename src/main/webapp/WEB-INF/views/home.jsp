@@ -466,7 +466,6 @@
                     <a>
                         <div class="textbox">
                             <h3>서울  베스트 여행지</h3>
-                            <p>경복궁 어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/서울시M.jpg">
                     </a>
@@ -475,7 +474,6 @@
                     <a>
                         <div class="textbox">
                             <h3>경기도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/경기도M.jpg">
                     </a>
@@ -484,7 +482,6 @@
                     <a>
                         <div class="textbox">
                             <h3>강원도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/강원도M.jpg">
                     </a>
@@ -493,7 +490,6 @@
                     <a>
                         <div class="textbox">
                             <h3>충청도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/충청도M.jpg">
                     </a>
@@ -502,7 +498,6 @@
                     <a>
                         <div class="textbox">
                             <h3>경상도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/경상도사진M.jpg">
                     </a>
@@ -511,7 +506,6 @@
                     <a>
                         <div class="textbox">
                             <h3>전라도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/전라도M.jpg">
                     </a>
@@ -520,8 +514,7 @@
                     <a>
                         <div class="textbox">
                             <h3>제주도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
-                        </div>
+	                        </div>
                         <img src="resources/img/제주도M.jpg">
                     </a>
                 </li class="slideitem">

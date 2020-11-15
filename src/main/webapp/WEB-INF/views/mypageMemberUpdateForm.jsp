@@ -162,7 +162,7 @@
                 </div>
             </form>
             <div class="out">
-            <input type="button" id="memOut" value="회원 탈퇴" onclick="location.href='myPageMemberDel'" style="width: 90px; height: 30px;"/>
+            <input type="button" id="memOut" value="회원 탈퇴" onclick="memdel()" style="width: 90px; height: 30px;"/>
             </div>
       </div>
 	</body>
@@ -207,10 +207,15 @@
         </div>
     </footer>
 	<script>
-	$("#memOut").click(function(){
-	      alert("정말 탈퇴 하시겠습니까?");
-	   });
-	   
+	function memdel(){
+	      if(confirm("정말 탈퇴 하시겠습니까?") == true){
+	    	  location.href='myPageMemberDel';
+	       }else{
+	           return ;
+	       }
+	   }   
+	
+	
 	   $(function(){
 	      $("#myUserPw").keyup(function(){
 	         $('#chkNotice').innerhtml("")
