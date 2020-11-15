@@ -9,19 +9,21 @@
         
         <style>
             #top{
-                position: absolute;
-                background-color: #eae9e9;
-                width: 1000px;
-                height: 100px;
-                text-align: center;
-                border-radius: 10px;
-                top: 28%;
-                left: 20%;
-                
+			    position: absolute;
+			    background-color: #eae9e9;
+			    width: 1000px;
+			    height: 100px;
+			    text-align: center;
+			    border-radius: 10px;
+			    top: 17%;
+			    left: 25%;
             }
             #top a{
                 position: absolute;
-                left: 94%;
+			    left: 93%;
+			    top: 65%;
+			    text-decoration: none;
+			    color:black;
             }
             #list{
                 position: absolute;
@@ -32,8 +34,8 @@
                 margin-top: 20px;
                 text-align: center;
                 border-radius: 10px;
-                top: 50%;
-                left: 20%;
+                top: 34%;
+    			left: 25%;
             }
             #list th,td{
                 background-color: white;
@@ -56,8 +58,8 @@
                 height: 50px;
                 text-align: center;
                 border-radius: 10px;
-                top: 45%;
-                left: 20%;
+                top: 29%;
+    			left: 25%;
             }
             #keyword{
                 width: 800px;
@@ -79,10 +81,7 @@
             	cursor: pointer;
 
             }
-ㄴ			#paging{
-	            text-align: center;
-	         }    
-	         a:link,a:visited{
+	         #list a:link,#list a:visited{
 	            text-decoration: none;
 	            color:black;
 	            font-size:20px;
@@ -91,9 +90,13 @@
 	            font-size:20px;
 	         }
 	         #paging{
-	            position:absolute;
-	            left: 50%;
-	            top: 105%;
+	           position: absolute;
+			    left: 50%;
+			    top: 85%;
+	         }	         
+	         #paging a{
+				text-decoration: none;
+	            color:black;
 	         }
 	         #list .id{
 	         	width: 120px;
@@ -115,7 +118,7 @@
 	         	border-radius: 30px;
 	         	width: 1500px;
 	         	height: 800px;
-	         	left: 5%;
+	         	left: 11%;
 	         }
 
         </style>
