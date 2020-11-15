@@ -6,16 +6,53 @@
    <head>
       <meta charset="UTF-8">
       <title>Insert title here</title>
-      <style></style>
+      <style>
+      #adTitle{
+      	position:absolute;
+      	top: 20%;
+      	left: 43%;
+      }
+      #adBtnBox{
+      	border-radius: 20px;
+      	background-color: #E0ECF8;
+      	position: absolute;
+      	left: 39.5%;
+      	top: 35%;
+      	padding: 120px;
+      }
+      .adBtn{
+      	padding: 15px;
+      	font-size: 17px;
+      	border: 0px;
+      	border-radius: 17px;
+      	background-color: lightgray;
+      }
+      #manageBox{
+      	    position: relative;
+			top: -25px;
+			left: 25px;
+      }
+      #delManageBox{
+      	position: relative;
+      	top: 10px;
+      }
+      
+      </style>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>      
    </head>
    <body>
-      <h1>관리자 페이지입니다.</h1>
-      <a href="adminMemberList">회원관리</a>
-      <a href="adminDeletedMember">삭제된 회원 관리</a>
-      <a href="">여행일기 관리</a>
-      <a href="">건의함 관리</a>
-      <a href=""></a>
+		<%@ include file="navi.jsp" %>
+      <div id="adTitle">
+	      <h1>관리자 페이지입니다.</h1>
+      </div>
+      <div id="adBtnBox">
+      	<div id="manageBox">
+	      <input type="button" value="회원관리" onClick="location.href='adminMemberList'" class="adBtn">
+      	</div>
+      	<div id="delManageBox">
+	      <input type="button" value="삭제된 회원 목록" onClick="location.href='adminDeletedMember'" class="adBtn">
+      	</div>
+      </div>
    </body>
    <script>
    </script>

@@ -43,7 +43,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 				msg = "로그인 성공";
 			}
 		} catch (Exception e) {
-			page = "home";
+			page = "login";
 			msg = "로그인 실패";
 		}
 		mav.addObject("msg", msg);

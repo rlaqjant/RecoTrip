@@ -25,6 +25,6 @@
 	
 	<context:component-scan base-package="kr.co.recotrip" />
 	
-	
+	<beans:import resource="classpath:config/interceptor.xml"/>
 	
 </beans:beans>

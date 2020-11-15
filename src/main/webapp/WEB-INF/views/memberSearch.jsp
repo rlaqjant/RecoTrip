@@ -8,26 +8,49 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
-		table,th,td{
-				border: 1px solid black;
-				border-collapse: collapse;
-				padding: 10px 10px;
-			}
-			
-		td{
-			text-align: center;
-		}	
-		
-		div{
-			margin:5px;
+		#result{
+			position: absolute;
+			left: 24%;
+			top: 15%;
+			width: 1000px;
 		}
+		table, th, td{
+			text-align: center;
+			border-collapse: collapse;
+		}
+		th{
+			border-top: 1px solid lightgray;
+			border-bottom: 2px solid lightgray;
+			height: 70px;
+		}
+		td{
+			border-bottom: 1px solid lightgray;
+			height: 50px;
+		}
+		tbody tr:hover{
+			background-color: #F2F2F2;
+		}
+		#cap{
+			left: -420px;
+		    top: 10px;
+		    position: relative;
+		}
+		#cap2{
+			position: relative;
+			top: -40px;
+			left:240px;
+		}
+		table a {font-weight: bold;}
+		table a:link {color: black; text-decoration: none;}
+		table a:visited {color: black; text-decoration: none;}
 		
 		</style>
 		<script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	</head>
 	<body>
-		<table>
-		
+		<%@ include file="navi.jsp" %>
+		<table id="result">
+		<caption id="cap"><h1>회원검색 결과</h1><span id="cap2">${keyword}에 대한 검색결과는 총 ${count}건 입니다.</span></caption>
 			<tr>
 				<th>ID</th>
 				<th>NAME</th>
