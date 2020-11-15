@@ -26,15 +26,15 @@
             }
 			#myThings{
 				position: relative;
-				height: 200px;
+				height: 400px;
 				width: 900px;
-		        left: 280px;
+		        left: 308px;
 		        top: 70px;
 			}
 			#myDtListBtn{
 				position: absolute;
 				height: 200px;
-				width: 300px;
+				width: 430px;
 				border: 1px solid rgb(124, 123, 123);
 				border-radius: 10%;
 				text-align: center;
@@ -46,8 +46,8 @@
 			#myReplyListBtn{
 				position: absolute;
 				height: 200px;
-				width: 300px;
-				left:305px;
+				width: 430px;
+				left:440px;
 				border: 1px solid  rgb(124, 123, 123);
 				border-radius: 10%;
 				text-align: center;
@@ -59,14 +59,29 @@
 			#myReviewListBtn{
 				position: absolute;
 				height: 200px;
-				width: 300px;
-				left:610px;
+				width: 430px;
+				top:205px;
 				border: 1px solid  rgb(124, 123, 123);
 				border-radius: 10%;
 				text-align: center;
 				box-shadow: rgba(0, 0, 0, 0.05) 10px -10px 10px 5px;
 			}
 			#myReviewListBtn:hover{
+				cursor: pointer;
+			}
+			#myLikeBtn{
+				position: absolute;
+				height: 200px;
+				width: 430px;
+				left:440px;
+				top: 205px;
+				border: 1px solid  rgb(124, 123, 123);
+				border-radius: 10%;
+				text-align: center;
+				box-shadow: rgba(0, 0, 0, 0.05) 0px -10px 10px 5px;
+				
+			}
+			#myLikeBtn:hover{
 				cursor: pointer;
 			}
 			#listW{
@@ -85,7 +100,8 @@
 	      #myDtList{position:absolute;display:block; border: 1px solid rgb(230, 227, 227);}
 	      #myReplyList{position:absolute;display:none; border: 1px solid rgb(230, 227, 227);}
 	      #myReviewList{position:absolute;display:none; border: 1px solid rgb(230, 227, 227);}
-	            
+	      #myLikeList{position:absolute;display:none; border: 1px solid rgb(230, 227, 227);}
+	      
 	      .control{
 	        position: absolute;
 	        right: 380px;
@@ -166,6 +182,10 @@
 		    	<br/><h3>내가 쓴 여행지 한줄평</h3>
 		    	<h2>${myReviewListCnt}</h2>
 		    </div>
+		    <div id="myLikeBtn">
+		    	<br/><h3>좋아요한 여행일기</h3>
+		    	<h2>${myLikeListCnt}</h2>
+		    </div>
     	</div>
 	    <div id="listW">
 	    	<div id="myDtList">
@@ -213,6 +233,20 @@
 					</c:forEach>
 				</table>
 			</div>
+			<div id="myLikeList">
+	    		<h3 style="font-size: 40px;">좋아요한 여행일기</h3>
+	    		<table>
+		    		<tr>
+						<th>글 번호</th><th>제목</th><th>날짜</th>
+					</tr>
+	    			<c:forEach items="${myLikeList}" var="myLikeList">
+						<tr>
+							<td>${myLikeList.DIARY_NUMBER}</td>
+							<td><a href="tdDetail?idx=${myLikeList.DIARY_NUMBER}">${myLikeList.DIARY_SUBJECT}</a></td>
+							<td><fmt:formatDate value="${myLikeList.DIARY_REG_DATE}" pattern="yyyy-MM-dd"/></td>
+					</c:forEach>
+				</table>
+			</div>
     	</div>
     	<div id="sug">
 		    <div id="myAskList">
@@ -242,18 +276,26 @@
     	$("#myDtList").css({"display": "block"});
 		$("#myReplyList").css({"display": "none"});
 		$("#myReviewList").css({"display": "none"});
+		$("#myLikeList").css({"display": "none"});
     });
     $("#myReplyListBtn").click(function(){
     	$("#myDtList").css({"display": "none"});
 		$("#myReplyList").css({"display": "block"});
 		$("#myReviewList").css({"display": "none"});
+		$("#myLikeList").css({"display": "none"});
     });
     $("#myReviewListBtn").click(function(){
     	$("#myDtList").css({"display": "none"});
 		$("#myReplyList").css({"display": "none"});
 		$("#myReviewList").css({"display": "block"});
+		$("#myLikeList").css({"display": "none"});
     });
-
+    $("#myLikeBtn").click(function(){
+    	$("#myDtList").css({"display": "none"});
+		$("#myReplyList").css({"display": "none"});
+		$("#myReviewList").css({"display": "none"});
+		$("#myLikeList").css({"display": "block"});
+    });
     var msg = "${msg}";
 	console.log(msg);
 	if(msg != "") {
