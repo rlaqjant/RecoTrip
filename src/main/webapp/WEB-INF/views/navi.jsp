@@ -18,14 +18,14 @@
 				background: #eae9e9;
 			}
 
-			#jin_menu{
+			#menu{
 			    position: absolute;
 			    width: 1313px;
 			    left: 18%;
 			    top: 17px;
 			    margin-bottom: 0px;
 			}
-			#jin_menu li{
+			#menu li{
 				margin-right:97px;
 				font-size: 18px;
 				float:left;
@@ -51,11 +51,11 @@
 				height: 50px;
 			}
 			
-			#jin_menu li a{
+			#menu li a{
 			    text-decoration: none;
 				color:black;
 			}
-			#jin_menu li a:hover{
+			#menu li a:hover{
 			    font-weight: 600;
 			    text-decoration: none;
 			}
@@ -91,7 +91,6 @@
 			#ti{
 				display: block;
 				color:#007bff;
-				font-weight: bold;
 			}
 
 
@@ -133,14 +132,10 @@
 			
 	</style>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	
-
 </head>
 <body>
 	<nav id="navbarbar">
-
-
-	    <div id="brand" ><img id="logo2" src="resources/image/logo2.png"/><a id="ti" href="./">Recotrip</a></div>
+	    <div id="brand" ><a href="./"><img id="logo2" src="resources/image/logo2.png"/></a><a id="ti" href="./">Recotrip</a></div>
 	    <ul id="jin_menu">
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>

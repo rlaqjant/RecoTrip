@@ -8,14 +8,9 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
-            body{
-            	background-color: rgb(246, 247, 248);
-	         }
-
             #top{
-            	border: 2px solid #d8fae6;
                 position: absolute;
-                background-color: #b6dffa;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
@@ -37,8 +32,7 @@
             }
             #list{
                 position: absolute;
-                background-color: #b6dffa;
-                border: 2px solid #d8fae6;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: auto;
                 padding: 10px;
@@ -49,7 +43,7 @@
                 left: 20%;
             }
             #list th,td{
-                background-color: rgb(246, 247, 248) ;
+                background-color: white;
                 margin: 5px;
                 width: 900px;
                 padding: 5px;
@@ -57,7 +51,6 @@
                 list-style-type: none;
             }
             #list th{
-            	border: 2px solid #d8fae6;
             	background-color: #d8fae6;
             }
              #subject:hover{
@@ -65,8 +58,7 @@
             }
             .search {
                 position: absolute;
-                border: 2px solid #d8fae6;
-                background-color: #b6dffa;
+                background-color: #eae9e9;
                 width: 1000px;
                 height: 50px;
                 text-align: center;
@@ -75,21 +67,25 @@
                 left: 20%;
             }
             .search input{
+            	border:0;
+                text-align: center; 
+                margin: 5px;  
                 width: 800px;
-                height: auto;
-                margin-top: 10px;
-                text-align: center;
+                height: 20px;
+                border-radius: 10px;
             }
             .search button{
             	background-color: rgb(246, 247, 248);
+           		border: 0;
+           		outline: 0;
             	width: 50px;
             	height: 30px;
-            	border: 2px solid #d8fae6;
             	border-radius: 10px;
             	padding: 5px;
             }
             .search button:hover{
             	background-color: #d8fae6;
+            	font-weight: 600;
             	cursor: pointer;
 
             }
@@ -115,15 +111,34 @@
 	         #list .id{
 	         	width: 120px;
 	         }
+	         #write{
+	         	background-color: rgb(246, 247, 248);
+	         	border-radius: 10px;
+	         	padding: 4px;
+	         	font-size: 14px;
+	         }
+	         #write:hover{
+	         	background-color: #d8fae6;
+	         	font-weight: 600;
+            	cursor: pointer;
+	         }
+	         .back{
+	         	position: absolute;
+	         	background-color: rgb(246, 247, 248);
+	         	border-radius: 30px;
+	         	width: 1500px;
+	         	height: 800px;
+	         	left: 5%;
+	         }
 
         </style>
     </head>
     <body>
   <%@ include file="navi.jsp" %>
-  
+	   <div class="back"></div> 
        <div id="top">
            <h1>Travel Diary</h1>
-           <a href="tdWriteForm"><img src="resources/img/글쓰기.png"/></a>
+           <a id="write" href="tdWriteForm">&nbsp;글쓰기&nbsp;</a>
        </div>
        <div class="search">
             <input type="text" placeholder="검색어를 입력해주세요.">
@@ -162,7 +177,7 @@
 			<a href="./tdList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&nbsp;다음</a>
 		</c:if>
 	</div>	
-
+	
     </body>
  
     <script>

@@ -8,25 +8,23 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         
         <style>
-	        body{
-				background-color: rgb(246, 247, 248);
-			}
+
             #title{
-            	border: 2px solid #b6dffa;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 width: 1000px;
                 height: 80px;
                 text-align: center;
                 margin: auto;
-                border-radius: 10px;
+                border-radius: 20px;
             }
             #title input{
-            	border-color: #b6dffa;
-                text-align: center;
-                margin: 5px;   
+            	border: 0;
+                text-align: center; 
+                margin: 5px;  
+                height: 20px;
+                border-radius: 10px;
             }
             .photo{
-            	border: 2px solid #b6dffa;
                 width: 800px;
                 height: 400px;
                 background-color: white;
@@ -51,22 +49,14 @@
                 border-radius: 10px;
             }
             .prologue{
-            	border: 2px solid #b6dffa;
                 width: 1000px;
                 height: 500px;
-                background-color: #d8fae6;
+                background-color: rgb(246, 247, 248);
                 text-align: center;
                 margin: auto;
                 border-radius: 10px;
             }
-            .hashtag{
-                width: 400px;
-                height: 25px;
-                background-color: #d8fae6;
-                text-align: center;
-                margin: auto;
-                border-radius: 10px;
-            }
+ 
             #plus{
             	
                 width: 400px;
@@ -75,11 +65,9 @@
                 margin: auto;  
                 display: block;
             }
-            #plus img{
-                width: 50px;
-                height: 50px;
-            }
+
             .app{
+            	border-radius: 10px;
             	margin: auto;
             }
             .app button{
@@ -94,9 +82,9 @@
             }
             #savee{
             	background-color: rgb(246, 247, 248);
+            	border: 0;
             	width: 50px;
             	height: 30px;
-            	border: 2px solid #b6dffa;
             	border-radius: 10px;
             	padding: 5px;
             }
@@ -125,11 +113,11 @@
             } 
             .group select{ 
                 position: relative;
-                left: 70%;
+                left: 76%;
                 margin: 10px;
-                border: 2px solid #b6dffa;
                 border-radius: 10px;
-                background-color: white; 
+                background-color: rgb(246, 247, 248);
+                border: 0; 
                 color: black; 
                 padding: 5px; 
             }
@@ -138,42 +126,13 @@
                 background-color: #d8fae6; 
                 cursor: pointer;
             }
-            #editable0{
+            #editable0,#editable1,#editable2,#editable3,#editable4,#editable5{
 				text-align: left;
 				width: 100%;
 				height: 350px;
 				overflow: auto;
 			}
-			#editable1{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-			}
-			#editable2{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-			}
-			#editable3{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-			}
-			#editable4{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-			}
-            #editable5{
-				text-align: left;
-				width: 100%;
-				height: 350px;
-				overflow: auto;
-			}
+
 			img {
 				max-width: 400px;
 				max-height: 400px;
@@ -182,16 +141,37 @@
 				text-align: center;
 			}
 			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5{
-				background-color: white;
-				border: 2px solid #b6dffa;
+				border: 0;
+				background-color: rgb(246, 247, 248);
 				border-radius: 10px;
 			}
-			.fileUp,.fileUp1,.fileUp2,.fileUp3,.fileUp4,.fileUp5:hover{
+			.fileUp:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp1:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp2:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp3:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp4:hover{
+				background-color: #d8fae6;
+				cursor: pointer;
+			}
+			.fileUp5:hover{
+				background-color: #d8fae6;
 				cursor: pointer;
 			}
 			.app button{
-				background-color: white;
-				border: 2px solid #b6dffa;
+				border: 0;
+				background-color: rgb(246, 247, 248);
 				border-radius: 10px;			
 			}
 			.app button:hover{
@@ -199,6 +179,19 @@
             	font-weight: 800;
             	cursor: pointer;
 			}
+			#bt{
+				border: 0;
+            	background-color: rgb(246, 247, 248);
+            	width: 50px;
+            	height: 30px;
+            	border-radius: 10px;
+            	padding: 5px;			
+			}
+			#bt:hover{
+				background-color: #d8fae6;
+            	font-weight: 800;
+            	cursor: pointer;
+            }
             
         </style>
     </head>
@@ -267,7 +260,7 @@
            </table>            
            <div id="save"><input id="savee" type="button" onclick="save()" value="저장"/></div>
            </form>
-           <div id="plus"><button type="button" onclick="plus()"><img src="resources/img/추가.png"/></button></div>
+           <div id="plus"><button id="bt" type="button" onclick="plus()">&nbsp;+&nbsp;</button></div>
     </body>
     
     <script>

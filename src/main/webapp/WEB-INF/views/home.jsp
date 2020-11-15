@@ -3,20 +3,20 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <title>Insert title here</title>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>      
-      <link rel="stylesheet" href="resources/js/reset.css">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
+		<link rel="stylesheet" href="resources/js/reset.css">
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
-      <style>
-         body { padding: 0px; margin: 0px; }
-         .jb-box { width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative; }
-         video { width: 100%; }
-         .jb-text { position: absolute; top: 50%; width: 100%; }
-         .jb-text p { margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff; }
-            li {
+		<style>
+			#homeBody { padding: 0px; margin: 0px; }
+	      .jb-box { width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative; }
+	      video { width: 100%; }
+	      .jb-text { position: absolute; top: 50%; width: 100%; }
+	      .jb-text p { margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff; }
+      		li {
                 list-style-type: none;
             }
 
@@ -124,39 +124,66 @@
                 margin-top: 0.4em;
             }
             .hope {
-             max-width: calc(var(--max-content-width) + 2*var(--page-margin));
-             padding-left: var(--page-margin);
-             padding-right: var(--page-margin);
-             margin-left: auto;
-             margin-right: auto;
-             box-sizing: border-box;
-             position: relative;
-             top : 185px;
-         }
-         .hope1{
-            position: relative;
-             text-align: center;
-             margin-bottom: 42px;
-         }
-         .hope2 {
-             display: inline-block;
-             box-sizing: border-box;
-             max-width: calc(100% - 48px);
-             margin-left: auto;
-             margin-right: auto;
-             background-color: var(--primaryBackground);
+			    max-width: calc(var(--max-content-width) + 2*var(--page-margin));
+			    padding-left: var(--page-margin);
+			    padding-right: var(--page-margin);
+			    margin-left: auto;
+			    margin-right: auto;
+			    box-sizing: border-box;
+			    position: relative;
+			    top : 185px;
+			}
+			.hope1{
+				position: relative;
+	    		text-align: center;
+	    		margin-bottom: 42px;
+			}
+			.hope2 {
+			    display: inline-block;
+			    box-sizing: border-box;
+			    max-width: calc(100% - 48px);
+			    margin-left: auto;
+			    margin-right: auto;
+			    background-color: var(--primaryBackground);
                 padding: 0 12px;
                 font-size: 32px;
             }
             
-         .hope_0{
-            position: relative;
-            top : 200px;
-         }
-         .hope_1{
-            position: relative;
-             margin-bottom: -153px;
+			.hope_0{
+				position: relative;
+				top : 200px;
+			}
+			.hope_1{
+				position: relative;
+	    		margin-bottom: -153px;
             }
+            
+			.hope_2 {
+			    display: inline-block;
+			    box-sizing: border-box;
+			    max-width: calc(100% - 48px);
+			    margin-left: auto;
+			    margin-right: auto;
+			    background-color: var(--primaryBackground);
+                padding: 0 12px;
+                font-size: 32px;
+            }
+            .hoping{
+                position: relative;
+                top: 190px;
+            }
+            * {margin:0;padding:0;}
+            .section{position: relative; top: 650px;}
+            .section input[id*="slide"] {display:none;}
+            .section .slidewrap {max-width:1200px;margin:0 auto;}
+            .section .slidelist {white-space:nowrap;font-size:0;overflow:hidden;position:relative;}
+            .section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+            .section .slidelist > li > a {display:block;position:relative;}
+            .section .slidelist > li > a img {width:100%;}
+            .section .slidelist label {position:absolute;z-index:10;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+            .section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
+            .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
+            .section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
             
          .hope_2 {
              display: inline-block;
@@ -291,12 +318,12 @@
                text-shadow: 1px 1px 10px #000;
          }
             </style>
-   </head>
-   <body>
-   <%@ include file="navi.jsp" %>
-   <div></div>
-   
-      <div class="jb-box">
+	</head>
+	<body id="homeBody">
+	<%@ include file="navi.jsp" %>
+	<div></div>
+	
+		<div class="jb-box">
       <video muted autoplay loop>
         <source src="resources/videos/Oceantrip.mp4" type="video/mp4">
         <strong>Your browser does not support the video tag.</strong>
@@ -430,49 +457,48 @@
             </div>
         </div>
     </footer>
-   </body>
+	</body>
 <script>
-   var msg = "${msg}";
-   if(msg != ""){
-      alert(msg);
-   }
-   console.log(msg);
-   
-   $(".cityBtn").click(function(){
-         $(".cityBtn").css("border", "4px solid rgb(246, 247, 248)");
-         $(this).css("border", "4px solid #d8fae6");
-      });
-      
-      citySel(1);
-      
-      function citySel(a) {
-         console.log(a)
-         $("#ytDataResultBox").empty();
-         $.ajax({
-            type:"post",
-            url:"getYoutubeData",
-            data:{"whereNum" : a},
-            dataType:"JSON",
-            success:function(data){
-               for (var i = 0; i < data.length; i++) {
-                  console.log(data[i])
-                  var j = i+1;
-                  var content = "<div class='ytDataResult' id='ytDataResult"+i+"' onclick='toDestDetail("+data[i].DEST_NUM+")'>"+
-                  data[i].DEST_NAME+"<div class='rankingBox'>"+j+".<div><div>"
-                  $("#ytDataResultBox").append(content);
-                  $("#ytDataResult"+i).css("background-image","url('"+data[i].DEST_PIC_URL+"')");
-               }
-            },
-            error:function(error){
-               console.log(error);
-            }
-         });
-      }
-      
-      function toDestDetail(dest_num) {
-         console.log(dest_num);
-         location.href="toDestDetail?dest_num="+dest_num;
-      }
-   
+	var msg = "${msg}";
+	if(msg != ""){
+		alert(msg);
+	}
+	console.log(msg);
+	
+	$(".cityBtn").click(function(){
+	      $(".cityBtn").css("border", "4px solid rgb(246, 247, 248)");
+	      $(this).css("border", "4px solid #d8fae6");
+	   });
+	   
+	   citySel(1);
+	   
+	   function citySel(a) {
+	      console.log(a)
+	      $("#ytDataResultBox").empty();
+	      $.ajax({
+	         type:"post",
+	         url:"getYoutubeData",
+	         data:{"whereNum" : a},
+	         dataType:"JSON",
+	         success:function(data){
+	            for (var i = 0; i < data.length; i++) {
+	               console.log(data[i])
+	               var j = i+1;
+	               var content = "<div class='ytDataResult' id='ytDataResult"+i+"' onclick='toDestDetail("+data[i].DEST_NUM+")'>"+
+	               data[i].DEST_NAME+"<div class='rankingBox'>"+j+".<div><div>"
+	               $("#ytDataResultBox").append(content);
+	               $("#ytDataResult"+i).css("background-image","url('"+data[i].DEST_PIC_URL+"')");
+	            }
+	         },
+	         error:function(error){
+	            console.log(error);
+	         }
+	      });
+	   }
+	   
+	   function toDestDetail(dest_num) {
+	      console.log(dest_num);
+	      location.href="toDestDetail?dest_num="+dest_num;
+	   }
 </script>
 </html>
