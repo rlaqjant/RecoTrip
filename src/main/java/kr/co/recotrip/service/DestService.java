@@ -174,7 +174,7 @@ public class DestService {
 	}
 
 
-	public HashMap<String, Object> getYoutubeData(String where) {
+	public ArrayList<HashMap<String, Object>> getYoutubeData(String where) {
 		return dao.getYoutubeData(where);
 	}
 

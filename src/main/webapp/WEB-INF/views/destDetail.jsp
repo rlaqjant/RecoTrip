@@ -45,6 +45,7 @@
 			    left: 40%;
 			    top: 18%;
 			    margin-top: 24px;
+			    z-index: 3;
 			}
 			.destimg{
 				width:100%;
@@ -101,6 +102,7 @@
 			    top: 14%;
 			    left: 175px;
 			    border-radius: 20px;
+			    z-index: 2;
 			}
 			.all{
 				position:relative;
@@ -111,6 +113,7 @@
 			    width: 87%;
 			    height: 803px;
 			    left: 6%;
+			    z-index: 1;
 			}
 			
 		</style>
