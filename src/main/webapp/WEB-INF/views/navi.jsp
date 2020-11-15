@@ -137,8 +137,13 @@
 	<nav id="navbarbar">
 
 
+<<<<<<< HEAD
 	    <div id="brand" ><img id="logo2" src="resources/image/logo2.png"/><a id="ti" href="./">Recotrip</a></div>
 	    <ul id="menu">
+=======
+	    <div id="brand" ><a href="./"><img id="logo2" src="resources/image/logo2.png"/></a><a id="ti" href="./">Recotrip</a></div>
+	    <ul id="jin_menu">
+>>>>>>> f332607c57145f210cffdf3677ef25c0f438b2f2
 	      <li class="list"><a href="tdList">여행일기</a></li>
 	      <li class="list"><a href="./">나만의 여행지 찾기</a></li>
 	      <li class="list"><a href="ask_list">건의함</a></li>
