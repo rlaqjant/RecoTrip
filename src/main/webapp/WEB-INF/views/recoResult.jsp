@@ -7,9 +7,9 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
-			body{
+			/* body{
 				text-align: center;
-			}
+			} */
 			.resultBox{
 				position : relative;
 				width: 400px;
@@ -51,6 +51,7 @@
 	</div>
 	</c:forEach>
 	</body>
+	
 	<script>
 	</script>
 </html>
