@@ -9,47 +9,60 @@
         
         <style>
             body{
-            	background-color: rgb(246, 247, 248);
+            	background-color: white;
 	         }
-
+	         .logo{
+                width: 240px;
+                height: 168px;
+                
+                position: absolute;
+                top: 4%;
+                left: 40%;
+            }
+            .logo img{
+                width: 240px;
+                height: 168px;
+            }
+            .backgr{
+	              position: absolute;
+	              background-color: rgb(246, 247, 248);
+	              top: 220px;
+	              width: 100%;
+	              height: 1600px;
+	         }
+        
             #top{
-            	border: 2px solid #d8fae6;
                 position: absolute;
                 background-color: #b6dffa;
+                border: 1px solid black;
                 width: 1000px;
                 height: 100px;
                 text-align: center;
                 border-radius: 10px;
-                top: 15%;
+                top: 28%;
                 left: 20%;
                 
             }
             #top a{
                 position: absolute;
                 left: 94%;
-                top: 60%;
-            }
-            #top a img{
-            	position: absolute;
-            	top: 50%;
-                height: 30px;
-                width: 50px;
             }
             #list{
                 position: absolute;
                 background-color: #b6dffa;
-                border: 2px solid #d8fae6;
+                border: 1px solid black;
                 width: 1000px;
                 height: auto;
                 padding: 10px;
                 margin-top: 20px;
                 text-align: center;
                 border-radius: 10px;
-                top: 35%;
+                top: 50%;
                 left: 20%;
             }
             #list th,td{
-                background-color: rgb(246, 247, 248) ;
+                background-color: #d8fae6 ;
+                border: 1px solid black;
                 margin: 5px;
                 width: 900px;
                 padding: 5px;
@@ -57,46 +70,29 @@
                 list-style-type: none;
             }
             #list th{
-            	border: 2px solid #d8fae6;
-            	background-color: #d8fae6;
-            }
-             #subject:hover{
-            	background-color: #d8fae6;
+            	background-color: lightgrey;
             }
             .search {
                 position: absolute;
-                border: 2px solid #d8fae6;
+                border: 1px solid black;
                 background-color: #b6dffa;
                 width: 1000px;
                 height: 50px;
                 text-align: center;
                 border-radius: 10px;
-                top: 30%;
+                top: 45%;
                 left: 20%;
             }
-            .search input{
+            #keyword{
                 width: 800px;
                 height: auto;
                 margin-top: 10px;
                 text-align: center;
             }
-            .search button{
-            	background-color: rgb(246, 247, 248);
-            	width: 50px;
-            	height: 30px;
-            	border: 2px solid #d8fae6;
-            	border-radius: 10px;
-            	padding: 5px;
-            }
-            .search button:hover{
-            	background-color: #d8fae6;
-            	cursor: pointer;
-
-            }
 			#paging{
 	            text-align: center;
 	         }    
-	         #list a:link,a:visited{
+	         a:link,a:visited{
 	            text-decoration: none;
 	            color:black;
 	            font-size:20px;
@@ -107,10 +103,7 @@
 	         #paging{
 	            position:absolute;
 	            left: 50%;
-	            top: 92%;
-	         }
-	         a{
-	         	text-decoration: none;
+	            top: 105%;
 	         }
 	         #list .id{
 	         	width: 120px;
@@ -123,11 +116,19 @@
   
        <div id="top">
            <h1>Travel Diary</h1>
-           <a href="tdWriteForm"><img src="resources/img/글쓰기.png"/></a>
+           <a href="tdWriteForm"><h6>일기쓰기</h6></a>
        </div>
        <div class="search">
-            <input type="text" placeholder="검색어를 입력해주세요.">
-            <button>검색</button>
+       <form name="form1" method="get" action="tdList">
+			    <select name="search_option" class="bo_w_select">
+					<option value="all">제목+내용</option>
+					<option value="id">작성자</option>
+					<option value="diary_subject">제목</option>
+					<option value="diary_main">내용</option>
+				</select>
+			    <input id="keyword" name="keyword" value="" placeholder="검색어를 입력해주세요.">
+			    <input id="search2" type="submit" value="조회">
+		</form>
        </div>
        <div>
        	<table id="list">
@@ -138,7 +139,7 @@
 			<c:forEach items="${diaryList}" var="dto">
 				<tr>
 					<td class="id">${dto.id}</td>
-					<td id="subject"><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
+					<td><a href="tdDetail?idx=${dto.diary_number}">${dto.diary_subject}</a></td>
 				</tr>
 			</c:forEach>
 		</table>

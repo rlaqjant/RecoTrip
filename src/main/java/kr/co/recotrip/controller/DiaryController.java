@@ -1,5 +1,6 @@
 package kr.co.recotrip.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.recotrip.dto.DiaryDTO;
 import kr.co.recotrip.dto.PagingVO;
 import kr.co.recotrip.service.DiaryService;
 
@@ -31,7 +33,7 @@ public class DiaryController {
 
 	
 	@RequestMapping(value = "/tdList", method = RequestMethod.GET)
-	public ModelAndView tdList(Model model,PagingVO vo ,@RequestParam(value="nowPage", required=false)String nowPage
+	public ModelAndView tdList(@RequestParam(defaultValue = "all") String search_option, @RequestParam(defaultValue = "") String keyword, Model model,PagingVO vo ,@RequestParam(value="nowPage", required=false)String nowPage
 			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -45,8 +47,11 @@ public class DiaryController {
 			cntPerPage = "10";
 		}
 		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		ArrayList<DiaryDTO> diaryList = service.tdList(vo, search_option, keyword);
+		
+		
 		mav.addObject("paging", vo);
-		mav.addObject("diaryList", service.tdList(vo));
+		mav.addObject("diaryList", diaryList);
 		mav.setViewName("tdList");
 
 		return mav;

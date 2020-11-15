@@ -8,10 +8,39 @@
 
 	<select id="tdList" resultType="diary">
 	
-		select * from (select ROWNUM rnum, A.* from (select * from t2_diary where diary_public=1 order by diary_number desc) A)
-       where rnum between #{start} and #{end}
-
+		select * from (select ROWNUM rnum, A.* from (select * from t2_diary where diary_public=1 <include refid="search"/>order by diary_number desc) A)
+       where rnum between #{arg0.start} and #{arg0.end}
+		
 	</select>
+	
+	<sql id="search">
+		<choose>
+            <when test="param2 == 'all' ">
+                and  
+                      id like '%'||#{param3}||'%'
+                      or diary_subject like '%' || #{param3}||'%'
+                      or diary_main like '%'||#{param3}||'%'   
+            </when>
+            <when test="param2 == 'diary_subject' ">
+                and  
+                      diary_subject like '%' || #{param3}||'%'
+            </when>
+            <when test="param2 == 'id' ">
+                and  
+                      id like '%' || #{param3}||'%'
+            </when>
+            <when test="param2 == 'diary_main' ">
+                and  
+                       diary_main like '%'||#{param3}||'%'
+                      or diary_content1 like '%' || #{param3}||'%'
+                      or diary_content2 like '%' || #{param3}||'%'
+                      or diary_content3 like '%' || #{param3}||'%'
+                      or diary_content4 like '%' || #{param3}||'%'
+                      or diary_content5 like '%' || #{param3}||'%'
+            </when>
+        </choose>
+	</sql>
+	
 	<select id="tdDetail" resultType="diary">
 	
 		SELECT * FROM t2_diary WHERE diary_number= #{idx}
