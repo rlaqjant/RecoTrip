@@ -20,7 +20,7 @@ public class AdminService {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired AdminDAO dao;
-
+	
 	public ModelAndView adminMemberList() {
 		logger.info("회원관리 서비스 진입");
 		ArrayList<AdminDTO> adminMemberList = dao.adminMemberList();
@@ -61,7 +61,7 @@ public class AdminService {
 		return mav;
 	}
 
-	public ModelAndView adminMemberDelete(HashMap<String, String> params) {
+	public ModelAndView adminMemberDelete(HashMap<String, String> params, RedirectAttributes rAttr) {
 		int adminMemberDelete = dao.adminMemberDelete(params);
 		int adminMemberMove = dao.adminMemberMove(params);
 		ModelAndView mav = new ModelAndView();
@@ -69,7 +69,7 @@ public class AdminService {
 		String page = "redirect:/adminMemberList";
 		if(adminMemberDelete > 0 && adminMemberMove > 0) {
 			msg = "회원 삭제에 성공했습니다";
-			mav.addObject("msg", msg);
+			rAttr.addFlashAttribute("msg", msg);
 			mav.setViewName(page);
 		}
 		return mav;
@@ -97,8 +97,11 @@ public class AdminService {
 
 	public ModelAndView memberSearch(String keyword) {
 		ArrayList<AdminDTO> memberSearch = dao.memberSearch(keyword);
+		int count = memberSearch.size();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("memberSearch", memberSearch);
+		mav.addObject("keyword", keyword);
+		mav.addObject("count", count);
 		mav.setViewName("memberSearch");
 		return mav;
 	}

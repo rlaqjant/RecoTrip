@@ -63,9 +63,9 @@ public class AdminController {
 	
 	// 회원 삭제 처리
 	@RequestMapping(value = "/adminMemberDelete", method = RequestMethod.GET)
-	public ModelAndView adminMemberDelete(@RequestParam HashMap<String, String> params) {
+	public ModelAndView adminMemberDelete(@RequestParam HashMap<String, String> params, RedirectAttributes rAttr) {
 		logger.info("params : {}", params);
-		return service.adminMemberDelete(params);
+		return service.adminMemberDelete(params, rAttr);
 	}
 	
 	// 삭제된 회원 목록 테이블
@@ -83,7 +83,7 @@ public class AdminController {
 	// 회원 검색 기능
 	@RequestMapping(value = "/memberSearch", method = RequestMethod.GET)
 	public ModelAndView memberSearch(@RequestParam String keyword) {
-		logger.info("params : {}" + keyword);
+		logger.info("params : " + keyword);
 		return service.memberSearch(keyword);
 	}
 	
