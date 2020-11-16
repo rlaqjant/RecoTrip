@@ -142,7 +142,7 @@
                     </div>        
                 </div>
                 <div class="upfn">
-                <button id="memUpdate" value="수정" style="width: 70px; height: 30px;">수정</button>
+                <button id="memUpdate" value="수정" style="width: 70px; height: 30px; position: absolute; top: -10px; left: 100px;">수정</button>
                 </div>
             </form>
             <div class="out">
@@ -208,9 +208,11 @@
 	      $('#myUserPwChk').keyup(function(){
 
 	        if($("#myUserPw").val() != $("#myUserPwChk").val()){
+	        	$("#memUpdate").hide();
 	          $("#chkNotice").html("비밀번호가 일치하지 않습니다.<br>");
 	          $("#chkNotice").attr("color","red");
 	        }else{
+	        	$("#memUpdate").show();
 	          $("#chkNotice").html("비밀번호가 일치합니다.<br>");
 	          $("#chkNotice").attr("color","green");
 	        }
