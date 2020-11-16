@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>여행지</title>
+		<title>RecoTrip</title>
 		<style>
 			/* body{
 				overflow-x:hidden;
@@ -142,7 +142,7 @@
 	</body>
 	<script>
 	var dest_num = ${dest_num};
-	/* var dest_name = "${dest_name}";
+	var dest_name = "${dest_name}";
 	var dest_lat = ${dest_lat};
 	var dest_long = ${dest_long};
 	
@@ -173,7 +173,7 @@
 	    content : iwContent 
 	});
 	
-	infowindow.open(map, marker); */
+	infowindow.open(map, marker);
 	
 	detailCall();
 		function detailCall(){

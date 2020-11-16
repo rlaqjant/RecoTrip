@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-        <title>Insert title here</title>
+        <title>RecoTrip</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 		<style>
 			body{
@@ -325,7 +325,7 @@
 					<c:forEach items = "${myAskList}" var = "myAskList">
 					<tr>
 						<td>${myAskList.ASK_NUM}</td>
-						<td><a href = "/ask_detail?ask_num=${myAskList.ASK_NUM}">${myAskList.ASK_SUBJECT}</a></td>
+						<td><a href = "ask_detail?ask_num=${myAskList.ASK_NUM}">${myAskList.ASK_SUBJECT}</a></td>
 						<td><fmt:formatDate value="${myAskList.ASK_REG_DATE}" pattern="yyyy-MM-dd"/>
 					</tr>
 					</c:forEach>

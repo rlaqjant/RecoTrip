@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>POSITION</title>
+        <title>RecoTrip</title>
         <style>
        		body{
 				overflow-x:hidden;
