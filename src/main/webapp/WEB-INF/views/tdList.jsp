@@ -48,9 +48,6 @@
             #list th{
             	background-color: #d8fae6;
             }
-             #subject:hover{
-            	background-color: #d8fae6;
-            }
             .search {
                 position: absolute;
                 background-color: #eae9e9;
@@ -120,6 +117,9 @@
 	         	height: 800px;
 	         	left: 11%;
 	         }
+	         #list td:hover{
+            	background-color: #d8fae6;
+            }
 			 @charset "utf-8";
 		
 		/* 아이콘 이미지 최적화 작업 */

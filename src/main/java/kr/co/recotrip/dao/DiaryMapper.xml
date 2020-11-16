@@ -136,11 +136,11 @@
 	</update>
 	
 	<update id="tdUpdate4" parameterType="hashmap">
-		UPDATE t2_diary SET diary_public=#{diary_public}, diary_subject = #{title}, diary_main = #{content0}, diary_content1=#{content1}, diary_content2=#{content2}, diary_content3=#{content3}, diary_content3=#{content4} WHERE diary_number=#{idx}
+		UPDATE t2_diary SET diary_public=#{diary_public}, diary_subject = #{title}, diary_main = #{content0}, diary_content1=#{content1}, diary_content2=#{content2}, diary_content3=#{content3}, diary_content4=#{content4} WHERE diary_number=#{idx}
 	</update>
 	
 	<update id="tdUpdate5" parameterType="hashmap">
-		UPDATE t2_diary SET diary_public=#{diary_public}, diary_subject = #{title}, diary_main = #{content0}, diary_content1=#{content1}, diary_content2=#{content2}, diary_content3=#{content3}, diary_content3=#{content4}, diary_content3=#{content5} WHERE diary_number=#{idx}
+		UPDATE t2_diary SET diary_public=#{diary_public}, diary_subject = #{title}, diary_main = #{content0}, diary_content1=#{content1}, diary_content2=#{content2}, diary_content3=#{content3}, diary_content4=#{content4}, diary_content5=#{content5} WHERE diary_number=#{idx}
 	</update>
 	
 	<delete id="delPhoto">
