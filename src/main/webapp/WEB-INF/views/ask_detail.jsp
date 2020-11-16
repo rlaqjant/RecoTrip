@@ -110,6 +110,9 @@
            .footer_infor {padding: 30px 0;}
            .footer_infor address p br {display: none;}
        }
+       #answer{
+       		margin-bottom: 200px;
+       }
 		</style>
 	</head>
 	<body>

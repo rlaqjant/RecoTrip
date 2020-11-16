@@ -17,26 +17,26 @@
 		<choose>
             <when test="param2 == 'all' ">
                 and  
-                      id like '%'||#{param3}||'%'
+                      (id like '%'||#{param3}||'%'
                       or diary_subject like '%' || #{param3}||'%'
-                      or diary_main like '%'||#{param3}||'%'   
+                      or diary_main like '%'||#{param3}||'%')
             </when>
             <when test="param2 == 'diary_subject' ">
                 and  
-                      diary_subject like '%' || #{param3}||'%'
+                      (diary_subject like '%' || #{param3}||'%')
             </when>
             <when test="param2 == 'id' ">
                 and  
-                      id like '%' || #{param3}||'%'
+                      (id like '%' || #{param3}||'%')
             </when>
             <when test="param2 == 'diary_main' ">
                 and  
-                       diary_main like '%'||#{param3}||'%'
+                       (diary_main like '%'||#{param3}||'%'
                       or diary_content1 like '%' || #{param3}||'%'
                       or diary_content2 like '%' || #{param3}||'%'
                       or diary_content3 like '%' || #{param3}||'%'
                       or diary_content4 like '%' || #{param3}||'%'
-                      or diary_content5 like '%' || #{param3}||'%'
+                      or diary_content5 like '%' || #{param3}||'%')
             </when>
         </choose>
 	</sql>
