@@ -11,14 +11,14 @@
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
 		<style>
-			#homeBody { padding: 0px; margin: 0px; }
+			/*#homeBody { padding: 0px; margin: 0px; }*/
 	      .jb-box { width: 100%; height: 500px; overflow: hidden;margin: 0px auto; position: relative; }
 	      video { width: 100%; }
 	      .jb-text { position: absolute; top: 50%; width: 100%; }
 	      .jb-text p { margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff; }
-      		li {
+      		/*li {
                 list-style-type: none;
-            }
+            }*/
 
             .wrapper {
                 display: flex;
@@ -184,21 +184,7 @@
             .section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
             .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
             .section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
-            
-         .hope_2 {
-             display: inline-block;
-             box-sizing: border-box;
-             max-width: calc(100% - 48px);
-             margin-left: auto;
-             margin-right: auto;
-             background-color: var(--primaryBackground);
-                padding: 0 12px;
-                font-size: 32px;
-            }
-            .hoping{
-                position: relative;
-                top: 190px;
-            }
+
             * {margin:0;padding:0;}
             .section{position: relative; top: 650px;}
             .section input[id*="slide"] {display:none;}
@@ -269,8 +255,8 @@
              background-color: var(--primaryBackground);
              padding: 0 12px;
              font-size: 32px;
-                
             }
+            
             .hope_11{
             position: relative;
              margin-bottom: 53px;
@@ -339,22 +325,6 @@
          }
          
         @charset "utf-8";
-		/* 여백 초기화 */
-		#footer body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form,figure,figcaption{margin:0; padding:0;}
-		
-		/* a 링크 초기화 */
-		#footer a {color: white; text-decoration: none;}
-		#footer a:hover {color: #2698cb;}
-		
-		/* 폰트 초기화 */
-		#footer body, input, textarea, select, button, table {font-family:'Noto Sans KR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
-		
-		/* 폰트 스타일 초기화 */
-		#footer em,address {font-style: normal;}
-		
-		/* 제목 태그 초기화 */
-		#footer h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
-		
 		/* 아이콘 이미지 최적화 작업 */
 		.icon {background-image: url(resources/image/icon.png);}
 
@@ -416,8 +386,7 @@
 	</head>
 	<body id="homeBody">
 	<%@ include file="navi.jsp" %>
-	<div></div>
-	
+
 		<div class="jb-box">
       <video muted autoplay loop>
         <source src="resources/videos/Oceantrip.mp4" type="video/mp4">
