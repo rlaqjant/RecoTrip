@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<style></style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b2ece4ff324f57593bb29240840ee43"></script>

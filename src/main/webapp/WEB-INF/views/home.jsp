@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 		
     <!-- 웹 폰트 -->
@@ -16,9 +16,6 @@
 	      video { width: 100%; }
 	      .jb-text { position: absolute; top: 50%; width: 100%; }
 	      .jb-text p { margin-top: -24px; text-align: center; font-size: 48px; color: #ffffff; }
-      		/*li {
-                list-style-type: none;
-            }*/
 
             .wrapper {
                 display: flex;
@@ -172,7 +169,6 @@
                 position: relative;
                 top: 190px;
             }
-            * {margin:0;padding:0;}
             .section{position: relative; top: 650px;}
             .section input[id*="slide"] {display:none;}
             .section .slidewrap {max-width:1200px;margin:0 auto;}
@@ -184,8 +180,26 @@
             .section .slidelist .textbox {position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);line-height:1.6;text-align:center;}
             .section .slidelist .textbox h3 {font-size:36px;color:#fff;;transform:translateY(30px);transition:all .5s;}
             .section .slidelist .textbox p {font-size:16px;color:#fff;opacity:0;transform:translateY(30px);transition:all .5s;}
+<<<<<<< HEAD
 
             * {margin:0;padding:0;}
+=======
+            
+         .hope_2 {
+             display: inline-block;
+             box-sizing: border-box;
+             max-width: calc(100% - 48px);
+             margin-left: auto;
+             margin-right: auto;
+             background-color: var(--primaryBackground);
+                padding: 0 12px;
+                font-size: 32px;
+            }
+            .hoping{
+                position: relative;
+                top: 190px;
+            }
+>>>>>>> ccd5ccef29ea72397c70ddf707f41e8029368825
             .section{position: relative; top: 650px;}
             .section input[id*="slide"] {display:none;}
             .section .slidewrap {max-width:1200px; max-height: 750px; margin:0 auto;}
@@ -280,7 +294,7 @@
                line-height: 50px;
             }
             .cityBtn:nth-child(2){
-               border: 4px solid #d8fae6;
+               border: 4px solid #3498db;
             }
             .cityBtn:hover {
             cursor: pointer;
@@ -309,7 +323,7 @@
                line-height: 390px;
          }
          .ytDataResult:hover{
-            border: 4px solid #d8fae6;
+            border: 4px solid #3498db;
             cursor: pointer;
          }
          .rankingBox{
@@ -325,6 +339,10 @@
          }
          
         @charset "utf-8";
+<<<<<<< HEAD
+=======
+		
+>>>>>>> ccd5ccef29ea72397c70ddf707f41e8029368825
 		/* 아이콘 이미지 최적화 작업 */
 		.icon {background-image: url(resources/image/icon.png);}
 
@@ -435,7 +453,6 @@
                     <a>
                         <div class="textbox">
                             <h3>서울  베스트 여행지</h3>
-                            <p>경복궁 어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/서울시M.jpg">
                     </a>
@@ -444,7 +461,6 @@
                     <a>
                         <div class="textbox">
                             <h3>경기도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/경기도M.jpg">
                     </a>
@@ -453,7 +469,6 @@
                     <a>
                         <div class="textbox">
                             <h3>강원도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/강원도M.jpg">
                     </a>
@@ -462,7 +477,6 @@
                     <a>
                         <div class="textbox">
                             <h3>충청도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/충청도M.jpg">
                     </a>
@@ -471,7 +485,6 @@
                     <a>
                         <div class="textbox">
                             <h3>경상도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/경상도사진M.jpg">
                     </a>
@@ -480,7 +493,6 @@
                     <a>
                         <div class="textbox">
                             <h3>전라도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
                         </div>
                         <img src="resources/img/전라도M.jpg">
                     </a>
@@ -489,8 +501,7 @@
                     <a>
                         <div class="textbox">
                             <h3>제주도  베스트 여행지</h3>
-                            <p>어쩌구저쩌구 설명설명 설명설명</p>
-                        </div>
+	                        </div>
                         <img src="resources/img/제주도M.jpg">
                     </a>
                 </li class="slideitem">
@@ -591,7 +602,7 @@
 	
 	$(".cityBtn").click(function(){
 	      $(".cityBtn").css("border", "4px solid rgb(246, 247, 248)");
-	      $(this).css("border", "4px solid #d8fae6");
+	      $(this).css("border", "4px solid #3498db");
 	   });
 	   
 	   citySel(1);

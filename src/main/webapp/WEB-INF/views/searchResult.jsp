@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<style>
 		#paging{
 				position:absolute;
@@ -101,6 +101,8 @@
            .footer_infor {padding: 30px 0;}
            .footer_infor address p br {display: none;}
        }
+=======
+>>>>>>> ccd5ccef29ea72397c70ddf707f41e8029368825
 		</style>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>		
 	</head>
@@ -125,46 +127,6 @@
 			</c:forEach>
 			</tbody>
 		</table>
-		<footer id="footer">
-        <div id="footer_sns">
-            <div class="container">
-                <div class="footer_sns">
-                    <ul>
-                        <li class="icon s1"><a href="#"><span class="ir_pm"></span></a></li>
-                        <li class="icon s2"><a href="#"><span class="ir_pm"></span></a></li>
-                        <li class="icon s3"><a href="#"><span class="ir_pm"></span></a></li>
-                        <li class="icon s4"><a href="#"><span class="ir_pm"></span></a></li>
-                        <li class="icon s5"><a href="#"><span class="ir_pm"></span></a></li>
-                    </ul>    
-                    <div class="tel">
-                        <a href="#">ARS <em>02-2108-5900</em></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="footer_infor">
-            <div class="container">
-                <div class="row">
-                    <div class="footer_infor">
-                        <h2><img src="resources/image/logo2.png" alt=""></h2>
-                        <ul>
-                            <li><a href="#">회사소개</a></li>
-                            <li><a href="#">채용정보</a></li>
-                            <li><a href="#">제휴/광고/부대사업 문의</a></li>
-                            <li><a href="#">이용약관</a></li>
-                            <li><a href="#">개인정보처리방침</a></li>
-                            <li><a href="#">고객센터</a></li>
-                            <li><a href="#">윤리경영</a></li>
-                        </ul>
-                        <address>
-                            <p>08505 서울시 금천구 가산디지털2로 115, 509호,811호(가산동, 대륭테크노타운3차),구디아카데미(주)<br><span class="bar2">대표자명 이승엽</span> 개인정보보호 책임자 HRD Team 주승재 차장<br><span class="bar2"> 사업자등록번호 : 457-85-00300</span> 통신판매업신고번호 : 제2014-서울금천-0684호</p>
-                            <p>전화 : 02-2108-5900 , 팩스 : 02-2108-5909</p>
-                        </address>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 	</body>
 	<script>
 	var msg="${msg}";

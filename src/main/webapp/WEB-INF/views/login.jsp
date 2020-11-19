@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<style>
 		/*
 			      body{
@@ -24,11 +24,11 @@
 			        transform: translate(-50%,-50%);
 			        border-radius: 10%;
 			        border: 3px solid rgb(219, 217, 217);
-			        background:  #b6dffa;
+			        background:  #eae9e9;
 			        text-align: center;
 			      }
 			      .box h1{
-			        color: white;
+			        color: black;
 			        text-transform: uppercase;
 			        font-weight: 500;
 			      }
@@ -38,7 +38,7 @@
 			        display: block;
 			        margin: 20px auto;
 			        text-align: center;
-			        border: 2px solid #3498db;
+			        border: 2px solid black;
 			        padding: 14px 10px;
 			        width: 200px;
 			        outline: none;
@@ -49,7 +49,7 @@
 			      }
 			      .box input[type = "text"]:focus,.box input[type = "password"]:focus{
 			        width: 280px;
-			        border-color: #2ecc71;
+			        border-color: #007bff;
 			      }
 			      .box input[type = "submit"]{
 			        border:0;
@@ -57,7 +57,7 @@
 			        display: block;
 			        margin: 20px auto;
 			        text-align: center;
-			        border: 2px solid #2ecc71;
+			        border: 2px solid black;
 			        padding: 14px 40px;
 			        outline: none;
 			        color: black;
@@ -66,7 +66,7 @@
 			        cursor: pointer;
 			      }
 			      .box input[type = "submit"]:hover{
-			        background: #2ecc71;
+			        background: #3498db;
 			      }
 			      @charset "utf-8";
 		/* 아이콘 이미지 최적화 작업 */

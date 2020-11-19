@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>RecoTrip</title>
 <script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
 			
@@ -18,11 +18,11 @@
 		        transform: translate(-50%,-50%);
 		        border-radius: 10%;
 		        border: 3px solid rgb(219, 217, 217);
-		        background:  #b6dffa;
+		        background:  #eae9e9;
 		        text-align: center;
 		      }
 		    .join_box h1{
-		        color: white;
+		        color: black;
 		        text-transform: uppercase;
 		        font-weight: 500;
 		      }
@@ -44,7 +44,7 @@
 		        display: block;
 		        margin: 20px auto;
 		        text-align: center;
-		        border: 2px solid #3498db;
+		        border: 2px solid black;
 		        padding: 14px 10px;
 		        width: 200px;
 		        outline: none;
@@ -55,7 +55,7 @@
 		      }
 		    .join_box input[type = "text"]:focus,.join_box input[type = "password"],.join_box input[type = "email"]:focus{
 		        width: 280px;
-		        border-color: #2ecc71;
+		        border-color: #007bff;
 		      }
 		    .join_box input[type = "submit"]{
 		        border:0;
@@ -63,19 +63,19 @@
 		        display: block;
 		        margin: 20px auto;
 		        text-align: center;
-		        border: 2px solid #2ecc71;
+		        border: 2px solid #3498db;
 		        padding: 14px 40px;
 		        outline: none;
-		        color: white;
+		        color: black;
 		        border-radius: 24px;
 		        transition: 0.25s;
 		        cursor: pointer;
 		      }
 		    .join_box input[type = "button"]:hover{
-		        background: #2ecc71;
+		        background: #007bff;
 		      }
 		    .join_box input[type = "submit"]:hover{
-		        background: #2ecc71;
+		        background: #007bff;
 		      }
 		    @charset "utf-8";
 		
@@ -139,7 +139,7 @@
 	<%@ include file="navi.jsp" %>
 		<form class="join_box" action="join" method="post">
             <h1>회원 가입</h1>
-            <input type="text" name="id" placeholder="Id" id="idBox"><input type="button" id="overlay" value="ID 중복체크"/>
+            <input type="text" name="id" placeholder="id" id="idBox"><input type="button" id="overlay" value="ID 중복체크"/>
             <br/>
             <input type="password" name="pw" id="pw1" placeholder="Password"/>
             <input class="form-control" onkeyup="passwordCheckFunction();" type="password" id="pw2" placeholder="again Password"/>

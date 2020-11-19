@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<style>
 			
@@ -38,7 +38,6 @@
             left : 100px;
             }
             @charset "utf-8";
-		
 		/* 아이콘 이미지 최적화 작업 */
 		.icon {background-image: url(resources/image/icon.png);}
 

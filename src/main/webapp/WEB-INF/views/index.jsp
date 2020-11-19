@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>POSITION</title>
+        <title>RecoTrip</title>
         <style>
        		body{
 				overflow-x:hidden;
@@ -40,7 +40,7 @@
             }
             .button:hover{
 	            cursor:pointer;
-	            border: 4px solid #d8fae6;
+	            border: 4px solid #3498db;
             }
             /* -------------------------------------------------------------------------------------------------------- */
             .who{
@@ -149,12 +149,12 @@
             background-size: 140%;
             }
             .button2{
-            top:190px;
-            left: 215px;
-            margin:10px 10px 10px 10px;
+            top:240px;
+            left: 24px;
+            margin:15px 10px 15px 10px;
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             text-align: center;
             border-radius: 50%;
             border: 4px solid rgb(246, 247, 248);
@@ -164,35 +164,46 @@
             .btnCover2{
             position: absolute;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            background-color: rgba(255,255,255,0.3);
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0);
             text-align: center;
             font-weight: bold;
             font-size: 19px;
-            line-height: 220px;
+            line-height: 305px;
+            text-shadow: 1px 1px 10px #000; 	
             }
             .button2:hover{
             cursor:pointer;
-            border: 4px solid #d8fae6;
+            border: 4px solid #3498db;
             }
              #index3 div{
             	float: left;
             }
-            #where0{clear: left;}#where4{clear: left;}#where8{clear: left;}#where12{clear: left;}
+            #where0{clear: left;}#where8{clear: left;}
             /* -------------------------------------------------------------------------------------------------------- */
             #main{
                 width: 120px;
                 height: 30px;
-                background-color: rgb(115, 223, 169);
+                background-color: #3498db;
                 position: absolute;
                 top: 82%;
                 left: 77%;
                 color: #fff;
-                padding: 0.9em 2.8em 0.9em 2.25em;
+                padding: 20px 32px 10px 20px;
+				border-radius: 10px;
+            }
+            .hihi:link{
+            	color: #fff;
+            	text-decoration: none;
+            }
+            .hihi:visited{
+            	color: #fff;
+            	text-decoration: none;
             }
             .arrow-right {
                 position: absolute;
+                top: 23.5px;
                 display: inline-block;
                 width: 0;
                 height: 0;
@@ -200,7 +211,6 @@
                 border-right: 8px solid transparent;
                 border-bottom: 8px solid transparent;
                 border-left: 8px solid white;
-                margin-top: 8px;
                 margin-left: 9px;
                 animation: horizontal 0.7s ease-in-out infinite;
                 }
@@ -366,7 +376,7 @@
             <div id="alone" class="button" onclick="withWho(3)"><div class="btnCover">alone</div></div>
             
             
-            <a href="main" id="main">
+            <a href="main" id="main" class="hihi">
                 메인페이지 이동
                 <span class="arrow-right"></span>
             </a>
@@ -469,7 +479,7 @@
     	console.log(a);
     	$("input[name=whatNum]").val(a);
     	$('html, body').animate({
-            scrollTop:1900
+            scrollTop:1850
         },500);
 	}
     function where(a) {

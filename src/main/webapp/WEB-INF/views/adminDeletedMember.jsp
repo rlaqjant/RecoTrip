@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<style>
 			#result{
 				position: absolute;
@@ -46,7 +46,6 @@
 				z-index:10;
 			}
 			@charset "utf-8";
-		
 		/* 아이콘 이미지 최적화 작업 */
 		.icon {background-image: url(resources/image/icon.png);}
 

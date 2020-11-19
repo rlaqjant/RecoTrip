@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>RecoTrip</title>
 		<style>
 			/* body{
 				text-align: center;
@@ -28,7 +28,7 @@
 			}
 			.resultBox:hover{
 				cursor: pointer;
-				border: 4px solid #d8fae6;
+				border: 4px solid #3498db;
 			}
 			#result4{
 				clear: left;
@@ -51,7 +51,6 @@
 	</div>
 	</c:forEach>
 	</body>
-	
 	<script>
 	</script>
 </html>

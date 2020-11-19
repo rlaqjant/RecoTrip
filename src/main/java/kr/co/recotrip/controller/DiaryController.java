@@ -149,7 +149,7 @@ public class DiaryController {
 		
 		int result = 0;
 		
-		if(id.equals(loginId)) {
+		if(id.equals(loginId) || loginId.equals("admin")) {
 			result = 1;
 		}
 		
